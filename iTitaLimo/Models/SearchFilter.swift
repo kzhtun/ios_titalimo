@@ -1,0 +1,16 @@
+//
+//  SearchFilter.swift
+//  iTitaLimo
+//
+//  Created by Kyaw Zin Htun on 28/10/2020.
+//
+
+import Foundation
+
+struct SearchFilter{
+   // search filter
+   var passenger = ""
+   var sDate = ""
+   var eDate = ""
+   var sorting = ""
+}

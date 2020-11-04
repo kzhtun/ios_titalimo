@@ -3,27 +3,57 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E494254148A7007AD918 /* AppDelegate.swift */; };
 		2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E496254148A7007AD918 /* SceneDelegate.swift */; };
-		2B11E499254148A7007AD918 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E498254148A7007AD918 /* ViewController.swift */; };
 		2B11E49C254148A7007AD918 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B11E49A254148A7007AD918 /* Main.storyboard */; };
 		2B11E49E254148A8007AD918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B11E49D254148A8007AD918 /* Assets.xcassets */; };
 		2B11E4A1254148A8007AD918 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B11E49F254148A8007AD918 /* LaunchScreen.storyboard */; };
+		2B11E4BB25414E68007AD918 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E4BA25414E68007AD918 /* Router.swift */; };
+		2B2E341125416F0E00AF4D71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E341025416F0E00AF4D71 /* LoginViewController.swift */; };
+		2B2E34152541778500AF4D71 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E34142541778500AF4D71 /* UIColorExtension.swift */; };
+		2B5930C8254289C50055FE05 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930C7254289C50055FE05 /* ResponseObject.swift */; };
+		2B5930CD25429B6F0055FE05 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930CC25429B6F0055FE05 /* UITextFieldExtension.swift */; };
+		2B5930D1254728D00055FE05 /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930D0254728D00055FE05 /* JobListViewController.swift */; };
+		2B5930F42547E3FB0055FE05 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */; };
+		2B5931062547F9EC0055FE05 /* JobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5931052547F9EC0055FE05 /* JobDetail.swift */; };
+		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
+		2BC452C82549ACF900CDBD9C /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */; };
+		2BC452DB2549C0CD00CDBD9C /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */; };
+		2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC45331254B109C00CDBD9C /* UITableViewExtension.swift */; };
+		2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC45334254B288200CDBD9C /* UIButtonExtension.swift */; };
+		2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */; };
+		D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1238A44BBEFAEEAEE421296B /* Pods-iTitaLimo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTitaLimo.debug.xcconfig"; path = "Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo.debug.xcconfig"; sourceTree = "<group>"; };
 		2B11E491254148A7007AD918 /* iTitaLimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTitaLimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B11E494254148A7007AD918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B11E496254148A7007AD918 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2B11E498254148A7007AD918 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B11E49B254148A7007AD918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B11E49D254148A8007AD918 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B11E4A0254148A8007AD918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B11E4A2254148A8007AD918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B11E4BA25414E68007AD918 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2B2E341025416F0E00AF4D71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2B2E34142541778500AF4D71 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		2B5930C7254289C50055FE05 /* ResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
+		2B5930CC25429B6F0055FE05 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		2B5930D0254728D00055FE05 /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
+		2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
+		2B5931052547F9EC0055FE05 /* JobDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetail.swift; sourceTree = "<group>"; };
+		2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
+		2BC45331254B109C00CDBD9C /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		2BC45334254B288200CDBD9C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		39D85DB62C13B06943787FD6 /* Pods-iTitaLimo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTitaLimo.release.xcconfig"; path = "Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo.release.xcconfig"; sourceTree = "<group>"; };
+		A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTitaLimo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +61,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15C7949C39C6E6441423D8A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2B11E488254148A7007AD918 = {
 			isa = PBXGroup;
 			children = (
 				2B11E493254148A7007AD918 /* iTitaLimo */,
 				2B11E492254148A7007AD918 /* Products */,
+				8F3398C36F946F05565DC207 /* Pods */,
+				15C7949C39C6E6441423D8A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +97,77 @@
 		2B11E493254148A7007AD918 /* iTitaLimo */ = {
 			isa = PBXGroup;
 			children = (
-				2B11E494254148A7007AD918 /* AppDelegate.swift */,
-				2B11E496254148A7007AD918 /* SceneDelegate.swift */,
-				2B11E498254148A7007AD918 /* ViewController.swift */,
-				2B11E49A254148A7007AD918 /* Main.storyboard */,
+				2B5930F22547E3CC0055FE05 /* Cell */,
+				2B5930CA254289E20055FE05 /* Models */,
+				2B2E3413254176D400AF4D71 /* Extensions */,
+				2B11E4B825414E5A007AD918 /* Network */,
+				2B11E4AE25414B6B007AD918 /* Main */,
 				2B11E49D254148A8007AD918 /* Assets.xcassets */,
 				2B11E49F254148A8007AD918 /* LaunchScreen.storyboard */,
 				2B11E4A2254148A8007AD918 /* Info.plist */,
 			);
 			path = iTitaLimo;
+			sourceTree = "<group>";
+		};
+		2B11E4AE25414B6B007AD918 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2B11E49A254148A7007AD918 /* Main.storyboard */,
+				2B11E494254148A7007AD918 /* AppDelegate.swift */,
+				2B11E496254148A7007AD918 /* SceneDelegate.swift */,
+				2B2E341025416F0E00AF4D71 /* LoginViewController.swift */,
+				2B5930D0254728D00055FE05 /* JobListViewController.swift */,
+				2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */,
+				2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2B11E4B825414E5A007AD918 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2B11E4BA25414E68007AD918 /* Router.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2B2E3413254176D400AF4D71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B2E34142541778500AF4D71 /* UIColorExtension.swift */,
+				2B5930CC25429B6F0055FE05 /* UITextFieldExtension.swift */,
+				2BC45331254B109C00CDBD9C /* UITableViewExtension.swift */,
+				2BC45334254B288200CDBD9C /* UIButtonExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2B5930CA254289E20055FE05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B5930C7254289C50055FE05 /* ResponseObject.swift */,
+				2B5931052547F9EC0055FE05 /* JobDetail.swift */,
+				2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B5930F22547E3CC0055FE05 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */,
+				2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8F3398C36F946F05565DC207 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1238A44BBEFAEEAEE421296B /* Pods-iTitaLimo.debug.xcconfig */,
+				39D85DB62C13B06943787FD6 /* Pods-iTitaLimo.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B11E4A5254148A8007AD918 /* Build configuration list for PBXNativeTarget "iTitaLimo" */;
 			buildPhases = (
+				CD29FF98B7D4EE865B4CEC06 /* [CP] Check Pods Manifest.lock */,
 				2B11E48D254148A7007AD918 /* Sources */,
 				2B11E48E254148A7007AD918 /* Frameworks */,
 				2B11E48F254148A7007AD918 /* Resources */,
+				E842F62776A58426A275B2BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,14 +237,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD29FF98B7D4EE865B4CEC06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTitaLimo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E842F62776A58426A275B2BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B11E48D254148A7007AD918 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B11E499254148A7007AD918 /* ViewController.swift in Sources */,
+				2B2E341125416F0E00AF4D71 /* LoginViewController.swift in Sources */,
+				2B5930C8254289C50055FE05 /* ResponseObject.swift in Sources */,
+				2B5930CD25429B6F0055FE05 /* UITextFieldExtension.swift in Sources */,
+				2B11E4BB25414E68007AD918 /* Router.swift in Sources */,
+				2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */,
+				2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */,
+				2B5930D1254728D00055FE05 /* JobListViewController.swift in Sources */,
+				2B2E34152541778500AF4D71 /* UIColorExtension.swift in Sources */,
+				2B5931062547F9EC0055FE05 /* JobDetail.swift in Sources */,
+				2BC452C82549ACF900CDBD9C /* DatePickerViewController.swift in Sources */,
+				2BC452DB2549C0CD00CDBD9C /* SearchFilter.swift in Sources */,
+				2B5930F42547E3FB0055FE05 /* JobTableViewCell.swift in Sources */,
+				2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */,
 				2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */,
 				2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */,
+				2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +443,7 @@
 		};
 		2B11E4A6254148A8007AD918 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1238A44BBEFAEEAEE421296B /* Pods-iTitaLimo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +463,7 @@
 		};
 		2B11E4A7254148A8007AD918 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D85DB62C13B06943787FD6 /* Pods-iTitaLimo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
