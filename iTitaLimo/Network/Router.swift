@@ -147,6 +147,44 @@ class Router{
                }
            }
    }
+   
+   
+   func GetJobDetail(jobNo: String,
+      success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+       
+       let headers: HTTPHeaders = [
+            "driver": self.App.DRIVER_NAME,
+            "token": self.App.AUT_TOKEN
+         
+       ]
+       
+       var url = String(format: "%@%@/%@", baseURL, "getJobDetails", jobNo)
+       
+      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
+      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
+      
+      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+     
+       AF.request(url, method: .get, headers: headers)
+           .response{
+               (response) in
+               
+               guard let data = response.data else{
+                   print("GetJobDetail Success, No Data")
+                   return
+               }
+            
+               do{
+                   let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                   
+                   success(objRes)
+                   
+                   print("GetJobDetail Success")
+               }catch{
+                   failure("GetJobDetail Failed")
+               }
+           }
+   }
 
 }
 
