@@ -6,12 +6,15 @@
 //
 
 import UIKit
-import ScrollingContentViewController
 
 
-class JobDetailViewController: ScrollingContentViewController {
+
+class JobDetailViewController: UIViewController {
     var jobIndex: Int = -1
 
+  
+ 
+  
    
    override func viewWillAppear(_ animated: Bool) {
      // contentView.layer.backgroundColor = UIColor.init(hex: "#ffcb10ff")?.cgColor
@@ -24,6 +27,9 @@ class JobDetailViewController: ScrollingContentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    
+      
+      
         print("jobIndex \(jobIndex)")
     }
   
