@@ -14,6 +14,7 @@ class JobDetailViewController: UIViewController {
    
    var jobIndex: Int = -1
    var jobDetail = JobDetail()
+   var phoneList = [String]()
    var jobNo: String = ""
 
 
@@ -35,14 +36,41 @@ class JobDetailViewController: UIViewController {
    @IBOutlet weak var lblRemark: UILabel!
    
    
+   @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+   @IBOutlet weak var phoneTableView: UITableView!
    
+   @IBOutlet weak var detailView: UIView!
+   
+   @IBOutlet weak var btnNegative: UIButton!
+   @IBOutlet weak var btnPositive: UIButton!
    
    @IBAction func btnBack(_ sender: Any) {
-      
       self.dismiss(animated: true)
    }
    
+   
+   @IBAction func negativeOnClick(_ sender: Any) {
+   }
+   
+   @IBAction func positiveOnClick(_ sender: Any) {
+   }
+   
+   
    override func viewWillAppear(_ animated: Bool) {
+      // UI Designer
+      detailView.layer.cornerRadius = 10;
+      detailView.layer.masksToBounds = true;
+      detailView.layer.borderWidth = 1;
+      detailView.layer.borderColor =  UIColor.init(hex: "#333333FF")?.cgColor
+      
+      btnNegative.layer.cornerRadius = 15;
+      btnNegative.layer.masksToBounds = false;
+      
+      btnPositive.layer.cornerRadius = 15;
+      btnPositive.layer.masksToBounds = false;
+      
+      
+      
      // contentView.layer.backgroundColor = UIColor.init(hex: "#ffcb10ff")?.cgColor
       // edge Color
 //      view.backgroundColor = UIColor.init(hex: "#000000ff")
@@ -53,6 +81,10 @@ class JobDetailViewController: UIViewController {
       
       displayJobDetail(job: App.recentJobList[jobIndex])
       
+      
+      
+    
+      
     //  callGetJobDetail(jobNo: jobNo)
    }
    
@@ -61,11 +93,16 @@ class JobDetailViewController: UIViewController {
 
         print("jobIndex \(jobIndex)")
       
-      
+      phoneTableView.delegate = self
+      phoneTableView.dataSource = self
+        
     }
-  
    
+   override func viewDidAppear(_ animated: Bool) {
+      tableViewHeightConstraint.constant = phoneTableView.contentSize.height
+   }
    
+ 
    func callGetJobDetail(jobNo: String){
       
       Router.sharedInstance().GetJobDetail(jobNo: jobNo ,
@@ -83,6 +120,8 @@ class JobDetailViewController: UIViewController {
    
    
    func displayJobDetail(job: JobDetail){
+     
+      phoneList = job.Customer_Tel.components(separatedBy: "/")
       
       lblJobNo.text = job.JobNo
       lblJobStats.text = job.JobStatus
@@ -100,9 +139,25 @@ class JobDetailViewController: UIViewController {
       lblVehicleType.text = job.VehicleType
       lblRemark.text = job.Remarks
       
-     
-      
    }
-   
-   
+  
+}
+
+
+extension JobDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return self.phoneList.count
+   }
+
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneTableViewCell") as! PhoneTableViewCell
+
+     
+      cell.configure(label: "MOBILE \(indexPath.row + 1)", mobile: phoneList[indexPath.row].trimmingCharacters(in: .whitespacesAndNewlines))
+      
+      return cell
+   }
+
+
 }

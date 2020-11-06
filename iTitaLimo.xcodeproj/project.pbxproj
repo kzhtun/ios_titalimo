@@ -26,6 +26,7 @@
 		2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC45331254B109C00CDBD9C /* UITableViewExtension.swift */; };
 		2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC45334254B288200CDBD9C /* UIButtonExtension.swift */; };
 		2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */; };
+		2BC453612554460000CDBD9C /* PhoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */; };
 		D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		2BC45331254B109C00CDBD9C /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		2BC45334254B288200CDBD9C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTableViewCell.swift; sourceTree = "<group>"; };
 		39D85DB62C13B06943787FD6 /* Pods-iTitaLimo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTitaLimo.release.xcconfig"; path = "Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo.release.xcconfig"; sourceTree = "<group>"; };
 		A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTitaLimo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 			children = (
 				2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */,
 				2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */,
+				2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				2B5930C8254289C50055FE05 /* ResponseObject.swift in Sources */,
 				2B5930CD25429B6F0055FE05 /* UITextFieldExtension.swift in Sources */,
 				2B11E4BB25414E68007AD918 /* Router.swift in Sources */,
+				2BC453612554460000CDBD9C /* PhoneTableViewCell.swift in Sources */,
 				2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */,
 				2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */,
 				2B5930D1254728D00055FE05 /* JobListViewController.swift in Sources */,
