@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    let gcmMessageIDKey = "gcm.Message_ID"
    var DRIVER_NAME = ""
    var AUT_TOKEN = ""
+   var fullAddress = "Address not found"
    
    var searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()

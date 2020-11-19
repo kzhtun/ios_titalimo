@@ -11,7 +11,7 @@ struct ResponseObject: Codable {
    var jobcount: String!
    var jobcountlist: String!
    var jobdatelist: String!
-   var jobdetails: String!
+   var jobdetails: JobDetail!
    var jobs: [JobDetail]!
    var responsemessage: String!
    var status: String!

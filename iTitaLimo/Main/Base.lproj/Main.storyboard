@@ -1129,10 +1129,10 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1ob-hp-KzS" userLabel="ActionButtons">
-                                                <rect key="frame" x="8" y="566" width="382" height="35"/>
+                                                <rect key="frame" x="8" y="566" width="382" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxB-X1-uT9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="40"/>
                                                         <color key="backgroundColor" red="0.95884543657302856" green="0.071594543755054474" blue="0.099300675094127655" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="REJECT">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1142,7 +1142,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1w-aq-ffA">
-                                                        <rect key="frame" x="195" y="0.0" width="187" height="35"/>
+                                                        <rect key="frame" x="195" y="0.0" width="187" height="40"/>
                                                         <color key="backgroundColor" red="0.092269621789455414" green="0.68855845928192139" blue="0.22352933883666992" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="ACCEPT">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1153,7 +1153,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="Lgs-m2-MYB"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Lgs-m2-MYB"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -1216,7 +1216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iy-iZ-Ij0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105.7971014492755" y="47.544642857142854"/>
+            <point key="canvasLocation" x="1114" y="82"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="HNQ-JM-UfP">

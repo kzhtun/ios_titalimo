@@ -13,6 +13,8 @@
 		2B11E49E254148A8007AD918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B11E49D254148A8007AD918 /* Assets.xcassets */; };
 		2B11E4A1254148A8007AD918 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B11E49F254148A8007AD918 /* LaunchScreen.storyboard */; };
 		2B11E4BB25414E68007AD918 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E4BA25414E68007AD918 /* Router.swift */; };
+		2B17E86B2565274E00CA0FF9 /* CompleteDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B17E8692565274E00CA0FF9 /* CompleteDialog.swift */; };
+		2B17E86C2565274E00CA0FF9 /* CompleteDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B17E86A2565274E00CA0FF9 /* CompleteDialog.xib */; };
 		2B2E341125416F0E00AF4D71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E341025416F0E00AF4D71 /* LoginViewController.swift */; };
 		2B2E34152541778500AF4D71 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E34142541778500AF4D71 /* UIColorExtension.swift */; };
 		2B5930C8254289C50055FE05 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930C7254289C50055FE05 /* ResponseObject.swift */; };
@@ -20,6 +22,14 @@
 		2B5930D1254728D00055FE05 /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930D0254728D00055FE05 /* JobListViewController.swift */; };
 		2B5930F42547E3FB0055FE05 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */; };
 		2B5931062547F9EC0055FE05 /* JobDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5931052547F9EC0055FE05 /* JobDetail.swift */; };
+		2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65783425598EF600A157FB /* PassengerOnBoardDialog.swift */; };
+		2B65783725598EF600A157FB /* PassengerOnBoardDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B65783525598EF600A157FB /* PassengerOnBoardDialog.xib */; };
+		2B65785C255BBCCF00A157FB /* FTPUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65785B255BBCCF00A157FB /* FTPUpload.swift */; };
+		2B6578B9255D113000A157FB /* YPDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */; };
+		2B6578CC255D41EB00A157FB /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CB255D41EB00A157FB /* UIViewExtension.swift */; };
+		2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */; };
+		2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC267E7255854BE003D809B /* ActionDialog.swift */; };
+		2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC267E8255854BE003D809B /* ActionDialog.xib */; };
 		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
 		2BC452C82549ACF900CDBD9C /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */; };
 		2BC452DB2549C0CD00CDBD9C /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */; };
@@ -40,6 +50,8 @@
 		2B11E4A0254148A8007AD918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B11E4A2254148A8007AD918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B11E4BA25414E68007AD918 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2B17E8692565274E00CA0FF9 /* CompleteDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDialog.swift; sourceTree = "<group>"; };
+		2B17E86A2565274E00CA0FF9 /* CompleteDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteDialog.xib; sourceTree = "<group>"; };
 		2B2E341025416F0E00AF4D71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2B2E34142541778500AF4D71 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		2B5930C7254289C50055FE05 /* ResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
@@ -47,6 +59,14 @@
 		2B5930D0254728D00055FE05 /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
 		2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		2B5931052547F9EC0055FE05 /* JobDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetail.swift; sourceTree = "<group>"; };
+		2B65783425598EF600A157FB /* PassengerOnBoardDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerOnBoardDialog.swift; sourceTree = "<group>"; };
+		2B65783525598EF600A157FB /* PassengerOnBoardDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassengerOnBoardDialog.xib; sourceTree = "<group>"; };
+		2B65785B255BBCCF00A157FB /* FTPUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPUpload.swift; sourceTree = "<group>"; };
+		2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YPDrawSignatureView.swift; sourceTree = "<group>"; };
+		2B6578CB255D41EB00A157FB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeExtension.swift; sourceTree = "<group>"; };
+		2BC267E7255854BE003D809B /* ActionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDialog.swift; sourceTree = "<group>"; };
+		2BC267E8255854BE003D809B /* ActionDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDialog.xib; sourceTree = "<group>"; };
 		2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
@@ -99,6 +119,8 @@
 		2B11E493254148A7007AD918 /* iTitaLimo */ = {
 			isa = PBXGroup;
 			children = (
+				2B6578B7255D112600A157FB /* Utils */,
+				2BA9E7A62557C56500B6ECE7 /* Dialogs */,
 				2B5930F22547E3CC0055FE05 /* Cell */,
 				2B5930CA254289E20055FE05 /* Models */,
 				2B2E3413254176D400AF4D71 /* Extensions */,
@@ -129,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				2B11E4BA25414E68007AD918 /* Router.swift */,
+				2B65785B255BBCCF00A157FB /* FTPUpload.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -140,6 +163,8 @@
 				2B5930CC25429B6F0055FE05 /* UITextFieldExtension.swift */,
 				2BC45331254B109C00CDBD9C /* UITableViewExtension.swift */,
 				2BC45334254B288200CDBD9C /* UIButtonExtension.swift */,
+				2B6578CB255D41EB00A157FB /* UIViewExtension.swift */,
+				2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -162,6 +187,27 @@
 				2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2B6578B7255D112600A157FB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2BA9E7A62557C56500B6ECE7 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				2BC267E7255854BE003D809B /* ActionDialog.swift */,
+				2BC267E8255854BE003D809B /* ActionDialog.xib */,
+				2B65783425598EF600A157FB /* PassengerOnBoardDialog.swift */,
+				2B65783525598EF600A157FB /* PassengerOnBoardDialog.xib */,
+				2B17E8692565274E00CA0FF9 /* CompleteDialog.swift */,
+				2B17E86A2565274E00CA0FF9 /* CompleteDialog.xib */,
+			);
+			path = Dialogs;
 			sourceTree = "<group>";
 		};
 		8F3398C36F946F05565DC207 /* Pods */ = {
@@ -232,9 +278,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B65783725598EF600A157FB /* PassengerOnBoardDialog.xib in Resources */,
 				2B11E4A1254148A8007AD918 /* LaunchScreen.storyboard in Resources */,
+				2B17E86C2565274E00CA0FF9 /* CompleteDialog.xib in Resources */,
 				2B11E49E254148A8007AD918 /* Assets.xcassets in Resources */,
 				2B11E49C254148A7007AD918 /* Main.storyboard in Resources */,
+				2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,9 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B2E341125416F0E00AF4D71 /* LoginViewController.swift in Sources */,
+				2B65785C255BBCCF00A157FB /* FTPUpload.swift in Sources */,
+				2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */,
+				2B6578CC255D41EB00A157FB /* UIViewExtension.swift in Sources */,
+				2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */,
 				2B5930C8254289C50055FE05 /* ResponseObject.swift in Sources */,
 				2B5930CD25429B6F0055FE05 /* UITextFieldExtension.swift in Sources */,
 				2B11E4BB25414E68007AD918 /* Router.swift in Sources */,
+				2B17E86B2565274E00CA0FF9 /* CompleteDialog.swift in Sources */,
 				2BC453612554460000CDBD9C /* PhoneTableViewCell.swift in Sources */,
 				2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */,
 				2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */,
@@ -301,6 +355,8 @@
 				2BC452DB2549C0CD00CDBD9C /* SearchFilter.swift in Sources */,
 				2B5930F42547E3FB0055FE05 /* JobTableViewCell.swift in Sources */,
 				2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */,
+				2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */,
+				2B6578B9255D113000A157FB /* YPDrawSignatureView.swift in Sources */,
 				2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */,
 				2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */,
 				2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */,

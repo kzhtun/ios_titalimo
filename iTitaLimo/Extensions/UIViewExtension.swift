@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIButton{
-   func setTopButtonCornerRounded(value: Int){
+extension UIView{
+   func setTopViewCornerRounded(value: Int){
         let maskPath1 = UIBezierPath(roundedRect: bounds,
             byRoundingCorners: [.topLeft , .topRight],
             cornerRadii: CGSize(width: value, height: value))
@@ -20,7 +20,7 @@ extension UIButton{
         layer.mask = maskLayer1
     }
    
-   func setBottomButtonCornerRounded(value: Int){
+   func setBottomViewCornerRounded(value: Int){
         let maskPath1 = UIBezierPath(roundedRect: bounds,
             byRoundingCorners: [.bottomLeft , .bottomRight],
             cornerRadii: CGSize(width: value, height: value))
@@ -30,4 +30,11 @@ extension UIButton{
         maskLayer1.path = maskPath1.cgPath
         layer.mask = maskLayer1
     }
+   
+   func setRoundCorners(corners: UIRectCorner, radius: CGFloat) {
+           let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+           let mask = CAShapeLayer()
+           mask.path = path.cgPath
+           layer.mask = mask
+       }
 }
