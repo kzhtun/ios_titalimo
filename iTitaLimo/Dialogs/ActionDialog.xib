@@ -9,6 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionDialog" customModule="iTitaLimo" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="F0a-iQ-3w4" id="jgn-jr-AI0"/>
+                <outlet property="btnNS" destination="opO-5u-E2e" id="RAu-r9-WWN"/>
+                <outlet property="btnPOB" destination="hdM-7t-Mhx" id="j5f-tI-nqh"/>
+                <outlet property="outsideView" destination="i5M-Pr-FkT" id="2eh-sr-ZnI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

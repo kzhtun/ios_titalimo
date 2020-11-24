@@ -49,7 +49,8 @@ class JobListViewController: UIViewController {
       active = 2
       buttonSelection()
       btnFuture.backgroundColor = UIColor.init(hex: "#333333FF")
-      
+      showSpinner()
+      callGetFutureJobs(from: " ", to: " ", passenger: " ", sort: "0")
    }
    
    @IBAction func HistoryOnClick(_ sender: Any) {
@@ -103,14 +104,23 @@ class JobListViewController: UIViewController {
    }
    
    @objc func jobSelected(){
-     
       
    }
    
    @objc func searchClicked(notification: NSNotification){
       let userInfo: [String:String] = notification.userInfo as! [String:String]
       
-      callGetHistoryJobs(from: userInfo["sDate"]!, to: userInfo["eDate"]!, passenger: userInfo["passenger"]!, sort: userInfo["sorting"]!)
+      
+      
+      // future
+      if(active == 2){
+         callGetFutureJobs(from: userInfo["sDate"]!, to: userInfo["eDate"]!, passenger: userInfo["passenger"]!, sort: userInfo["sorting"]!)
+      }
+      
+      // history
+      if(active == 3){
+         callGetHistoryJobs(from: userInfo["sDate"]!, to: userInfo["eDate"]!, passenger: userInfo["passenger"]!, sort: userInfo["sorting"]!)
+      }
       
    }
    
@@ -147,6 +157,22 @@ class JobListViewController: UIViewController {
       })
    }
    
+   func callGetFutureJobs(from: String, to: String, passenger: String, sort: String){
+      jobList.removeAll()
+      
+      Router.sharedInstance().GetFutureJobs(from: from, to: to, passenger: passenger, sort: sort,
+                                             success: { [self](successObj) in
+                                                if(successObj.responsemessage.uppercased() == "SUCCESS"){
+                                                   self.jobList = successObj.jobs
+                                                 
+                                                   DispatchQueue.main.async { self.JobTableView.reloadData() }
+                                                }
+                                             }, failure: { (failureObj) in
+                                                self.view.makeToast(failureObj)
+                                             })
+   }
+   
+   
    func callGetHistoryJobs(from: String, to: String, passenger: String, sort: String){
       jobList.removeAll()
       
@@ -154,8 +180,7 @@ class JobListViewController: UIViewController {
                                              success: { [self](successObj) in
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    self.jobList = successObj.jobs
-                                                   //JobTableView.reloadData()
-                                                   
+                                                
                                                    DispatchQueue.main.async { self.JobTableView.reloadData() }
                                                 }
                                              }, failure: { (failureObj) in

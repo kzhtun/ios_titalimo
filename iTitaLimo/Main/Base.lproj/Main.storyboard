@@ -1246,11 +1246,6 @@
             <point key="canvasLocation" x="1881" y="74"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="N9H-un-fOt">
-            <size key="intrinsicContentSize" width="32" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="ic_exit" width="30" height="28"/>
         <image name="ic_phone" width="17" height="17"/>

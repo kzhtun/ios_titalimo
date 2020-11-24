@@ -28,6 +28,7 @@
 		2B6578B9255D113000A157FB /* YPDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */; };
 		2B6578CC255D41EB00A157FB /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CB255D41EB00A157FB /* UIViewExtension.swift */; };
 		2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */; };
+		2B67548B256CBD0D0012A4FF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67548A256CBD0D0012A4FF /* Util.swift */; };
 		2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC267E7255854BE003D809B /* ActionDialog.swift */; };
 		2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC267E8255854BE003D809B /* ActionDialog.xib */; };
 		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
@@ -65,6 +66,7 @@
 		2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YPDrawSignatureView.swift; sourceTree = "<group>"; };
 		2B6578CB255D41EB00A157FB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeExtension.swift; sourceTree = "<group>"; };
+		2B67548A256CBD0D0012A4FF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		2BC267E7255854BE003D809B /* ActionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDialog.swift; sourceTree = "<group>"; };
 		2BC267E8255854BE003D809B /* ActionDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDialog.xib; sourceTree = "<group>"; };
 		2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */,
+				2B67548A256CBD0D0012A4FF /* Util.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */,
 				2B6578B9255D113000A157FB /* YPDrawSignatureView.swift in Sources */,
 				2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */,
+				2B67548B256CBD0D0012A4FF /* Util.swift in Sources */,
 				2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */,
 				2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */,
 			);

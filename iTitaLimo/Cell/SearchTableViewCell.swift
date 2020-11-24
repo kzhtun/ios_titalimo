@@ -35,6 +35,7 @@ class SearchTableViewCell: UITableViewCell {
    public func configure(searchParam: SearchFilter){
       self.sDate.text = searchParam.sDate
       self.eDate.text = searchParam.eDate
+     
    }
    
    override func awakeFromNib() {

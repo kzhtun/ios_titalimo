@@ -14,6 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var AUT_TOKEN = ""
    var fullAddress = "Address not found"
    
+   
+   
+   var ButtonRed = "#FF1400FF"
+   var ButtonGreen = "#0DAA00FF"
+   
    var searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()
    

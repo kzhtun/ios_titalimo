@@ -64,6 +64,40 @@
                                 <action selector="PhotoOnClick:" destination="-1" eventType="touchUpInside" id="ydp-8N-bNl"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLS-87-3Rm" userLabel="PhotoView">
+                            <rect key="frame" x="32" y="106" width="318" height="175"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1e-QS-OO4">
+                                    <rect key="frame" x="2" y="2" width="314" height="171"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9M-rI-xkM">
+                                    <rect key="frame" x="262" y="119" width="40" height="40"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="7kQ-uh-GAb"/>
+                                        <constraint firstAttribute="width" constant="40" id="h4m-Pi-or4"/>
+                                    </constraints>
+                                    <state key="normal" image="ic_camera">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="cameraOnClick:" destination="-1" eventType="touchUpInside" id="f7y-E4-fu0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="175" id="5SG-jX-UaY"/>
+                                <constraint firstAttribute="trailing" secondItem="J9M-rI-xkM" secondAttribute="trailing" constant="16" id="XLX-VS-uzz"/>
+                                <constraint firstAttribute="bottom" secondItem="J9M-rI-xkM" secondAttribute="bottom" constant="16" id="cw2-Yq-BeT"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
                             <rect key="frame" x="32" y="106" width="318" height="175"/>
                             <subviews>
@@ -86,53 +120,14 @@
                                         <action selector="easerOnClick:" destination="-1" eventType="touchUpInside" id="IT9-PA-XjJ"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLS-87-3Rm" userLabel="PhotoView">
-                                    <rect key="frame" x="-4" y="-3" width="322" height="179"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e1e-QS-OO4">
-                                            <rect key="frame" x="2" y="2" width="314" height="171"/>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9M-rI-xkM">
-                                            <rect key="frame" x="262" y="119" width="40" height="40"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="81f-Ro-pD6"/>
-                                                <constraint firstAttribute="height" constant="40" id="FgR-Eh-WdC"/>
-                                            </constraints>
-                                            <state key="normal" image="ic_camera">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="cameraOnClick:" destination="-1" eventType="touchUpInside" id="f7y-E4-fu0"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="e1e-QS-OO4" firstAttribute="leading" secondItem="mLS-87-3Rm" secondAttribute="leading" constant="2" id="4vp-xE-0LB"/>
-                                        <constraint firstAttribute="trailing" secondItem="J9M-rI-xkM" secondAttribute="trailing" constant="16" id="7Oj-A2-tn3"/>
-                                        <constraint firstAttribute="bottom" secondItem="J9M-rI-xkM" secondAttribute="bottom" constant="16" id="EHo-y3-Baz"/>
-                                        <constraint firstItem="e1e-QS-OO4" firstAttribute="top" secondItem="mLS-87-3Rm" secondAttribute="top" constant="2" id="FXu-lh-T4t"/>
-                                        <constraint firstAttribute="height" constant="175" id="XkU-j3-pFb"/>
-                                        <constraint firstAttribute="trailing" secondItem="e1e-QS-OO4" secondAttribute="trailing" constant="2" id="agX-C6-6F4"/>
-                                        <constraint firstAttribute="bottom" secondItem="e1e-QS-OO4" secondAttribute="bottom" constant="2" id="mdB-uE-10n"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="mLS-87-3Rm" secondAttribute="trailing" constant="59" id="NbW-gz-3zb"/>
                                 <constraint firstAttribute="height" constant="175" id="RTe-J1-ker"/>
                                 <constraint firstAttribute="bottom" secondItem="h7u-OY-E2G" secondAttribute="bottom" constant="16" id="Vv7-Hk-TRM"/>
                                 <constraint firstAttribute="trailing" secondItem="h7u-OY-E2G" secondAttribute="trailing" constant="16" id="fUJ-Gw-DJo"/>
                                 <constraint firstAttribute="bottom" secondItem="h7u-OY-E2G" secondAttribute="bottom" constant="16" id="fa8-FX-Gd1"/>
                                 <constraint firstAttribute="trailing" secondItem="h7u-OY-E2G" secondAttribute="trailing" constant="16" id="te9-7F-9HQ"/>
-                                <constraint firstItem="mLS-87-3Rm" firstAttribute="leading" secondItem="Wf7-FO-ZiN" secondAttribute="leading" constant="-59" id="wn5-zM-vqn"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
@@ -185,6 +180,7 @@
                     <constraints>
                         <constraint firstItem="zSC-dD-bKx" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="0Ff-ZQ-xm0"/>
                         <constraint firstItem="oqZ-1v-fdA" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="2E3-3I-YGD"/>
+                        <constraint firstItem="mLS-87-3Rm" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="6jd-u9-qU3"/>
                         <constraint firstAttribute="height" constant="536" id="7mB-oz-a2o"/>
                         <constraint firstAttribute="trailing" secondItem="ZJW-r8-XyP" secondAttribute="trailing" constant="32" id="8Tb-Au-jak"/>
                         <constraint firstItem="ZJW-r8-XyP" firstAttribute="top" secondItem="LSE-TS-4aK" secondAttribute="bottom" constant="4" id="9Wf-EO-mXX"/>
@@ -193,12 +189,14 @@
                         <constraint firstItem="zSC-dD-bKx" firstAttribute="top" secondItem="ZJW-r8-XyP" secondAttribute="bottom" constant="26" id="KtQ-1v-eEZ"/>
                         <constraint firstItem="Wf7-FO-ZiN" firstAttribute="top" secondItem="vdh-sj-1I5" secondAttribute="bottom" id="TeI-kj-QEn"/>
                         <constraint firstItem="ZJW-r8-XyP" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="fHe-al-qNY"/>
+                        <constraint firstAttribute="trailing" secondItem="mLS-87-3Rm" secondAttribute="trailing" constant="32" id="fev-18-sqF"/>
                         <constraint firstItem="pZh-qI-Fd0" firstAttribute="leading" secondItem="vdh-sj-1I5" secondAttribute="trailing" id="iIo-NG-dxU"/>
                         <constraint firstItem="LSE-TS-4aK" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="k5A-yJ-eX2"/>
                         <constraint firstItem="Wf7-FO-ZiN" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="kgs-Pb-0bv"/>
                         <constraint firstAttribute="trailing" secondItem="Wf7-FO-ZiN" secondAttribute="trailing" constant="32" id="lbE-QK-zke"/>
                         <constraint firstItem="pZh-qI-Fd0" firstAttribute="top" secondItem="oqZ-1v-fdA" secondAttribute="bottom" constant="32" id="nPR-4e-lyI"/>
                         <constraint firstItem="vdh-sj-1I5" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="ngN-fm-e12"/>
+                        <constraint firstItem="mLS-87-3Rm" firstAttribute="top" secondItem="pZh-qI-Fd0" secondAttribute="bottom" id="saI-a8-CXD"/>
                         <constraint firstAttribute="trailing" secondItem="zSC-dD-bKx" secondAttribute="trailing" constant="32" id="suK-dg-ibN"/>
                         <constraint firstItem="oqZ-1v-fdA" firstAttribute="top" secondItem="mWh-VM-p9f" secondAttribute="top" constant="32" id="xMF-bm-9u5"/>
                     </constraints>

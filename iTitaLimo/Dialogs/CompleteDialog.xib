@@ -10,6 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteDialog" customModule="iTitaLimo" customModuleProvider="target">
             <connections>
+                <outlet property="address" destination="WEv-vm-YeQ" id="rkb-td-pAa"/>
+                <outlet property="jobDate" destination="MMF-b9-JxE" id="dgm-Xt-8eF"/>
+                <outlet property="jobTime" destination="T6G-8N-JfI" id="TQd-0B-VRZ"/>
+                <outlet property="outsideView" destination="i5M-Pr-FkT" id="WGp-aJ-5Oq"/>
+                <outlet property="remarks" destination="dOA-8N-IAA" id="mbq-rR-uON"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oE-ME-4MA">
-                    <rect key="frame" x="16" y="238" width="382" height="420"/>
+                    <rect key="frame" x="16" y="248" width="382" height="400"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETE CONFIRMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lA5-m1-u6y">
                             <rect key="frame" x="32" y="32" width="318" height="20"/>
@@ -110,7 +115,11 @@
                                 </textView>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="dOA-8N-IAA" secondAttribute="bottom" id="2kY-Pm-XIK"/>
+                                <constraint firstItem="dOA-8N-IAA" firstAttribute="leading" secondItem="Rhe-k5-LW3" secondAttribute="leading" id="Pgr-kW-pFT"/>
+                                <constraint firstAttribute="trailing" secondItem="dOA-8N-IAA" secondAttribute="trailing" id="mO4-C7-2LP"/>
                                 <constraint firstAttribute="height" constant="135" id="mTK-ow-8o4"/>
+                                <constraint firstItem="dOA-8N-IAA" firstAttribute="top" secondItem="hzq-w6-JN3" secondAttribute="bottom" constant="4" id="r5R-x2-l6Q"/>
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdQ-dr-Wvx">
@@ -127,6 +136,9 @@
                                     <integer key="value" value="17"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="completeOnClick:" destination="-1" eventType="touchUpInside" id="6WZ-bY-Abx"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,7 +147,7 @@
                         <constraint firstItem="IZz-os-n3E" firstAttribute="top" secondItem="lA5-m1-u6y" secondAttribute="bottom" constant="32" id="B3a-bL-sJG"/>
                         <constraint firstItem="lA5-m1-u6y" firstAttribute="leading" secondItem="7oE-ME-4MA" secondAttribute="leading" constant="32" id="HDR-i0-rSU"/>
                         <constraint firstItem="AcG-nf-jiN" firstAttribute="leading" secondItem="7oE-ME-4MA" secondAttribute="leading" constant="32" id="LYU-f6-qV5"/>
-                        <constraint firstAttribute="height" constant="420" id="OLL-7p-fZw"/>
+                        <constraint firstAttribute="height" constant="400" id="OLL-7p-fZw"/>
                         <constraint firstAttribute="trailing" secondItem="lA5-m1-u6y" secondAttribute="trailing" constant="32" id="RUa-yN-HEW"/>
                         <constraint firstAttribute="trailing" secondItem="Rhe-k5-LW3" secondAttribute="trailing" constant="32" id="UWI-lR-Lcv"/>
                         <constraint firstItem="IZz-os-n3E" firstAttribute="leading" secondItem="7oE-ME-4MA" secondAttribute="leading" constant="32" id="Xhq-nd-QAM"/>
@@ -148,6 +160,11 @@
                         <constraint firstItem="Rhe-k5-LW3" firstAttribute="top" secondItem="AcG-nf-jiN" secondAttribute="bottom" constant="20" id="yOj-lM-O6U"/>
                         <constraint firstItem="lA5-m1-u6y" firstAttribute="top" secondItem="7oE-ME-4MA" secondAttribute="top" constant="32" id="zwo-Ao-uM4"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

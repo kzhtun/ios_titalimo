@@ -110,22 +110,19 @@ class Router{
          }
    }
    
-   
-   func GetHistoryJobs(from: String, to: String, passenger: String, sort: String,
+   func GetFutureJobs(from: String, to: String, passenger: String, sort: String,
                        success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
       
       let headers: HTTPHeaders = [
          "driver": self.App.DRIVER_NAME,
          "token": self.App.AUT_TOKEN
-         
       ]
       
-      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getHistoryJobsList", from, to, passenger, sort)
-      
-      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
-      
-      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getFutureJobsList",
+                       (from == " ") ? "%20" : from,
+                       (to == " ") ? "%20" : to,
+                       (passenger == " ") ? "%20" : passenger
+                       ,sort)
       
       AF.request(url, method: .get, headers: headers)
          .response{
@@ -144,6 +141,42 @@ class Router{
                print("GetFutureJobs Success")
             }catch{
                failure("GetFutureJobs Failed")
+            }
+         }
+   }
+   
+   func GetHistoryJobs(from: String, to: String, passenger: String, sort: String,
+                       success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+      
+      let headers: HTTPHeaders = [
+         "driver": self.App.DRIVER_NAME,
+         "token": self.App.AUT_TOKEN
+         
+      ]
+      
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getHistoryJobsList",
+                       (from == " ") ? "%20" : from,
+                       (to == " ") ? "%20" : to,
+                       (passenger == " ") ? "%20" : passenger
+                       ,sort)
+      
+      AF.request(url, method: .get, headers: headers)
+         .response{
+            (response) in
+            
+            guard let data = response.data else{
+               print("GetHistoryJobs Success, No Data")
+               return
+            }
+            
+            do{
+               let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+               
+               success(objRes)
+               
+               print("GetHistoryJobs Success")
+            }catch{
+               failure("GetHistoryJobs Failed")
             }
          }
    }
@@ -307,9 +340,41 @@ class Router{
          }
    }
    
-   
-//   @GET("updateJobStatus/{jobno},{address},{status}")
-//     Call<JobRes> UpdateJobStatus(@Path("jobno") String jobno, @Path("address") String address, @Path("status") String status);
-   
+   func UpdateCompleteJob(jobNo: String, address: String, remarks: String, status: String,
+                               success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+      
+      let headers: HTTPHeaders = [
+         "driver": self.App.DRIVER_NAME,
+         "token": self.App.AUT_TOKEN
+      ]
+      
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateCompleteJob", jobNo, address, remarks, status)
+      
+      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
+      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
+      
+      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+      
+      AF.request(url, method: .get, headers: headers)
+         .response{
+            (response) in
+            
+            guard let data = response.data else{
+               print("UpdateCompleteJob Success, No Data")
+               return
+            }
+            
+            do{
+               let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+               
+               success(objRes)
+               
+               print("UpdateCompleteJob Success")
+            }catch{
+               failure("UpdateCompleteJob Failed")
+            }
+         }
+   }
+ 
 }
 

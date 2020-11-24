@@ -10,8 +10,9 @@ import SignaturePad
 
 class PassengerOnBoardDialog: UIViewController {
    let App = UIApplication.shared.delegate as! AppDelegate
+   var actionDialog: ActionDialog?
    
-   var textFieldColor = "#8a8a8aff"
+   var textFieldColor = "#FFFFFFFF"
    
    var jobAction = ""
    var jobNo = ""
@@ -33,11 +34,14 @@ class PassengerOnBoardDialog: UIViewController {
    @IBOutlet weak var remarks: UITextView!
    
    
+   
    override func viewWillAppear(_ animated: Bool) {
       let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
       outsideView.addGestureRecognizer(gesture)
       
       remarks.backgroundColor = UIColor(hex: textFieldColor)
+      
+    //  actionDialog?.dismiss(animated: true, completion: nil)
       
       // show/ hide signature
       if(jobAction == "NS"){
@@ -46,6 +50,7 @@ class PassengerOnBoardDialog: UIViewController {
       }
    }
    
+   
    @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
       self.dismiss(animated: true, completion: nil)
       print("Outside View OnClick")
@@ -53,11 +58,6 @@ class PassengerOnBoardDialog: UIViewController {
    
    @IBAction func easerOnClick(_ sender: Any) {
       signView.clear()
-      
-      //      if let signature = signView.getSignature() {
-      //         let imagedata =  signature.jpegData(compressionQuality: 0.5)!
-      //         uploadFTP(imageData: imagedata, fileName: "signature.jpg")
-      //        }
    }
    
    
@@ -87,6 +87,15 @@ class PassengerOnBoardDialog: UIViewController {
       buttonsReShape()
    }
    
+   func closeParentView(){
+      let parentVC = self.presentingViewController as? ActionDialog
+      parentVC?.dismiss(animated: false, completion: nil)
+   }
+   
+   override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(true)
+      closeParentView()
+   }
    override func viewDidAppear(_ animated: Bool) {
       buttonsReShape()
    }
@@ -103,12 +112,15 @@ class PassengerOnBoardDialog: UIViewController {
          uploadFTP(imageData: imagedata, fileName: "\(jobNo)_sign.jpg")
       }
       
-      
+      if(remarks.text.isEmpty){
+         remarks.text = " "
+      }
       
       // Call Passenger No Show
       if(jobAction == "NS"){
-         Router.sharedInstance().UpdateJobNoShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger On Board") { (successObj) in
+         Router.sharedInstance().UpdateJobNoShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger No Show") { [self] (successObj) in
             self.view.makeToast("Update job successfully")
+            updateJobDetail()
             self.dismiss(animated: true, completion: nil)
          } failure: { (failureObj) in
             self.view.makeToast(failureObj)
@@ -118,11 +130,23 @@ class PassengerOnBoardDialog: UIViewController {
          // Call Passenger On Board
          Router.sharedInstance().UpdateJobShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger On Board") { (successObj) in
             self.view.makeToast("Update job successfully")
+            self.updateJobDetail()
             self.dismiss(animated: true, completion: nil)
          } failure: { (failureObj) in
             self.view.makeToast(failureObj)
          }
       }
+      
+      
+   }
+   
+   func updateJobDetail(){
+      var info = [String: String]()
+      info["jobNo"] = jobNo
+   
+      NotificationCenter.default.post(name: Notification.Name("UPDATE_JOB_DETAIL"), object: nil, userInfo: info)
+      
+      closeParentView()
    }
    
    @IBAction func SignOnClick(_ sender: Any) {

@@ -7,26 +7,50 @@
 
 import UIKit
 
+
 class ActionDialog: UIViewController {
+   let App = UIApplication.shared.delegate as! AppDelegate
+   let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+   
    var jobNo = ""
   
-
+   @IBOutlet var outsideView: UIView!
+   @IBOutlet weak var btnPOB: UIButton!
+   @IBOutlet weak var btnNS: UIButton!
+   @IBOutlet weak var btnBack: UIButton!
+   
+   override func viewWillAppear(_ animated: Bool) {
+      let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
+      outsideView.addGestureRecognizer(gesture)
+      
+      // set buttons color
+      btnPOB.backgroundColor = UIColor(hex: App.ButtonGreen)
+      btnNS.backgroundColor = UIColor(hex: App.ButtonGreen)
+      btnBack.backgroundColor = UIColor(hex: App.ButtonRed)
+   }
+   
+   @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
+      self.dismiss(animated: true, completion: nil)
+      print("Outside View OnClick")
+   }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Do any additional setup after loading the view.
     }
 
 
-   @IBAction func pobOnClick(_ sender: Any) {
-      //dialog.dismiss(animated: false, completion: nil)
+   override func viewWillDisappear(_ animated: Bool) {
       
+   }
+   
+   @IBAction func pobOnClick(_ sender: Any) {
+   
       let vc = PassengerOnBoardDialog()
       vc.jobAction = "POB"
       vc.jobNo = jobNo
       vc.modalTransitionStyle = .crossDissolve
-      vc.modalPresentationStyle = .overCurrentContext
-   
+      vc.modalPresentationStyle =  .overCurrentContext
+      
       self.present(vc, animated:  true, completion: nil)
    }
    
