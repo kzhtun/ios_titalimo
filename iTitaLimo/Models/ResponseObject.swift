@@ -9,7 +9,7 @@ import Foundation
 
 struct ResponseObject: Codable {
    var jobcount: String!
-   var jobcountlist: String!
+   var jobcountlist: [Jobcountlist]!
    var jobdatelist: String!
    var jobdetails: JobDetail!
    var jobs: [JobDetail]!

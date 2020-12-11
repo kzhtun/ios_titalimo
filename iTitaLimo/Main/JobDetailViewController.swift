@@ -21,6 +21,7 @@ class JobDetailViewController: UIViewController {
    var jobNo: String = ""
    
    
+   @IBOutlet weak var welcomeMsg: UILabel!
    
    @IBOutlet weak var lblJobNo: UILabel!
    @IBOutlet weak var lblJobType: UILabel!
@@ -63,44 +64,58 @@ class JobDetailViewController: UIViewController {
          case "JOB ASSIGNED":
             btnNegative.setTitle("REJECT", for: .normal)
             btnPositive.setTitle("ACCEPT", for: .normal)
+            break
             
          case "CONFIRM":
             btnNegative.isEnabled = false
             btnNegative.setTitle("", for: .normal)
             btnNegative.backgroundColor = UIColor(hex: "#00000000")
             btnPositive.setTitle("ON THE WAY", for: .normal)
+            break
             
          case "ON THE WAY":
             btnNegative.setTitle("BACK", for: .normal)
             btnPositive.setTitle("ON SITE", for: .normal)
+            break
             
          case "ON SITE":
             btnNegative.setTitle("BACK", for: .normal)
             btnPositive.setTitle("POB", for: .normal)
+            break
             
          case "PASSENGER ON BOARD", "PASSENGER NO SHOW":
             btnNegative.setTitle("BACK", for: .normal)
             btnPositive.setTitle("COMPLETE", for: .normal)
-            
+            break
+           
+         case "COMPLETED":
+            btnPositive.setTitle("DISMISS", for: .normal)
+            break
          default:
             print("Default")
       }
    }
    
    
+   
    @IBAction func negativeOnClick(_ sender: Any) {
       switch jobDetail.JobStatus.uppercased(){
+         
          case "JOB ASSIGNED":
             callUpdateJobStatus(jobNo: jobNo, status: "Rejected")
+            break
             
          case "ON THE WAY":
             callUpdateJobStatus(jobNo: jobNo, status: "Confirm")
+            break
             
          case "ON SITE":
             callUpdateJobStatus(jobNo: jobNo, status: "On The Way")
+            break
             
          case "PASSENGER ON BOARD", "PASSENGER NO SHOW":
             callUpdateJobStatus(jobNo: jobNo, status: "On Site")
+            break
             
          default:
             print("Default")
@@ -109,14 +124,18 @@ class JobDetailViewController: UIViewController {
    
    @IBAction func positiveOnClick(_ sender: Any) {
       switch jobDetail.JobStatus.uppercased(){
-         case "JOB ASSIGNED":
+         
+         case "JOB ASSIGNED", "JOB NEW":
             callUpdateJobStatus(jobNo: jobNo, status: "Confirm")
+            break
             
          case "CONFIRM":
             callUpdateJobStatus(jobNo: jobNo, status: "On The Way")
+            break
             
          case "ON THE WAY":
             callUpdateJobStatus(jobNo: jobNo, status: "On Site")
+            break
             
          case "ON SITE":
             let vc = ActionDialog()
@@ -124,6 +143,7 @@ class JobDetailViewController: UIViewController {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated:  true, completion: nil)
+            break
             
          case "PASSENGER ON BOARD", "PASSENGER NO SHOW":
             let vc = CompleteDialog()
@@ -131,6 +151,7 @@ class JobDetailViewController: UIViewController {
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated:  true, completion: nil)
+            break
             
          default:
             print("Default")
@@ -140,6 +161,8 @@ class JobDetailViewController: UIViewController {
    
    
    override func viewWillAppear(_ animated: Bool) {
+      welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
+      
       // UI Designer
       detailView.layer.cornerRadius = 10;
       detailView.layer.masksToBounds = true;
@@ -156,16 +179,15 @@ class JobDetailViewController: UIViewController {
       jobDetail = App.recentJobList[jobIndex]
       displayJobDetail(job: jobDetail)
       
-      //  callGetJobDetail(jobNo: jobNo)
-      
-      NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "UPDATE_JOB_DETAIL"), object: nil)
+      registerObservers()
    }
    
-   @objc func updateJobDetail(notification: NSNotification){
-      let userInfo: [String:String] = notification.userInfo as! [String:String]
-      
-      callGetJobDetail(jobNo: userInfo["jobNo"]!)
+   @objc
+   public func newMessageArrived(){
+      self.view.makeToast("You have new message")
    }
+   
+   
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -176,7 +198,6 @@ class JobDetailViewController: UIViewController {
       phoneTableView.dataSource = self
       
       initLocationManager()
-      
    }
    
    override func viewDidAppear(_ animated: Bool) {
@@ -207,7 +228,7 @@ class JobDetailViewController: UIViewController {
    }
    
    
-  
+   
    //MARK: API Calls
    func callUpdateJobStatus(jobNo: String, status: String){
       Router.sharedInstance().UpdateJobStatus(jobNo: jobNo, address: App.fullAddress, status: status,
@@ -286,7 +307,6 @@ extension JobDetailViewController: CLLocationManagerDelegate{
       
       let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
       
-      
       ceo.reverseGeocodeLocation(loc, completionHandler:
                                     { [self](placemarks, error) in
                                        if (error != nil)
@@ -328,6 +348,45 @@ extension JobDetailViewController: CLLocationManagerDelegate{
                                           //App.fullAddress = addressString.replacingOccurrences(of: ",", with: "#.#")
                                        }
                                     })
+      
+   }
+}
+
+extension JobDetailViewController{
+   func registerObservers(){
+      // update job detail info when noti receive
+      NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetailSilent), name: NSNotification.Name(rawValue: "SILENT_REFRESH_JOBS"), object: nil)
+   }
+   
+   
+   @objc func updateJobDetailSilent(notification: NSNotification){
+      let userInfo: [AnyHashable: Any]? = notification.userInfo
+      
+      guard let jobNo = userInfo!["jobno"] as? String
+      else{return}
+      callGetJobDetail(jobNo: jobNo)
+   }
+   
+   @objc func updateJobDetail(notification: NSNotification){
+      let userInfo: [AnyHashable: Any]? = notification.userInfo
+      
+      guard let jobNo = userInfo!["jobno"] as? String
+      else{return}
+      
+      let refreshAlert = UIAlertController(title: "Refresh", message: "Details for this job may have changed.\nClick OK to refresh.", preferredStyle: UIAlertController.Style.alert)
+      
+      refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+         self.callGetJobDetail(jobNo: jobNo)
+         
+      }))
+      
+      refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+         
+      }))
+      
+      present(refreshAlert, animated: true, completion: nil)
       
    }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0FE843257935EE00D6CC1D /* JobCountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE842257935EE00D6CC1D /* JobCountList.swift */; };
+		2B0FE87625812C8400D6CC1D /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */; };
 		2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E494254148A7007AD918 /* AppDelegate.swift */; };
 		2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E496254148A7007AD918 /* SceneDelegate.swift */; };
 		2B11E49C254148A7007AD918 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B11E49A254148A7007AD918 /* Main.storyboard */; };
@@ -25,10 +27,11 @@
 		2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65783425598EF600A157FB /* PassengerOnBoardDialog.swift */; };
 		2B65783725598EF600A157FB /* PassengerOnBoardDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B65783525598EF600A157FB /* PassengerOnBoardDialog.xib */; };
 		2B65785C255BBCCF00A157FB /* FTPUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65785B255BBCCF00A157FB /* FTPUpload.swift */; };
-		2B6578B9255D113000A157FB /* YPDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */; };
 		2B6578CC255D41EB00A157FB /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CB255D41EB00A157FB /* UIViewExtension.swift */; };
 		2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */; };
 		2B67548B256CBD0D0012A4FF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67548A256CBD0D0012A4FF /* Util.swift */; };
+		2B6754A1256E2E360012A4FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */; };
+		2B88B4B92573F2B7004B6609 /* NotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B88B4B82573F2B7004B6609 /* NotiViewController.swift */; };
 		2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC267E7255854BE003D809B /* ActionDialog.swift */; };
 		2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC267E8255854BE003D809B /* ActionDialog.xib */; };
 		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
@@ -41,8 +44,23 @@
 		D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2BFD579525779F1E0047B541 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1238A44BBEFAEEAEE421296B /* Pods-iTitaLimo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTitaLimo.debug.xcconfig"; path = "Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo.debug.xcconfig"; sourceTree = "<group>"; };
+		2B0FE842257935EE00D6CC1D /* JobCountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCountList.swift; sourceTree = "<group>"; };
+		2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		2B11E491254148A7007AD918 /* iTitaLimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTitaLimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B11E494254148A7007AD918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B11E496254148A7007AD918 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,10 +81,12 @@
 		2B65783425598EF600A157FB /* PassengerOnBoardDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerOnBoardDialog.swift; sourceTree = "<group>"; };
 		2B65783525598EF600A157FB /* PassengerOnBoardDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassengerOnBoardDialog.xib; sourceTree = "<group>"; };
 		2B65785B255BBCCF00A157FB /* FTPUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPUpload.swift; sourceTree = "<group>"; };
-		2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YPDrawSignatureView.swift; sourceTree = "<group>"; };
 		2B6578CB255D41EB00A157FB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeExtension.swift; sourceTree = "<group>"; };
 		2B67548A256CBD0D0012A4FF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		2B67549E256E2DA60012A4FF /* iTitaLimo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTitaLimo.entitlements; sourceTree = "<group>"; };
+		2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B88B4B82573F2B7004B6609 /* NotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiViewController.swift; sourceTree = "<group>"; };
 		2BC267E7255854BE003D809B /* ActionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDialog.swift; sourceTree = "<group>"; };
 		2BC267E8255854BE003D809B /* ActionDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDialog.xib; sourceTree = "<group>"; };
 		2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +141,7 @@
 		2B11E493254148A7007AD918 /* iTitaLimo */ = {
 			isa = PBXGroup;
 			children = (
+				2B67549E256E2DA60012A4FF /* iTitaLimo.entitlements */,
 				2B6578B7255D112600A157FB /* Utils */,
 				2BA9E7A62557C56500B6ECE7 /* Dialogs */,
 				2B5930F22547E3CC0055FE05 /* Cell */,
@@ -130,6 +151,7 @@
 				2B11E4AE25414B6B007AD918 /* Main */,
 				2B11E49D254148A8007AD918 /* Assets.xcassets */,
 				2B11E49F254148A8007AD918 /* LaunchScreen.storyboard */,
+				2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */,
 				2B11E4A2254148A8007AD918 /* Info.plist */,
 			);
 			path = iTitaLimo;
@@ -145,6 +167,8 @@
 				2B5930D0254728D00055FE05 /* JobListViewController.swift */,
 				2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */,
 				2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */,
+				2B88B4B82573F2B7004B6609 /* NotiViewController.swift */,
+				2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -177,6 +201,7 @@
 				2B5930C7254289C50055FE05 /* ResponseObject.swift */,
 				2B5931052547F9EC0055FE05 /* JobDetail.swift */,
 				2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */,
+				2B0FE842257935EE00D6CC1D /* JobCountList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,7 +219,6 @@
 		2B6578B7255D112600A157FB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2B6578B8255D113000A157FB /* YPDrawSignatureView.swift */,
 				2B67548A256CBD0D0012A4FF /* Util.swift */,
 			);
 			path = Utils;
@@ -234,6 +258,7 @@
 				2B11E48E254148A7007AD918 /* Frameworks */,
 				2B11E48F254148A7007AD918 /* Resources */,
 				E842F62776A58426A275B2BB /* [CP] Embed Pods Frameworks */,
+				2BFD579525779F1E0047B541 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -250,7 +275,7 @@
 		2B11E489254148A7007AD918 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					2B11E490254148A7007AD918 = {
@@ -287,6 +312,7 @@
 				2B11E49E254148A8007AD918 /* Assets.xcassets in Resources */,
 				2B11E49C254148A7007AD918 /* Main.storyboard in Resources */,
 				2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */,
+				2B6754A1256E2E360012A4FF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +366,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B2E341125416F0E00AF4D71 /* LoginViewController.swift in Sources */,
+				2B0FE843257935EE00D6CC1D /* JobCountList.swift in Sources */,
 				2B65785C255BBCCF00A157FB /* FTPUpload.swift in Sources */,
+				2B88B4B92573F2B7004B6609 /* NotiViewController.swift in Sources */,
 				2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */,
 				2B6578CC255D41EB00A157FB /* UIViewExtension.swift in Sources */,
+				2B0FE87625812C8400D6CC1D /* AbstractViewController.swift in Sources */,
 				2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */,
 				2B5930C8254289C50055FE05 /* ResponseObject.swift in Sources */,
 				2B5930CD25429B6F0055FE05 /* UITextFieldExtension.swift in Sources */,
@@ -359,7 +388,6 @@
 				2B5930F42547E3FB0055FE05 /* JobTableViewCell.swift in Sources */,
 				2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */,
 				2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */,
-				2B6578B9255D113000A157FB /* YPDrawSignatureView.swift in Sources */,
 				2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */,
 				2B67548B256CBD0D0012A4FF /* Util.swift in Sources */,
 				2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */,
@@ -511,9 +539,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iTitaLimo/iTitaLimo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X32A6FCDS6;
 				INFOPLIST_FILE = iTitaLimo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,9 +561,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iTitaLimo/iTitaLimo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X32A6FCDS6;
 				INFOPLIST_FILE = iTitaLimo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

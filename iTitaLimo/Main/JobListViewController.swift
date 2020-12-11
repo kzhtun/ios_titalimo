@@ -8,6 +8,7 @@
 import UIKit
 
 class JobListViewController: UIViewController {
+   let notificationCenter = UNUserNotificationCenter.current()
    let App = UIApplication.shared.delegate as! AppDelegate
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
    
@@ -18,21 +19,26 @@ class JobListViewController: UIViewController {
    var active = 0
    
    @IBOutlet weak var welcomeMsg: UILabel!
-   
    @IBOutlet weak var btnToday: UIButton!
    @IBOutlet weak var btnTomorrow: UIButton!
    @IBOutlet weak var btnFuture: UIButton!
    @IBOutlet weak var btnHistory: UIButton!
-   
-   
    @IBOutlet weak var JobTableView: UITableView!
    
+   @IBAction func btnExitOnClick(_ sender: Any) {
+      self.dismiss(animated: true, completion: nil)
+   }
+   
+   @IBAction func btnBackOnClick(_ sender: Any) {
+      self.dismiss(animated: true, completion: nil)
+   }
    
    @IBAction func TodayOnClick(_ sender: Any) {
       active = 0
       buttonSelection()
       btnToday.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
+      callJobsCount()
       callGetTodayJobs()
    }
    
@@ -41,8 +47,8 @@ class JobListViewController: UIViewController {
       buttonSelection()
       btnTomorrow.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
+      callJobsCount()
       callGetTomorrowJobs()
-      
    }
    
    @IBAction func FutureOnClick(_ sender: Any) {
@@ -50,6 +56,7 @@ class JobListViewController: UIViewController {
       buttonSelection()
       btnFuture.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
+      callJobsCount()
       callGetFutureJobs(from: " ", to: " ", passenger: " ", sort: "0")
    }
    
@@ -83,8 +90,18 @@ class JobListViewController: UIViewController {
       JobTableView.dataSource = self
       
       // callGetTodayJobs()
-      
       btnToday.sendActions(for: .touchDown)
+      
+      // call job count
+      callJobsCount()
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(dateSelected), name: NSNotification.Name(rawValue: "SELECTED_DATE"), object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(searchClicked), name: NSNotification.Name(rawValue: "SEARCH_CLICKED"), object: nil)
+      
+      //      NotificationCenter.default.addObserver(self, selector: #selector(jobSelected), name: NSNotification.Name(rawValue: "JOB_SELECTED"), object: nil)
+      
+      
+      registerObservers()
       
    }
    
@@ -95,11 +112,6 @@ class JobListViewController: UIViewController {
       self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
       self.JobTableView.estimatedSectionHeaderHeight = 25
       
-      NotificationCenter.default.addObserver(self, selector: #selector(dateSelected), name: NSNotification.Name(rawValue: "SELECTED_DATE"), object: nil)
-      
-      NotificationCenter.default.addObserver(self, selector: #selector(searchClicked), name: NSNotification.Name(rawValue: "SEARCH_CLICKED"), object: nil)
-      
-//      NotificationCenter.default.addObserver(self, selector: #selector(jobSelected), name: NSNotification.Name(rawValue: "JOB_SELECTED"), object: nil)
       
    }
    
@@ -109,8 +121,6 @@ class JobListViewController: UIViewController {
    
    @objc func searchClicked(notification: NSNotification){
       let userInfo: [String:String] = notification.userInfo as! [String:String]
-      
-      
       
       // future
       if(active == 2){
@@ -129,6 +139,46 @@ class JobListViewController: UIViewController {
       self.JobTableView.reloadData()
    }
    
+   
+   func callJobsCount(){
+      Router.sharedInstance().GetJobsCount(success: { [self](successObj) in
+         if(successObj.responsemessage.uppercased() == "SUCCESS"){
+            let todayCount: String! = successObj.jobcountlist[0].todayjobcount
+            let tmrCount: String! = successObj.jobcountlist[0].tomorrowjobcount
+            let futureCount: String! = successObj.jobcountlist[0].futurejobcount
+            
+            let todayTitle: String! = "TODAY [ \(todayCount!) ]"
+            let tmrTitle: String! = "TMR [ \(tmrCount!) ]"
+            let futureTitle: String! = "FUTURE [ \(futureCount!) ]"
+            
+            var index = todayTitle.indexDistance(of: "[")
+            var length = todayTitle.count - index!
+            var att = NSMutableAttributedString(string: todayTitle);
+            att.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: index!, length: length))
+            btnToday.setAttributedTitle(att, for: .normal)
+            
+            index = tmrTitle.indexDistance(of: "[")
+            length = tmrTitle.count - index!
+            att = NSMutableAttributedString(string: tmrTitle);
+            att.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: index!, length: length))
+            btnTomorrow.setAttributedTitle(att, for: .normal)
+            
+            index = futureTitle.indexDistance(of: "[")
+            length = futureTitle.count - index!
+            att = NSMutableAttributedString(string: futureTitle);
+            att.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: index!, length: length))
+            btnFuture.setAttributedTitle(att, for: .normal)
+            
+            //            let att = NSMutableAttributedString(string: "Hello!");
+            //            att.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRange(location: 0, length: 2))
+            //            att.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 2, length: 2))
+            //            button.setAttributedTitle(att, forState: .Normal)
+            
+         }
+      }, failure: { (failureObj) in
+         self.view.makeToast(failureObj)
+      })
+   }
    
    func callGetTodayJobs(){
       jobList.removeAll()
@@ -161,15 +211,15 @@ class JobListViewController: UIViewController {
       jobList.removeAll()
       
       Router.sharedInstance().GetFutureJobs(from: from, to: to, passenger: passenger, sort: sort,
-                                             success: { [self](successObj) in
-                                                if(successObj.responsemessage.uppercased() == "SUCCESS"){
-                                                   self.jobList = successObj.jobs
-                                                 
-                                                   DispatchQueue.main.async { self.JobTableView.reloadData() }
-                                                }
-                                             }, failure: { (failureObj) in
-                                                self.view.makeToast(failureObj)
-                                             })
+                                            success: { [self](successObj) in
+                                             if(successObj.responsemessage.uppercased() == "SUCCESS"){
+                                                self.jobList = successObj.jobs
+                                                
+                                                DispatchQueue.main.async { self.JobTableView.reloadData() }
+                                             }
+                                            }, failure: { (failureObj) in
+                                             self.view.makeToast(failureObj)
+                                            })
    }
    
    
@@ -180,7 +230,7 @@ class JobListViewController: UIViewController {
                                              success: { [self](successObj) in
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    self.jobList = successObj.jobs
-                                                
+                                                   
                                                    DispatchQueue.main.async { self.JobTableView.reloadData() }
                                                 }
                                              }, failure: { (failureObj) in
@@ -193,7 +243,7 @@ class JobListViewController: UIViewController {
       jobList.removeAll()
       JobTableView.reloadData()
       
-      let spinner = UIActivityIndicatorView(style: .white)
+      let spinner = UIActivityIndicatorView(style: .medium)
       spinner.startAnimating()
       spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width:  self.JobTableView.bounds.width, height: CGFloat(44))
       
@@ -272,4 +322,84 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       self.present(vc, animated: true, completion: nil)
    }
    
+   
+   //Mark: location notification events
+   func urgentJobConfirm(msg: String) {
+      
+      let content = UNMutableNotificationContent()
+      let categoryIdentifire = "Delete Notification Type"
+      
+      content.title = "Urgent"
+      content.body = msg
+      content.sound = UNNotificationSound.default
+      content.badge = 1
+      content.categoryIdentifier = categoryIdentifire
+      
+      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+      let identifier = "CONFIRM"
+      let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+      
+      notificationCenter.add(request) { (error) in
+         if let error = error {
+            print("Error \(error.localizedDescription)")
+         }
+      }
+      
+      // notificationCenter.setNotificationCategories([category])
+   }
+   
+   //
+   //   @objc func confirmClicked(notification: NSNotification){
+   //      guard let jobNo = notification.userInfo!["jobNo"] as? String,
+   //            let  name = notification.userInfo!["Name"] as? String,
+   //            let  phone = notification.userInfo!["phone"] as? String,
+   //            let  displayMsg = notification.userInfo!["displayMsg"] as? String
+   //      else{return}
+   //
+   //      callConfirmJobReminder(jobNo: jobNo)
+   //
+   //   }
+   
+}
+
+
+
+extension JobListViewController{
+   func registerObservers(){
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(AcceptSuccessful), name: NSNotification.Name(rawValue: "ACCEPT_SUCCESSFUL"), object: nil)
+      
+      // refresh job list when noti receive
+      NotificationCenter.default.addObserver(self, selector: #selector(RefreshJobList), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
+      
+   }
+   
+   @objc func RefreshJobList(){
+      callJobsCount()
+      if(active==0){
+         callGetTodayJobs()
+      }
+      
+      if(active==1){
+         callGetTomorrowJobs()
+      }
+   }
+   
+   @objc func AcceptSuccessful(notification: NSNotification){
+      guard let jobNo = notification.userInfo!["jobno"] as? String
+      else{return}
+      
+      callUpdateJobStatus(jobNo: jobNo, status: "Confirm")
+   }
+   
+   func callUpdateJobStatus(jobNo: String, status: String){
+      Router.sharedInstance().UpdateJobStatus(jobNo: jobNo, address: App.fullAddress, status: status,
+                                              success: { [self](successObj) in
+                                                if(successObj.responsemessage.uppercased() == "SUCCESS"){
+                                                   RefreshJobList()
+                                                }
+                                              }, failure: { (failureObj) in
+                                                self.view.makeToast(failureObj)
+                                              })
+   }
 }

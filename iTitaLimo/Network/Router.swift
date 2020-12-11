@@ -11,6 +11,7 @@ import Alamofire
 class Router{
    let App = UIApplication.shared.delegate as! AppDelegate
    static var instance: Router?
+  // let baseURL = "http://info121.sytes.net:84/RestAPITitanium/MyLimoService.svc/"
    let baseURL = "http://info121.sytes.net/RestAPITitanium/MyLimoService.svc/"
    
    
@@ -44,6 +45,67 @@ class Router{
                print("ValidateUser Success")
             }catch{
                failure("ValidateUser Failed")
+            }
+         }
+   }
+   
+   func UpdateDevice(deviceID: String, fcnToken: String,
+                        success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+      
+      let headers: HTTPHeaders = [
+         "driver": self.App.DRIVER_NAME,
+         "token": self.App.AUT_TOKEN
+      ]
+      
+      let url = String(format: "%@%@/%@,%@,%@", baseURL, "updatedevice", deviceID, "iOS", fcnToken)
+      
+      AF.request(url, method: .get, headers: headers)
+         .response{
+            (response) in
+            
+            guard let data = response.data else{
+               print("UpdateDevice Success, No Data")
+               return
+            }
+            do{
+               let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+               
+               success(objRes)
+               
+               print("UpdateDevice Success")
+            }catch{
+               failure("UpdateDevice Failed")
+            }
+         }
+   }
+   
+   
+   func GetJobsCount(success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+      
+      let headers: HTTPHeaders = [
+         "driver": self.App.DRIVER_NAME,
+         "token": self.App.AUT_TOKEN
+         
+      ]
+      
+      let url = String(format: "%@%@", baseURL, "getJobsCount")
+      
+      AF.request(url, method: .get, headers: headers)
+         .response{
+            (response) in
+            
+            guard let data = response.data else{
+               print("GetJobsCount Success, No Data")
+               return
+            }
+            do{
+               let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+               
+               success(objRes)
+               
+               print("GetJobsCount Success")
+            }catch{
+               failure("GetTodayJobs Failed")
             }
          }
    }
@@ -276,7 +338,8 @@ class Router{
          "token": self.App.AUT_TOKEN
       ]
       
-      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateShowConfirmJob", jobNo, address, remarks, status)
+     
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateShowConfirmJob", jobNo, (address.isEmpty) ? " " : address, (remarks.isEmpty) ? " " : remarks, status)
       
       var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
       allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
@@ -312,7 +375,7 @@ class Router{
          "token": self.App.AUT_TOKEN
       ]
       
-      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateNoShowJob", jobNo, address, remarks, status)
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateNoShowJob", jobNo, (address.isEmpty) ? " " : address, (remarks.isEmpty) ? " " : remarks, status)
       
       var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
       allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
@@ -348,7 +411,8 @@ class Router{
          "token": self.App.AUT_TOKEN
       ]
       
-      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateCompleteJob", jobNo, address, remarks, status)
+      
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateCompleteJob", jobNo, (address.isEmpty) ? " " : address, (remarks.isEmpty) ? " " : remarks, status)
       
       var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
       allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
@@ -376,5 +440,36 @@ class Router{
          }
    }
  
+   func ConfirmJobReminder(jobNo: String,
+                               success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+      
+      let headers: HTTPHeaders = [
+         "driver": self.App.DRIVER_NAME,
+         "token": self.App.AUT_TOKEN
+      ]
+      
+      var url = String(format: "%@%@/%@", baseURL, "confirmjobreminder", jobNo)
+      
+      AF.request(url, method: .get, headers: headers)
+         .response{
+            (response) in
+            
+            guard let data = response.data else{
+               print("ConfirmJobReminder Success, No Data")
+               return
+            }
+            
+            do{
+               let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+               
+               success(objRes)
+               
+               print("ConfirmJobReminder Success")
+            }catch{
+               failure("ConfirmJobReminder Failed")
+            }
+         }
+   }
+  
 }
 

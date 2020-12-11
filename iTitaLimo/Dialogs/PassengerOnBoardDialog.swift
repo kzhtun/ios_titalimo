@@ -141,10 +141,10 @@ class PassengerOnBoardDialog: UIViewController {
    }
    
    func updateJobDetail(){
-      var info = [String: String]()
-      info["jobNo"] = jobNo
-   
-      NotificationCenter.default.post(name: Notification.Name("UPDATE_JOB_DETAIL"), object: nil, userInfo: info)
+
+      let jobInfo: [AnyHashable: Any] = ["jobno" : jobNo] as [AnyHashable : Any]
+      
+      NotificationCenter.default.post(name: Notification.Name("SILENT_REFRESH_JOBS"), object: nil, userInfo: jobInfo)
       
       closeParentView()
    }

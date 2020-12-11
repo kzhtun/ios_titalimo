@@ -22,12 +22,14 @@ class CompleteDialog: UIViewController {
    @IBOutlet weak var remarks: UITextView!
    
    func updateJobDetail(){
-      var info = [String: String]()
-      info["jobNo"] = jobNo
+      let jobInfo: [AnyHashable: Any] = ["jobno" : jobNo] as [AnyHashable : Any]
    
-      NotificationCenter.default.post(name: Notification.Name("UPDATE_JOB_DETAIL"), object: nil, userInfo: info)
+      NotificationCenter.default.post(name: Notification.Name("SILENT_REFRESH_JOBS"), object: nil, userInfo: jobInfo)
       
-      // close parent view
+      closeParentView()
+   }
+   
+   func closeParentView(){
       let parentVC = self.presentingViewController as? JobDetailViewController
       parentVC?.dismiss(animated: false, completion: nil)
    }
@@ -56,8 +58,8 @@ class CompleteDialog: UIViewController {
       remarks.backgroundColor = UIColor(hex: textFieldColor)
       remarks.isEditable = true
       
-      jobDate.text = Util().getCurrentDateTimeString(formatString: "EEE, dd MMM yyyy")
-      jobTime.text = Util().getCurrentDateTimeString(formatString: "hh:mm a")
+      jobDate.text = getCurrentDateTimeString(formatString: "EEE, dd MMM yyyy")
+      jobTime.text = getCurrentDateTimeString(formatString: "hh:mm a")
       address.text = App.fullAddress
     
       

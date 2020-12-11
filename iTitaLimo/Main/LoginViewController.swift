@@ -10,6 +10,7 @@ import Toast_Swift
 import BEMCheckBox
 
 class LoginViewController: UIViewController {
+   let notificationCenter = UNUserNotificationCenter.current()
    let App = UIApplication.shared.delegate as! AppDelegate
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
    
@@ -46,16 +47,14 @@ class LoginViewController: UIViewController {
       if(cacheUserName != ""){
          txtName.text = cacheUserName
          chkRemember.on = (YESSTR != 0)
-        
+         
       }else{
          txtName.text = ""
       }
-      
-      
+    
    }
    
-   
-   
+  
    @IBAction func btnLoginOnClick(_ sender: Any) {
       if(chkRemember.on){
          UserDefaults.standard.setValue(txtName.text, forKey: CONST_USER_NAME)
@@ -79,15 +78,11 @@ class LoginViewController: UIViewController {
             App.DRIVER_NAME = txtName.text!
             App.AUT_TOKEN = successObj.token!
             
-            
-            let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobListViewController") as! JobListViewController
-
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+            callUpdateDevice()
             
             
-         
-         // invalid
+            
+            // invalid
          }else{
             self.view.makeToast("Invalid")
          }
@@ -96,8 +91,91 @@ class LoginViewController: UIViewController {
          self.view.makeToast(err)
       }
    }
-  
+   
+   func callUpdateDevice(){
+      Router.sharedInstance().UpdateDevice(deviceID: getDeviceID(), fcnToken: App.FCM_TOKEN){
+         [self] (successObj) in
+         self.view.makeToast("Update device successfully")
+    
+         let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobListViewController") as! JobListViewController
+         
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc, animated: true, completion: nil)
+         
+      } failure: { (failureObj) in
+         self.view.makeToast(failureObj)
+      }
+   }
+   
+   
+   func callConfirmJobReminder(jobNo: String){
+      Router.sharedInstance().ConfirmJobReminder(jobNo: jobNo,
+                                              success: { [self](successObj) in
+                                                if(successObj.responsemessage.uppercased() == "SUCCESS"){
+                                                   //self.view.makeToast("Confrim Job Reminder Success")
+                                                 //  urgentJobConfirm(msg: "Confrim Job Reminder Success")
+                                                }
+                                              }, failure: { (failureObj) in
+                                                self.view.makeToast(failureObj)
+                                              })
+   }
+   
 }
+   
+
+
+   
+//   //Mark: location notification events
+//   func urgentJobConfirm(msg: String) {
+//
+//       let content = UNMutableNotificationContent()
+//       let categoryIdentifire = "Delete Notification Type"
+//
+//       content.title = "Urgent"
+//       content.body = msg
+//       content.sound = UNNotificationSound.default
+//       content.badge = 1
+//       content.categoryIdentifier = categoryIdentifire
+//
+//       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+//       let identifier = "CONFIRM"
+//       let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+//
+//       notificationCenter.add(request) { (error) in
+//           if let error = error {
+//               print("Error \(error.localizedDescription)")
+//           }
+//       }
+//
+//      // notificationCenter.setNotificationCategories([category])
+//   }
+//
+//
+//
+//   @objc func confirmClicked(notification: NSNotification){
+//      guard let jobNo = notification.userInfo!["jobNo"] as? String,
+//            let name = notification.userInfo!["Name"] as? String,
+//            let phone = notification.userInfo!["phone"] as? String,
+//            let displayMsg = notification.userInfo!["displayMsg"] as? String
+//      else{return}
+//
+//      callConfirmJobReminder(jobNo: jobNo)
+//   }
+//
+//   @objc func notiReceived(notification: NSNotification){
+////      urgentJobConfirm(msg: "Noti Received")
+////      print("notiReceived")
+////      DispatchQueue.main.async {
+////         let vc = self.storyBoard.instantiateViewController(withIdentifier: "NotiViewController") as! NotiViewController
+////
+////         vc.modalPresentationStyle = .fullScreen
+////         self.present(vc, animated: true, completion: nil)
+////      }}
+//   }
+//
+ 
+   
+
 
 
 
