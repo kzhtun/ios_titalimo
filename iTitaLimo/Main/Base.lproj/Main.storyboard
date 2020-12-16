@@ -111,6 +111,7 @@
                         <outlet property="btnLogin" destination="Yep-OY-ls0" id="54c-S2-giP"/>
                         <outlet property="chkRemember" destination="N9H-un-fOt" id="utj-c1-Tgq"/>
                         <outlet property="loginView" destination="8cq-BA-k28" id="7wq-KX-81l"/>
+                        <outlet property="logoTopConstraint" destination="V13-q3-3qS" id="79c-6x-cE6"/>
                         <outlet property="txtName" destination="fO6-H2-FRQ" id="9B6-7j-lRT"/>
                     </connections>
                 </viewController>
@@ -200,7 +201,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3518568065068492" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="JvG-ZP-HoD" firstAttribute="top" secondItem="0AS-V3-OzV" secondAttribute="top" constant="52" id="263-B6-hKx"/>
                                     <constraint firstItem="xZ2-Xj-knk" firstAttribute="leading" secondItem="0AS-V3-OzV" secondAttribute="leading" constant="16" id="8H5-mo-KeB"/>
@@ -627,7 +628,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3518568065068492" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4Ff-lF-I9L"/>
                                     <constraint firstItem="Gqi-Y3-OX1" firstAttribute="leading" secondItem="76O-Zg-fah" secondAttribute="leading" constant="16" id="N66-Sj-b04"/>

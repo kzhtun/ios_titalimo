@@ -14,15 +14,17 @@ class Router{
   // let baseURL = "http://info121.sytes.net:84/RestAPITitanium/MyLimoService.svc/"
    let baseURL = "http://info121.sytes.net/RestAPITitanium/MyLimoService.svc/"
    
+   static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
    
    static func sharedInstance() -> Router {
+      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$#")
+      
       if self.instance == nil {
          self.instance = Router()
       }
       return self.instance!
    }
-   
-   
+
    
    func ValidateDriver( driver: String,
                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
@@ -79,6 +81,38 @@ class Router{
          }
    }
    
+  // @GET("getdrivercurrentlocation/{latitude},{longitude},{status},{address}")
+   func UpdateDriverLocation(latitude: String, longitude: String, gpsStatus: String, address: String,
+                        success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+      
+      let headers: HTTPHeaders = [
+         "driver": self.App.DRIVER_NAME,
+         "token": self.App.AUT_TOKEN
+      ]
+      
+      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getdrivercurrentlocation", latitude, longitude, gpsStatus, App.fullAddress)
+      
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+      
+      AF.request(url, method: .get, headers: headers)
+         .response{
+            (response) in
+            
+            guard let data = response.data else{
+               print("UpdateDriverLocation Success, No Data")
+               return
+            }
+            do{
+               let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+               
+               success(objRes)
+               
+               print("UpdateDriverLocation Success")
+            }catch{
+               failure("UpdateDriverLocation Failed")
+            }
+         }
+   }
    
    func GetJobsCount(success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
       
@@ -181,10 +215,12 @@ class Router{
       ]
       
       var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getFutureJobsList",
-                       (from == " ") ? "%20" : from,
-                       (to == " ") ? "%20" : to,
-                       (passenger == " ") ? "%20" : passenger
-                       ,sort)
+                        from,
+                        to,
+                        passenger,
+                        sort)
+      
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
       
       AF.request(url, method: .get, headers: headers)
          .response{
@@ -217,10 +253,12 @@ class Router{
       ]
       
       var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getHistoryJobsList",
-                       (from == " ") ? "%20" : from,
-                       (to == " ") ? "%20" : to,
-                       (passenger == " ") ? "%20" : passenger
-                       ,sort)
+                        from,
+                        to,
+                        passenger,
+                        sort)
+      
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
       
       AF.request(url, method: .get, headers: headers)
          .response{
@@ -254,11 +292,7 @@ class Router{
       ]
       
       var url = String(format: "%@%@/%@", baseURL, "getJobDetails", jobNo)
-      
-      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
-      
-      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
       
       AF.request(url, method: .get, headers: headers)
          .response{
@@ -290,31 +324,15 @@ class Router{
       ]
       
       var url = String(format: "%@%@/%@,%@,%@", baseURL, "updateJobStatus", jobNo, address, status)
-      
-      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
-
-      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
 
       AF.request(url, method: .get, headers: headers)
          .response{
             (response) in
-            
-//            switch response.result
-//                        {
-//                        case .failure(let error):
-//                            if let data = response.data {
-//                                print("Print Server Error: " + String(data: data, encoding: String.Encoding.utf8)!)
-//                            }
-//                            print(error)
-//
-//                        case .success(let value):
-//
-//                            print(value)
-//                        }
-//
+ 
             guard let data = response.data else{
-               print("UpdateJobStatus Success, No Data")
+              // print("UpdateJobStatus Success, No Data")
+               print( response.error?.localizedDescription as Any)
                return
             }
             
@@ -338,13 +356,9 @@ class Router{
          "token": self.App.AUT_TOKEN
       ]
       
-     
       var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateShowConfirmJob", jobNo, (address.isEmpty) ? " " : address, (remarks.isEmpty) ? " " : remarks, status)
-      
-      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
-      
-      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+ 
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
       
       AF.request(url, method: .get, headers: headers)
          .response{
@@ -376,11 +390,8 @@ class Router{
       ]
       
       var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateNoShowJob", jobNo, (address.isEmpty) ? " " : address, (remarks.isEmpty) ? " " : remarks, status)
-      
-      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
-      
-      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
       
       AF.request(url, method: .get, headers: headers)
          .response{
@@ -413,11 +424,8 @@ class Router{
       
       
       var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "updateCompleteJob", jobNo, (address.isEmpty) ? " " : address, (remarks.isEmpty) ? " " : remarks, status)
-      
-      var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$")
-      
-      url = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)!
+  
+      url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
       
       AF.request(url, method: .get, headers: headers)
          .response{

@@ -89,6 +89,9 @@ class JobDetailViewController: UIViewController {
             break
            
          case "COMPLETED":
+            btnNegative.isEnabled = false
+            btnNegative.setTitle("", for: .normal)
+            btnNegative.backgroundColor = UIColor(hex: "#00000000")
             btnPositive.setTitle("DISMISS", for: .normal)
             break
          default:
@@ -103,6 +106,7 @@ class JobDetailViewController: UIViewController {
          
          case "JOB ASSIGNED":
             callUpdateJobStatus(jobNo: jobNo, status: "Rejected")
+            callUpdateDriverLocation()
             break
             
          case "ON THE WAY":
@@ -127,6 +131,7 @@ class JobDetailViewController: UIViewController {
          
          case "JOB ASSIGNED", "JOB NEW":
             callUpdateJobStatus(jobNo: jobNo, status: "Confirm")
+            callUpdateDriverLocation()
             break
             
          case "CONFIRM":
@@ -153,6 +158,9 @@ class JobDetailViewController: UIViewController {
             self.present(vc, animated:  true, completion: nil)
             break
             
+         case "COMPLETED":
+            self.dismiss(animated: true, completion: nil)
+            break
          default:
             print("Default")
       }
@@ -180,7 +188,72 @@ class JobDetailViewController: UIViewController {
       displayJobDetail(job: jobDetail)
       
       registerObservers()
+      
+      
+      let pickUpGesture = UITapGestureRecognizer(target: self, action: #selector(pickUpOnClick))
+      let dropOffGesture = UITapGestureRecognizer(target: self, action: #selector(dropOffOnClick))
+     
+      lblPickUp.isUserInteractionEnabled = true
+      lblPickUp.addGestureRecognizer(pickUpGesture)
+      
+      lblDropOff.isUserInteractionEnabled = true
+      lblDropOff.addGestureRecognizer(dropOffGesture)
    }
+   
+   @objc func pickUpOnClick() {
+      locationOnClick(address: lblPickUp.text!)
+   }
+   
+   @objc func dropOffOnClick() {
+      locationOnClick(address: lblDropOff.text!)
+   }
+   
+   func locationOnClick(address: String) {
+      let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+      
+      alert.view.superview?.backgroundColor = UIColor.init(hex: "#33333355")
+         
+      alert.addAction(UIAlertAction(title: "Google Map", style: .default) { _ in
+         var routeString = "comgooglemaps-x-callback://?"
+         routeString += "&saddr=" //\(self.App.lat), \(self.App.lng)
+         routeString += "&daddr=\(address)"
+         routeString += "&directionsmode=driving"
+     
+         if(UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)){
+            
+            if let encoded = routeString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+                    let myURL = URL(string: encoded) {
+               UIApplication.shared.open(myURL, options: [:], completionHandler: nil)
+                }
+         }else{
+            self.view.makeToast("Google map app not found.")
+         }
+      })
+
+      alert.addAction(UIAlertAction(title: "Waze", style: .default) { _ in
+         var routeString = "waze://?"
+       //  routeString += "&ll=\(self.App.lat), \(self.App.lng)"
+         routeString += "&q=\(address)"
+         routeString += "&navigate=yes"
+     
+         if(UIApplication.shared.canOpenURL(URL(string: "waze://")!)){
+            if let encoded = routeString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+                    let myURL = URL(string: encoded) {
+               UIApplication.shared.open(myURL, options: [:], completionHandler: nil)
+                }
+         }else{
+            self.view.makeToast("Waze app not found.")
+         }
+      })
+      
+      alert.addAction(UIAlertAction(title: "Cancel", style: .destructive) { _ in
+         print("Action 2")
+      })
+
+      present(alert, animated: true)
+   }
+   
+   
    
    @objc
    public func newMessageArrived(){
@@ -228,8 +301,20 @@ class JobDetailViewController: UIViewController {
    }
    
    
-   
    //MARK: API Calls
+   func callUpdateDriverLocation(){
+      Router.sharedInstance().UpdateDriverLocation(latitude: "\(App.lat)" , longitude: "\(App.lng)", gpsStatus: "nil", address: App.fullAddress, success: { [self](successObj) in
+         if(successObj.responsemessage.uppercased() == "SUCCESS"){
+            self.view.makeToast("Update driver location success.")
+//            DispatchQueue.main.async{
+//               callGetJobDetail(jobNo: jobNo)
+//            }
+         }
+       }, failure: { (failureObj) in
+         self.view.makeToast(failureObj)
+       })
+   }
+   
    func callUpdateJobStatus(jobNo: String, status: String){
       Router.sharedInstance().UpdateJobStatus(jobNo: jobNo, address: App.fullAddress, status: status,
                                               success: { [self](successObj) in
@@ -291,6 +376,9 @@ extension JobDetailViewController: CLLocationManagerDelegate{
       guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
       print("locations = \(locValue.latitude) \(locValue.longitude)")
       
+      App.lat = locValue.latitude
+      App.lng = locValue.longitude
+      
       getAddressFromLatLon(pdblLatitude: String(locValue.latitude), pdblLongitude:  String(locValue.longitude))
    }
    
@@ -306,6 +394,8 @@ extension JobDetailViewController: CLLocationManagerDelegate{
       center.longitude = lon
       
       let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+      
+    
       
       ceo.reverseGeocodeLocation(loc, completionHandler:
                                     { [self](placemarks, error) in
@@ -345,7 +435,9 @@ extension JobDetailViewController: CLLocationManagerDelegate{
                                           print(addressString)
                                           
                                           //App.fullAddress = "Union Square#.# Stockton St#.# San Francisco"
-                                          //App.fullAddress = addressString.replacingOccurrences(of: ",", with: "#.#")
+                                         App.fullAddress = addressString.replaceEscapeChr
+                                             
+//                                             addressString.replacingOccurrences(of: ",", with: "#.#")
                                        }
                                     })
       

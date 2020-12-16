@@ -103,9 +103,9 @@ class SearchTableViewCell: UITableViewCell {
       
       var criteria = [String: String]()
       
-      criteria["passenger"] = pName.text!.isEmpty ? " ".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! : pName.text
-      criteria["sDate"] = sDate.text!.isEmpty ? " ".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! : sDate.text
-      criteria["eDate"] = eDate.text!.isEmpty ? " ".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! : eDate.text
+      criteria["passenger"] = pName.text!.isEmpty ? " " : pName.text
+      criteria["sDate"] = sDate.text!.isEmpty ? " ": sDate.text
+      criteria["eDate"] = eDate.text!.isEmpty ? " ": eDate.text
       criteria["sorting"] = "0"
       
       NotificationCenter.default.post(name: Notification.Name("SEARCH_CLICKED"), object: nil, userInfo: criteria)

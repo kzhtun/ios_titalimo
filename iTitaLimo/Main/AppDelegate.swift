@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate {
    var window: UIWindow?
    
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
    var DRIVER_NAME = ""
    var AUT_TOKEN = ""
    var FCM_TOKEN = "nil"
+   var lat: Double = 0.0
+   var lng: Double = 0.0
    var fullAddress = "Address not found"
    
    var phones: [String]?
@@ -30,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
    
    var searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()
-   
    
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       if #available(iOS 10.0, *) {
@@ -190,16 +191,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       print("didReceive response")
       
       let identifier = response.actionIdentifier
-      let request = response.notification.request
+     // let request = response.notification.request
       
       completionHandler()
       
       // Action button clicked
       if identifier == "ACCEPT"{
-         NotificationCenter.default.post(name: Notification.Name("JOB_ACCEPT"), object: nil, userInfo: jobInfo )
+//         NotificationCenter.default.post(name: Notification.Name("JOB_ACCEPT"), object: nil, userInfo: jobInfo )
          
          if let jobNo = jobInfo?["jobno"] as? String{
             callUpdateJobStatus(jobNo: jobNo, status: "Confirm")
+            callUpdateDriverLocation()
          }
       }
       
@@ -354,6 +356,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                               }, failure: { (failureObj) in
                                               //  self.view.makeToast(failureObj)
                                               })
+   }
+   
+   func callUpdateDriverLocation(){
+      Router.sharedInstance().UpdateDriverLocation(latitude: "\(lat)" , longitude: "\(lng)", gpsStatus: "nil", address: fullAddress, success: { (successObj) in
+         if(successObj.responsemessage.uppercased() == "SUCCESS"){
+            print("Update Driver Location Success")
+         }
+       }, failure: { (failureObj) in
+         print(failureObj)
+       })
    }
 }
 

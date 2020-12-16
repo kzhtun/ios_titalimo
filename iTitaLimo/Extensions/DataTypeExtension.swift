@@ -9,7 +9,7 @@ import Foundation
 
 extension String{
    var replaceEscapeChr: String{
-      return self.replacingOccurrences(of: ",", with: "###")
+      return self.replacingOccurrences(of: ",", with: "_")
    }
 }
 

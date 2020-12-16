@@ -33,8 +33,7 @@ class PassengerOnBoardDialog: UIViewController {
    
    @IBOutlet weak var remarks: UITextView!
    
-   
-   
+  
    override func viewWillAppear(_ animated: Bool) {
       let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
       outsideView.addGestureRecognizer(gesture)
@@ -48,8 +47,19 @@ class PassengerOnBoardDialog: UIViewController {
          signatureWidth.constant = 0
          tabPassenger.sendActions(for: .touchUpInside)
       }
+      
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
+      NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
    }
    
+   @objc func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y = -200 // Move view 150 points upward
+   }
+
+   @objc func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0 // Move view to original position
+   }
    
    @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
       self.dismiss(animated: true, completion: nil)
@@ -104,12 +114,16 @@ class PassengerOnBoardDialog: UIViewController {
       // upload signature
       if let signature = signView.getSignature() {
          let imagedata =  signature.jpegData(compressionQuality: 0.5)!
-         uploadFTP(imageData: imagedata, fileName: "\(jobNo)_sign.jpg")
+         DispatchQueue.main.async{
+            self.uploadFTP(imageData: imagedata, fileName: "\(self.jobNo)_sign.jpg")
+         }
       }
       
       // upload passenger photo
       if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
-         uploadFTP(imageData: imagedata, fileName: "\(jobNo)_sign.jpg")
+         DispatchQueue.main.async{
+            self.uploadFTP(imageData: imagedata, fileName: "\(self.jobNo)_sign.jpg")
+         }
       }
       
       if(remarks.text.isEmpty){
@@ -174,6 +188,10 @@ class PassengerOnBoardDialog: UIViewController {
    
    func uploadFTP(imageData: Data, fileName: String){
       let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
+      
+      
+      
+     
       
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
