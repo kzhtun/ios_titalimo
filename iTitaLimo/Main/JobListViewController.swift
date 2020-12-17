@@ -16,6 +16,9 @@ class JobListViewController: UIViewController {
    var todayJobs = [JobDetail]()
    var tomorrowJobs = [JobDetail]()
    
+   var userInfo: [AnyHashable : Any]?
+   var searchFilter = SearchFilter.init(passenger: "", sDate: "", eDate: "", sorting: "0")
+   
    var active = 0
    
    @IBOutlet weak var welcomeMsg: UILabel!
@@ -114,22 +117,24 @@ class JobListViewController: UIViewController {
       
       
    }
-   
-   @objc func jobSelected(){
-      
-   }
-   
+  
    @objc func searchClicked(notification: NSNotification){
-      let userInfo: [String:String] = notification.userInfo as! [String:String]
+      userInfo = notification.userInfo
+      
+      guard let sDate = userInfo?["sDate"] as? String,
+            let eDate = userInfo?["eDate"] as? String,
+            let passenger = userInfo?["passenger"] as? String,
+            let sorting = userInfo?["sorting"] as? String
+      else{return}
       
       // future
       if(active == 2){
-         callGetFutureJobs(from: userInfo["sDate"]!, to: userInfo["eDate"]!, passenger: userInfo["passenger"]!, sort: userInfo["sorting"]!)
+         callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
       }
       
       // history
       if(active == 3){
-         callGetHistoryJobs(from: userInfo["sDate"]!, to: userInfo["eDate"]!, passenger: userInfo["passenger"]!, sort: userInfo["sorting"]!)
+         callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
       }
       
    }
@@ -257,7 +262,33 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
    
    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
+     
+      if(userInfo?["sDate"] == nil){
+         searchFilter.sDate = ""
+      }else{
+         searchFilter.sDate = userInfo?["sDate"] as! String
+      }
       
+      if(userInfo?["eDate"] == nil){
+         searchFilter.eDate = ""
+      }else{
+         searchFilter.eDate = userInfo?["eDate"] as! String
+      }
+      
+      if(userInfo?["passenger"] == nil){
+         searchFilter.passenger = ""
+      }else{
+         searchFilter.passenger = userInfo?["passenger"] as! String
+      }
+      
+      if(userInfo?["sorting"] == nil){
+         searchFilter.sorting = "0"
+      }else{
+         searchFilter.sorting = userInfo?["sorting"] as! String
+      }
+     
+      cell.configure(searchParam: searchFilter, sortingShowHide: (active==2), jobCount: jobList.count)
+     
       return cell
    }
    
@@ -295,7 +326,6 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       
       let i = indexPath.row
       
-      
       cell.configure(jobDate : jobList[i].UsageDate,
                      jobType : jobList[i].JobType,
                      jobStatus : jobList[i].JobStatus,
@@ -323,30 +353,30 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
    }
    
    
-   //Mark: location notification events
-   func urgentJobConfirm(msg: String) {
-      
-      let content = UNMutableNotificationContent()
-      let categoryIdentifire = "Delete Notification Type"
-      
-      content.title = "Urgent"
-      content.body = msg
-      content.sound = UNNotificationSound.default
-      content.badge = 1
-      content.categoryIdentifier = categoryIdentifire
-      
-      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-      let identifier = "CONFIRM"
-      let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-      
-      notificationCenter.add(request) { (error) in
-         if let error = error {
-            print("Error \(error.localizedDescription)")
-         }
-      }
-      
-      // notificationCenter.setNotificationCategories([category])
-   }
+//   //Mark: location notification events
+//   func urgentJobConfirm(msg: String) {
+//
+//      let content = UNMutableNotificationContent()
+//      let categoryIdentifire = "Delete Notification Type"
+//
+//      content.title = "Urgent"
+//      content.body = msg
+//      content.sound = UNNotificationSound.default
+//      content.badge = 1
+//      content.categoryIdentifier = categoryIdentifire
+//
+//      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+//      let identifier = "CONFIRM"
+//      let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+//
+//      notificationCenter.add(request) { (error) in
+//         if let error = error {
+//            print("Error \(error.localizedDescription)")
+//         }
+//      }
+//
+//      // notificationCenter.setNotificationCategories([category])
+//   }
    
    //
    //   @objc func confirmClicked(notification: NSNotification){

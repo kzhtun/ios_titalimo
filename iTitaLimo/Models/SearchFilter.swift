@@ -8,9 +8,19 @@
 import Foundation
 
 struct SearchFilter{
+   
    // search filter
    var passenger = ""
    var sDate = ""
    var eDate = ""
    var sorting = ""
+   
+   init(passenger: String = "", sDate: String = "", eDate: String = "", sorting: String = "") {
+      self.passenger = passenger
+      self.sDate = sDate
+      self.eDate = eDate
+      self.sorting = sorting
+   }
+   
+   
 }
