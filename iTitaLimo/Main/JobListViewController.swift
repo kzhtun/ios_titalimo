@@ -38,6 +38,7 @@ class JobListViewController: UIViewController {
    
    @IBAction func TodayOnClick(_ sender: Any) {
       active = 0
+      
       buttonSelection()
       btnToday.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
@@ -84,10 +85,10 @@ class JobListViewController: UIViewController {
       btnHistory.setTitleColor(UIColor(hex: active==3 ? "#1996FCFF" : "#AAAAAAFF"), for: .normal)
    }
    
-   
-   
    override func viewWillAppear(_ animated: Bool) {
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
+      
+      registerObservers()
       
       JobTableView.delegate = self
       JobTableView.dataSource = self
@@ -98,14 +99,26 @@ class JobListViewController: UIViewController {
       // call job count
       callJobsCount()
       
-      NotificationCenter.default.addObserver(self, selector: #selector(dateSelected), name: NSNotification.Name(rawValue: "SELECTED_DATE"), object: nil)
-      NotificationCenter.default.addObserver(self, selector: #selector(searchClicked), name: NSNotification.Name(rawValue: "SEARCH_CLICKED"), object: nil)
       
-      //      NotificationCenter.default.addObserver(self, selector: #selector(jobSelected), name: NSNotification.Name(rawValue: "JOB_SELECTED"), object: nil)
+      // select recent state
+      switch App.recentTab {
+      case 0:
+         btnToday.sendActions(for: .touchDown)
+         break
+      case 1:
+         btnTomorrow.sendActions(for: .touchDown)
+         break
+      case 2:
+         btnFuture.sendActions(for: .touchDown)
+         break
+      case 3:
+         btnHistory.sendActions(for: .touchDown)
+         break
+      default:
+         btnToday.sendActions(for: .touchDown)
+      }
       
-      
-      registerObservers()
-      
+    
    }
    
    override func viewDidLoad() {
@@ -115,7 +128,7 @@ class JobListViewController: UIViewController {
       self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
       self.JobTableView.estimatedSectionHeaderHeight = 25
       
-      
+     
    }
   
    @objc func searchClicked(notification: NSNotification){
@@ -179,6 +192,9 @@ class JobListViewController: UIViewController {
             //            att.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 2, length: 2))
             //            button.setAttributedTitle(att, forState: .Normal)
             
+            
+          
+            
          }
       }, failure: { (failureObj) in
          self.view.makeToast(failureObj)
@@ -206,11 +222,13 @@ class JobListViewController: UIViewController {
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
             self.jobList = successObj.jobs
             JobTableView.reloadData()
+            App.recentJobList = jobList
          }
       }, failure: { (failureObj) in
          self.view.makeToast(failureObj)
       })
    }
+   
    
    func callGetFutureJobs(from: String, to: String, passenger: String, sort: String){
       jobList.removeAll()
@@ -219,8 +237,8 @@ class JobListViewController: UIViewController {
                                             success: { [self](successObj) in
                                              if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                 self.jobList = successObj.jobs
-                                                
-                                                DispatchQueue.main.async { self.JobTableView.reloadData() }
+                                                App.recentJobList = jobList
+                                                self.JobTableView.reloadData()
                                              }
                                             }, failure: { (failureObj) in
                                              self.view.makeToast(failureObj)
@@ -235,8 +253,8 @@ class JobListViewController: UIViewController {
                                              success: { [self](successObj) in
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    self.jobList = successObj.jobs
-                                                   
-                                                   DispatchQueue.main.async { self.JobTableView.reloadData() }
+                                                   App.recentJobList = jobList
+                                                   self.JobTableView.reloadData()
                                                 }
                                              }, failure: { (failureObj) in
                                                 self.view.makeToast(failureObj)
@@ -340,12 +358,12 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       return cell
    }
    
-   
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       print(indexPath.row)
       
       let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobDetailViewController") as! JobDetailViewController
       
+      App.recentTab = active
       vc.modalPresentationStyle = .fullScreen
       vc.jobIndex = indexPath.row
       
@@ -401,6 +419,10 @@ extension JobListViewController{
       
       // refresh job list when noti receive
       NotificationCenter.default.addObserver(self, selector: #selector(RefreshJobList), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(dateSelected), name: NSNotification.Name(rawValue: "SYNC_SEARCH_PARAMS"), object: nil)
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(searchClicked), name: NSNotification.Name(rawValue: "SEARCH_CLICKED"), object: nil)
       
    }
    

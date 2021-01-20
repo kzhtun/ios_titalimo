@@ -184,6 +184,11 @@ class JobDetailViewController: UIViewController {
       btnPositive.layer.masksToBounds = false;
       
       jobNo =  App.recentJobList[jobIndex].JobNo
+      
+//      if(App.recentTab == 2 || App.recentTab == 3){
+//         jobIndex = jobIndex - 1
+//      }
+      
       jobDetail = App.recentJobList[jobIndex]
       displayJobDetail(job: jobDetail)
       

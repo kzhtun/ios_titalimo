@@ -17,7 +17,7 @@ class Router{
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
    
    static func sharedInstance() -> Router {
-      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$#")
+      allowedQueryParamAndKey.remove(charactersIn: ";?@&=+$#")         
       
       if self.instance == nil {
          self.instance = Router()

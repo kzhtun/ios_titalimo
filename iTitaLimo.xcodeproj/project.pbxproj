@@ -32,6 +32,8 @@
 		2B67548B256CBD0D0012A4FF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67548A256CBD0D0012A4FF /* Util.swift */; };
 		2B6754A1256E2E360012A4FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */; };
 		2B88B4B92573F2B7004B6609 /* NotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B88B4B82573F2B7004B6609 /* NotiViewController.swift */; };
+		2BB06FD225A6C79F00C1A3C7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB06FD125A6C79F00C1A3C7 /* NotificationService.swift */; };
+		2BB06FD725A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BB06FCF25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC267E7255854BE003D809B /* ActionDialog.swift */; };
 		2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC267E8255854BE003D809B /* ActionDialog.xib */; };
 		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
@@ -44,13 +46,24 @@
 		D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2BB06FD425A6C79F00C1A3C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B11E489254148A7007AD918 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BB06FCE25A6C79F00C1A3C7;
+			remoteInfo = iTitalimoNotiServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		2BFD579525779F1E0047B541 /* Embed App Extensions */ = {
+		2BB06FD625A6C79F00C1A3C7 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2BB06FD725A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +100,10 @@
 		2B67549E256E2DA60012A4FF /* iTitaLimo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTitaLimo.entitlements; sourceTree = "<group>"; };
 		2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B88B4B82573F2B7004B6609 /* NotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiViewController.swift; sourceTree = "<group>"; };
+		2BB06FCF25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iTitalimoNotiServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB06FD125A6C79F00C1A3C7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		2BB06FD325A6C79F00C1A3C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BB06FEC25A6C7E500C1A3C7 /* iTitalimoNotiServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTitalimoNotiServiceExtension.entitlements; sourceTree = "<group>"; };
 		2BC267E7255854BE003D809B /* ActionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDialog.swift; sourceTree = "<group>"; };
 		2BC267E8255854BE003D809B /* ActionDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDialog.xib; sourceTree = "<group>"; };
 		2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -109,6 +126,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BB06FCC25A6C79F00C1A3C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2B11E493254148A7007AD918 /* iTitaLimo */,
+				2BB06FD025A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension */,
 				2B11E492254148A7007AD918 /* Products */,
 				8F3398C36F946F05565DC207 /* Pods */,
 				15C7949C39C6E6441423D8A9 /* Frameworks */,
@@ -134,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2B11E491254148A7007AD918 /* iTitaLimo.app */,
+				2BB06FCF25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +263,16 @@
 			path = Dialogs;
 			sourceTree = "<group>";
 		};
+		2BB06FD025A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2BB06FEC25A6C7E500C1A3C7 /* iTitalimoNotiServiceExtension.entitlements */,
+				2BB06FD125A6C79F00C1A3C7 /* NotificationService.swift */,
+				2BB06FD325A6C79F00C1A3C7 /* Info.plist */,
+			);
+			path = iTitalimoNotiServiceExtension;
+			sourceTree = "<group>";
+		};
 		8F3398C36F946F05565DC207 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,16 +294,34 @@
 				2B11E48E254148A7007AD918 /* Frameworks */,
 				2B11E48F254148A7007AD918 /* Resources */,
 				E842F62776A58426A275B2BB /* [CP] Embed Pods Frameworks */,
-				2BFD579525779F1E0047B541 /* Embed App Extensions */,
+				2BB06FD625A6C79F00C1A3C7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2BB06FD525A6C79F00C1A3C7 /* PBXTargetDependency */,
 			);
 			name = iTitaLimo;
 			productName = iTitaLimo;
 			productReference = 2B11E491254148A7007AD918 /* iTitaLimo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2BB06FCE25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BB06FD825A6C79F00C1A3C7 /* Build configuration list for PBXNativeTarget "iTitalimoNotiServiceExtension" */;
+			buildPhases = (
+				2BB06FCB25A6C79F00C1A3C7 /* Sources */,
+				2BB06FCC25A6C79F00C1A3C7 /* Frameworks */,
+				2BB06FCD25A6C79F00C1A3C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTitalimoNotiServiceExtension;
+			productName = iTitalimoNotiServiceExtension;
+			productReference = 2BB06FCF25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -280,6 +334,9 @@
 				TargetAttributes = {
 					2B11E490254148A7007AD918 = {
 						CreatedOnToolsVersion = 12.0.1;
+					};
+					2BB06FCE25A6C79F00C1A3C7 = {
+						CreatedOnToolsVersion = 12.1;
 					};
 				};
 			};
@@ -297,6 +354,7 @@
 			projectRoot = "";
 			targets = (
 				2B11E490254148A7007AD918 /* iTitaLimo */,
+				2BB06FCE25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -313,6 +371,13 @@
 				2B11E49C254148A7007AD918 /* Main.storyboard in Resources */,
 				2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */,
 				2B6754A1256E2E360012A4FF /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB06FCD25A6C79F00C1A3C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +460,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2BB06FCB25A6C79F00C1A3C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BB06FD225A6C79F00C1A3C7 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BB06FD525A6C79F00C1A3C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BB06FCE25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension */;
+			targetProxy = 2BB06FD425A6C79F00C1A3C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2B11E49A254148A7007AD918 /* Main.storyboard */ = {
@@ -537,6 +618,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1238A44BBEFAEEAEE421296B /* Pods-iTitaLimo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iTitaLimo/iTitaLimo.entitlements;
@@ -559,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 39D85DB62C13B06943787FD6 /* Pods-iTitaLimo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iTitaLimo/iTitaLimo.entitlements;
@@ -574,6 +657,48 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2BB06FD925A6C79F00C1A3C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = iTitalimoNotiServiceExtension/iTitalimoNotiServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X32A6FCDS6;
+				INFOPLIST_FILE = iTitalimoNotiServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iTitaLimo.iTitalimoNotiServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2BB06FDA25A6C79F00C1A3C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = iTitalimoNotiServiceExtension/iTitalimoNotiServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X32A6FCDS6;
+				INFOPLIST_FILE = iTitalimoNotiServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iTitaLimo.iTitalimoNotiServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -594,6 +719,15 @@
 			buildConfigurations = (
 				2B11E4A6254148A8007AD918 /* Debug */,
 				2B11E4A7254148A8007AD918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BB06FD825A6C79F00C1A3C7 /* Build configuration list for PBXNativeTarget "iTitalimoNotiServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BB06FD925A6C79F00C1A3C7 /* Debug */,
+				2BB06FDA25A6C79F00C1A3C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

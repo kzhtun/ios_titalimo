@@ -35,6 +35,17 @@ class SearchTableViewCell: UITableViewCell {
       return UINib(nibName: "SearchTableViewCell", bundle: nil)
    }
    
+   @IBAction func eDateEditingDidEnd(_ sender: Any) {
+      syncSearchParamsOnParentList()
+   }
+   
+   @IBAction func sDateEditingDidEnd(_ sender: Any) {
+      syncSearchParamsOnParentList()
+   }
+   
+   @IBAction func pNameEditingDidEnd(_ sender: Any) {
+      syncSearchParamsOnParentList()
+   }
    
    public func configure(searchParam: SearchFilter, sortingShowHide: Bool, jobCount: Int){
  
@@ -67,9 +78,13 @@ class SearchTableViewCell: UITableViewCell {
       
    }
    
+   
+   
    override func awakeFromNib() {
       super.awakeFromNib()
       // Initialization code
+      
+    
       
       initSDatePicker()
       initEDatePicker()
@@ -153,8 +168,11 @@ class SearchTableViewCell: UITableViewCell {
       sDate.text = format.string(from: datePicker.date)
       
       //let dataDict:[String: String] = ["date": "12/12/2020"]
-      NotificationCenter.default.post(name: Notification.Name("SELECTED_DATE"), object: nil, userInfo: nil)
-      
+      syncSearchParamsOnParentList()
+   }
+   
+   func syncSearchParamsOnParentList(){
+      NotificationCenter.default.post(name: Notification.Name("SYNC_SEARCH_PARAMS"), object: nil, userInfo: nil)
    }
    
    @objc func eDoneOnClick(){
@@ -166,8 +184,7 @@ class SearchTableViewCell: UITableViewCell {
       eDate.text = format.string(from: datePicker.date)
       
       //let dataDict:[String: String] = ["date": "12/12/2020"]
-      NotificationCenter.default.post(name: Notification.Name("SELECTED_DATE"), object: nil, userInfo: nil)
-      
+      syncSearchParamsOnParentList()
    }
    
    

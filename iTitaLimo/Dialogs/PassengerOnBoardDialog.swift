@@ -11,11 +11,13 @@ import SignaturePad
 class PassengerOnBoardDialog: UIViewController {
    let App = UIApplication.shared.delegate as! AppDelegate
    var actionDialog: ActionDialog?
-   
+  
    var textFieldColor = "#FFFFFFFF"
    
    var jobAction = ""
    var jobNo = ""
+   
+   var signatureData: Data?
    
    let picker = UIImagePickerController()
    
@@ -85,8 +87,11 @@ class PassengerOnBoardDialog: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      picker.sourceType =  .photoLibrary // .camera
-      picker.delegate = self
+      if UIImagePickerController.isSourceTypeAvailable(.camera){
+         picker.sourceType =  .camera //.photoLibrary
+         picker.delegate = self
+         picker.allowsEditing = false
+      }
       
       tabSignature.backgroundColor = UIColor(hex: textFieldColor)
       tabPassenger.backgroundColor = nil
@@ -104,25 +109,37 @@ class PassengerOnBoardDialog: UIViewController {
    
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(true)
-      closeParentView()
+    //  closeParentView()
    }
    override func viewDidAppear(_ animated: Bool) {
       buttonsReShape()
    }
    
    @IBAction func SubmitOnClick(_ sender: Any) {
-      // upload signature
-      if let signature = signView.getSignature() {
-         let imagedata =  signature.jpegData(compressionQuality: 0.5)!
+     
+      // upload passenger photo
+      var subfix = ""
+      if(jobAction == "NS"){
+         subfix = "_no_show.jpg"
+      }else{
+         subfix = "_show.jpg"
+      }
+      
+      if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
          DispatchQueue.main.async{
-            self.uploadFTP(imageData: imagedata, fileName: "\(self.jobNo)_sign.jpg")
+            self.uploadFTP(imageData: imagedata, fileName: self.jobNo + subfix)
          }
       }
       
-      // upload passenger photo
-      if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
+      // upload signature
+      if signView.getSignature() != nil {
          DispatchQueue.main.async{
-            self.uploadFTP(imageData: imagedata, fileName: "\(self.jobNo)_sign.jpg")
+            if(self.photoView.isHidden){
+               if let signature = self.signView.getSignature() {
+                  self.signatureData = signature.jpegData(compressionQuality: 0.5)!
+               }
+            }
+            self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
          }
       }
       
@@ -136,6 +153,7 @@ class PassengerOnBoardDialog: UIViewController {
             self.view.makeToast("Update job successfully")
             updateJobDetail()
             self.dismiss(animated: true, completion: nil)
+            self.closeParentView()
          } failure: { (failureObj) in
             self.view.makeToast(failureObj)
          }
@@ -146,12 +164,12 @@ class PassengerOnBoardDialog: UIViewController {
             self.view.makeToast("Update job successfully")
             self.updateJobDetail()
             self.dismiss(animated: true, completion: nil)
+            self.closeParentView()
          } failure: { (failureObj) in
             self.view.makeToast(failureObj)
          }
       }
-      
-      
+    
    }
    
    func updateJobDetail(){
@@ -178,6 +196,11 @@ class PassengerOnBoardDialog: UIViewController {
       photoView.backgroundColor = UIColor(hex: textFieldColor)
       signView.isHidden = true
       photoView.isHidden = false
+      
+      // upload signature
+      if let signature = signView.getSignature() {
+         signatureData = signature.jpegData(compressionQuality: 0.5)!
+      }
    }
    
    
@@ -188,9 +211,20 @@ class PassengerOnBoardDialog: UIViewController {
    
    func uploadFTP(imageData: Data, fileName: String){
       let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
+     
       
-      
-      
+      ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
+         if !success {
+            print("Upload failured!")
+         }
+         else {
+            print("Image uploaded!")
+         }
+      })
+   }
+   
+   func uploadFTP2(imageData: Data, fileName: String){
+      let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
      
       
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
