@@ -139,7 +139,7 @@ class PassengerOnBoardDialog: UIViewController {
                   self.signatureData = signature.jpegData(compressionQuality: 0.5)!
                }
             }
-            self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
+           // self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
          }
       }
       

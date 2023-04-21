@@ -238,7 +238,11 @@ class JobListViewController: UIViewController {
                                              if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                 self.jobList = successObj.jobs
                                                 App.recentJobList = jobList
-                                                self.JobTableView.reloadData()
+                                                 
+                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                     // your code here
+                                                     self.JobTableView.reloadData()
+                                                 }
                                              }
                                             }, failure: { (failureObj) in
                                              self.view.makeToast(failureObj)
@@ -254,11 +258,19 @@ class JobListViewController: UIViewController {
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    self.jobList = successObj.jobs
                                                    App.recentJobList = jobList
-                                                   self.JobTableView.reloadData()
+                                                    
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                        // your code here
+                                                        self.JobTableView.reloadData()
+                                                    }
+                                                    
+                                                   
                                                 }
                                              }, failure: { (failureObj) in
                                                 self.view.makeToast(failureObj)
                                              })
+       
+       
    }
    
    

@@ -325,7 +325,7 @@ class JobDetailViewController: UIViewController {
                                               success: { [self](successObj) in
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    DispatchQueue.main.async{
-                                                      callGetJobDetail(jobNo: jobNo)
+                                                       self.callGetJobDetail(jobNo: jobNo)
                                                    }
                                                 }
                                               }, failure: { (failureObj) in

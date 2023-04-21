@@ -7,7 +7,7 @@
 
 import UIKit
 import Toast_Swift
-import BEMCheckBox
+//import BEMCheckBox
 
 class LoginViewController: UIViewController {
    let notificationCenter = UNUserNotificationCenter.current()
@@ -17,14 +17,24 @@ class LoginViewController: UIViewController {
    let datePicker = UIDatePicker()
    let CONST_USER_NAME = "UserName"
    
-   @IBOutlet weak var loginView: UIView!
+   
+   
+    
+    @IBOutlet weak var chkRemember: UISwitch!
+    @IBOutlet weak var loginView: UIView!
    @IBOutlet weak var txtName: UITextField!
-   @IBOutlet weak var chkRemember: BEMCheckBox!
+  // @IBOutlet weak var chkRemember: BEMCheckBox!
    @IBOutlet weak var btnLogin: UIButton!
    @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
    
    var cacheUserName = ""
    
+    
+    @IBAction func chkRemember_ValueChanged(_ sender: Any) {
+        
+        
+    }
+    
    override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -44,7 +54,7 @@ class LoginViewController: UIViewController {
       
       if(cacheUserName != ""){
          txtName.text = cacheUserName
-         chkRemember.on = (YESSTR != 0)
+          chkRemember.setOn(true, animated: true)
          
       }else{
          txtName.text = ""
@@ -63,18 +73,20 @@ class LoginViewController: UIViewController {
    }
   
    @IBAction func btnLoginOnClick(_ sender: Any) {
-      if(chkRemember.on){
+       if(chkRemember.isOn){
          UserDefaults.standard.setValue(txtName.text, forKey: CONST_USER_NAME)
       }else{
          UserDefaults.standard.removeObject(forKey:  CONST_USER_NAME)
       }
-      
+
       if(txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
          callValidateDriver()
       }
    }
    
    
+
+    
    func callValidateDriver(){
       Router.sharedInstance().ValidateDriver(driver: txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines)) { [self] (successObj) in
          

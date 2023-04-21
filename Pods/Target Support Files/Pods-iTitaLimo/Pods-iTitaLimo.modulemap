@@ -1,0 +1,6 @@
+module Pods_iTitaLimo {
+  umbrella header "Pods-iTitaLimo-umbrella.h"
+
+  export *
+  module * { export * }
+}

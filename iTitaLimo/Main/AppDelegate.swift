@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()
    var recentTab = 0
+    
+
    
 //   func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
 //     return true
@@ -44,25 +46,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      if #available(iOS 10.0, *) {
-         // For iOS 10 display notification (sent via APNS)
-         UNUserNotificationCenter.current().delegate = self
-         
-         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-         UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
-      } else {
-         let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-         application.registerUserNotificationSettings(settings)
-      }
-      
-      application.registerForRemoteNotifications()
+//      if #available(iOS 10.0, *) {
+//         // For iOS 10 display notification (sent via APNS)
+//         UNUserNotificationCenter.current().delegate = self
+//
+//         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//         UNUserNotificationCenter.current().requestAuthorization(
+//            options: authOptions,
+//            completionHandler: {_, _ in })
+//      } else {
+//         let settings: UIUserNotificationSettings =
+//            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+//         application.registerUserNotificationSettings(settings)
+//      }
+//
+//      application.registerForRemoteNotifications()
       
       // Use Firebase library to configure APIs
-      FirebaseApp.configure()
-      Messaging.messaging().delegate = self
+  //    FirebaseApp.configure()
+  //    Messaging.messaging().delegate = self
       
       
       return true
@@ -142,16 +144,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 // MessagingDelegate
-extension AppDelegate: MessagingDelegate{
-   func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token: \(fcmToken ?? "fcm not found")")
-      self.FCM_TOKEN = fcmToken ?? "fcm not found"
-      print("didReceiveRegistrationToken")
-      
-      //  NotificationCenter.default.post(name: Notification.Name("ValidateUser"), object: nil)
-      // let dataDict:[String: String] = ["token": self.FCM_TOKEN]
-   }
-}
+//extension AppDelegate: MessagingDelegate{
+//   func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+//      print("Firebase registration token: \(fcmToken ?? "fcm not found")")
+//      self.FCM_TOKEN = fcmToken ?? "fcm not found"
+//      print("didReceiveRegistrationToken")
+//
+//      //  NotificationCenter.default.post(name: Notification.Name("ValidateUser"), object: nil)
+//      // let dataDict:[String: String] = ["token": self.FCM_TOKEN]
+//   }
+//}
 
 
 // UNUserNotificationCenterDelegate

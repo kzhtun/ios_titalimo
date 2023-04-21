@@ -12,7 +12,9 @@ class Router{
    let App = UIApplication.shared.delegate as! AppDelegate
    static var instance: Router?
   // let baseURL = "http://info121.sytes.net:84/RestAPITitanium/MyLimoService.svc/"
-   let baseURL = "http://info121.sytes.net/RestAPITitanium/MyLimoService.svc/"
+
+   //let baseURL = "http://info121.sytes.net/RestAPITitanium/MyLimoService.svc/"
+    let baseURL = "http://118.200.45.215/RestApiTitanium/MyLimoService.svc/"
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
    

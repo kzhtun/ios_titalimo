@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1730CF653485F8877C68BCB7 /* libPods-iTitaLimo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F7BAD39598A22B929BCA46 /* libPods-iTitaLimo.a */; };
 		2B0FE843257935EE00D6CC1D /* JobCountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE842257935EE00D6CC1D /* JobCountList.swift */; };
 		2B0FE87625812C8400D6CC1D /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */; };
 		2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B11E494254148A7007AD918 /* AppDelegate.swift */; };
@@ -33,7 +34,7 @@
 		2B6754A1256E2E360012A4FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */; };
 		2B88B4B92573F2B7004B6609 /* NotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B88B4B82573F2B7004B6609 /* NotiViewController.swift */; };
 		2BB06FD225A6C79F00C1A3C7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB06FD125A6C79F00C1A3C7 /* NotificationService.swift */; };
-		2BB06FD725A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BB06FCF25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BB06FD725A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2BB06FCF25A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC267E7255854BE003D809B /* ActionDialog.swift */; };
 		2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC267E8255854BE003D809B /* ActionDialog.xib */; };
 		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
@@ -43,7 +44,6 @@
 		2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC45334254B288200CDBD9C /* UIButtonExtension.swift */; };
 		2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */; };
 		2BC453612554460000CDBD9C /* PhoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */; };
-		D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,15 +57,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2BB06FD625A6C79F00C1A3C7 /* Embed App Extensions */ = {
+		2BB06FD625A6C79F00C1A3C7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2BB06FD725A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex in Embed App Extensions */,
+				2BB06FD725A6C79F00C1A3C7 /* iTitalimoNotiServiceExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -114,7 +114,7 @@
 		2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTableViewCell.swift; sourceTree = "<group>"; };
 		39D85DB62C13B06943787FD6 /* Pods-iTitaLimo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTitaLimo.release.xcconfig"; path = "Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo.release.xcconfig"; sourceTree = "<group>"; };
-		A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTitaLimo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4F7BAD39598A22B929BCA46 /* libPods-iTitaLimo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTitaLimo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72546C094FA44933408AF69 /* Pods_iTitaLimo.framework in Frameworks */,
+				1730CF653485F8877C68BCB7 /* libPods-iTitaLimo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 		15C7949C39C6E6441423D8A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A49EFDA60FFCD10DA7F744C9 /* Pods_iTitaLimo.framework */,
+				F4F7BAD39598A22B929BCA46 /* libPods-iTitaLimo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,8 +293,7 @@
 				2B11E48D254148A7007AD918 /* Sources */,
 				2B11E48E254148A7007AD918 /* Frameworks */,
 				2B11E48F254148A7007AD918 /* Resources */,
-				E842F62776A58426A275B2BB /* [CP] Embed Pods Frameworks */,
-				2BB06FD625A6C79F00C1A3C7 /* Embed App Extensions */,
+				2BB06FD625A6C79F00C1A3C7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -330,7 +329,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1210;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					2B11E490254148A7007AD918 = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -404,23 +403,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E842F62776A58426A275B2BB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

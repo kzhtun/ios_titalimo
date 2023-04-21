@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (5.0.0-rc.2)
+  - AlamofireObjectMapper (6.2.0):
+    - Alamofire (= 5.0.0-rc.2)
+    - ObjectMapper (~> 3.5.1)
+  - BEMCheckBox (1.4.1)
+  - ObjectMapper (3.5.3)
+  - SignaturePad (1.0.3)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireObjectMapper
+  - BEMCheckBox
+  - SignaturePad (~> 1.0.3)
+  - Toast-Swift (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireObjectMapper
+    - BEMCheckBox
+    - ObjectMapper
+    - SignaturePad
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  AlamofireObjectMapper: 74d1440c92c42bbcc2b5f4dc81654ac095ec669f
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  SignaturePad: b0d6322a27e90fe3e7d55194606503f5dfacb077
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 786869ed543fdedf672798fbddf643e31efdf371
+
+COCOAPODS: 1.12.0
