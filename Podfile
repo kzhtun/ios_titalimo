@@ -9,12 +9,17 @@ target 'iTitaLimo' do
     pod 'AlamofireObjectMapper'
   	pod 'Toast-Swift', '~> 5.0.0'
     pod 'SignaturePad', '~> 1.0.3'
-pod 'BEMCheckBox'
-   
+    
+    pod 'Firebase', :modular_headers => true
+    pod 'GoogleUtilities', :modular_headers => true
+    pod 'FirebaseCoreInternal', :modular_headers => true
+    pod 'FirebaseCore', :modular_headers => true
+    pod 'FirebaseMessaging', :modular_headers => true
+    
 
 #    pod 'Firebase', :modular_headers => true
 #    pod 'FirebaseCoreInternal', :modular_headers => true
-#    pod 'GoogleUtilities', :modular_headers => true
+#
 #    pod 'FirebaseCore', :modular_headers => true
 
    
