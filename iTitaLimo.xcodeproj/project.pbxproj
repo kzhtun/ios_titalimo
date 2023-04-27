@@ -647,6 +647,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iTitalimoNotiServiceExtension/iTitalimoNotiServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = X32A6FCDS6;
 				INFOPLIST_FILE = iTitalimoNotiServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -668,6 +669,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iTitalimoNotiServiceExtension/iTitalimoNotiServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = X32A6FCDS6;
 				INFOPLIST_FILE = iTitalimoNotiServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
