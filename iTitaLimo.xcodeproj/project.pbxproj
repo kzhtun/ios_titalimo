@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02464A902A04C4E2002B16FD /* UpdatesDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02464A8E2A04C4E2002B16FD /* UpdatesDialog.swift */; };
+		02464A912A04C4E2002B16FD /* UpdatesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02464A8F2A04C4E2002B16FD /* UpdatesDialog.xib */; };
 		1730CF653485F8877C68BCB7 /* libPods-iTitaLimo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F7BAD39598A22B929BCA46 /* libPods-iTitaLimo.a */; };
 		2B0FE843257935EE00D6CC1D /* JobCountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE842257935EE00D6CC1D /* JobCountList.swift */; };
 		2B0FE87625812C8400D6CC1D /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02464A8E2A04C4E2002B16FD /* UpdatesDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesDialog.swift; sourceTree = "<group>"; };
+		02464A8F2A04C4E2002B16FD /* UpdatesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdatesDialog.xib; sourceTree = "<group>"; };
 		1238A44BBEFAEEAEE421296B /* Pods-iTitaLimo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTitaLimo.debug.xcconfig"; path = "Target Support Files/Pods-iTitaLimo/Pods-iTitaLimo.debug.xcconfig"; sourceTree = "<group>"; };
 		2B0FE842257935EE00D6CC1D /* JobCountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCountList.swift; sourceTree = "<group>"; };
 		2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 				2B65783525598EF600A157FB /* PassengerOnBoardDialog.xib */,
 				2B17E8692565274E00CA0FF9 /* CompleteDialog.swift */,
 				2B17E86A2565274E00CA0FF9 /* CompleteDialog.xib */,
+				02464A8E2A04C4E2002B16FD /* UpdatesDialog.swift */,
+				02464A8F2A04C4E2002B16FD /* UpdatesDialog.xib */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02464A912A04C4E2002B16FD /* UpdatesDialog.xib in Resources */,
 				2B65783725598EF600A157FB /* PassengerOnBoardDialog.xib in Resources */,
 				2B11E4A1254148A8007AD918 /* LaunchScreen.storyboard in Resources */,
 				2B17E86C2565274E00CA0FF9 /* CompleteDialog.xib in Resources */,
@@ -436,6 +443,7 @@
 				2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */,
 				2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */,
 				2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */,
+				02464A902A04C4E2002B16FD /* UpdatesDialog.swift in Sources */,
 				2B67548B256CBD0D0012A4FF /* Util.swift in Sources */,
 				2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */,
 				2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */,

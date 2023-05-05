@@ -349,6 +349,38 @@ class Router{
             }
          }
    }
+    
+    func UpdateJobRemarks(jobNo: String, remark: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       var url = String(format: "%@%@/%@,%@", baseURL, "updateJobRemark", jobNo, remark)
+       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+
+       AF.request(url, method: .get, headers: headers)
+          .response{
+             (response) in
+  
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("UpdateJobRemark Success")
+             }catch{
+                failure("UpdateJobRemark Failed")
+             }
+          }
+    }
    
    func UpdateJobShowConfirm(jobNo: String, address: String, remarks: String, status: String,
                              success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){

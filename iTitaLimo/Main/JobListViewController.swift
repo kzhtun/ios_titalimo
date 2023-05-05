@@ -36,7 +36,23 @@ class JobListViewController: UIViewController {
       self.dismiss(animated: true, completion: nil)
    }
    
-   @IBAction func TodayOnClick(_ sender: Any) {
+    @IBAction func btnAddOnClick(_ sender: UIButton) {
+        let vc = UpdatesDialog()
+        let index: Int = sender.tag
+        
+        vc.jobNo = jobList[index].JobNo
+        vc.updates = jobList[index].Updates
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated:  true, completion: nil)
+        
+     
+        
+        self.view.makeToast( vc.jobNo )
+    }
+    
+    @IBAction func TodayOnClick(_ sender: Any) {
       active = 0
       
       buttonSelection()
@@ -364,7 +380,9 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
                      pickup : jobList[i].PickUp,
                      dropoff : jobList[i].Destination,
                      passenger : jobList[i].Customer,
-                     mobile : jobList[i].Customer_Tel
+                     mobile : jobList[i].Customer_Tel,
+                     updates: jobList[i].Updates,
+                     index: i
       )
       
       return cell
@@ -466,4 +484,7 @@ extension JobListViewController{
                                                 self.view.makeToast(failureObj)
                                               })
    }
+    
+    
+   
 }

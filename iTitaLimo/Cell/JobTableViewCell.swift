@@ -24,6 +24,14 @@ class JobTableViewCell: UITableViewCell {
    @IBOutlet weak var passenger: UILabel!
    @IBOutlet weak var mobile: UILabel!
    
+    @IBOutlet weak var btnAdd: UIButton!
+    
+    @IBAction func btnAddOnClick(_ sender: Any) {
+      
+   }
+    
+    @IBOutlet weak var updates: UILabel!
+    
    @IBOutlet weak var JobDateConstraints: NSLayoutConstraint!
    
    static func nib()-> UINib{
@@ -37,7 +45,7 @@ class JobTableViewCell: UITableViewCell {
    
    
    public func configure(jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
-                         pickup: String, dropoff: String, passenger: String, mobile: String){
+                         pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, index: Int){
       
       //      self.jobDate.isHidden = true
       //      self.jobDate.frame.size.height = 0
@@ -51,6 +59,9 @@ class JobTableViewCell: UITableViewCell {
       self.dropoff.text = dropoff
       self.passenger.text = passenger
       self.mobile.text = mobile
+      self.updates.text = updates
+       self.btnAdd.tag = index
+    
    }
    
 //   override func setSelected(_ selected: Bool, animated: Bool) {

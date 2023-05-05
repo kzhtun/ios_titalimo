@@ -446,7 +446,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="116.5" height="20.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JOB TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdq-WB-Uln">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="35.5" height="8.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="116.5" height="8.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                                                             <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -624,6 +624,10 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="34.5"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="filled" title="ADD"/>
+                                                                            <connections>
+                                                                                <action selector="btnAddOnClick:" destination="vwk-OU-Jwu" eventType="touchUpInside" id="X9T-LE-xqH"/>
+                                                                                <action selector="btnAddOnClick:" destination="Zru-U8-Dbo" eventType="touchUpInside" id="hjO-PQ-cnv"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                     <constraints>
@@ -672,6 +676,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="btnAdd" destination="GRg-Qc-fIb" id="OiR-nT-V7f"/>
                                             <outlet property="containerView" destination="Ndo-pY-N4T" id="rh9-SY-T0a"/>
                                             <outlet property="dropoff" destination="kXo-8M-wSd" id="wbR-gZ-1Vr"/>
                                             <outlet property="jobDate" destination="FBJ-A4-9Bx" id="0Wz-AJ-aUr"/>
@@ -681,6 +686,7 @@
                                             <outlet property="mobile" destination="P7d-B2-MoK" id="sgA-HQ-YwX"/>
                                             <outlet property="passenger" destination="53B-vp-B4H" id="SRN-h6-R6n"/>
                                             <outlet property="pickup" destination="aJW-ZZ-uWa" id="0K6-Lz-po8"/>
+                                            <outlet property="updates" destination="K5Q-Nw-AEz" id="eBH-xh-KMS"/>
                                             <outlet property="vehicleType" destination="kba-OK-rkZ" id="L8z-UP-aW5"/>
                                         </connections>
                                     </tableViewCell>
