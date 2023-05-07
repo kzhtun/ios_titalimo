@@ -245,19 +245,19 @@ class Router{
          }
    }
    
-   func GetHistoryJobs(from: String, to: String, passenger: String, sort: String,
+   func GetHistoryJobs(from: String, to: String, passenger: String, updates: String, sort: String,
                        success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
       
       let headers: HTTPHeaders = [
          "driver": self.App.DRIVER_NAME,
          "token": self.App.AUT_TOKEN
-         
       ]
       
-      var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getHistoryJobsList",
+      var url = String(format: "%@%@/%@,%@,%@,%@,%@", baseURL, "getHistoryJobsList",
                         from,
                         to,
                         passenger,
+                        updates,
                         sort)
       
       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
@@ -290,7 +290,6 @@ class Router{
       let headers: HTTPHeaders = [
          "driver": self.App.DRIVER_NAME,
          "token": self.App.AUT_TOKEN
-         
       ]
       
       var url = String(format: "%@%@/%@", baseURL, "getJobDetails", jobNo)

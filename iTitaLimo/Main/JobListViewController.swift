@@ -17,7 +17,7 @@ class JobListViewController: UIViewController {
    var tomorrowJobs = [JobDetail]()
    
    var userInfo: [AnyHashable : Any]?
-   var searchFilter = SearchFilter.init(passenger: "", sDate: "", eDate: "", sorting: "0")
+   var searchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
    
    var active = 0
    
@@ -85,7 +85,7 @@ class JobListViewController: UIViewController {
       buttonSelection()
       btnHistory.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
-      callGetHistoryJobs(from: " ", to: " ", passenger: " ", sort: "0")
+      callGetHistoryJobs(from: " ", to: " ", passenger: " ", updates: " ", sort: "0")
    }
    
    
@@ -143,16 +143,18 @@ class JobListViewController: UIViewController {
       
       self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
       self.JobTableView.estimatedSectionHeaderHeight = 25
-      
-     
    }
   
    @objc func searchClicked(notification: NSNotification){
-      userInfo = notification.userInfo
+       userInfo = notification.userInfo
+       
+    
+       print("searchClicked called")
       
       guard let sDate = userInfo?["sDate"] as? String,
             let eDate = userInfo?["eDate"] as? String,
             let passenger = userInfo?["passenger"] as? String,
+            let updates = userInfo?["updates"] as? String,
             let sorting = userInfo?["sorting"] as? String
       else{return}
       
@@ -163,7 +165,7 @@ class JobListViewController: UIViewController {
       
       // history
       if(active == 3){
-         callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
+          callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
       }
       
    }
@@ -255,7 +257,7 @@ class JobListViewController: UIViewController {
                                                 self.jobList = successObj.jobs
                                                 App.recentJobList = jobList
                                                  
-                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                                      // your code here
                                                      self.JobTableView.reloadData()
                                                  }
@@ -266,16 +268,16 @@ class JobListViewController: UIViewController {
    }
    
    
-   func callGetHistoryJobs(from: String, to: String, passenger: String, sort: String){
+   func callGetHistoryJobs(from: String, to: String, passenger: String, updates: String, sort: String){
       jobList.removeAll()
       
-      Router.sharedInstance().GetHistoryJobs(from: from, to: to, passenger: passenger, sort: sort,
+       Router.sharedInstance().GetHistoryJobs(from: from, to: to, passenger: passenger, updates: updates, sort: sort,
                                              success: { [self](successObj) in
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    self.jobList = successObj.jobs
                                                    App.recentJobList = jobList
                                                     
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                                         // your code here
                                                         self.JobTableView.reloadData()
                                                     }
@@ -321,6 +323,12 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
          searchFilter.eDate = userInfo?["eDate"] as! String
       }
       
+        if(userInfo?["updates"] == nil){
+          searchFilter.updates = ""
+        }else{
+          searchFilter.updates = userInfo?["updates"] as! String
+        }
+       
       if(userInfo?["passenger"] == nil){
          searchFilter.passenger = ""
       }else{
@@ -339,10 +347,12 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
    }
    
    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-      if (active == 0 || active == 1) {
-         return 0.0
-      }
-      return UITableView.automaticDimension
+       // check the selected tab is Future or History
+       if (active == 0 || active == 1){
+           return 0.0
+       }else{
+           return 290
+       }
    }
    
    func numberOfSections(in tableView: UITableView) -> Int {
@@ -372,7 +382,8 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       
       let i = indexPath.row
       
-      cell.configure(jobDate : jobList[i].UsageDate,
+       cell.configure(tab: active,
+                     jobDate : jobList[i].UsageDate,
                      jobType : jobList[i].JobType,
                      jobStatus : jobList[i].JobStatus,
                      vehicleType : jobList[i].VehicleType,
@@ -453,6 +464,8 @@ extension JobListViewController{
       NotificationCenter.default.addObserver(self, selector: #selector(dateSelected), name: NSNotification.Name(rawValue: "SYNC_SEARCH_PARAMS"), object: nil)
       
       NotificationCenter.default.addObserver(self, selector: #selector(searchClicked), name: NSNotification.Name(rawValue: "SEARCH_CLICKED"), object: nil)
+       
+       print("registerObservers")
       
    }
    

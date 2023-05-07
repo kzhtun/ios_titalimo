@@ -13,7 +13,8 @@ class JobTableViewCell: UITableViewCell {
    
    static let indentifier = "JobTableViewCell"
    
-   @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var updatesView: UIStackView!
+    @IBOutlet weak var containerView: UIView!
    @IBOutlet weak var jobDate: UILabel!
    @IBOutlet weak var jobType: UILabel!
    @IBOutlet weak var jobStatus: UILabel!
@@ -44,7 +45,7 @@ class JobTableViewCell: UITableViewCell {
    }
    
    
-   public func configure(jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
+    public func configure(tab: Int, jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
                          pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, index: Int){
       
       //      self.jobDate.isHidden = true
@@ -60,7 +61,20 @@ class JobTableViewCell: UITableViewCell {
       self.passenger.text = passenger
       self.mobile.text = mobile
       self.updates.text = updates
-       self.btnAdd.tag = index
+      self.btnAdd.tag = index
+        
+        if(updates.count == 0 ){
+            self.btnAdd.setTitle("ADD", for: UIControl.State.normal)
+        }else
+        {
+            self.btnAdd.setTitle("VIEW", for: UIControl.State.normal)
+        }
+        
+        if(tab == 3){
+            self.updatesView.isHidden = false
+        }else{
+            self.updatesView.isHidden = true
+        }
     
    }
    

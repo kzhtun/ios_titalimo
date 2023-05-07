@@ -14,7 +14,9 @@ class SearchTableViewCell: UITableViewCell {
    @IBOutlet weak var containerView: UIView!
    @IBOutlet weak var btnSearch: UIButton!
    
-   @IBOutlet weak var pName: UITextField!
+  
+    @IBOutlet weak var updates: UITextField!
+    @IBOutlet weak var pName: UITextField!
    @IBOutlet weak var sDate: UITextField!
    @IBOutlet weak var eDate: UITextField!
    
@@ -86,24 +88,29 @@ class SearchTableViewCell: UITableViewCell {
       
     
       
-      initSDatePicker()
-      initEDatePicker()
+          initSDatePicker()
+          initEDatePicker()
       
-      pName.layer.cornerRadius = 15;
-      pName.layer.masksToBounds = true;
-      pName.setLeftPaddingPoints(8)
-      
-      sDate.layer.cornerRadius = 15;
-      sDate.layer.masksToBounds = true;
-      sDate.setLeftPaddingPoints(8)
-      
-      eDate.layer.cornerRadius = 15;
-      eDate.layer.masksToBounds = true;
-      eDate.setLeftPaddingPoints(8)
-      
-      btnSearch.layer.cornerRadius = 13;
-      btnSearch.layer.masksToBounds = true;
-      
+       
+        updates.layer.cornerRadius = 15;
+        updates.layer.masksToBounds = true;
+        updates.setLeftPaddingPoints(8)
+
+        pName.layer.cornerRadius = 15;
+        pName.layer.masksToBounds = true;
+        pName.setLeftPaddingPoints(8)
+
+        sDate.layer.cornerRadius = 15;
+        sDate.layer.masksToBounds = true;
+        sDate.setLeftPaddingPoints(8)
+
+        eDate.layer.cornerRadius = 15;
+        eDate.layer.masksToBounds = true;
+        eDate.setLeftPaddingPoints(8)
+
+        btnSearch.layer.cornerRadius = 13;
+        btnSearch.layer.masksToBounds = true;
+
       //containerView.isHidden = true
       
       
@@ -150,12 +157,14 @@ class SearchTableViewCell: UITableViewCell {
       var criteria = [String: String]()
       
       criteria["passenger"] = pName.text!.isEmpty ? " " : pName.text
+       criteria["updates"] = updates.text!.isEmpty ? " " : updates.text
       criteria["sDate"] = sDate.text!.isEmpty ? " ": sDate.text
       criteria["eDate"] = eDate.text!.isEmpty ? " ": eDate.text
       criteria["sorting"] = "\(sgSorting.selectedSegmentIndex)"
       
-      print(sgSorting.selectedSegmentIndex)
       
+      print("search clicked")
+       
       NotificationCenter.default.post(name: Notification.Name("SEARCH_CLICKED"), object: nil, userInfo: criteria)
    }
    
