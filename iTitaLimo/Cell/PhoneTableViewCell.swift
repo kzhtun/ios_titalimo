@@ -47,4 +47,34 @@ class PhoneTableViewCell: UITableViewCell {
          UIApplication.shared.open(url, options: [:], completionHandler: nil)
       }
    }
+    
+    
+    @IBAction func btnWhatsApp(_ sender: Any) {
+        var phoneNo: String = self.lblMobile.text!
+        var urlString = ""
+        var urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+      //  var url  = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
+       
+        
+        if(phoneNo.count > 8){
+            phoneNo = "+" + phoneNo;
+        }else{
+            phoneNo = "+65" + phoneNo;
+        }
+
+        var url  = NSURL(string: "https://api.whatsapp.com/send?phone=\(phoneNo)&text=\(urlStringEncoded!)")
+        
+        
+        if UIApplication.shared.canOpenURL(url! as URL) {
+                UIApplication.shared.open(url! as URL, options: [:]) { (success) in
+                        if success {
+                            print("WhatsApp accessed successfully")
+                        } else {
+                            print("Error accessing WhatsApp")
+                        }
+                    }
+            }
+        
+    }
+    
 }
