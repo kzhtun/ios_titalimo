@@ -26,7 +26,7 @@ class JobTableViewCell: UITableViewCell {
    @IBOutlet weak var mobile: UILabel!
    
     @IBOutlet weak var btnAdd: UIButton!
-    
+   
     @IBAction func btnAddOnClick(_ sender: Any) {
       
    }
@@ -50,7 +50,13 @@ class JobTableViewCell: UITableViewCell {
       
       //      self.jobDate.isHidden = true
       //      self.jobDate.frame.size.height = 0
-      
+        
+        
+    btnAdd.layer.cornerRadius = 13;
+    btnAdd.layer.masksToBounds = true;
+    
+   
+        
       self.jobDate.text = jobDate
       self.jobType.text = jobType
       self.jobStatus.text = jobStatus
@@ -65,9 +71,14 @@ class JobTableViewCell: UITableViewCell {
         
         if(updates.count == 0 ){
             self.btnAdd.setTitle("ADD", for: UIControl.State.normal)
+            
+            self.btnAdd.backgroundColor = UIColor.init(red: 0/255, green: 150/255, blue: 255/255, alpha: 1 )
+            //self.btnAdd.backgroundColor = UIColor.init(hex: "#0097FFAA")
         }else
         {
             self.btnAdd.setTitle("VIEW", for: UIControl.State.normal)
+            self.btnAdd.backgroundColor = UIColor.init(red: 255/255, green: 150/255, blue: 0/255, alpha: 1 )
+          //  self.btnAdd.backgroundColor = UIColor.init(hex: "#FF9400AA")
         }
         
         if(tab == 3){

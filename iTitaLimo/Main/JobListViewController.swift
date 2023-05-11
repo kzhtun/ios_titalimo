@@ -46,12 +46,10 @@ class JobListViewController: UIViewController {
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated:  true, completion: nil)
-        
-     
-        
+       
         self.view.makeToast( vc.jobNo )
     }
-    
+   
     @IBAction func TodayOnClick(_ sender: Any) {
       active = 0
       

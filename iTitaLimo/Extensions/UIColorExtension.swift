@@ -15,6 +15,7 @@ extension UIColor{
           let start = hex.index(hex.startIndex, offsetBy: 1)
           let hexColor = String(hex[start...])
 
+          
           if hexColor.count == 8 {
               let scanner = Scanner(string: hexColor)
               var hexNumber: UInt64 = 0
@@ -25,6 +26,7 @@ extension UIColor{
                   b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
                   a = CGFloat(hexNumber & 0x000000ff) / 255
 
+             
                   self.init(red: r, green: g, blue: b, alpha: a)
                   return
               }
@@ -33,4 +35,6 @@ extension UIColor{
 
       return nil
   }
+    
+    
 }

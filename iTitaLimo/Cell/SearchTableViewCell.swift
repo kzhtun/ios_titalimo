@@ -110,6 +110,7 @@ class SearchTableViewCell: UITableViewCell {
 
         btnSearch.layer.cornerRadius = 13;
         btnSearch.layer.masksToBounds = true;
+      // self.btnSearch.backgroundColor = UIColor.init(hex: "#F69000AA")
 
       //containerView.isHidden = true
       
