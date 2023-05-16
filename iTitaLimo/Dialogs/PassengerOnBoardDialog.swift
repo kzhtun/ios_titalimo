@@ -210,8 +210,9 @@ class PassengerOnBoardDialog: UIViewController {
    
    
    func uploadFTP(imageData: Data, fileName: String){
-      let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
+   //   let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
      
+       let ftpup = FTPUpload()
       
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
@@ -224,8 +225,9 @@ class PassengerOnBoardDialog: UIViewController {
    }
    
    func uploadFTP2(imageData: Data, fileName: String){
-      let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
+//      let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
      
+       let ftpup = FTPUpload()
       
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {

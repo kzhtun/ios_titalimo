@@ -9,17 +9,34 @@ import Foundation
 import CFNetwork
 
 public class FTPUpload {
-   fileprivate let ftpBaseUrl: String
-   fileprivate let directoryPath: String
-   fileprivate let username: String
-   fileprivate let password: String
+    // DEV
+   fileprivate let ftpBaseUrl: String = "128.106.129.15"
+   fileprivate let directoryPath: String = ""
+   fileprivate let username: String = "ipos"
+   fileprivate let password: String = "iposftp"
+    
+    
+    // LIVE
+//    fileprivate let ftpBaseUrl: String = "97.74.89.233"
+//    fileprivate let directoryPath: String = ""
+//    fileprivate let username: String = "ipos"
+//    fileprivate let password: String = "$$1posftp%%"
    
-   public init(baseUrl: String, userName: String, password: String, directoryPath: String) {
-      self.ftpBaseUrl = baseUrl
-      self.username = userName
-      self.password = password
-      self.directoryPath = directoryPath
-   }
+   
+//   public init(baseUrl: String, userName: String, password: String, directoryPath: String) {
+//      self.ftpBaseUrl = baseUrl
+//      self.username = userName
+//      self.password = password
+//      self.directoryPath = directoryPath
+//   }
+    
+//    public init() {
+//       self.ftpBaseUrl = baseUrl
+//       self.username = userName
+//       self.password = password
+//       self.directoryPath = directoryPath
+//    }
+    
 }
 
 

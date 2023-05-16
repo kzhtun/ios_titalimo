@@ -468,7 +468,16 @@ extension JobListViewController{
    }
    
    @objc func RefreshJobList(){
+       guard let sDate = userInfo?["sDate"] as? String,
+               let eDate = userInfo?["eDate"] as? String,
+               let passenger = userInfo?["passenger"] as? String,
+               let updates = userInfo?["updates"] as? String,
+               let sorting = userInfo?["sorting"] as? String
+         else{return}
+         
+      // job count refresh
       callJobsCount()
+       
       if(active==0){
          callGetTodayJobs()
       }
@@ -476,6 +485,18 @@ extension JobListViewController{
       if(active==1){
          callGetTomorrowJobs()
       }
+       
+    
+       // future
+       if(active == 2){
+          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
+       }
+       
+       // history
+       if(active == 3){
+           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
+       }
+     
    }
    
    @objc func AcceptSuccessful(notification: NSNotification){

@@ -14,7 +14,7 @@ class Router{
   // let baseURL = "http://info121.sytes.net:84/RestAPITitanium/MyLimoService.svc/"
 
    //let baseURL = "http://info121.sytes.net/RestAPITitanium/MyLimoService.svc/"
-    let baseURL = "http://118.200.45.215/RestApiTitanium/MyLimoService.svc/"
+    let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
    

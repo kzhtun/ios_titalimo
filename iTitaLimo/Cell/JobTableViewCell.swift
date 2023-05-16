@@ -55,7 +55,7 @@ class JobTableViewCell: UITableViewCell {
     btnAdd.layer.cornerRadius = 13;
     btnAdd.layer.masksToBounds = true;
     
-   
+        self.updatesView.isHidden = true
         
       self.jobDate.text = jobDate
       self.jobType.text = jobType
