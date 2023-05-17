@@ -31,7 +31,7 @@ class UpdatesDialog: UIViewController {
         outsideView.addGestureRecognizer(gesture)
         
         
-        self.txtUpdates.text = updates
+        self.txtUpdates.text = updates.replacingOccurrences(of: "##-##" , with: "\n")
         
     }
     
@@ -65,13 +65,13 @@ class UpdatesDialog: UIViewController {
     
     func callUpdateJobRemark(jobNo: String, remark: String){
         var jobInfo: [AnyHashable: Any]?
-        
-        Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: txtUpdates.text,
+       
+        Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: txtUpdates.text.replacingOccurrences(of: "\n" , with: "##-##"),
                                                success: {(successObj) in
                                                  if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                   
-                                              
-                                                 NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+                                                     
+                                                     NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
                                                  }
                                                }, failure: { (failureObj) in
                                                  self.view.makeToast(failureObj)

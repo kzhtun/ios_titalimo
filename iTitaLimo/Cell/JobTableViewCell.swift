@@ -66,12 +66,11 @@ class JobTableViewCell: UITableViewCell {
       self.dropoff.text = dropoff
       self.passenger.text = passenger
       self.mobile.text = mobile
-      self.updates.text = updates
+      self.updates.text = updates.replacingOccurrences(of: "##-##", with: "\n")
       self.btnAdd.tag = index
         
         if(updates.count == 0 ){
             self.btnAdd.setTitle("ADD", for: UIControl.State.normal)
-            
             self.btnAdd.backgroundColor = UIColor.init(red: 0/255, green: 150/255, blue: 255/255, alpha: 1 )
             //self.btnAdd.backgroundColor = UIColor.init(hex: "#0097FFAA")
         }else
@@ -80,6 +79,8 @@ class JobTableViewCell: UITableViewCell {
             self.btnAdd.backgroundColor = UIColor.init(red: 255/255, green: 150/255, blue: 0/255, alpha: 1 )
           //  self.btnAdd.backgroundColor = UIColor.init(hex: "#FF9400AA")
         }
+        
+       
         
         if(tab == 3){
             self.updatesView.isHidden = false
