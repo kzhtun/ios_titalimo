@@ -380,6 +380,9 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       
       let i = indexPath.row
       
+       
+       self.view.makeToast(jobList[i].JobNo);
+       
        cell.configure(tab: active,
                      jobDate : jobList[i].UsageDate,
                      jobType : jobList[i].JobType,

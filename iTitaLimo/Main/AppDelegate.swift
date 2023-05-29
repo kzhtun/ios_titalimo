@@ -67,8 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       FirebaseApp.configure()
       Messaging.messaging().delegate = self
       
-       UNUserNotificationCenter.current().delegate = self
-               UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { isSuccessful, error in
+      // localNotification(title: "Noti", body: "Test")
+       
+       notificationCenter.delegate = self
+       notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { isSuccessful, error in
                    guard isSuccessful else{
                        return
                    }
@@ -76,8 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                }
                application.registerForRemoteNotifications()
                return true
-       
-      return false
+      
+     // return false
    }
    
    
@@ -115,11 +117,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // =================================== //
       jobInfo = userInfo
 
-     
+       print(userInfo["jobNo"] ?? "0")
+       
+       switch UIApplication.shared.applicationState {
+           case .background, .inactive:
+                print("Application is in Background")
+           case .active:
+                print("Application is in Foreground")
+           default:
+               break
+       }
+       
       // job update
       if let action = userInfo["action"] as? String{
          if(action.uppercased() == "ASSIGN" || action.uppercased() == "REASSIGN"){
-            newJobNotification(userInfo: userInfo)
+             newJobNotification(userInfo: userInfo)
+             //localNotification(title: action.uppercased(), body: userInfo["jobNo"] as! String )
          }
 
          if(action.uppercased() == "CANCEL FULL NOTIFICATION" || action.uppercased() == "UNASSIGN"){
@@ -238,42 +251,42 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
    }
   
 //   // Custom Functions
-//   func normalJobNotification(userInfo: [AnyHashable: Any]) {
-//      let content = UNMutableNotificationContent()
-//
-//      guard let title = userInfo["title"] as? String,
-//            let message = userInfo["message"] as? String
-//      else{return}
-//
-//      content.title = title
-//      content.body = message
-//      content.sound = UNNotificationSound.default
-//      content.categoryIdentifier = "NORMAL_NOTI"
-//
-//      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-//      let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//
-//      notificationCenter.add(request) { (error) in
-//         if let error = error {
-//            print("Error \(error.localizedDescription)")
-//         }
-//      }
-//
-//      let category = UNNotificationCategory(identifier: content.categoryIdentifier,
-//                                            actions: [],
-//                                            intentIdentifiers: [],
-//                                            options: [])
-//
-//      notificationCenter.setNotificationCategories([category])
-//   }
-//
-//
+   func normalJobNotification(userInfo: [AnyHashable: Any]) {
+      let content = UNMutableNotificationContent()
+
+      guard let title = userInfo["title"] as? String,
+            let message = userInfo["message"] as? String
+      else{return}
+
+      content.title = title
+      content.body = message
+      content.sound = UNNotificationSound.default
+      content.categoryIdentifier = "NORMAL_NOTI"
+
+      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+      let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+      notificationCenter.add(request) { (error) in
+         if let error = error {
+            print("Error \(error.localizedDescription)")
+         }
+      }
+
+      let category = UNNotificationCategory(identifier: content.categoryIdentifier,
+                                            actions: [],
+                                            intentIdentifiers: [],
+                                            options: [])
+
+      notificationCenter.setNotificationCategories([category])
+   }
+
+
    func newJobNotification(userInfo: [AnyHashable: Any]) {
       let content = UNMutableNotificationContent()
 
       guard let jobNo = userInfo["jobno"] as? String,
 //            let jobtype = userInfo["jobtype"] as? String,
-//            let jobdate = userInfo["jobdate"] as? String,
+            let jobdate = userInfo["jobdate"] as? String,
             let pickuptime = userInfo["pickuptime"] as? String,
             let pickuppoint = userInfo["pickuppoint"] as? String,
             let alightpoint = userInfo["alightpoint"] as? String,
@@ -283,17 +296,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             let   message = userInfo["message"] as? String
       else{return}
 
-      content.title = "Accept Click"
-      content.subtitle = "⭐ " + pickuptime + " ⭐ \n" // ⏰
-      content.body = "" + pickuppoint + "\n" // displayMsg + "\n Pickup \t:\t Arumugan Road. ⭐ "
-      content.body += "  🔻 \n"
-      content.body += "" + alightpoint + "\n"
-      content.body += "" + vehicletype
-      content.sound = UNNotificationSound.default
-      content.badge = 1
-      content.categoryIdentifier = "JOB_ASSIGN"
+//      content.title = "Accept Click"
+//      content.subtitle = "⭐ " + pickuptime + " ⭐ \n" // ⏰
+//      content.body = "" + pickuppoint + "\n" // displayMsg + "\n Pickup \t:\t Arumugan Road. ⭐ "
+//      content.body += "  🔻 \n"
+//      content.body += "" + alightpoint + "\n"
+//      content.body += "" + vehicletype
+//      content.sound = UNNotificationSound.default
+//      content.badge = 1
+//      content.categoryIdentifier = "JOB_ASSIGN"
+//
+       
+       content.title = "NEW JOB"
+       content.subtitle = "📅 " + jobdate + " \t ⏰ " + pickuptime + "\n" //
+       content.body = "🔺 " + pickuppoint  // displayMsg + "\n Pickup \t:\t Arumugan Road. ⭐ "
+       content.body += " \t 🔻 " + alightpoint + "\n"
+       content.body += "⭐ " + vehicletype
+       content.sound = UNNotificationSound.default
+       content.badge = 1
+       content.categoryIdentifier = "JOB_ASSIGN"
 
       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+       
       let request = UNNotificationRequest(identifier: "\(jobNo)_\(UUID().uuidString)" , content: content, trigger: trigger)
 
       notificationCenter.add(request) { (error) in
@@ -312,31 +336,31 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
    }
    
    
-//   func localNotification(title: String, body: String) {
-//      let content = UNMutableNotificationContent()
-//     content.title = title
-//      content.subtitle = body
-//
-//      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-//      let request = UNNotificationRequest(identifier: UUID().uuidString , content: content, trigger: trigger)
-//
-//      notificationCenter.add(request) { (error) in
-//         if let error = error {
-//            print("Error \(error.localizedDescription)")
-//         }
-//      }
-//
-//      let acceptAction = UNNotificationAction(identifier: "OK", title: "OK", options: [])
-//      let category = UNNotificationCategory(identifier:  content.categoryIdentifier,
-//                                            actions: [acceptAction],
-//                                            intentIdentifiers: [],
-//                                            options: [])
-//
-//      notificationCenter.setNotificationCategories([category])
-//   }
+   func localNotification(title: String, body: String) {
+      let content = UNMutableNotificationContent()
+      content.title = title
+      content.subtitle = body
+
+      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+      let request = UNNotificationRequest(identifier: UUID().uuidString , content: content, trigger: trigger)
+
+      notificationCenter.add(request) { (error) in
+         if let error = error {
+            print("Error \(error.localizedDescription)")
+         }
+      }
+
+      let acceptAction = UNNotificationAction(identifier: "OK", title: "OK", options: [])
+      let category = UNNotificationCategory(identifier:  content.categoryIdentifier,
+                                            actions: [acceptAction],
+                                            intentIdentifiers: [],
+                                            options: [])
+
+      notificationCenter.setNotificationCategories([category])
+   }
       
-//
-//
+
+
     
    func urgentJobNotification(userInfo: [AnyHashable: Any]) {
       let content = UNMutableNotificationContent()

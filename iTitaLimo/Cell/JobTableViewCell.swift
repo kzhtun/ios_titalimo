@@ -57,6 +57,9 @@ class JobTableViewCell: UITableViewCell {
     
         self.updatesView.isHidden = true
         
+        
+       
+        
       self.jobDate.text = jobDate
       self.jobType.text = jobType
       self.jobStatus.text = jobStatus
