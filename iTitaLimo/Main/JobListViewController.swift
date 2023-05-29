@@ -146,15 +146,18 @@ class JobListViewController: UIViewController {
    @objc func searchClicked(notification: NSNotification){
        userInfo = notification.userInfo
        
-    
-       print("searchClicked called")
-      
-      guard let sDate = userInfo?["sDate"] as? String,
-            let eDate = userInfo?["eDate"] as? String,
-            let passenger = userInfo?["passenger"] as? String,
-            let updates = userInfo?["updates"] as? String,
-            let sorting = userInfo?["sorting"] as? String
-      else{return}
+       let sDate = " ";
+       let eDate = " ";
+       let passenger  = " ";
+       let updates = " ";
+       let sorting = "0";
+       
+       if    let sDate = userInfo?["sDate"] as? String,
+             let  eDate = userInfo?["eDate"] as? String,
+             let  passenger = userInfo?["passenger"] as? String,
+             let   updates = userInfo?["updates"] as? String,
+             let  sorting = userInfo?["sorting"] as? String{
+       }
       
       // future
       if(active == 2){
@@ -281,6 +284,8 @@ class JobListViewController: UIViewController {
                                                     }
                                                     
                                                    
+                                                }else{
+                                                    print("error")
                                                 }
                                              }, failure: { (failureObj) in
                                                 self.view.makeToast(failureObj)
@@ -471,12 +476,20 @@ extension JobListViewController{
    }
    
    @objc func RefreshJobList(){
-       guard let sDate = userInfo?["sDate"] as? String,
-               let eDate = userInfo?["eDate"] as? String,
-               let passenger = userInfo?["passenger"] as? String,
-               let updates = userInfo?["updates"] as? String,
-               let sorting = userInfo?["sorting"] as? String
-         else{return}
+       let sDate = " ";
+       let eDate = " ";
+       let passenger  = " ";
+       let updates = " ";
+       let sorting = "0";
+       
+       
+       if    let sDate = userInfo?["sDate"] as? String,
+             let  eDate = userInfo?["eDate"] as? String,
+             let  passenger = userInfo?["passenger"] as? String,
+             let   updates = userInfo?["updates"] as? String,
+             let  sorting = userInfo?["sorting"] as? String{
+       }
+       
          
       // job count refresh
       callJobsCount()

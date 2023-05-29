@@ -13,6 +13,7 @@ class JobTableViewCell: UITableViewCell {
    
    static let indentifier = "JobTableViewCell"
    
+    @IBOutlet weak var itemHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var updatesView: UIStackView!
     @IBOutlet weak var containerView: UIView!
    @IBOutlet weak var jobDate: UILabel!
@@ -89,6 +90,8 @@ class JobTableViewCell: UITableViewCell {
             self.updatesView.isHidden = false
         }else{
             self.updatesView.isHidden = true
+          //  itemHeightConstraints.constant = 0.9
+          
         }
     
    }

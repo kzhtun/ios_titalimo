@@ -40,5 +40,6 @@ struct JobDetail: Codable {
    var VehicleType: String!
    var Updates: String!
    var UAEType: String!
+    var Staff: String!
  
 }

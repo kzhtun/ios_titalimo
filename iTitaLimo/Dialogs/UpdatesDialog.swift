@@ -36,7 +36,7 @@ class UpdatesDialog: UIViewController {
     }
     
     @IBAction func btnSaveOnClick(_ sender: Any) {
-        callUpdateJobRemark(jobNo: self.jobNo, remark:  self.updates )
+        callUpdateJobRemark(jobNo: self.jobNo, remark:   self.txtUpdates.text.replacingOccurrences(of: "\n" , with: "##-##") )
             
         self.view.makeToast("Update Job successfully")
         self.dismiss(animated: true, completion: nil)
