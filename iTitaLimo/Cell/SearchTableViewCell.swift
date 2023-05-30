@@ -7,18 +7,17 @@
 
 import UIKit
 
-
 class SearchTableViewCell: UITableViewCell {
    let App = UIApplication.shared.delegate as! AppDelegate
    
-   @IBOutlet weak var containerView: UIView!
-   @IBOutlet weak var btnSearch: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var btnSearch: UIButton!
    
   
     @IBOutlet weak var updates: UITextField!
     @IBOutlet weak var pName: UITextField!
-   @IBOutlet weak var sDate: UITextField!
-   @IBOutlet weak var eDate: UITextField!
+    @IBOutlet weak var sDate: UITextField!
+    @IBOutlet weak var eDate: UITextField!
    
    @IBOutlet weak var lblTimeSorting: UILabel!
    @IBOutlet weak var sgSorting: UISegmentedControl!
@@ -86,10 +85,9 @@ class SearchTableViewCell: UITableViewCell {
       super.awakeFromNib()
       // Initialization code
       
-    
       
-          initSDatePicker()
-          initEDatePicker()
+        initSDatePicker()
+        initEDatePicker()
       
        
         updates.layer.cornerRadius = 15;
@@ -158,14 +156,12 @@ class SearchTableViewCell: UITableViewCell {
       var criteria = [String: String]()
       
       criteria["passenger"] = pName.text!.isEmpty ? " " : pName.text
-       criteria["updates"] = updates.text!.isEmpty ? " " : updates.text
+      criteria["updates"] = updates.text!.isEmpty ? " " : updates.text
       criteria["sDate"] = sDate.text!.isEmpty ? " ": sDate.text
       criteria["eDate"] = eDate.text!.isEmpty ? " ": eDate.text
       criteria["sorting"] = "\(sgSorting.selectedSegmentIndex)"
-      
-      
-      print("search clicked")
-       
+  
+   
       NotificationCenter.default.post(name: Notification.Name("SEARCH_CLICKED"), object: nil, userInfo: criteria)
    }
    

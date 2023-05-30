@@ -106,6 +106,8 @@ class JobListViewController: UIViewController {
       
       JobTableView.delegate = self
       JobTableView.dataSource = self
+       
+      //tableView.estimatedRowHeight = UITableView.automaticDimension
       
       // callGetTodayJobs()
       btnToday.sendActions(for: .touchDown)
@@ -147,29 +149,35 @@ class JobListViewController: UIViewController {
    @objc func searchClicked(notification: NSNotification){
        userInfo = notification.userInfo
        
-       let sDate = " ";
-       let eDate = " ";
-       let passenger  = " ";
-       let updates = " ";
-       let sorting = "0";
-       
-       if    let sDate = userInfo?["sDate"] as? String,
-             let  eDate = userInfo?["eDate"] as? String,
-             let  passenger = userInfo?["passenger"] as? String,
-             let   updates = userInfo?["updates"] as? String,
-             let  sorting = userInfo?["sorting"] as? String{
+   //    RefreshJobList()
+     
+       guard   let sDate = userInfo?["sDate"] as? String,
+             let eDate = userInfo?["eDate"] as? String,
+             let passenger = userInfo?["passenger"] as? String,
+             let updates = userInfo?["updates"] as? String,
+             let sorting = userInfo?["sorting"] as? String
+       else{
+           return
        }
-      
+
+
+       searchFilter.sDate = sDate
+       searchFilter.eDate = eDate
+       searchFilter.passenger = passenger
+       searchFilter.updates = updates
+       searchFilter.sorting = sorting
+       
+       
       // future
       if(active == 2){
          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
       }
-      
+
       // history
       if(active == 3){
           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
       }
-      
+
    }
    
    @objc func dateSelected(){
@@ -307,6 +315,38 @@ class JobListViewController: UIViewController {
       self.JobTableView.backgroundView = spinner
       
    }
+    
+//    func initSearchFilter(userInfo: [AnyHashable : Any]){
+//        if(userInfo["sDate"] == nil){
+//           searchFilter.sDate = ""
+//        }else{
+//            searchFilter.sDate = userInfo["sDate"] as! String
+//        }
+//
+//        if(userInfo["eDate"] == nil){
+//           searchFilter.eDate = ""
+//        }else{
+//            searchFilter.eDate = userInfo["eDate"] as! String
+//        }
+//
+//          if(userInfo["updates"] == nil){
+//            searchFilter.updates = ""
+//          }else{
+//              searchFilter.updates = userInfo["updates"] as! String
+//          }
+//
+//        if(userInfo["passenger"] == nil){
+//           searchFilter.passenger = ""
+//        }else{
+//            searchFilter.passenger = userInfo["passenger"] as! String
+//        }
+//
+//        if(userInfo["sorting"] == nil){
+//           searchFilter.sorting = "0"
+//        }else{
+//            searchFilter.sorting = userInfo["sorting"] as! String
+//        }
+//    }
 }
 
 
@@ -315,35 +355,8 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
      
-      if(userInfo?["sDate"] == nil){
-         searchFilter.sDate = ""
-      }else{
-         searchFilter.sDate = userInfo?["sDate"] as! String
-      }
       
-      if(userInfo?["eDate"] == nil){
-         searchFilter.eDate = ""
-      }else{
-         searchFilter.eDate = userInfo?["eDate"] as! String
-      }
-      
-        if(userInfo?["updates"] == nil){
-          searchFilter.updates = ""
-        }else{
-          searchFilter.updates = userInfo?["updates"] as! String
-        }
-       
-      if(userInfo?["passenger"] == nil){
-         searchFilter.passenger = ""
-      }else{
-         searchFilter.passenger = userInfo?["passenger"] as! String
-      }
-      
-      if(userInfo?["sorting"] == nil){
-         searchFilter.sorting = "0"
-      }else{
-         searchFilter.sorting = userInfo?["sorting"] as! String
-      }
+    //   initSearchFilter()
      
       cell.configure(searchParam: searchFilter, sortingShowHide: (active==2), jobCount: jobList.count)
      
@@ -358,6 +371,11 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
            return 290
        }
    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return UITableView.automaticDimension
+    }
    
    func numberOfSections(in tableView: UITableView) -> Int {
       if(jobList.count == 0){
@@ -403,6 +421,8 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
                      staff: jobList[i].Staff,
                      index: i
       )
+       
+       tableView.estimatedRowHeight = UITableView.automaticDimension
       
       return cell
    }
@@ -478,19 +498,26 @@ extension JobListViewController{
    }
    
    @objc func RefreshJobList(){
-       let sDate = " ";
-       let eDate = " ";
-       let passenger  = " ";
-       let updates = " ";
-       let sorting = "0";
        
-       
-       if    let sDate = userInfo?["sDate"] as? String,
-             let  eDate = userInfo?["eDate"] as? String,
-             let  passenger = userInfo?["passenger"] as? String,
-             let   updates = userInfo?["updates"] as? String,
-             let  sorting = userInfo?["sorting"] as? String{
-       }
+//       guard  let sDate = userInfo?["sDate"] as? String,
+//             let  eDate = userInfo?["eDate"] as? String,
+//             let  passenger = userInfo?["passenger"] as? String,
+//             let   updates = userInfo?["updates"] as? String,
+//             let  sorting = userInfo?["sorting"] as? String
+//       else{
+//           return
+//       }
+//
+//
+//
+//
+////       searchParams.sDate =   sDate
+////       searchParams.eDate =   eDate
+////       searchParams.passenger =   passenger
+////       searchParams.updates =   criteria["updates"]!
+////       searchParams.sorting =   criteria["sorting"]!
+  
+       searchFilter
        
          
       // job count refresh
@@ -504,16 +531,25 @@ extension JobListViewController{
          callGetTomorrowJobs()
       }
        
-    
        // future
        if(active == 2){
-          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
+          callGetFutureJobs(from:  searchFilter.sDate, to:  searchFilter.eDate, passenger:  searchFilter.passenger, sort:  searchFilter.sorting)
        }
        
        // history
        if(active == 3){
-           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
+           callGetHistoryJobs(from:  searchFilter.sDate, to:  searchFilter.eDate, passenger:  searchFilter.passenger, updates: searchFilter.updates, sort:  searchFilter.sorting)
        }
+    
+//       // future
+//       if(active == 2){
+//          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
+//       }
+//
+//       // history
+//       if(active == 3){
+//           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
+//       }
      
    }
    
