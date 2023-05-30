@@ -13,7 +13,8 @@ class JobTableViewCell: UITableViewCell {
    
    static let indentifier = "JobTableViewCell"
    
-    @IBOutlet weak var itemHeightConstraints: NSLayoutConstraint!
+    @IBOutlet weak var staff: UILabel!
+   
     @IBOutlet weak var updatesView: UIStackView!
     @IBOutlet weak var containerView: UIView!
    @IBOutlet weak var jobDate: UILabel!
@@ -47,7 +48,7 @@ class JobTableViewCell: UITableViewCell {
    
    
     public func configure(tab: Int, jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
-                         pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, index: Int){
+                          pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, staff: String, index: Int){
       
       //      self.jobDate.isHidden = true
       //      self.jobDate.frame.size.height = 0
@@ -71,6 +72,7 @@ class JobTableViewCell: UITableViewCell {
       self.passenger.text = passenger
       self.mobile.text = mobile
       self.updates.text = updates.replacingOccurrences(of: "##-##", with: "\n")
+        self.staff.text = staff
       self.btnAdd.tag = index
         
         if(updates.count == 0 ){

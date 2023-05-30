@@ -21,7 +21,10 @@ class JobDetailViewController: UIViewController {
    var jobNo: String = ""
    
    
-   @IBOutlet weak var welcomeMsg: UILabel!
+    @IBOutlet weak var bottomDetailCardViewConstraints: NSLayoutConstraint!
+    @IBOutlet weak var DetailCardView: UIView!
+    @IBOutlet weak var DetailCardViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var welcomeMsg: UILabel!
    
    @IBOutlet weak var lblJobNo: UILabel!
    @IBOutlet weak var lblJobType: UILabel!
@@ -275,18 +278,32 @@ class JobDetailViewController: UIViewController {
       phoneTableView.delegate = self
       phoneTableView.dataSource = self
       
+       
+//       tableViewHeightConstraint.constant = phoneTableView.contentSize.height
+//       DetailCardViewHeightConstraint.constant =  1000
+//       DetailCardView.layoutIfNeeded()
+//       self.view.layoutIfNeeded()
+       
       initLocationManager()
    }
    
    override func viewDidAppear(_ animated: Bool) {
+       
+        let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
+       
       tableViewHeightConstraint.constant = phoneTableView.contentSize.height
+       DetailCardViewHeightConstraint.constant =  700 + diffHeight
+       //bottomDetailCardViewConstraints.constant = 200 + diffHeight
+
+     
+       //DetailCardViewHeightConstraint.constant = phoneTableView.contentSize.height
    }
    
    func displayJobDetail(job: JobDetail){
       
       phoneList = job.Customer_Tel.components(separatedBy: "/")
       
-      lblJobNo.text = job.JobNo
+     // lblJobNo.text = job.JobNo
       lblJobStats.text = job.JobStatus
       lblJobDate.text = job.UsageDate
       lblJobTime.text = job.PickUpTime
@@ -295,8 +312,8 @@ class JobDetailViewController: UIViewController {
       lblAdult.text = job.NoofAdult
       lblChild.text = job.NoofChild
       lblInfant.text = job.NoofInfant
-      lblFlightNo.text = job.Flight
-      lblETA.text = job.ETA
+    //  lblFlightNo.text = job.Flight
+   //   lblETA.text = job.ETA
       lblPickUp.text = job.PickUp
       lblDropOff.text = job.Destination
       lblVehicleType.text = job.VehicleType

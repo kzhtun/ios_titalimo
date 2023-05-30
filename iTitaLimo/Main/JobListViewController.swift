@@ -139,8 +139,9 @@ class JobListViewController: UIViewController {
       super.viewDidLoad()
       buttonSelection()
       
+      
+      self.JobTableView.estimatedSectionHeaderHeight = 1000
       self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
-      self.JobTableView.estimatedSectionHeaderHeight = 25
    }
   
    @objc func searchClicked(notification: NSNotification){
@@ -399,6 +400,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
                      passenger : jobList[i].Customer,
                      mobile : jobList[i].Customer_Tel,
                      updates: jobList[i].Updates,
+                     staff: jobList[i].Staff,
                      index: i
       )
       
