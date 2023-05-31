@@ -15,6 +15,7 @@ class JobTableViewCell: UITableViewCell {
    
     @IBOutlet weak var staff: UILabel!
    
+    @IBOutlet weak var updateViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var updatesView: UIStackView!
     @IBOutlet weak var containerView: UIView!
    @IBOutlet weak var jobDate: UILabel!
@@ -90,9 +91,10 @@ class JobTableViewCell: UITableViewCell {
         
         if(tab == 3){
             self.updatesView.isHidden = false
+            updateViewHeightConstraints.constant = 50
         }else{
             self.updatesView.isHidden = true
-          //  itemHeightConstraints.constant = 0.9
+            updateViewHeightConstraints.constant = 0
           
         }
     

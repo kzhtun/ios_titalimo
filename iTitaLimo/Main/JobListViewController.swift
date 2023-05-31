@@ -141,6 +141,15 @@ class JobListViewController: UIViewController {
       super.viewDidLoad()
       buttonSelection()
       
+       
+       
+//       searchFilter.sDate = sDate
+//       searchFilter.eDate = eDate
+//       searchFilter.passenger = passenger
+//       searchFilter.updates = updates
+//       searchFilter.sorting = sorting
+//
+       
       
       self.JobTableView.estimatedSectionHeaderHeight = 1000
       self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
@@ -180,8 +189,24 @@ class JobListViewController: UIViewController {
 
    }
    
-   @objc func dateSelected(){
-      print("Date is selected")
+   @objc func dateSelected(notification: NSNotification){
+       userInfo = notification.userInfo
+  
+       guard   let sDate = userInfo?["sDate"] as? String,
+             let eDate = userInfo?["eDate"] as? String,
+             let passenger = userInfo?["passenger"] as? String,
+             let updates = userInfo?["updates"] as? String,
+             let sorting = userInfo?["sorting"] as? String
+       else{
+           return
+       }
+
+       searchFilter.sDate = sDate
+       searchFilter.eDate = eDate
+       searchFilter.passenger = passenger
+       searchFilter.updates = updates
+       searchFilter.sorting = sorting
+       
       self.JobTableView.reloadData()
    }
    

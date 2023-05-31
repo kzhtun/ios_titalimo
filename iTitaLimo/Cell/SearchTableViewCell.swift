@@ -10,6 +10,8 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
    let App = UIApplication.shared.delegate as! AppDelegate
    
+    var searchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btnSearch: UIButton!
    
@@ -63,12 +65,15 @@ class SearchTableViewCell: UITableViewCell {
       eDate.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
       eDate.rightView?.addSubview(image2)
       eDate.rightViewMode = .always
+   
      
-      sgSorting.selectedSegmentIndex = Int(searchParam.sorting)!
-     
-//      pName.text = searchParam.passenger
-//      sDate.text = searchParam.sDate
-//      eDate.text = searchParam.eDate
+   
+    sDate.text = searchParam.sDate
+    eDate.text = searchParam.eDate
+    pName.text = searchParam.passenger
+    updates.text = searchParam.updates
+    sgSorting.selectedSegmentIndex = Int(searchParam.sorting)!
+    
       
       if(sortingShowHide){
          lblTimeSorting.isHidden = true
@@ -172,13 +177,23 @@ class SearchTableViewCell: UITableViewCell {
       let format = DateFormatter()
       format.dateFormat = "dd MMM yyyy"
       sDate.text = format.string(from: datePicker.date)
+       
+       
       
       //let dataDict:[String: String] = ["date": "12/12/2020"]
       syncSearchParamsOnParentList()
    }
    
    func syncSearchParamsOnParentList(){
-      NotificationCenter.default.post(name: Notification.Name("SYNC_SEARCH_PARAMS"), object: nil, userInfo: nil)
+       var criteria = [String: String]()
+       
+       criteria["passenger"] = pName.text!.isEmpty ? " " : pName.text
+       criteria["updates"] = updates.text!.isEmpty ? " " : updates.text
+       criteria["sDate"] = sDate.text!.isEmpty ? " ": sDate.text
+       criteria["eDate"] = eDate.text!.isEmpty ? " ": eDate.text
+       criteria["sorting"] = "\(sgSorting.selectedSegmentIndex)"
+       
+      NotificationCenter.default.post(name: Notification.Name("SYNC_SEARCH_PARAMS"), object: nil, userInfo: criteria)
    }
    
    @objc func eDoneOnClick(){
