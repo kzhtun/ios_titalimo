@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PassengerOnBoardDialog" customModule="iTitaLimo" customModuleProvider="target">
             <connections>
                 <outlet property="btnCamera" destination="J9M-rI-xkM" id="AOz-1g-8Z3"/>
+                <outlet property="btnErase" destination="h7u-OY-E2G" id="IUY-SY-vpq"/>
                 <outlet property="imgPreview" destination="e1e-QS-OO4" id="e5J-CZ-28b"/>
                 <outlet property="outsideView" destination="i5M-Pr-FkT" id="uZJ-Od-Yzi"/>
                 <outlet property="photoView" destination="mLS-87-3Rm" id="nXW-ll-Wf5"/>
@@ -46,7 +48,7 @@
                                 <constraint firstAttribute="width" constant="80" id="4PB-61-XWF"/>
                                 <constraint firstAttribute="height" constant="22" id="nWI-Aw-qQS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                             <state key="normal" title="SIGNATURE"/>
                             <connections>
                                 <action selector="SignOnClick:" destination="-1" eventType="touchUpInside" id="wFq-sG-pUu"/>
@@ -58,7 +60,7 @@
                                 <constraint firstAttribute="width" constant="90" id="fbH-qG-m1W"/>
                                 <constraint firstAttribute="height" constant="22" id="ljm-X6-iOp"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                             <state key="normal" title="PASSENGER"/>
                             <connections>
                                 <action selector="PhotoOnClick:" destination="-1" eventType="touchUpInside" id="ydp-8N-bNl"/>
@@ -72,11 +74,11 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9M-rI-xkM">
-                                    <rect key="frame" x="262" y="119" width="40" height="40"/>
+                                    <rect key="frame" x="284" y="141" width="32" height="32"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="7kQ-uh-GAb"/>
-                                        <constraint firstAttribute="width" constant="40" id="h4m-Pi-or4"/>
+                                        <constraint firstAttribute="height" constant="32" id="7kQ-uh-GAb"/>
+                                        <constraint firstAttribute="width" constant="32" id="h4m-Pi-or4"/>
                                     </constraints>
                                     <state key="normal" image="ic_camera">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,40 +96,15 @@
                             <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="175" id="5SG-jX-UaY"/>
-                                <constraint firstAttribute="trailing" secondItem="J9M-rI-xkM" secondAttribute="trailing" constant="16" id="XLX-VS-uzz"/>
-                                <constraint firstAttribute="bottom" secondItem="J9M-rI-xkM" secondAttribute="bottom" constant="16" id="cw2-Yq-BeT"/>
+                                <constraint firstAttribute="trailing" secondItem="J9M-rI-xkM" secondAttribute="trailing" constant="2" id="XLX-VS-uzz"/>
+                                <constraint firstAttribute="bottom" secondItem="J9M-rI-xkM" secondAttribute="bottom" constant="2" id="cw2-Yq-BeT"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
                             <rect key="frame" x="32" y="106" width="318" height="175"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7u-OY-E2G">
-                                    <rect key="frame" x="262" y="119" width="40" height="40"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="aNh-0H-Da8"/>
-                                        <constraint firstAttribute="width" constant="40" id="xw0-bL-s6t"/>
-                                    </constraints>
-                                    <state key="normal" image="ic_easer">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="easerOnClick:" destination="-1" eventType="touchUpInside" id="IT9-PA-XjJ"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="175" id="RTe-J1-ker"/>
-                                <constraint firstAttribute="bottom" secondItem="h7u-OY-E2G" secondAttribute="bottom" constant="16" id="Vv7-Hk-TRM"/>
-                                <constraint firstAttribute="trailing" secondItem="h7u-OY-E2G" secondAttribute="trailing" constant="16" id="fUJ-Gw-DJo"/>
-                                <constraint firstAttribute="bottom" secondItem="h7u-OY-E2G" secondAttribute="bottom" constant="16" id="fa8-FX-Gd1"/>
-                                <constraint firstAttribute="trailing" secondItem="h7u-OY-E2G" secondAttribute="trailing" constant="16" id="te9-7F-9HQ"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
@@ -175,6 +152,25 @@
                                 <action selector="SubmitOnClick:" destination="-1" eventType="touchUpInside" id="1K0-08-Mye"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7u-OY-E2G">
+                            <rect key="frame" x="316" y="247" width="32" height="32"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="LMa-IU-knn"/>
+                                <constraint firstAttribute="height" constant="32" id="cck-hh-uVR"/>
+                            </constraints>
+                            <state key="normal" image="ic_easer">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="easerOnClick:" destination="-1" eventType="touchUpInside" id="IT9-PA-XjJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -188,6 +184,7 @@
                         <constraint firstItem="LSE-TS-4aK" firstAttribute="top" secondItem="Wf7-FO-ZiN" secondAttribute="bottom" constant="16" id="Gle-w4-MNB"/>
                         <constraint firstItem="zSC-dD-bKx" firstAttribute="top" secondItem="ZJW-r8-XyP" secondAttribute="bottom" constant="26" id="KtQ-1v-eEZ"/>
                         <constraint firstItem="Wf7-FO-ZiN" firstAttribute="top" secondItem="vdh-sj-1I5" secondAttribute="bottom" id="TeI-kj-QEn"/>
+                        <constraint firstItem="ZJW-r8-XyP" firstAttribute="top" secondItem="h7u-OY-E2G" secondAttribute="bottom" constant="34" id="Y8n-ir-bwa"/>
                         <constraint firstItem="ZJW-r8-XyP" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="fHe-al-qNY"/>
                         <constraint firstAttribute="trailing" secondItem="mLS-87-3Rm" secondAttribute="trailing" constant="32" id="fev-18-sqF"/>
                         <constraint firstItem="pZh-qI-Fd0" firstAttribute="leading" secondItem="vdh-sj-1I5" secondAttribute="trailing" id="iIo-NG-dxU"/>
@@ -196,6 +193,7 @@
                         <constraint firstAttribute="trailing" secondItem="Wf7-FO-ZiN" secondAttribute="trailing" constant="32" id="lbE-QK-zke"/>
                         <constraint firstItem="pZh-qI-Fd0" firstAttribute="top" secondItem="oqZ-1v-fdA" secondAttribute="bottom" constant="32" id="nPR-4e-lyI"/>
                         <constraint firstItem="vdh-sj-1I5" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="ngN-fm-e12"/>
+                        <constraint firstAttribute="trailing" secondItem="h7u-OY-E2G" secondAttribute="trailing" constant="34" id="p1u-wA-9xZ"/>
                         <constraint firstItem="mLS-87-3Rm" firstAttribute="top" secondItem="pZh-qI-Fd0" secondAttribute="bottom" id="saI-a8-CXD"/>
                         <constraint firstAttribute="trailing" secondItem="zSC-dD-bKx" secondAttribute="trailing" constant="32" id="suK-dg-ibN"/>
                         <constraint firstItem="oqZ-1v-fdA" firstAttribute="top" secondItem="mWh-VM-p9f" secondAttribute="top" constant="32" id="xMF-bm-9u5"/>
@@ -222,7 +220,7 @@
         <image name="ic_camera" width="29.5" height="25"/>
         <image name="ic_easer" width="22.5" height="22.5"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

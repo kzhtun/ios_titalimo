@@ -21,7 +21,9 @@ class PassengerOnBoardDialog: UIViewController {
    
    let picker = UIImagePickerController()
    
-   @IBOutlet var outsideView: UIView!
+  
+    @IBOutlet weak var btnErase: UIButton!
+    @IBOutlet var outsideView: UIView!
    @IBOutlet weak var signView: SignaturePad!
    @IBOutlet weak var tabPassenger: UIButton!
    @IBOutlet weak var tabSignature: UIButton!
@@ -116,7 +118,7 @@ class PassengerOnBoardDialog: UIViewController {
    }
    
    @IBAction func SubmitOnClick(_ sender: Any) {
-     
+       
       // upload passenger photo
       var subfix = ""
       if(jobAction == "NS"){
@@ -125,6 +127,7 @@ class PassengerOnBoardDialog: UIViewController {
          subfix = "_show.jpg"
       }
       
+       // photo
       if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
          DispatchQueue.main.async{
             self.uploadFTP(imageData: imagedata, fileName: self.jobNo + subfix)
@@ -133,14 +136,19 @@ class PassengerOnBoardDialog: UIViewController {
       
       // upload signature
       if signView.getSignature() != nil {
-         DispatchQueue.main.async{
-            if(self.photoView.isHidden){
-               if let signature = self.signView.getSignature() {
-                  self.signatureData = signature.jpegData(compressionQuality: 0.5)!
-               }
-            }
-           // self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
-         }
+        //  self.btnErase.isHidden = true
+        //  self.btnEraseHeightConstraints.constant = 0
+          
+          DispatchQueue.main.async{
+             if(self.photoView.isHidden){
+                if let signature = self.signView.getSignature() {
+                   self.signatureData = signature.jpegData(compressionQuality: 0.5)!
+                    
+                
+                }
+             }
+             self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
+          }
       }
       
       if(remarks.text.isEmpty){
@@ -169,6 +177,9 @@ class PassengerOnBoardDialog: UIViewController {
             self.view.makeToast(failureObj)
          }
       }
+       
+    //   btnErase.isHidden = false
+     //  btnEraseHeightConstraints.constant = 32
     
    }
    
@@ -186,6 +197,7 @@ class PassengerOnBoardDialog: UIViewController {
       tabPassenger.backgroundColor = nil
       
       signView.isHidden = false
+       btnErase.isHidden = false
       photoView.isHidden = true
    }
    
@@ -195,6 +207,7 @@ class PassengerOnBoardDialog: UIViewController {
       
       photoView.backgroundColor = UIColor(hex: textFieldColor)
       signView.isHidden = true
+       btnErase.isHidden = true
       photoView.isHidden = false
       
       // upload signature

@@ -43,7 +43,8 @@ class JobDetailViewController: UIViewController {
    @IBOutlet weak var lblVehicleType: UILabel!
    @IBOutlet weak var lblRemark: UILabel!
    
-   
+    @IBOutlet weak var lblStaff: UILabel!
+    
    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
    @IBOutlet weak var phoneTableView: UITableView!
    
@@ -318,7 +319,8 @@ class JobDetailViewController: UIViewController {
       lblDropOff.text = job.Destination
       lblVehicleType.text = job.VehicleType
       lblRemark.text = job.Remarks
-      
+       lblStaff.text = job.Staff
+       
       setActionButtonByStatus()
    }
    
