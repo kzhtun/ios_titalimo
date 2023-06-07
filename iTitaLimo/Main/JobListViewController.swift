@@ -47,7 +47,7 @@ class JobListViewController: UIViewController {
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated:  true, completion: nil)
        
-        self.view.makeToast( vc.jobNo )
+        //self.view.makeToast( vc.jobNo )
     }
    
     @IBAction func TodayOnClick(_ sender: Any) {
@@ -430,7 +430,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       let i = indexPath.row
       
        
-       self.view.makeToast(jobList[i].JobNo);
+     //  self.view.makeToast(jobList[i].JobNo);
        
        cell.configure(tab: active,
                      jobDate : jobList[i].UsageDate,

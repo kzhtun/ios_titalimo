@@ -11,10 +11,9 @@ import CFNetwork
 public class FTPUpload {
     // DEV
    fileprivate let ftpBaseUrl: String = "128.106.129.15"
-   fileprivate let directoryPath: String = ""
+   fileprivate let directoryPath: String = "limopics"
    fileprivate let username: String = "ipos"
    fileprivate let password: String = "iposftp"
-    
     
     // LIVE
 //    fileprivate let ftpBaseUrl: String = "97.74.89.233"

@@ -11,10 +11,14 @@ import Alamofire
 class Router{
    let App = UIApplication.shared.delegate as! AppDelegate
    static var instance: Router?
-  // let baseURL = "http://info121.sytes.net:84/RestAPITitanium/MyLimoService.svc/"
+  
 
-   //let baseURL = "http://info121.sytes.net/RestAPITitanium/MyLimoService.svc/"
+    // DEV
     let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
+    
+    // LIVE
+   // let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+    
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
    
