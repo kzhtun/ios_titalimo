@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSMinimumSystemVersion</key>
+	<string>12.3</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -29,9 +37,11 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <string>whatsapp</string>
+		<string>whatsapp</string>
 		<string>comgooglemaps</string>
 		<string>waze</string>
 		<string>comgooglemaps-x-callback</string>
@@ -51,6 +61,8 @@
 	<string>Do you allow this app to know your current location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Do you allow this app to know your current location?</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Everytime the user changes job status the app optionally inculdes the user&apos;s current location to be kept as a history movement for each job. If user declines location tracking, no location will be captured</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -75,6 +87,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>processing</string>
 		<string>remote-notification</string>
 	</array>

@@ -542,7 +542,7 @@ extension JobListViewController{
 ////       searchParams.updates =   criteria["updates"]!
 ////       searchParams.sorting =   criteria["sorting"]!
   
-       searchFilter
+      // searchFilter
        
          
       // job count refresh

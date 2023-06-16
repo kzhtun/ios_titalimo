@@ -1,4 +1,4 @@
-module SignaturePad {
+framework module SignaturePad {
   umbrella header "SignaturePad-umbrella.h"
 
   export *

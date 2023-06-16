@@ -1,4 +1,4 @@
-module AlamofireObjectMapper {
+framework module AlamofireObjectMapper {
   umbrella header "AlamofireObjectMapper-umbrella.h"
 
   export *

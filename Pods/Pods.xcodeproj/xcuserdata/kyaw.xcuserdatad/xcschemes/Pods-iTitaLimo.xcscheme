@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FD8F9147C56FE5E393B2820FED96018"
-               BuildableName = "libPods-iTitaLimo.a"
+               BuildableName = "Pods_iTitaLimo.framework"
                BlueprintName = "Pods-iTitaLimo"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "643E2173EB8F18AE8C4C6C281CA4EB3D"
-               BuildableName = "libSignaturePad.a"
+               BuildableName = "SignaturePad.framework"
                BlueprintName = "SignaturePad"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
