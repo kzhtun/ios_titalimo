@@ -21,6 +21,22 @@ class JobDetailViewController: UIViewController {
    var jobNo: String = ""
    
    
+    @IBAction func btnExit_TouchDown(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBOutlet weak var paxLowerLineTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paxUpperLineBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paxUpperLineTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paxLowerLineBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var paxLayoutHeightConstraint: NSLayoutConstraint!
+    
+  
+    @IBOutlet weak var paxLowerLine: UIView!
+    @IBOutlet weak var paxUpperLine: UIView!
+    
+    
+    @IBOutlet weak var paxStackView: UIStackView!
     @IBOutlet weak var bottomDetailCardViewConstraints: NSLayoutConstraint!
     @IBOutlet weak var DetailCardView: UIView!
     @IBOutlet weak var DetailCardViewHeightConstraint: NSLayoutConstraint!
@@ -52,10 +68,10 @@ class JobDetailViewController: UIViewController {
    
    @IBOutlet weak var btnNegative: UIButton!
    @IBOutlet weak var btnPositive: UIButton!
-   
-   @IBAction func btnBack(_ sender: Any) {
-      self.dismiss(animated: true)
-   }
+//
+//   @IBAction func btnBack(_ sender: Any) {
+//      self.dismiss(animated: true)
+//   }
    
    func setActionButtonByStatus(){
       btnNegative.isEnabled = true
@@ -293,7 +309,7 @@ class JobDetailViewController: UIViewController {
         let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
        
       tableViewHeightConstraint.constant = phoneTableView.contentSize.height
-       DetailCardViewHeightConstraint.constant =  700 + diffHeight
+      DetailCardViewHeightConstraint.constant =  650 + diffHeight
        //bottomDetailCardViewConstraints.constant = 200 + diffHeight
 
      
@@ -305,6 +321,7 @@ class JobDetailViewController: UIViewController {
       phoneList = job.Customer_Tel.components(separatedBy: "/")
       
      // lblJobNo.text = job.JobNo
+      lblJobType.text = job.JobType
       lblJobStats.text = job.JobStatus
       lblJobDate.text = job.UsageDate
       lblJobTime.text = job.PickUpTime
@@ -319,7 +336,33 @@ class JobDetailViewController: UIViewController {
       lblDropOff.text = job.Destination
       lblVehicleType.text = job.VehicleType
       lblRemark.text = job.Remarks
-       lblStaff.text = job.Staff
+      lblStaff.text = job.Staff
+       
+       
+       
+       if (job.JobType.caseInsensitiveCompare("MEDICAL") == .orderedSame || job.JobType.caseInsensitiveCompare("UAE") == .orderedSame ) {
+           
+        //   paxStackView.visiblity(gone: true)
+           
+           paxStackView.isHidden = true
+           paxUpperLine.isHidden = true
+           paxLowerLine.isHidden = true
+           
+           paxLayoutHeightConstraint.constant = 0
+           
+           paxUpperLineTopConstraint.constant = 0
+           paxUpperLineBottomConstraint.constant = 0
+           
+           paxLowerLineTopConstraint.constant = 0
+           paxLowerLineBottomConstraint.constant = 8
+           
+         //  DetailCardViewHeightConstraint.constant -= 30
+           
+           self.view.layoutIfNeeded()
+           self.detailView.setNeedsUpdateConstraints()
+        
+       }
+       
        
       setActionButtonByStatus()
    }
@@ -506,3 +549,5 @@ extension JobDetailViewController{
       
    }
 }
+
+

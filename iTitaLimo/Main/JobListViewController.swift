@@ -21,20 +21,19 @@ class JobListViewController: UIViewController {
    
    var active = 0
    
-   @IBOutlet weak var welcomeMsg: UILabel!
+   
+    @IBAction func btnBack_TouchUpInside(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var welcomeMsg: UILabel!
    @IBOutlet weak var btnToday: UIButton!
    @IBOutlet weak var btnTomorrow: UIButton!
    @IBOutlet weak var btnFuture: UIButton!
    @IBOutlet weak var btnHistory: UIButton!
    @IBOutlet weak var JobTableView: UITableView!
    
-   @IBAction func btnExitOnClick(_ sender: Any) {
-      self.dismiss(animated: true, completion: nil)
-   }
-   
-   @IBAction func btnBackOnClick(_ sender: Any) {
-      self.dismiss(animated: true, completion: nil)
-   }
+  
    
     @IBAction func btnAddOnClick(_ sender: UIButton) {
         let vc = UpdatesDialog()
@@ -103,6 +102,7 @@ class JobListViewController: UIViewController {
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
       
       registerObservers()
+       
       
       JobTableView.delegate = self
       JobTableView.dataSource = self
@@ -432,22 +432,28 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
        
      //  self.view.makeToast(jobList[i].JobNo);
        
-       cell.configure(tab: active,
-                     jobDate : jobList[i].UsageDate,
-                     jobType : jobList[i].JobType,
-                     jobStatus : jobList[i].JobStatus,
-                     vehicleType : jobList[i].VehicleType,
-                     jobTime : jobList[i].PickUpTime,
-                     pickup : jobList[i].PickUp,
-                     dropoff : jobList[i].Destination,
-                     passenger : jobList[i].Customer,
-                     mobile : jobList[i].Customer_Tel,
-                     updates: jobList[i].Updates,
-                     staff: jobList[i].Staff,
-                     index: i
-      )
        
-       tableView.estimatedRowHeight = UITableView.automaticDimension
+       let state = UIApplication.shared.applicationState
+       
+       if state == .active {
+           // foreground
+           cell.configure(tab: active,
+                         jobDate : jobList[i].UsageDate,
+                         jobType : jobList[i].JobType,
+                         jobStatus : jobList[i].JobStatus,
+                         vehicleType : jobList[i].VehicleType,
+                         jobTime : jobList[i].PickUpTime,
+                         pickup : jobList[i].PickUp,
+                         dropoff : jobList[i].Destination,
+                         passenger : jobList[i].Customer,
+                         mobile : jobList[i].Customer_Tel,
+                         updates: jobList[i].Updates,
+                         staff: jobList[i].Staff,
+                         index: i
+          )
+      
+           tableView.estimatedRowHeight = UITableView.automaticDimension
+       }
       
       return cell
    }

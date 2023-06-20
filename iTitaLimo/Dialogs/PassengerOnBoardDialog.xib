@@ -100,18 +100,15 @@
                                 <constraint firstAttribute="bottom" secondItem="J9M-rI-xkM" secondAttribute="bottom" constant="2" id="cw2-Yq-BeT"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
+                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
                             <rect key="frame" x="32" y="106" width="318" height="175"/>
-                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="linkColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="175" id="RTe-J1-ker"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
                                     <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                    <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
@@ -221,6 +218,9 @@
         <image name="ic_easer" width="22.5" height="22.5"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

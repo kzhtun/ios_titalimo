@@ -40,7 +40,7 @@ class PassengerOnBoardDialog: UIViewController {
   
    override func viewWillAppear(_ animated: Bool) {
       let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
-//      outsideView.addGestureRecognizer(gesture)
+      outsideView.addGestureRecognizer(gesture)
       
       remarks.backgroundColor = UIColor(hex: textFieldColor)
       
