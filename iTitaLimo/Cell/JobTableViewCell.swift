@@ -30,9 +30,9 @@ class JobTableViewCell: UITableViewCell {
    
     @IBOutlet weak var btnAdd: UIButton!
    
-    @IBAction func btnAddOnClick(_ sender: Any) {
-      
-   }
+//    @IBAction func btnAddOnClick(_ sender: Any) {
+//
+//   }
     
     @IBOutlet weak var updates: UILabel!
     
@@ -51,6 +51,8 @@ class JobTableViewCell: UITableViewCell {
     public func configure(tab: Int, jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
                           pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, staff: String, index: Int){
       
+        
+        var newUpdates = ""
       //      self.jobDate.isHidden = true
       //      self.jobDate.frame.size.height = 0
         
@@ -58,11 +60,16 @@ class JobTableViewCell: UITableViewCell {
     btnAdd.layer.cornerRadius = 13;
     btnAdd.layer.masksToBounds = true;
     
-      self.updatesView.isHidden = true
+   //   self.updatesView.isHidden = true
       //  self.updatesView.layoutIfNeeded()
         
        // self.updatesView.heightAnchor.constraint(equalTo: 0)
-     
+
+        
+        
+        newUpdates = (updates == "##-##") ? "" : updates
+        
+        
       self.jobDate.text = jobDate
       self.jobType.text = jobType
       self.jobStatus.text = jobStatus
@@ -72,8 +79,8 @@ class JobTableViewCell: UITableViewCell {
       self.dropoff.text = dropoff
       self.passenger.text = passenger
       self.mobile.text = mobile
-      self.updates.text = updates.replacingOccurrences(of: "##-##", with: "\n")
-        self.staff.text = staff
+      self.updates.text = newUpdates.replacingOccurrences(of: "##-##", with: "\n")
+      self.staff.text = staff
       self.btnAdd.tag = index
         
         if(updates.count == 0 ){
@@ -87,16 +94,20 @@ class JobTableViewCell: UITableViewCell {
           //  self.btnAdd.backgroundColor = UIColor.init(hex: "#FF9400AA")
         }
         
-       
         
-        if(tab == 3){
-            self.updatesView.isHidden = false
-            updateViewHeightConstraints.constant = 50
-        }else{
-            self.updatesView.isHidden = true
-            updateViewHeightConstraints.constant = 0
-          
-        }
+        // show in all tabs
+        self.updatesView.isHidden = false
+        updateViewHeightConstraints.constant = 50
+        self.updatesView.layoutIfNeeded()
+        
+//        if(tab == 3){
+//            self.updatesView.isHidden = false
+//            updateViewHeightConstraints.constant = 50
+//        }else{
+//            self.updatesView.isHidden = true
+//            updateViewHeightConstraints.constant = 0
+//
+//        }
     
    }
    

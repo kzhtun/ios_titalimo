@@ -12,7 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PassengerOnBoardDialog" customModule="iTitaLimo" customModuleProvider="target">
             <connections>
                 <outlet property="btnCamera" destination="J9M-rI-xkM" id="AOz-1g-8Z3"/>
-                <outlet property="btnErase" destination="h7u-OY-E2G" id="IUY-SY-vpq"/>
+                <outlet property="btnClear" destination="gVf-wz-8yA" id="Y7g-Im-f10"/>
+                <outlet property="btnDone" destination="00A-YK-G7N" id="oHX-tq-pqb"/>
                 <outlet property="imgPreview" destination="e1e-QS-OO4" id="e5J-CZ-28b"/>
                 <outlet property="outsideView" destination="i5M-Pr-FkT" id="uZJ-Od-Yzi"/>
                 <outlet property="photoView" destination="mLS-87-3Rm" id="nXW-ll-Wf5"/>
@@ -75,12 +76,12 @@
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9M-rI-xkM">
                                     <rect key="frame" x="284" y="141" width="32" height="32"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="32" id="7kQ-uh-GAb"/>
                                         <constraint firstAttribute="width" constant="32" id="h4m-Pi-or4"/>
                                     </constraints>
-                                    <state key="normal" image="ic_camera">
+                                    <state key="normal" image="ic_add_profile">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -100,15 +101,18 @@
                                 <constraint firstAttribute="bottom" secondItem="J9M-rI-xkM" secondAttribute="bottom" constant="2" id="cw2-Yq-BeT"/>
                             </constraints>
                         </view>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
                             <rect key="frame" x="32" y="106" width="318" height="175"/>
-                            <color key="backgroundColor" systemColor="linkColor"/>
+                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="175" id="RTe-J1-ker"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
                                     <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                    <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
@@ -133,7 +137,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-dD-bKx">
                             <rect key="frame" x="32" y="459" width="318" height="35"/>
-                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.58823529411764708" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="Lzg-2a-YHV"/>
                             </constraints>
@@ -149,23 +153,26 @@
                                 <action selector="SubmitOnClick:" destination="-1" eventType="touchUpInside" id="1K0-08-Mye"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7u-OY-E2G">
-                            <rect key="frame" x="316" y="247" width="32" height="32"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="32" id="LMa-IU-knn"/>
-                                <constraint firstAttribute="height" constant="32" id="cck-hh-uVR"/>
-                            </constraints>
-                            <state key="normal" image="ic_easer">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVf-wz-8yA">
+                            <rect key="frame" x="38" y="256" width="40" height="27"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="CLEAR">
+                                <color key="titleColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="easerOnClick:" destination="-1" eventType="touchUpInside" id="IT9-PA-XjJ"/>
+                                <action selector="btnClear_TouchDown:" destination="-1" eventType="touchDown" id="vaA-uE-6O4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00A-YK-G7N">
+                            <rect key="frame" x="309" y="256" width="35" height="27"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="DONE">
+                                <color key="titleColor" red="0.15832913976137331" green="0.58028323634141155" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnDone_TouchDown:" destination="-1" eventType="touchDown" id="S39-kc-zgn"/>
                             </connections>
                         </button>
                     </subviews>
@@ -181,16 +188,18 @@
                         <constraint firstItem="LSE-TS-4aK" firstAttribute="top" secondItem="Wf7-FO-ZiN" secondAttribute="bottom" constant="16" id="Gle-w4-MNB"/>
                         <constraint firstItem="zSC-dD-bKx" firstAttribute="top" secondItem="ZJW-r8-XyP" secondAttribute="bottom" constant="26" id="KtQ-1v-eEZ"/>
                         <constraint firstItem="Wf7-FO-ZiN" firstAttribute="top" secondItem="vdh-sj-1I5" secondAttribute="bottom" id="TeI-kj-QEn"/>
-                        <constraint firstItem="ZJW-r8-XyP" firstAttribute="top" secondItem="h7u-OY-E2G" secondAttribute="bottom" constant="34" id="Y8n-ir-bwa"/>
+                        <constraint firstAttribute="trailing" secondItem="00A-YK-G7N" secondAttribute="trailing" constant="38" id="Z2s-un-6h1"/>
+                        <constraint firstItem="gVf-wz-8yA" firstAttribute="top" secondItem="vdh-sj-1I5" secondAttribute="bottom" constant="150" id="ZVj-aw-mPQ"/>
+                        <constraint firstItem="gVf-wz-8yA" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="38" id="d5Y-GD-Etj"/>
                         <constraint firstItem="ZJW-r8-XyP" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="fHe-al-qNY"/>
                         <constraint firstAttribute="trailing" secondItem="mLS-87-3Rm" secondAttribute="trailing" constant="32" id="fev-18-sqF"/>
                         <constraint firstItem="pZh-qI-Fd0" firstAttribute="leading" secondItem="vdh-sj-1I5" secondAttribute="trailing" id="iIo-NG-dxU"/>
                         <constraint firstItem="LSE-TS-4aK" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="k5A-yJ-eX2"/>
                         <constraint firstItem="Wf7-FO-ZiN" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="kgs-Pb-0bv"/>
+                        <constraint firstItem="00A-YK-G7N" firstAttribute="top" secondItem="mWh-VM-p9f" secondAttribute="top" constant="256" id="kjW-RH-Ioa"/>
                         <constraint firstAttribute="trailing" secondItem="Wf7-FO-ZiN" secondAttribute="trailing" constant="32" id="lbE-QK-zke"/>
                         <constraint firstItem="pZh-qI-Fd0" firstAttribute="top" secondItem="oqZ-1v-fdA" secondAttribute="bottom" constant="32" id="nPR-4e-lyI"/>
                         <constraint firstItem="vdh-sj-1I5" firstAttribute="leading" secondItem="mWh-VM-p9f" secondAttribute="leading" constant="32" id="ngN-fm-e12"/>
-                        <constraint firstAttribute="trailing" secondItem="h7u-OY-E2G" secondAttribute="trailing" constant="34" id="p1u-wA-9xZ"/>
                         <constraint firstItem="mLS-87-3Rm" firstAttribute="top" secondItem="pZh-qI-Fd0" secondAttribute="bottom" id="saI-a8-CXD"/>
                         <constraint firstAttribute="trailing" secondItem="zSC-dD-bKx" secondAttribute="trailing" constant="32" id="suK-dg-ibN"/>
                         <constraint firstItem="oqZ-1v-fdA" firstAttribute="top" secondItem="mWh-VM-p9f" secondAttribute="top" constant="32" id="xMF-bm-9u5"/>
@@ -214,13 +223,9 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_camera" width="29.5" height="25"/>
-        <image name="ic_easer" width="22.5" height="22.5"/>
+        <image name="ic_add_profile" width="27" height="22.5"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -30,13 +30,14 @@ class UpdatesDialog: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
         outsideView.addGestureRecognizer(gesture)
         
+        var newUpdates = (updates == "##-##") ? "" : updates
         
-        self.txtUpdates.text = updates.replacingOccurrences(of: "##-##" , with: "\n")
+        self.txtUpdates.text = newUpdates.replacingOccurrences(of: "##-##" , with: "\n")
         
     }
     
     @IBAction func btnSaveOnClick(_ sender: Any) {
-        callUpdateJobRemark(jobNo: self.jobNo, remark:   self.txtUpdates.text.replacingOccurrences(of: "\n" , with: "##-##") )
+        callUpdateJobRemark(jobNo: self.jobNo, remark:   self.txtUpdates.text )
             
         self.view.makeToast("Update Job successfully")
         self.dismiss(animated: true, completion: nil)
@@ -65,8 +66,13 @@ class UpdatesDialog: UIViewController {
     
     func callUpdateJobRemark(jobNo: String, remark: String){
         var jobInfo: [AnyHashable: Any]?
-       
-        Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: txtUpdates.text.replacingOccurrences(of: "\n" , with: "##-##"),
+        var newRemark = ""
+        
+      
+        
+        newRemark = (remark.isEmpty) ? "\n" : remark
+        
+        Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: newRemark.replacingOccurrences(of: "\n" , with: "##-##"),
                                                success: {(successObj) in
                                                  if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                   

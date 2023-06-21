@@ -306,10 +306,10 @@ class JobDetailViewController: UIViewController {
    
    override func viewDidAppear(_ animated: Bool) {
        
-        let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
+      let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
        
       tableViewHeightConstraint.constant = phoneTableView.contentSize.height
-      DetailCardViewHeightConstraint.constant =  650 + diffHeight
+      DetailCardViewHeightConstraint.constant =  850 + diffHeight
        //bottomDetailCardViewConstraints.constant = 200 + diffHeight
 
      
@@ -354,7 +354,7 @@ class JobDetailViewController: UIViewController {
            paxUpperLineBottomConstraint.constant = 0
            
            paxLowerLineTopConstraint.constant = 0
-           paxLowerLineBottomConstraint.constant = 8
+           paxLowerLineBottomConstraint.constant = 16
            
          //  DetailCardViewHeightConstraint.constant -= 30
            

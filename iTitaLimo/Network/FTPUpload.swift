@@ -11,7 +11,7 @@ import CFNetwork
 public class FTPUpload {
     // DEV
 //   fileprivate let ftpBaseUrl: String = "128.106.129.15"
-//   fileprivate let directoryPath: String = "limopics"
+//   fileprivate let directoryPath: String = ""
 //   fileprivate let username: String = "ipos"
 //   fileprivate let password: String = "iposftp"
     
@@ -93,6 +93,9 @@ extension FTPUpload {
       var dataToSendSize: Int = fileSize
       
       var shouldContinue = true
+       
+      var i = 0
+       
       repeat {
          if (CFWriteStreamCanAcceptBytes(ftpWriteStream)) {
             let bytesWritten = CFWriteStreamWrite(ftpWriteStream, &buffer[offset], dataToSendSize)

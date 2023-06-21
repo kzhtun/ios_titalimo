@@ -21,8 +21,9 @@ class PassengerOnBoardDialog: UIViewController {
    
    let picker = UIImagePickerController()
    
+    var hasSignature = false
   
-    @IBOutlet weak var btnErase: UIButton!
+  
     @IBOutlet var outsideView: UIView!
    @IBOutlet weak var signView: SignaturePad!
    @IBOutlet weak var tabPassenger: UIButton!
@@ -37,7 +38,52 @@ class PassengerOnBoardDialog: UIViewController {
    
    @IBOutlet weak var remarks: UITextView!
    
+    
+    @IBOutlet weak var btnDone: UIButton!
+    @IBOutlet weak var btnClear: UIButton!
+    
+    @IBAction func btnClear_TouchDown(_ sender: Any) {
+        signView.clear()
+        //print("Clear OnClick");
+        hasSignature = false
+    }
+    
   
+    @IBAction func btnDone_TouchDown(_ sender: Any) {
+        
+        if(hasSignature){
+            // upload signature
+            if (signView.getSignature() != nil) {
+                //  self.btnErase.isHidden = true
+                //  self.btnEraseHeightConstraints.constant = 0
+                
+                DispatchQueue.main.async{
+                    if(self.photoView.isHidden){
+                        if let signature = self.signView.getSignature() {
+                            self.signatureData = signature.jpegData(compressionQuality: 0.5)!
+                        }
+                    }
+                    self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
+                }
+            }
+        }else{
+            // show confirmation dialog to user
+            var confirmAlert = UIAlertController(title: "Tita Limo", message: "Signature is blank do you want to save this?", preferredStyle: UIAlertController.Style.alert)
+
+            confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+              print("Handle Ok logic here")
+              }))
+
+            confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+              print("Handle Cancel Logic here")
+              }))
+
+            present(confirmAlert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    
    override func viewWillAppear(_ animated: Bool) {
       let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
       outsideView.addGestureRecognizer(gesture)
@@ -70,10 +116,7 @@ class PassengerOnBoardDialog: UIViewController {
       print("Outside View OnClick")
    }
    
-   @IBAction func easerOnClick(_ sender: Any) {
-      signView.clear()
-   }
-   
+  
    
    func buttonsReShape(){
       tabSignature.setTopButtonCornerRounded(value: 5)
@@ -116,41 +159,26 @@ class PassengerOnBoardDialog: UIViewController {
    override func viewDidAppear(_ animated: Bool) {
       buttonsReShape()
    }
+    
+   
    
    @IBAction func SubmitOnClick(_ sender: Any) {
        
-      // upload passenger photo
-      var subfix = ""
-      if(jobAction == "NS"){
-         subfix = "_no_show.jpg"
-      }else{
-         subfix = "_show.jpg"
-      }
-      
-       // photo
-      if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
-         DispatchQueue.main.async{
-            self.uploadFTP(imageData: imagedata, fileName: self.jobNo + subfix)
-         }
-      }
-      
-      // upload signature
-      if signView.getSignature() != nil {
-        //  self.btnErase.isHidden = true
-        //  self.btnEraseHeightConstraints.constant = 0
-          
+       // upload passenger photo
+       var subfix = ""
+       if(jobAction == "NS"){
+          subfix = "_no_show.jpg"
+       }else{
+          subfix = "_show.jpg"
+       }
+       
+       //  uploadFTP()
+       if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
           DispatchQueue.main.async{
-             if(self.photoView.isHidden){
-                if let signature = self.signView.getSignature() {
-                   self.signatureData = signature.jpegData(compressionQuality: 0.5)!
-                    
-                
-                }
-             }
-             self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
+             self.uploadFTP(imageData: imagedata, fileName: self.jobNo + subfix)
           }
-      }
-      
+       }
+       
       if(remarks.text.isEmpty){
          remarks.text = " "
       }
@@ -197,8 +225,13 @@ class PassengerOnBoardDialog: UIViewController {
       tabPassenger.backgroundColor = nil
       
       signView.isHidden = false
-       btnErase.isHidden = false
       photoView.isHidden = true
+       
+    
+       btnClear.isHidden = false
+       btnDone.isHidden = false
+      
+     
    }
    
    @IBAction func PhotoOnClick(_ sender: Any) {
@@ -206,9 +239,12 @@ class PassengerOnBoardDialog: UIViewController {
       tabPassenger.backgroundColor = UIColor(hex: textFieldColor)
       
       photoView.backgroundColor = UIColor(hex: textFieldColor)
+       
       signView.isHidden = true
-       btnErase.isHidden = true
       photoView.isHidden = false
+       
+       btnClear.isHidden = true
+       btnDone.isHidden = true
       
       // upload signature
       if let signature = signView.getSignature() {
@@ -223,31 +259,40 @@ class PassengerOnBoardDialog: UIViewController {
    
    
    func uploadFTP(imageData: Data, fileName: String){
-   //   let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
+       var dialogMessage = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
+       // Present alert to user
+       self.present(dialogMessage, animated: true, completion: nil)
      
        let ftpup = FTPUpload()
-      
+       
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
             print("Upload failured!")
+             dialogMessage.dismiss(animated: true)
          }
          else {
             print("Image uploaded!")
+             dialogMessage.dismiss(animated: true)
          }
       })
    }
    
    func uploadFTP2(imageData: Data, fileName: String){
-//      let ftpup = FTPUpload(baseUrl: "alexisinfo121.noip.me", userName: "ipos", password: "iposftp", directoryPath: "mycoachpics")
+       var dialogMessage = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
+       // Present alert to user
+       self.present(dialogMessage, animated: true, completion: nil)
      
        let ftpup = FTPUpload()
+       
       
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
             print("Upload failured!")
+             dialogMessage.dismiss(animated: true)
          }
          else {
             print("Image uploaded!")
+             dialogMessage.dismiss(animated: true)
          }
       })
    }
@@ -262,6 +307,8 @@ extension PassengerOnBoardDialog: SignaturePadDelegate {
    
    func didFinish() {
       print("Did Finish")
+       hasSignature = true
+
       //  signView.backgroundColor = UIColor(hex: "#5c5c5cff")
    }
    
@@ -286,7 +333,8 @@ extension PassengerOnBoardDialog: UIImagePickerControllerDelegate, UINavigationC
       picker.dismiss(animated: true, completion: nil)
       imgPreview.bringSubviewToFront(btnCamera)
       
-      //  uploadFTP()
+       
+       
    }
 }
 
