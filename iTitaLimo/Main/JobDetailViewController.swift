@@ -309,7 +309,7 @@ class JobDetailViewController: UIViewController {
       let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
        
       tableViewHeightConstraint.constant = phoneTableView.contentSize.height
-      DetailCardViewHeightConstraint.constant =  850 + diffHeight
+      DetailCardViewHeightConstraint.constant =  820 + diffHeight
        //bottomDetailCardViewConstraints.constant = 200 + diffHeight
 
      
@@ -354,7 +354,7 @@ class JobDetailViewController: UIViewController {
            paxUpperLineBottomConstraint.constant = 0
            
            paxLowerLineTopConstraint.constant = 0
-           paxLowerLineBottomConstraint.constant = 16
+           paxLowerLineBottomConstraint.constant = 32
            
          //  DetailCardViewHeightConstraint.constant -= 30
            
@@ -424,6 +424,10 @@ extension JobDetailViewController: UITableViewDelegate, UITableViewDataSource {
       
       return cell
    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0;//Choose your custom row height
+    }
 }
 
 

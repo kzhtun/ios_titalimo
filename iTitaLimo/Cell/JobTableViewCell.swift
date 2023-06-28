@@ -83,7 +83,7 @@ class JobTableViewCell: UITableViewCell {
       self.staff.text = staff
       self.btnAdd.tag = index
         
-        if(updates.count == 0 ){
+        if(updates.count == 0 || updates == "##-##"){
             self.btnAdd.setTitle("ADD", for: UIControl.State.normal)
             self.btnAdd.backgroundColor = UIColor.init(red: 0/255, green: 150/255, blue: 255/255, alpha: 1 )
             //self.btnAdd.backgroundColor = UIColor.init(hex: "#0097FFAA")
@@ -96,9 +96,9 @@ class JobTableViewCell: UITableViewCell {
         
         
         // show in all tabs
-        self.updatesView.isHidden = false
-        updateViewHeightConstraints.constant = 50
-        self.updatesView.layoutIfNeeded()
+       // self.updatesView.isHidden = false
+       // updateViewHeightConstraints.constant = 50
+       // self.updatesView.layoutIfNeeded()
         
 //        if(tab == 3){
 //            self.updatesView.isHidden = false

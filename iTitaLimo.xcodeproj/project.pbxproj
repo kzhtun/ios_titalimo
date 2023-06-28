@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -257,8 +257,8 @@
 		2B5930F22547E3CC0055FE05 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */,
 				2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */,
+				2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */,
 				2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */,
 			);
 			path = Cell;

@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
    
    func applicationDidFinishLaunching(_ application: UIApplication) {
-      //application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+      application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
    }
    
    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
@@ -107,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
   
       print("didReceiveRemoteNotification NEW 2")
-//      NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+
    }
    
    
@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // =================================== //
       jobInfo = userInfo
 
-       print(userInfo["jobNo"] ?? "0")
+      // localNotification(title: "Test", body: "This is local notification");
        
        switch UIApplication.shared.applicationState {
            case .background, .inactive:

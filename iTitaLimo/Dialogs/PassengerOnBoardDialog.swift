@@ -42,29 +42,30 @@ class PassengerOnBoardDialog: UIViewController {
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var btnClear: UIButton!
     
+    var dialogInitializing = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
+    
     @IBAction func btnClear_TouchDown(_ sender: Any) {
         signView.clear()
         //print("Clear OnClick");
         hasSignature = false
+        
+        self.btnDone.setTitle("DONE", for: .normal)
     }
     
   
     @IBAction func btnDone_TouchDown(_ sender: Any) {
-        
-        if(hasSignature){
+        if(self.hasSignature){
             // upload signature
-            if (signView.getSignature() != nil) {
-                //  self.btnErase.isHidden = true
-                //  self.btnEraseHeightConstraints.constant = 0
-                
-                DispatchQueue.main.async{
+            if (self.signView.getSignature() != nil) {
+                // show initializing dialog
+                self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
                     if(self.photoView.isHidden){
                         if let signature = self.signView.getSignature() {
                             self.signatureData = signature.jpegData(compressionQuality: 0.5)!
                         }
                     }
                     self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
-                }
+                })
             }
         }else{
             // show confirmation dialog to user
@@ -78,8 +79,13 @@ class PassengerOnBoardDialog: UIViewController {
               print("Handle Cancel Logic here")
               }))
 
-            present(confirmAlert, animated: true, completion: nil)
+             self.present(confirmAlert, animated: true, completion: nil)
         }
+        
+        
+        
+        
+       
     }
     
     
@@ -230,7 +236,6 @@ class PassengerOnBoardDialog: UIViewController {
     
        btnClear.isHidden = false
        btnDone.isHidden = false
-      
      
    }
    
@@ -259,40 +264,37 @@ class PassengerOnBoardDialog: UIViewController {
    
    
    func uploadFTP(imageData: Data, fileName: String){
-       var dialogMessage = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
-       // Present alert to user
-       self.present(dialogMessage, animated: true, completion: nil)
+     //  var dialogMessage = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
+     
      
        let ftpup = FTPUpload()
        
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
             print("Upload failured!")
-             dialogMessage.dismiss(animated: true)
+             self.dialogInitializing.dismiss(animated: true)
          }
          else {
             print("Image uploaded!")
-             dialogMessage.dismiss(animated: true)
+             self.dialogInitializing.dismiss(animated: true)
          }
       })
    }
    
+    // SignatureUpload
    func uploadFTP2(imageData: Data, fileName: String){
-       var dialogMessage = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
-       // Present alert to user
-       self.present(dialogMessage, animated: true, completion: nil)
-     
-       let ftpup = FTPUpload()
-       
       
-      ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
+       let ftpup = FTPUpload()
+      
+       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
             print("Upload failured!")
-             dialogMessage.dismiss(animated: true)
+             self.dialogInitializing.dismiss(animated: true)
          }
          else {
             print("Image uploaded!")
-             dialogMessage.dismiss(animated: true)
+             self.dialogInitializing.dismiss(animated: true)
+             self.btnDone.setTitle("SAVED", for: .normal)
          }
       })
    }
