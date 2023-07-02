@@ -72,7 +72,7 @@ class JobTableViewCell: UITableViewCell {
         
       self.jobDate.text = jobDate
       self.jobType.text = jobType
-      self.jobStatus.text = jobStatus
+      self.jobStatus.text = jobStatus.uppercased()
       self.vehicleType.text = vehicleType
       self.jobTime.text = jobTime
       self.pickup.text = pickup

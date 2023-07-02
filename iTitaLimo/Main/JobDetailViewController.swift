@@ -322,7 +322,7 @@ class JobDetailViewController: UIViewController {
       
      // lblJobNo.text = job.JobNo
       lblJobType.text = job.JobType
-      lblJobStats.text = job.JobStatus
+       lblJobStats.text = job.JobStatus.uppercased()
       lblJobDate.text = job.UsageDate
       lblJobTime.text = job.PickUpTime
       lblPassenger.text = job.Customer

@@ -140,6 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
          if(action.uppercased() == "CANCEL FULL NOTIFICATION" || action.uppercased() == "UNASSIGN"){
             cancelNotification(userInfo: userInfo)
+            //localNotification(title: action.uppercased(), body: userInfo["jobNo"] as! String )
          }
       }
       else{
