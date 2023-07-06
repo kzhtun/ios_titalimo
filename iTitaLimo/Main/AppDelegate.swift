@@ -104,10 +104,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
    }
    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+        
+        
+    }
+    
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
   
-      print("didReceiveRemoteNotification NEW 2")
-
+       print("didReceiveRemoteNotification NEW 2")
+       
+     
    }
    
    

@@ -69,10 +69,11 @@ class JobTableViewCell: UITableViewCell {
         
         newUpdates = (updates == "##-##") ? "" : updates
         
+      var  jobStatus = (jobStatus.uppercased() == "JOB NEW") ? "JOB ASSIGNED" : jobStatus.uppercased()
         
       self.jobDate.text = jobDate
       self.jobType.text = jobType
-      self.jobStatus.text = jobStatus.uppercased()
+      self.jobStatus.text = jobStatus
       self.vehicleType.text = vehicleType
       self.jobTime.text = jobTime
       self.pickup.text = pickup

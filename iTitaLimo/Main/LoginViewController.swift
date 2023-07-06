@@ -53,16 +53,21 @@ class LoginViewController: UIViewController {
       cacheUserName = UserDefaults.standard.string(forKey: CONST_USER_NAME) ?? ""
       
       if(cacheUserName != ""){
-         txtName.text = cacheUserName
+          
+          
+          txtName.text = cacheUserName
           chkRemember.setOn(true, animated: true)
+          
+          if(txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
+             callValidateDriver()
+          }
          
       }else{
          txtName.text = ""
       }
      
+    
        
-       
-      
        
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
@@ -77,7 +82,7 @@ class LoginViewController: UIViewController {
    }
   
    @IBAction func btnLoginOnClick(_ sender: Any) {
-       if(chkRemember.isOn){
+      if(chkRemember.isOn){
          UserDefaults.standard.setValue(txtName.text, forKey: CONST_USER_NAME)
       }else{
          UserDefaults.standard.removeObject(forKey:  CONST_USER_NAME)
@@ -96,7 +101,7 @@ class LoginViewController: UIViewController {
          
          // valid
          if(successObj.responsemessage?.uppercased() == "VALID"){
-            self.view.makeToast("Valid")
+           // self.view.makeToast("Valid")
             
             App.DRIVER_NAME = txtName.text!
             App.AUT_TOKEN = successObj.token!
@@ -118,7 +123,7 @@ class LoginViewController: UIViewController {
    func callUpdateDevice(){
       Router.sharedInstance().UpdateDevice(deviceID: getDeviceID(), fcnToken: App.FCM_TOKEN){
          [self] (successObj) in
-         self.view.makeToast("Update device successfully")
+        // self.view.makeToast("Update device successfully")
     
          let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobListViewController") as! JobListViewController
          

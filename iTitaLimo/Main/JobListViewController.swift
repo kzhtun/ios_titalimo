@@ -21,19 +21,21 @@ class JobListViewController: UIViewController {
    
    var active = 0
    
-   
-    @IBAction func btnBack_TouchUpInside(_ sender: Any) {
+    @IBAction func btnExit_TouchDown(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBOutlet weak var welcomeMsg: UILabel!
+    
+   @IBAction func btnBack_TouchUpInside(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+   }
+    
+   @IBOutlet weak var welcomeMsg: UILabel!
    @IBOutlet weak var btnToday: UIButton!
    @IBOutlet weak var btnTomorrow: UIButton!
    @IBOutlet weak var btnFuture: UIButton!
    @IBOutlet weak var btnHistory: UIButton!
    @IBOutlet weak var JobTableView: UITableView!
-   
-  
    
     @IBAction func btnAddOnClick(_ sender: UIButton) {
         let vc = UpdatesDialog()
@@ -57,6 +59,8 @@ class JobListViewController: UIViewController {
       showSpinner()
       callJobsCount()
       callGetTodayJobs()
+        
+      
    }
    
    @IBAction func TomorrowOnClick(_ sender: Any) {
@@ -103,45 +107,42 @@ class JobListViewController: UIViewController {
       
       registerObservers()
        
-      
       JobTableView.delegate = self
       JobTableView.dataSource = self
        
       //tableView.estimatedRowHeight = UITableView.automaticDimension
       
-      // callGetTodayJobs()
-      btnToday.sendActions(for: .touchDown)
+     // callGetTodayJobs()
+   //   btnToday.sendActions(for: .touchDown)
       
       // call job count
-      callJobsCount()
+    //  callJobsCount()
       
       
       // select recent state
       switch App.recentTab {
-      case 0:
-         btnToday.sendActions(for: .touchDown)
-         break
-      case 1:
-         btnTomorrow.sendActions(for: .touchDown)
-         break
-      case 2:
-         btnFuture.sendActions(for: .touchDown)
-         break
-      case 3:
-         btnHistory.sendActions(for: .touchDown)
-         break
-      default:
-         btnToday.sendActions(for: .touchDown)
+          case 0:
+             btnToday.sendActions(for: .touchDown)
+             break
+          case 1:
+             btnTomorrow.sendActions(for: .touchDown)
+             break
+          case 2:
+             btnFuture.sendActions(for: .touchDown)
+             break
+          case 3:
+             btnHistory.sendActions(for: .touchDown)
+             break
+          default:
+             btnToday.sendActions(for: .touchDown)
       }
-      
-    
    }
-   
+  
+    
    override func viewDidLoad() {
       super.viewDidLoad()
       buttonSelection()
-      
-       
+  
        
 //       searchFilter.sDate = sDate
 //       searchFilter.eDate = eDate
@@ -177,6 +178,10 @@ class JobListViewController: UIViewController {
        searchFilter.sorting = sorting
        
        
+       if(active == 0){
+          callGetTodayJobs()
+       }
+       
       // future
       if(active == 2){
          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
@@ -186,7 +191,7 @@ class JobListViewController: UIViewController {
       if(active == 3){
           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
       }
-
+      
    }
    
    @objc func dateSelected(notification: NSNotification){
@@ -214,9 +219,14 @@ class JobListViewController: UIViewController {
    func callJobsCount(){
       Router.sharedInstance().GetJobsCount(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
+             
+             
             let todayCount: String! = successObj.jobcountlist[0].todayjobcount
             let tmrCount: String! = successObj.jobcountlist[0].tomorrowjobcount
             let futureCount: String! = successObj.jobcountlist[0].futurejobcount
+             
+            UIApplication.shared.applicationIconBadgeNumber = Int(todayCount) ?? 0
+            
             
             let todayTitle: String! = "TODAY [ \(todayCount!) ]"
             let tmrTitle: String! = "TMR [ \(tmrCount!) ]"
@@ -239,6 +249,8 @@ class JobListViewController: UIViewController {
             att = NSMutableAttributedString(string: futureTitle);
             att.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: index!, length: length))
             btnFuture.setAttributedTitle(att, for: .normal)
+             
+             
             
             //            let att = NSMutableAttributedString(string: "Hello!");
             //            att.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRange(location: 0, length: 2))
@@ -260,8 +272,8 @@ class JobListViewController: UIViewController {
       Router.sharedInstance().GetTodayJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
             self.jobList = successObj.jobs
-            JobTableView.reloadData()
             App.recentJobList = jobList
+            JobTableView.reloadData()
          }
       }, failure: { (failureObj) in
          self.view.makeToast(failureObj)
@@ -340,6 +352,9 @@ class JobListViewController: UIViewController {
       self.JobTableView.backgroundView = spinner
       
    }
+    
+    
+
     
 //    func initSearchFilter(userInfo: [AnyHashable : Any]){
 //        if(userInfo["sDate"] == nil){
@@ -435,7 +450,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
        
        let state = UIApplication.shared.applicationState
        
-       if state == .active {
+       //if state == .active {
            // foreground
            cell.configure(tab: active,
                          jobDate : jobList[i].UsageDate,
@@ -453,7 +468,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
           )
       
            tableView.estimatedRowHeight = UITableView.automaticDimension
-       }
+       //}
       
       return cell
    }
