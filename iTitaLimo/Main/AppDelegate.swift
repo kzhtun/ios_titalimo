@@ -106,15 +106,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     func applicationWillEnterForeground(_ application: UIApplication) {
         NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
-        
-        
-    }
+   }
     
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-  
-       print("didReceiveRemoteNotification NEW 2")
-       
-     
+       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
    }
    
    

@@ -16,8 +16,12 @@ class JobListViewController: UIViewController {
    var todayJobs = [JobDetail]()
    var tomorrowJobs = [JobDetail]()
    
-   var userInfo: [AnyHashable : Any]?
-   var searchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
+    
+    
+  
+    var userInfo: [AnyHashable : Any]?
+   var historySearchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
+   var futureSearchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
    
    var active = 0
    
@@ -40,6 +44,8 @@ class JobListViewController: UIViewController {
     @IBAction func btnAddOnClick(_ sender: UIButton) {
         let vc = UpdatesDialog()
         let index: Int = sender.tag
+        
+        
         
         vc.jobNo = jobList[index].JobNo
         vc.updates = jobList[index].Updates
@@ -78,7 +84,8 @@ class JobListViewController: UIViewController {
       btnFuture.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
       callJobsCount()
-      callGetFutureJobs(from: " ", to: " ", passenger: " ", sort: "0")
+      //callGetFutureJobs(from: " ", to: " ", passenger: " ", sort: "0")
+       callGetFutureJobs(from: futureSearchFilter.sDate, to: futureSearchFilter.eDate, passenger: futureSearchFilter.passenger, sort: futureSearchFilter.sorting)
    }
    
    @IBAction func HistoryOnClick(_ sender: Any) {
@@ -86,7 +93,8 @@ class JobListViewController: UIViewController {
       buttonSelection()
       btnHistory.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
-      callGetHistoryJobs(from: " ", to: " ", passenger: " ", updates: " ", sort: "0")
+      //callGetHistoryJobs(from: " ", to: " ", passenger: " ", updates: " ", sort: "0")
+       callGetHistoryJobs(from: historySearchFilter.sDate, to: historySearchFilter.eDate, passenger: historySearchFilter.passenger, updates: historySearchFilter.updates, sort: historySearchFilter.sorting)
    }
    
    
@@ -128,10 +136,13 @@ class JobListViewController: UIViewController {
              btnTomorrow.sendActions(for: .touchDown)
              break
           case 2:
-             btnFuture.sendActions(for: .touchDown)
+            // btnFuture.sendActions(for: .touchDown)
+          callGetFutureJobs(from: futureSearchFilter.sDate, to: futureSearchFilter.eDate, passenger: futureSearchFilter.passenger, sort: futureSearchFilter.sorting)
              break
           case 3:
-             btnHistory.sendActions(for: .touchDown)
+           //  btnHistory.sendActions(for: .touchDown)
+            callGetHistoryJobs(from: historySearchFilter.sDate, to: historySearchFilter.eDate, passenger: historySearchFilter.passenger, updates: historySearchFilter.updates, sort: historySearchFilter.sorting)
+                
              break
           default:
              btnToday.sendActions(for: .touchDown)
@@ -161,34 +172,35 @@ class JobListViewController: UIViewController {
        
    //    RefreshJobList()
      
-       guard   let sDate = userInfo?["sDate"] as? String,
-             let eDate = userInfo?["eDate"] as? String,
-             let passenger = userInfo?["passenger"] as? String,
-             let updates = userInfo?["updates"] as? String,
-             let sorting = userInfo?["sorting"] as? String
+       guard     let sDate = userInfo?["sDate"] as? String,
+                 let eDate = userInfo?["eDate"] as? String,
+                 let passenger = userInfo?["passenger"] as? String,
+                 let updates = userInfo?["updates"] as? String,
+                 let sorting = userInfo?["sorting"] as? String
        else{
            return
        }
 
-
-       searchFilter.sDate = sDate
-       searchFilter.eDate = eDate
-       searchFilter.passenger = passenger
-       searchFilter.updates = updates
-       searchFilter.sorting = sorting
-       
-       
-       if(active == 0){
-          callGetTodayJobs()
-       }
-       
+  
       // future
       if(active == 2){
-         callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
+          futureSearchFilter.sDate = sDate
+          futureSearchFilter.eDate = eDate
+          futureSearchFilter.passenger = passenger
+          futureSearchFilter.updates = updates
+          futureSearchFilter.sorting = sorting
+          
+          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
       }
 
       // history
       if(active == 3){
+          historySearchFilter.sDate = sDate
+          historySearchFilter.eDate = eDate
+          historySearchFilter.passenger = passenger
+          historySearchFilter.updates = updates
+          historySearchFilter.sorting = sorting
+          
           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
       }
       
@@ -198,21 +210,26 @@ class JobListViewController: UIViewController {
        userInfo = notification.userInfo
   
        guard   let sDate = userInfo?["sDate"] as? String,
-             let eDate = userInfo?["eDate"] as? String,
-             let passenger = userInfo?["passenger"] as? String,
-             let updates = userInfo?["updates"] as? String,
-             let sorting = userInfo?["sorting"] as? String
+             let eDate = userInfo?["eDate"] as? String
+//             let passenger = userInfo?["passenger"] as? String,
+//             let updates = userInfo?["updates"] as? String,
+//             let sorting = userInfo?["sorting"] as? String
        else{
            return
        }
 
-       searchFilter.sDate = sDate
-       searchFilter.eDate = eDate
-       searchFilter.passenger = passenger
-       searchFilter.updates = updates
-       searchFilter.sorting = sorting
        
-      self.JobTableView.reloadData()
+       if(active==2){
+           futureSearchFilter.sDate = sDate
+           futureSearchFilter.eDate = eDate
+       }
+       
+       if(active==3){
+           historySearchFilter.sDate = sDate
+           historySearchFilter.eDate = eDate
+       }
+     
+       self.JobTableView.reloadData()
    }
    
    
@@ -267,7 +284,7 @@ class JobListViewController: UIViewController {
    }
    
    func callGetTodayJobs(){
-      jobList.removeAll()
+    //  jobList.removeAll()
       
       Router.sharedInstance().GetTodayJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
@@ -281,7 +298,7 @@ class JobListViewController: UIViewController {
    }
    
    func callGetTomorrowJobs(){
-      jobList.removeAll()
+     // jobList.removeAll()
       
       Router.sharedInstance().GetTomorrowJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
@@ -296,18 +313,20 @@ class JobListViewController: UIViewController {
    
    
    func callGetFutureJobs(from: String, to: String, passenger: String, sort: String){
-      jobList.removeAll()
+     // jobList.removeAll()
+       
+       let from = (from.isEmpty) ? " " : from
+       let to = (to.isEmpty) ? " " : to
+       let passenger = (passenger.isEmpty) ? " " :
+                        (passenger == " ") ? passenger :  passenger.trimmingCharacters(in: .whitespaces)
+      
       
       Router.sharedInstance().GetFutureJobs(from: from, to: to, passenger: passenger, sort: sort,
                                             success: { [self](successObj) in
                                              if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                 self.jobList = successObj.jobs
                                                 App.recentJobList = jobList
-                                                 
-                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                                     // your code here
-                                                     self.JobTableView.reloadData()
-                                                 }
+                                                self.JobTableView.reloadData()
                                              }
                                             }, failure: { (failureObj) in
                                              self.view.makeToast(failureObj)
@@ -316,23 +335,24 @@ class JobListViewController: UIViewController {
    
    
    func callGetHistoryJobs(from: String, to: String, passenger: String, updates: String, sort: String){
-      jobList.removeAll()
+     // jobList.removeAll()
       
+       let from = (from.isEmpty) ? " " : from
+       let to = (to.isEmpty) ? " " : to
+       let passenger = (passenger.isEmpty) ? " " :
+                        (passenger == " ") ? passenger :  passenger.trimmingCharacters(in: .whitespaces)
+       
+       let updates = (updates.isEmpty) ? " " :
+                        (updates == " ") ? updates :  updates.trimmingCharacters(in: .whitespaces)
+       
        Router.sharedInstance().GetHistoryJobs(from: from, to: to, passenger: passenger, updates: updates, sort: sort,
                                              success: { [self](successObj) in
-                                                if(successObj.responsemessage.uppercased() == "SUCCESS"){
+                                               if(successObj.responsemessage.uppercased() == "SUCCESS"){
+                                                   
                                                    self.jobList = successObj.jobs
                                                    App.recentJobList = jobList
-                                                    
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                                        // your code here
-                                                        self.JobTableView.reloadData()
-                                                    }
-                                                    
-                                                   
-                                                }else{
-                                                    print("error")
-                                                }
+                                                   self.JobTableView.reloadData()
+                                               }
                                              }, failure: { (failureObj) in
                                                 self.view.makeToast(failureObj)
                                              })
@@ -398,18 +418,36 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
       
     //   initSearchFilter()
      
-      cell.configure(searchParam: searchFilter, sortingShowHide: (active==2), jobCount: jobList.count)
+       if(active==2){
+           cell.configure(searchParam: futureSearchFilter, sortingShow: true, jobCount: jobList.count)
+       }
+       if(active==3){
+           cell.configure(searchParam: historySearchFilter, sortingShow: false, jobCount: jobList.count)
+       }
+       
      
       return cell
    }
    
    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        // check the selected tab is Future or History
-       if (active == 0 || active == 1){
+//       if (active == 0 || active == 1){
+//           return 0.0
+//       }else{
+//           return 300
+//       }
+//
+//       switch
+       
+       switch (active)  {
+        case 2:
+           return 250
+       case 3:
+           return 310
+       default:
            return 0.0
-       }else{
-           return 290
        }
+       
    }
     
     
@@ -579,23 +617,15 @@ extension JobListViewController{
        
        // future
        if(active == 2){
-          callGetFutureJobs(from:  searchFilter.sDate, to:  searchFilter.eDate, passenger:  searchFilter.passenger, sort:  searchFilter.sorting)
+          callGetFutureJobs(from:  futureSearchFilter.sDate, to:  futureSearchFilter.eDate, passenger:  futureSearchFilter.passenger, sort:  futureSearchFilter.sorting)
        }
        
        // history
        if(active == 3){
-           callGetHistoryJobs(from:  searchFilter.sDate, to:  searchFilter.eDate, passenger:  searchFilter.passenger, updates: searchFilter.updates, sort:  searchFilter.sorting)
+           callGetHistoryJobs(from:  historySearchFilter.sDate, to:  historySearchFilter.eDate, passenger:  historySearchFilter.passenger, updates: historySearchFilter.updates, sort:  historySearchFilter.sorting)
        }
     
-//       // future
-//       if(active == 2){
-//          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
-//       }
-//
-//       // history
-//       if(active == 3){
-//           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
-//       }
+
      
    }
    

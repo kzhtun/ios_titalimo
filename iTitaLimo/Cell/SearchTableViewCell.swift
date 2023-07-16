@@ -16,6 +16,11 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var btnSearch: UIButton!
    
   
+    @IBOutlet weak var searchUpdateViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchUpdateViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var searchViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchUpdateView: UIStackView!
     @IBOutlet weak var updates: UITextField!
     @IBOutlet weak var pName: UITextField!
     @IBOutlet weak var sDate: UITextField!
@@ -50,7 +55,7 @@ class SearchTableViewCell: UITableViewCell {
       syncSearchParamsOnParentList()
    }
    
-   public func configure(searchParam: SearchFilter, sortingShowHide: Bool, jobCount: Int){
+   public func configure(searchParam: SearchFilter, sortingShow: Bool, jobCount: Int){
  
       let image1 =  UIImageView(image: UIImage(named: "ic_cal"))
       image1.frame = CGRect(x: 8, y: 8, width: 16, height: 16)
@@ -68,19 +73,54 @@ class SearchTableViewCell: UITableViewCell {
    
      
    
-    sDate.text = searchParam.sDate
-    eDate.text = searchParam.eDate
-    pName.text = searchParam.passenger
-    updates.text = searchParam.updates
-    sgSorting.selectedSegmentIndex = Int(searchParam.sorting)!
+        sDate.text = searchParam.sDate
+        eDate.text = searchParam.eDate
+        pName.text = searchParam.passenger
+        updates.text = searchParam.updates
+        sgSorting.selectedSegmentIndex = Int(searchParam.sorting)!
     
+       
+       
+//       // show in all tabs
+//       self.searchUpdateView.isHidden = false
+//       searchUpdateViewHeightConstraint.constant = 46
+//       self.searchUpdateView.layoutIfNeeded()
+
+       
       
-      if(sortingShowHide){
-         lblTimeSorting.isHidden = true
-         sgSorting.isHidden = true
+      // is shortingShow == true ? it's on History Tab
+      if(sortingShow){
+         lblTimeSorting.isHidden = false
+         sgSorting.isHidden = false
+          
+          
+          // hide update layout
+          self.searchUpdateView.isHidden = true
+          searchUpdateViewHeightConstraint.constant = 0
+        //  searchViewHeightConstraint.constant = 220
+          searchUpdateViewTopConstraint.constant = 12
+        
+      }else{
+          lblTimeSorting.isHidden = true
+          sgSorting.isHidden = true
+          
+          // show update layout
+          self.searchUpdateView.isHidden = false
+          searchUpdateViewHeightConstraint.constant = 46
+      //    searchViewHeightConstraint.constant = 280
+          searchUpdateViewTopConstraint.constant = 24
+          
       }
+       
+       layoutIfNeeded()
+          
+       
+       
+     
+       
+       
       
-      lblJobCount.text = "TOTAL : \(jobCount) Jobs"
+       lblJobCount.text = "TOTAL : \(jobCount) JOBS"
       
    }
    

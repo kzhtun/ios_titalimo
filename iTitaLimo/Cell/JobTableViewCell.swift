@@ -65,7 +65,7 @@ class JobTableViewCell: UITableViewCell {
         
        // self.updatesView.heightAnchor.constraint(equalTo: 0)
 
-        
+        var mobileNoSpace = "";
         
         newUpdates = (updates == "##-##") ? "" : updates
         
@@ -79,7 +79,10 @@ class JobTableViewCell: UITableViewCell {
       self.pickup.text = pickup
       self.dropoff.text = dropoff
       self.passenger.text = passenger
-      self.mobile.text = mobile
+        mobileNoSpace =  mobile.replacingOccurrences(of: " ", with: "")
+        self.mobile.text = mobileNoSpace.replacingOccurrences(of: "/", with: "\n")
+
+     
       self.updates.text = newUpdates.replacingOccurrences(of: "##-##", with: "\n")
       self.staff.text = staff
       self.btnAdd.tag = index
@@ -96,14 +99,14 @@ class JobTableViewCell: UITableViewCell {
         }
         
         
-        // show in all tabs
-       // self.updatesView.isHidden = false
-       // updateViewHeightConstraints.constant = 50
-       // self.updatesView.layoutIfNeeded()
-        
+//        // show in all tabs
+//        self.updatesView.isHidden = false
+//        updateViewHeightConstraints.constant = 46
+//        self.updatesView.layoutIfNeeded()
+//
 //        if(tab == 3){
 //            self.updatesView.isHidden = false
-//            updateViewHeightConstraints.constant = 50
+//            updateViewHeightConstraints.constant = 46
 //        }else{
 //            self.updatesView.isHidden = true
 //            updateViewHeightConstraints.constant = 0

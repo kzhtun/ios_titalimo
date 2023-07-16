@@ -37,12 +37,9 @@ class UpdatesDialog: UIViewController {
     }
     
     @IBAction func btnSaveOnClick(_ sender: Any) {
-        callUpdateJobRemark(jobNo: self.jobNo, remark:   self.txtUpdates.text )
-            
-        self.view.makeToast("Update Job successfully")
-        self.dismiss(animated: true, completion: nil)
         
-        
+        self.callUpdateJobRemark(jobNo: self.jobNo, remark:   self.txtUpdates.text )
+       
     }
     
     @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
@@ -69,18 +66,25 @@ class UpdatesDialog: UIViewController {
         var newRemark = ""
         
       
-        
         newRemark = (remark.isEmpty) ? "\n" : remark
         
         Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: newRemark.replacingOccurrences(of: "\n" , with: "##-##"),
                                                success: {(successObj) in
                                                  if(successObj.responsemessage.uppercased() == "SUCCESS"){
-                                                  
                                                      
-                                                     NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+                                                 self.view.makeToast("Update Job successfully")
+                                                 self.dismiss(animated: true, completion: nil)
+                                                     
+                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                                         // Notify JobListView
+                                                         NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+                                                     }
+                                                     
+                                                     
                                                  }
                                                }, failure: { (failureObj) in
                                                  self.view.makeToast(failureObj)
+                                                 self.dismiss(animated: true, completion: nil)
                                                })
     }
    
