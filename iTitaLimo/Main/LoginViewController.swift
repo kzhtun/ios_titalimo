@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
    let CONST_USER_NAME = "UserName"
    
    
-   
     
     @IBOutlet weak var chkRemember: UISwitch!
     @IBOutlet weak var loginView: UIView!
@@ -34,6 +33,17 @@ class LoginViewController: UIViewController {
         
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    
+    }
+    
+    
     
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -71,6 +81,11 @@ class LoginViewController: UIViewController {
        
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
+       
+       
+       let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+       print("Version : " + appVersion!)
+       
    }
    
    @objc func keyboardWillShow(sender: NSNotification) {
@@ -82,15 +97,31 @@ class LoginViewController: UIViewController {
    }
   
    @IBAction func btnLoginOnClick(_ sender: Any) {
+       
       if(chkRemember.isOn){
          UserDefaults.standard.setValue(txtName.text, forKey: CONST_USER_NAME)
+          if(self.txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
+              self.callValidateDriver()
+          }
       }else{
          UserDefaults.standard.removeObject(forKey:  CONST_USER_NAME)
+         
+         // Warn to user about auto login
+          let confirmAlert = UIAlertController(title: "Tita Limo", message: "By logging in without remember me checked, application will not automatically login whenever user touch the incomming job notifcations. You will need to login manually.\nAre you sure you want to login?", preferredStyle: UIAlertController.Style.alert)
+          
+          confirmAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action: UIAlertAction!) in
+              if(self.txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
+                  self.callValidateDriver()
+              }
+          }))
+          
+          confirmAlert.addAction(UIAlertAction(title: "NO", style: .default, handler: { (action: UIAlertAction!) in
+              return;
+          }))
+          
+          self.present(confirmAlert, animated: true, completion: nil)
       }
 
-      if(txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
-         callValidateDriver()
-      }
    }
    
    
@@ -107,12 +138,18 @@ class LoginViewController: UIViewController {
             App.AUT_TOKEN = successObj.token!
             
             callUpdateDevice()
-            
-            
-            
+           
             // invalid
          }else{
-            self.view.makeToast("Invalid")
+             let confirmAlert = UIAlertController(title: "Tita Limo", message: "Invalid user name or password.", preferredStyle: UIAlertController.Style.alert)
+             
+             confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                 let startPosition = self.txtName.beginningOfDocument
+                 let endPosition = self.txtName.endOfDocument
+                 self.txtName.selectedTextRange = self.txtName.textRange(from: endPosition, to: endPosition)
+             }))
+             
+             self.present(confirmAlert, animated: true, completion: nil)
          }
          
       } failure: { (err) in

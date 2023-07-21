@@ -49,7 +49,7 @@
                                 <constraint firstAttribute="width" constant="80" id="4PB-61-XWF"/>
                                 <constraint firstAttribute="height" constant="22" id="nWI-Aw-qQS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                             <state key="normal" title="SIGNATURE"/>
                             <connections>
                                 <action selector="SignOnClick:" destination="-1" eventType="touchUpInside" id="wFq-sG-pUu"/>
@@ -61,7 +61,7 @@
                                 <constraint firstAttribute="width" constant="90" id="fbH-qG-m1W"/>
                                 <constraint firstAttribute="height" constant="22" id="ljm-X6-iOp"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                             <state key="normal" title="PASSENGER"/>
                             <connections>
                                 <action selector="PhotoOnClick:" destination="-1" eventType="touchUpInside" id="ydp-8N-bNl"/>
@@ -123,15 +123,15 @@
                                 <constraint firstAttribute="height" constant="120" id="KMy-La-fjS"/>
                             </constraints>
                             <color key="textColor" systemColor="labelColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REMARKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSE-TS-4aK">
-                            <rect key="frame" x="32" y="297" width="44" height="12"/>
+                            <rect key="frame" x="32" y="297" width="57" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="3Vc-ZI-YYw"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

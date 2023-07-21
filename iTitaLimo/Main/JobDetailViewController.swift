@@ -282,7 +282,7 @@ class JobDetailViewController: UIViewController {
    
    @objc
    public func newMessageArrived(){
-      self.view.makeToast("You have new message")
+      //self.view.makeToast("You have new message")
    }
    
    
@@ -304,25 +304,43 @@ class JobDetailViewController: UIViewController {
       initLocationManager()
    }
    
+    override func viewDidLayoutSubviews() {
+       // let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
+         
+        var cardViewHeight = (paxStackView.isHidden) ? 680 : 780
+        
+        tableViewHeightConstraint.constant = phoneTableView.contentSize.height
+        DetailCardViewHeightConstraint.constant =    phoneTableView.contentSize.height + lblPassenger.bounds.size.height + CGFloat(cardViewHeight)
+        
+        self.view.layoutIfNeeded()
+    }
+    
    override func viewDidAppear(_ animated: Bool) {
        
-      let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
+//      let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
+//       
+//      tableViewHeightConstraint.constant = phoneTableView.contentSize.height
+//      DetailCardViewHeightConstraint.constant =  820 + diffHeight
        
-      tableViewHeightConstraint.constant = phoneTableView.contentSize.height
-      DetailCardViewHeightConstraint.constant =  820 + diffHeight
+      
        //bottomDetailCardViewConstraints.constant = 200 + diffHeight
-
-     
        //DetailCardViewHeightConstraint.constant = phoneTableView.contentSize.height
+       
+//       let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
+//
+//       tableViewHeightConstraint.constant = phoneTableView.contentSize.height
+//       DetailCardViewHeightConstraint.constant =  820 //+ diffHeight + 500
+//
    }
    
    func displayJobDetail(job: JobDetail){
       
       phoneList = job.Customer_Tel.components(separatedBy: "/")
-      
-     // lblJobNo.text = job.JobNo
+       var  jobStatus = (job.JobStatus.uppercased() == "JOB NEW") ? "JOB ASSIGNED" : job.JobStatus.uppercased()
+       
+      //lblJobNo.text = job.JobNo
       lblJobType.text = job.JobType
-      lblJobStats.text = job.JobStatus.uppercased()
+      lblJobStats.text = jobStatus
       lblJobDate.text = job.UsageDate
       lblJobTime.text = job.PickUpTime
       lblPassenger.text = job.Customer
@@ -345,7 +363,7 @@ class JobDetailViewController: UIViewController {
         //   paxStackView.visiblity(gone: true)
            
            paxStackView.isHidden = true
-           paxUpperLine.isHidden = true
+           //paxUpperLine.isHidden = true
            paxLowerLine.isHidden = true
            
            paxLayoutHeightConstraint.constant = 0
@@ -361,6 +379,10 @@ class JobDetailViewController: UIViewController {
            self.view.layoutIfNeeded()
            self.detailView.setNeedsUpdateConstraints()
         
+       }else{
+           paxStackView.isHidden = false
+           paxUpperLine.isHidden = true
+           paxLowerLine.isHidden = false
        }
        
        
@@ -372,7 +394,7 @@ class JobDetailViewController: UIViewController {
    func callUpdateDriverLocation(){
       Router.sharedInstance().UpdateDriverLocation(latitude: "\(App.lat)" , longitude: "\(App.lng)", gpsStatus: "nil", address: App.fullAddress, success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
-            self.view.makeToast("Update driver location success.")
+//            self.view.makeToast("Update driver location success.")
 //            DispatchQueue.main.async{
 //               callGetJobDetail(jobNo: jobNo)
 //            }
@@ -426,7 +448,7 @@ extension JobDetailViewController: UITableViewDelegate, UITableViewDataSource {
    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0;//Choose your custom row height
+        return 45.0;//Choose your custom row height
     }
 }
 
@@ -518,7 +540,7 @@ extension JobDetailViewController: CLLocationManagerDelegate{
 extension JobDetailViewController{
    func registerObservers(){
       // update job detail info when noti receive
-      NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
       
       NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetailSilent), name: NSNotification.Name(rawValue: "SILENT_REFRESH_JOBS"), object: nil)
    }
@@ -534,22 +556,36 @@ extension JobDetailViewController{
    
    @objc func updateJobDetail(notification: NSNotification){
       let userInfo: [AnyHashable: Any]? = notification.userInfo
+       
+       
+       guard let jobNo = userInfo?["jobno"] as? String,
+             let jobAction = userInfo?["action"] as? String
+       else{return}
+       
       
-      guard let jobNo = userInfo!["jobno"] as? String
-      else{return}
-      
+     
       let refreshAlert = UIAlertController(title: "Refresh", message: "Details for this job may have changed.\nClick OK to refresh.", preferredStyle: UIAlertController.Style.alert)
       
-      refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-         self.callGetJobDetail(jobNo: jobNo)
-         
-      }))
-      
-      refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-         
-      }))
-      
-      present(refreshAlert, animated: true, completion: nil)
+       if(self.jobDetail.JobNo == jobNo){
+           refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+             
+               if(jobAction.uppercased() == "UNASSIGN"){
+                   self.dismiss(animated: true)
+               }else{
+                   self.callGetJobDetail(jobNo: jobNo)
+               }
+           
+          }))
+          
+          refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+             
+          }))
+          
+          present(refreshAlert, animated: true, completion: nil)
+       }
+            
+            
+       
       
    }
 }

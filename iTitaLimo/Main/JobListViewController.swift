@@ -25,6 +25,19 @@ class JobListViewController: UIViewController {
    
    var active = 0
    
+    
+    override func viewDidLayoutSubviews() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    
+    
+    override func applicationFinishedRestoringState() {
+        print("applicationFinishedRestoringState")
+    }
+    
+   
+    
     @IBAction func btnExit_TouchDown(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -111,7 +124,12 @@ class JobListViewController: UIViewController {
    }
    
    override func viewWillAppear(_ animated: Bool) {
+       
+      UIApplication.shared.applicationIconBadgeNumber = 0
+      
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
+       
+       
       
       registerObservers()
        
@@ -154,6 +172,7 @@ class JobListViewController: UIViewController {
       super.viewDidLoad()
       buttonSelection()
   
+   
        
 //       searchFilter.sDate = sDate
 //       searchFilter.eDate = eDate
@@ -242,7 +261,7 @@ class JobListViewController: UIViewController {
             let tmrCount: String! = successObj.jobcountlist[0].tomorrowjobcount
             let futureCount: String! = successObj.jobcountlist[0].futurejobcount
              
-            UIApplication.shared.applicationIconBadgeNumber = Int(todayCount) ?? 0
+            //UIApplication.shared.applicationIconBadgeNumber = Int(todayCount) ?? 0
             
             
             let todayTitle: String! = "TODAY [ \(todayCount!) ]"
@@ -284,7 +303,7 @@ class JobListViewController: UIViewController {
    }
    
    func callGetTodayJobs(){
-    //  jobList.removeAll()
+     // jobList.removeAll()
       
       Router.sharedInstance().GetTodayJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
@@ -419,10 +438,10 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
     //   initSearchFilter()
      
        if(active==2){
-           cell.configure(searchParam: futureSearchFilter, sortingShow: true, jobCount: jobList.count)
+           cell.configure(searchParam: futureSearchFilter, updateShow:  true, jobCount: jobList.count)
        }
        if(active==3){
-           cell.configure(searchParam: historySearchFilter, sortingShow: false, jobCount: jobList.count)
+           cell.configure(searchParam: historySearchFilter, updateShow: false, jobCount: jobList.count)
        }
        
      

@@ -110,17 +110,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
        NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+     
+  //     let badge = (application.applicationIconBadgeNumber == 0) ? 1 : application.applicationIconBadgeNumber
+     //  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1
+       UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
    }
    
    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber  = 0
+    }
+    
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-   
+       
+    //   let badge = (application.applicationIconBadgeNumber == 0) ? 1 : application.applicationIconBadgeNumber
+     //  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1
+       UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
+       
       print("didReceiveRemoteNotification NEW 1")
       
-      NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+      
 
       // =================================== //
       jobInfo = userInfo
+       
+      NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
 
       // localNotification(title: "Test", body: "This is local notification");
        
@@ -319,7 +333,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
        content.body += " \t 🔻 " + alightpoint + "\n"
        content.body += "⭐ " + vehicletype
        content.sound = UNNotificationSound.default
-       content.badge = 1
+      // content.badge =
        content.categoryIdentifier = "JOB_ASSIGN"
 
       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)

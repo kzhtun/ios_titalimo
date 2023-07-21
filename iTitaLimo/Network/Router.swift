@@ -14,11 +14,11 @@ class Router{
   
 
     // DEV
-// let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
+let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
 
-  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+//  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
     
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed

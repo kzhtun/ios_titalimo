@@ -44,6 +44,9 @@ class PassengerOnBoardDialog: UIViewController {
     
     var dialogInitializing = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
     
+    
+    
+    
     @IBAction func btnClear_TouchDown(_ sender: Any) {
         signView.clear()
         //print("Clear OnClick");
@@ -72,25 +75,29 @@ class PassengerOnBoardDialog: UIViewController {
             var confirmAlert = UIAlertController(title: "Tita Limo", message: "Signature is blank do you want to save this?", preferredStyle: UIAlertController.Style.alert)
 
             confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-              print("Handle Ok logic here")
+                // YES
+                    self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
+                    if(self.photoView.isHidden){
+                        if let signature = self.signView.getSignature() {
+                            self.signatureData = signature.jpegData(compressionQuality: 0.5)!
+                        }
+                    }
+                    self.uploadFTP2(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
+                })
               }))
 
             confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-              print("Handle Cancel Logic here")
+                 // NO
               }))
 
              self.present(confirmAlert, animated: true, completion: nil)
         }
-        
-        
-        
-        
-       
+      
     }
     
-    
-    
+   
    override func viewWillAppear(_ animated: Bool) {
+      
       let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
       outsideView.addGestureRecognizer(gesture)
       
@@ -121,7 +128,6 @@ class PassengerOnBoardDialog: UIViewController {
       self.dismiss(animated: true, completion: nil)
       print("Outside View OnClick")
    }
-   
   
    
    func buttonsReShape(){
@@ -150,7 +156,7 @@ class PassengerOnBoardDialog: UIViewController {
       photoView.isHidden = true
       signView.delegate = self
       
-      buttonsReShape()
+   
    }
    
    func closeParentView(){
@@ -162,13 +168,16 @@ class PassengerOnBoardDialog: UIViewController {
       super.viewWillDisappear(true)
     //  closeParentView()
    }
-   override func viewDidAppear(_ animated: Bool) {
-      buttonsReShape()
-   }
+  
     
-   
+    override func viewDidLayoutSubviews() {
+        buttonsReShape()
+    }
+    
+  
    
    @IBAction func SubmitOnClick(_ sender: Any) {
+       
        
        // upload passenger photo
        var subfix = ""
@@ -200,22 +209,42 @@ class PassengerOnBoardDialog: UIViewController {
             self.view.makeToast(failureObj)
          }
       }else{
+          if(btnDone.titleLabel?.text == "SAVED"){
+              callPassenerOnBoardSave()
+          }else{
+              
+              // confirm signature blank saving?
+              let confirmAlert = UIAlertController(title: "Tita Limo", message: "Either signature is blank or has not been done.\nDo you want to proceed?", preferredStyle: UIAlertController.Style.alert)
+              
+              confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                  self.callPassenerOnBoardSave()
+              }))
+              
+              confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                  print("Handle Cancel Logic here")
+              }))
+              
+              self.present(confirmAlert, animated: true, completion: nil)
+          }
          
-         // Call Passenger On Board
-         Router.sharedInstance().UpdateJobShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger On Board") { (successObj) in
-            self.view.makeToast("Update job successfully")
-            self.updateJobDetail()
-            self.dismiss(animated: true, completion: nil)
-            self.closeParentView()
-         } failure: { (failureObj) in
-            self.view.makeToast(failureObj)
-         }
       }
        
     //   btnErase.isHidden = false
      //  btnEraseHeightConstraints.constant = 32
     
    }
+    
+    func callPassenerOnBoardSave(){
+        // Call Passenger On Board
+        Router.sharedInstance().UpdateJobShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger On Board") { (successObj) in
+            self.view.makeToast("Update job successfully")
+            self.updateJobDetail()
+            self.dismiss(animated: true, completion: nil)
+            self.closeParentView()
+        } failure: { (failureObj) in
+            self.view.makeToast(failureObj)
+        }
+    }
    
    func updateJobDetail(){
 
@@ -227,15 +256,14 @@ class PassengerOnBoardDialog: UIViewController {
    }
    
    @IBAction func SignOnClick(_ sender: Any) {
-      tabSignature.backgroundColor = UIColor(hex: textFieldColor)
-      tabPassenger.backgroundColor = nil
-      
-      signView.isHidden = false
-      photoView.isHidden = true
-       
-    
-       btnClear.isHidden = false
-       btnDone.isHidden = false
+        tabSignature.backgroundColor = UIColor(hex: textFieldColor)
+        tabPassenger.backgroundColor = nil
+
+        signView.isHidden = false
+        photoView.isHidden = true
+
+        btnClear.isHidden = false
+        btnDone.isHidden = false
      
    }
    
@@ -281,7 +309,7 @@ class PassengerOnBoardDialog: UIViewController {
       })
    }
    
-    // SignatureUpload
+   // SignatureUpload
    func uploadFTP2(imageData: Data, fileName: String){
       
        let ftpup = FTPUpload()

@@ -55,7 +55,7 @@ class SearchTableViewCell: UITableViewCell {
       syncSearchParamsOnParentList()
    }
    
-   public func configure(searchParam: SearchFilter, sortingShow: Bool, jobCount: Int){
+   public func configure(searchParam: SearchFilter, updateShow: Bool, jobCount: Int){
  
       let image1 =  UIImageView(image: UIImage(named: "ic_cal"))
       image1.frame = CGRect(x: 8, y: 8, width: 16, height: 16)
@@ -87,32 +87,37 @@ class SearchTableViewCell: UITableViewCell {
 //       self.searchUpdateView.layoutIfNeeded()
 
        
-      
-      // is shortingShow == true ? it's on History Tab
-      if(sortingShow){
-         lblTimeSorting.isHidden = false
-         sgSorting.isHidden = false
-          
-          
-          // hide update layout
-          self.searchUpdateView.isHidden = true
-          searchUpdateViewHeightConstraint.constant = 0
-        //  searchViewHeightConstraint.constant = 220
-          searchUpdateViewTopConstraint.constant = 12
-        
-      }else{
-          lblTimeSorting.isHidden = true
-          sgSorting.isHidden = true
-          
-          // show update layout
-          self.searchUpdateView.isHidden = false
-          searchUpdateViewHeightConstraint.constant = 46
-      //    searchViewHeightConstraint.constant = 280
-          searchUpdateViewTopConstraint.constant = 24
-          
-      }
+       if(updateShow){
+           // show update layout // Future Tab
+           self.searchUpdateView.isHidden = true
+           searchUpdateViewHeightConstraint.constant = 0
+           searchUpdateViewTopConstraint.constant = 12
+       }else{
+           // hide update layout // History Tab
+           self.searchUpdateView.isHidden = false
+           searchUpdateViewHeightConstraint.constant = 45
+           searchUpdateViewTopConstraint.constant = 24
+       }
        
        layoutIfNeeded()
+       lblJobCount.text = "TOTAL : \(jobCount) JOBS"
+       
+//      // is shortingShow == true ? it's on History Tab
+//      if(updateShow){
+//         lblTimeSorting.isHidden = false
+//         sgSorting.isHidden = false
+//
+//
+//
+//      }else{
+//          lblTimeSorting.isHidden = true
+//          sgSorting.isHidden = true
+//
+//
+//
+//      }
+       
+       
           
        
        
@@ -120,7 +125,7 @@ class SearchTableViewCell: UITableViewCell {
        
        
       
-       lblJobCount.text = "TOTAL : \(jobCount) JOBS"
+     
       
    }
    

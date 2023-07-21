@@ -37,16 +37,16 @@
                             <rect key="frame" x="32" y="84" width="318" height="135"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPDATES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPc-Wt-j9y">
-                                    <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="9.6666666666666661"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="14.333333333333334"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-KJ-ouO">
-                                    <rect key="frame" x="0.0" y="13.666666666666679" width="318" height="121.33333333333331"/>
+                                    <rect key="frame" x="0.0" y="18.333333333333321" width="318" height="116.66666666666669"/>
                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="textColor" systemColor="labelColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
@@ -90,7 +90,7 @@
                         <constraint firstItem="fC8-fL-WHt" firstAttribute="leading" secondItem="LXS-FV-H9R" secondAttribute="leading" constant="32" id="jjI-K4-FEg"/>
                         <constraint firstAttribute="trailing" secondItem="fC8-fL-WHt" secondAttribute="trailing" constant="32" id="rmX-Zc-inM"/>
                         <constraint firstItem="fC8-fL-WHt" firstAttribute="top" secondItem="3nB-Yr-jxI" secondAttribute="bottom" constant="32" id="tz0-wY-cTy"/>
-                        <constraint firstAttribute="height" constant="400" id="wDF-U0-ddX"/>
+                        <constraint firstAttribute="height" constant="320" id="wDF-U0-ddX"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

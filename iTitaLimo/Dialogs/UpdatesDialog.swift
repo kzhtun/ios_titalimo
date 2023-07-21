@@ -55,11 +55,14 @@ class UpdatesDialog: UIViewController {
          self.view.frame.origin.y = 0 // Move view to original position
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       txtUpdates.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
-        txtUpdates.isEditable = true
+    override func viewDidLayoutSubviews() {
+        buttonsReShape()
     }
     
+    func buttonsReShape(){
+        txtUpdates.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
+        txtUpdates.isEditable = true
+    }
     
     func callUpdateJobRemark(jobNo: String, remark: String){
         var jobInfo: [AnyHashable: Any]?

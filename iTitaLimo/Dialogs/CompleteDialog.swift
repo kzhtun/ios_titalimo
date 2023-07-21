@@ -23,6 +23,11 @@ class CompleteDialog: UIViewController {
    @IBOutlet weak var address: UILabel!
    @IBOutlet weak var remarks: UITextView!
    
+    override func viewDidLayoutSubviews() {
+        buttonsReShape()
+    }
+    
+    
    func updateJobDetail(){
       let jobInfo: [AnyHashable: Any] = ["jobno" : jobNo] as [AnyHashable : Any]
    
@@ -56,9 +61,7 @@ class CompleteDialog: UIViewController {
       let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
       outsideView.addGestureRecognizer(gesture)
       
-      remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
-      remarks.backgroundColor = UIColor(hex: textFieldColor)
-      remarks.isEditable = true
+    //  buttonsReShape()
       
       jobDate.text = getCurrentDateTimeString(formatString: "EEE, dd MMM yyyy")
       jobTime.text = getCurrentDateTimeString(formatString: "hh:mm a")
@@ -67,6 +70,12 @@ class CompleteDialog: UIViewController {
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
    }
+    
+    func buttonsReShape(){
+        remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
+        remarks.backgroundColor = UIColor(hex: textFieldColor)
+        remarks.isEditable = true
+    }
    
    @objc func keyboardWillShow(sender: NSNotification) {
         self.view.frame.origin.y = -200 // Move view 150 points upward
@@ -77,8 +86,8 @@ class CompleteDialog: UIViewController {
    }
    
    override func viewDidAppear(_ animated: Bool) {
-      remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
-      remarks.isEditable = true
+//      remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
+//      remarks.isEditable = true
    }
    
    override func viewDidLoad() {
