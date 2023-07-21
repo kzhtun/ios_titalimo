@@ -307,7 +307,7 @@ class JobDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
        // let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
          
-        var cardViewHeight = (paxStackView.isHidden) ? 680 : 780
+        let cardViewHeight = (paxStackView.isHidden) ? 680 : 740
         
         tableViewHeightConstraint.constant = phoneTableView.contentSize.height
         DetailCardViewHeightConstraint.constant =    phoneTableView.contentSize.height + lblPassenger.bounds.size.height + CGFloat(cardViewHeight)
