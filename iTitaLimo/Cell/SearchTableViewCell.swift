@@ -12,6 +12,8 @@ class SearchTableViewCell: UITableViewCell {
    
     var searchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
     
+    var activeTAB = 0
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btnSearch: UIButton!
    
@@ -43,6 +45,16 @@ class SearchTableViewCell: UITableViewCell {
       return UINib(nibName: "SearchTableViewCell", bundle: nil)
    }
    
+    @IBAction func btnSorting_ValueChanged(_ sender: Any) {
+        var sortingInfo = [String: String]()
+      
+        sortingInfo["SortOrder"] = "\(sgSorting.selectedSegmentIndex)"
+        
+        NotificationCenter.default.post(name: Notification.Name("SORTING_CHANGED"), object: nil, userInfo: sortingInfo)
+    }
+    
+    
+    
    @IBAction func eDateEditingDidEnd(_ sender: Any) {
       syncSearchParamsOnParentList()
    }
@@ -87,45 +99,29 @@ class SearchTableViewCell: UITableViewCell {
 //       self.searchUpdateView.layoutIfNeeded()
 
        
+       activeTAB = (updateShow) ? 3 : 2
+       
        if(updateShow){
            // show update layout // Future Tab
-           self.searchUpdateView.isHidden = true
-           searchUpdateViewHeightConstraint.constant = 0
-           searchUpdateViewTopConstraint.constant = 12
-       }else{
-           // hide update layout // History Tab
            self.searchUpdateView.isHidden = false
            searchUpdateViewHeightConstraint.constant = 45
            searchUpdateViewTopConstraint.constant = 24
+       }else{
+           // hide update layout // History Tab
+           self.searchUpdateView.isHidden = true
+           searchUpdateViewHeightConstraint.constant = 0
+           searchUpdateViewTopConstraint.constant = 12
+           
+          
        }
        
        layoutIfNeeded()
        lblJobCount.text = "TOTAL : \(jobCount) JOBS"
        
-//      // is shortingShow == true ? it's on History Tab
-//      if(updateShow){
-//         lblTimeSorting.isHidden = false
-//         sgSorting.isHidden = false
-//
-//
-//
-//      }else{
-//          lblTimeSorting.isHidden = true
-//          sgSorting.isHidden = true
-//
-//
-//
-//      }
        
-       
-          
-       
-       
-     
-       
-       
-      
-     
+       initSDatePicker()
+       initEDatePicker()
+ 
       
    }
    
@@ -135,10 +131,7 @@ class SearchTableViewCell: UITableViewCell {
       super.awakeFromNib()
       // Initialization code
       
-      
-        initSDatePicker()
-        initEDatePicker()
-      
+       
        
         updates.layer.cornerRadius = 15;
         updates.layer.masksToBounds = true;
@@ -176,9 +169,28 @@ class SearchTableViewCell: UITableViewCell {
       let toolbar = UIToolbar()
       toolbar.sizeToFit()
       
-      let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.sDoneOnClick))
-      toolbar.setItems([btnDone], animated: true)
+       let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.sDoneOnClick))
+       toolbar.setItems([btnDone], animated: true)
       
+       
+       
+       // define max and min date
+       let calendar = Calendar(identifier: .gregorian)
+       var comps = DateComponents()
+    
+       if(activeTAB==2){
+           comps.day = 2
+           let minDate = calendar.date(byAdding: comps, to: Date())
+           datePicker.minimumDate = minDate
+       }
+       
+       if(activeTAB==3){
+           comps.day = -1
+           let maxDate = calendar.date(byAdding: comps, to: Date())
+           datePicker.maximumDate = maxDate
+       }
+      
+       
       datePicker.datePickerMode = .date
       datePicker.preferredDatePickerStyle = .wheels
       
@@ -194,6 +206,22 @@ class SearchTableViewCell: UITableViewCell {
       let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.eDoneOnClick))
       toolbar.setItems([btnDone], animated: true)
       
+       // define max and min date
+       let calendar = Calendar(identifier: .gregorian)
+       var comps = DateComponents()
+    
+       if(activeTAB==2){
+           comps.day = 2
+           let minDate = calendar.date(byAdding: comps, to: Date())
+           datePicker.minimumDate = minDate
+       }
+       
+       if(activeTAB==3){
+           comps.day = -1
+           let maxDate = calendar.date(byAdding: comps, to: Date())
+           datePicker.maximumDate = maxDate
+       }
+       
       datePicker.datePickerMode = .date
       datePicker.preferredDatePickerStyle = .wheels
       

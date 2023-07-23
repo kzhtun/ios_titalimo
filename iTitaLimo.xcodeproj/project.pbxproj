@@ -608,6 +608,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.1;
+				OTHER_CFLAGS = "-DRUNTIME_IL2CPP=1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iTitaLimo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -641,6 +642,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.1;
+				OTHER_CFLAGS = "-DRUNTIME_IL2CPP=1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iTitaLimo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

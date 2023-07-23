@@ -13,13 +13,14 @@ class JobListViewController: UIViewController {
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
    
    var jobList = [JobDetail]()
+   var jobListAsc = [JobDetail]()
+    var jobListDesc = [JobDetail]()
    var todayJobs = [JobDetail]()
    var tomorrowJobs = [JobDetail]()
    
     
-    
   
-    var userInfo: [AnyHashable : Any]?
+   var userInfo: [AnyHashable : Any]?
    var historySearchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
    var futureSearchFilter = SearchFilter.init(passenger: "", updates: "", sDate: "", eDate: "", sorting: "0")
    
@@ -309,6 +310,9 @@ class JobListViewController: UIViewController {
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
             self.jobList = successObj.jobs
             App.recentJobList = jobList
+             
+             print(jobList[0].Staff as Any)
+             
             JobTableView.reloadData()
          }
       }, failure: { (failureObj) in
@@ -370,6 +374,7 @@ class JobListViewController: UIViewController {
                                                    
                                                    self.jobList = successObj.jobs
                                                    App.recentJobList = jobList
+                                                   
                                                    self.JobTableView.reloadData()
                                                }
                                              }, failure: { (failureObj) in
@@ -438,10 +443,10 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
     //   initSearchFilter()
      
        if(active==2){
-           cell.configure(searchParam: futureSearchFilter, updateShow:  true, jobCount: jobList.count)
+           cell.configure(searchParam: futureSearchFilter, updateShow:  false, jobCount: jobList.count)
        }
        if(active==3){
-           cell.configure(searchParam: historySearchFilter, updateShow: false, jobCount: jobList.count)
+           cell.configure(searchParam: historySearchFilter, updateShow: true, jobCount: jobList.count)
        }
        
      
@@ -596,9 +601,52 @@ extension JobListViewController{
       
       NotificationCenter.default.addObserver(self, selector: #selector(searchClicked), name: NSNotification.Name(rawValue: "SEARCH_CLICKED"), object: nil)
        
+       NotificationCenter.default.addObserver(self, selector: #selector(SortingChanged), name: NSNotification.Name(rawValue: "SORTING_CHANGED"), object: nil)
+       
        print("registerObservers")
       
    }
+    
+//    @objc func dateSelected(notification: NSNotification){
+//        userInfo = notification.userInfo
+//
+//        guard   let sDate = userInfo?["sDate"] as? String,
+//              let eDate = userInfo?["eDate"] as? String
+// //             let passenger = userInfo?["passenger"] as? String,
+// //             let updates = userInfo?["updates"] as? String,
+// //             let sorting = userInfo?["sorting"] as? String
+//        else{
+//            return
+//        }
+//
+//
+    
+    @objc func SortingChanged(notification: NSNotification){
+       var sortingInfo = notification.userInfo
+        
+        guard  let sortOrder = sortingInfo?["SortOrder"] as? String
+        else
+        {return}
+        
+        
+        jobListAsc = App.recentJobList
+        jobListDesc = App.recentJobList.reversed()
+        
+        jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
+        
+        if(active==2){
+            futureSearchFilter.sorting = sortOrder
+        }
+        if(active==3){
+            historySearchFilter.sorting = sortOrder
+        }
+        
+        
+        self.JobTableView.reloadData()
+        
+        
+        
+    }
    
    @objc func RefreshJobList(){
        
