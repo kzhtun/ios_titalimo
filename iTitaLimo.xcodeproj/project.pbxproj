@@ -607,7 +607,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_CFLAGS = "-DRUNTIME_IL2CPP=1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iTitaLimo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -641,7 +641,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2.0;
 				OTHER_CFLAGS = "-DRUNTIME_IL2CPP=1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iTitaLimo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

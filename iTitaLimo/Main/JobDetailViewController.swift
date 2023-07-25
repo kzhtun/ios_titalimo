@@ -307,7 +307,7 @@ class JobDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
        // let diffHeight = phoneTableView.contentSize.height - tableViewHeightConstraint.constant
          
-        let cardViewHeight = (paxStackView.isHidden) ? 660 : 720
+        let cardViewHeight = (paxStackView.isHidden) ? 655 : 740
         
         tableViewHeightConstraint.constant = phoneTableView.contentSize.height
         DetailCardViewHeightConstraint.constant =    phoneTableView.contentSize.height + lblPassenger.bounds.size.height + CGFloat(cardViewHeight) + lblPassenger.bounds.size.height
@@ -473,7 +473,7 @@ extension JobDetailViewController: CLLocationManagerDelegate{
    
    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
       guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-      print("locations = \(locValue.latitude) \(locValue.longitude)")
+      //print("locations = \(locValue.latitude) \(locValue.longitude)")
       
       App.lat = locValue.latitude
       App.lng = locValue.longitude
@@ -531,7 +531,7 @@ extension JobDetailViewController: CLLocationManagerDelegate{
                                              addressString = addressString + pm.postalCode! + " "
                                           }
                                           
-                                          print(addressString)
+                                       //   print(addressString)
                                           
                                           //App.fullAddress = "Union Square#.# Stockton St#.# San Francisco"
                                          App.fullAddress = addressString.replaceEscapeChr
@@ -545,12 +545,20 @@ extension JobDetailViewController: CLLocationManagerDelegate{
 
 extension JobDetailViewController{
    func registerObservers(){
-      // update job detail info when noti receive
+       // update job detail info when noti receive
+       
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(closeJobDetails), name: NSNotification.Name(rawValue: "CLOSE_JOB_DETAILS"), object: nil)
+       
        NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
       
       NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetailSilent), name: NSNotification.Name(rawValue: "SILENT_REFRESH_JOBS"), object: nil)
    }
    
+    @objc func closeJobDetails(){
+        self.dismiss(animated: true)
+    }
+    
    
    @objc func updateJobDetailSilent(notification: NSNotification){
       let userInfo: [AnyHashable: Any]? = notification.userInfo
@@ -560,16 +568,15 @@ extension JobDetailViewController{
       callGetJobDetail(jobNo: jobNo)
    }
    
+   
    @objc func updateJobDetail(notification: NSNotification){
       let userInfo: [AnyHashable: Any]? = notification.userInfo
-       
        
        guard let jobNo = userInfo?["jobno"] as? String,
              let jobAction = userInfo?["action"] as? String
        else{return}
        
       
-     
       let refreshAlert = UIAlertController(title: "Refresh", message: "Details for this job may have changed.\nClick OK to refresh.", preferredStyle: UIAlertController.Style.alert)
       
        if(self.jobDetail.JobNo == jobNo){
@@ -589,9 +596,7 @@ extension JobDetailViewController{
           
           present(refreshAlert, animated: true, completion: nil)
        }
-            
-            
-       
+        
       
    }
 }

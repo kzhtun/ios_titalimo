@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
    
    
     
+    @IBOutlet weak var lblVersion: UILabel!
     @IBOutlet weak var chkRemember: UISwitch!
     @IBOutlet weak var loginView: UIView!
    @IBOutlet weak var txtName: UITextField!
@@ -45,9 +46,22 @@ class LoginViewController: UIViewController {
     
     
     
+    
    override func viewDidLoad() {
       super.viewDidLoad()
       
+       
+       let dictionary = Bundle.main.infoDictionary!
+       
+       let versionNo  = dictionary["CFBundleShortVersionString"] as! String
+       let buildNo  = dictionary["CFBundleVersion"] as! String
+       
+       
+       lblVersion.text = "Ver : " + versionNo + " (" + buildNo + ")"
+       
+    
+    
+       
       loginView.layer.cornerRadius = 10;
       loginView.layer.masksToBounds = true;
       loginView.layer.borderWidth = 1;

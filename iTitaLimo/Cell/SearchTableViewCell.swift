@@ -251,8 +251,6 @@ class SearchTableViewCell: UITableViewCell {
       format.dateFormat = "dd MMM yyyy"
       sDate.text = format.string(from: datePicker.date)
        
-       
-      
       //let dataDict:[String: String] = ["date": "12/12/2020"]
       syncSearchParamsOnParentList()
    }
@@ -266,7 +264,7 @@ class SearchTableViewCell: UITableViewCell {
        criteria["eDate"] = eDate.text!.isEmpty ? " ": eDate.text
        criteria["sorting"] = "\(sgSorting.selectedSegmentIndex)"
        
-      NotificationCenter.default.post(name: Notification.Name("SYNC_SEARCH_PARAMS"), object: nil, userInfo: criteria)
+       NotificationCenter.default.post(name: Notification.Name("SYNC_SEARCH_PARAMS"), object: nil, userInfo: criteria)
    }
    
    @objc func eDoneOnClick(){

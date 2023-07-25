@@ -73,16 +73,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // localNotification(title: "Noti", body: "Test")
        
        notificationCenter.delegate = self
-       notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { isSuccessful, error in
-                   guard isSuccessful else{
-                       return
-                   }
-                   print(">> SUCCESSFUL APNs REGISTRY")
-               }
-               application.registerForRemoteNotifications()
-               return true
+       // request permission from user to send notification
+           UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { authorized, error in
+             if authorized {
+               DispatchQueue.main.async(execute: {
+                   application.registerForRemoteNotifications()
+               })
+             }
+           })
+       
+//       notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { isSuccessful, error in
+//                   guard isSuccessful else{
+//                       return
+//                   }
+//                   print(">> SUCCESSFUL APNs REGISTRY")
+//               }
+//               application.registerForRemoteNotifications()
+//               return true
       
-     // return false
+       return false
    }
    
    
@@ -94,9 +103,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    }
    
    
-   func applicationDidFinishLaunching(_ application: UIApplication) {
-      application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
-   }
+//   func applicationDidFinishLaunching(_ application: UIApplication) {
+//      application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+//   }
    
    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
       // Called when the user discards a scene session.
@@ -111,33 +120,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
        NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
      
-  //     let badge = (application.applicationIconBadgeNumber == 0) ? 1 : application.applicationIconBadgeNumber
-     //  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1
-       UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
+       print("didReceiveRemoteNotification jobInfo")
+       
+       //UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
    }
    
-   
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        UIApplication.shared.applicationIconBadgeNumber  = 0
-    }
-    
+
+  
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-       
-    //   let badge = (application.applicationIconBadgeNumber == 0) ? 1 : application.applicationIconBadgeNumber
-     //  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1
-       UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
-       
-      print("didReceiveRemoteNotification NEW 1")
-      
-      
+    
+     //UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
+
+      print("didReceiveRemoteNotification Void")
 
       // =================================== //
       jobInfo = userInfo
-       
+
       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
 
       // localNotification(title: "Test", body: "This is local notification");
-       
+
        switch UIApplication.shared.applicationState {
            case .background, .inactive:
                 print("Application is in Background")
@@ -146,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            default:
                break
        }
-       
+
       // job update
       if let action = userInfo["action"] as? String{
          if(action.uppercased() == "ASSIGN" || action.uppercased() == "REASSIGN"){
@@ -163,10 +165,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          urgentJobNotification(userInfo: userInfo)
       }
       // =================================== //
-      
+
       completionHandler(UIBackgroundFetchResult.newData)
    }
-   
+
    
    func cancelNotification(userInfo: [AnyHashable: Any]){
       guard let jobNo = userInfo["jobno"] as? String
@@ -183,6 +185,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       })
    }
 }
+
+
 
 
 
@@ -203,38 +207,38 @@ extension AppDelegate: MessagingDelegate{
 @available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
    
+   
    // Receive displayed notifications for iOS 10 devices.
    func userNotificationCenter(_ center: UNUserNotificationCenter,
                                willPresent notification: UNNotification,
                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
       
-     let userInfo = notification.request.content.userInfo
-      jobInfo = userInfo
-      print("willPresent notification")
-      
-      NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
-      
-    //  newJobNotification(userInfo: userInfo)
-      
-      completionHandler([.banner, .list , .badge, .sound])
+      let userInfo = notification.request.content.userInfo
+       
+       completionHandler([.banner, .list , .badge, .sound])
+       
    }
    
    
+    
+    
    func userNotificationCenter(_ center: UNUserNotificationCenter,
                                didReceive response: UNNotificationResponse,
                                withCompletionHandler completionHandler: @escaping () -> Void) {
-      let userInfo = response.notification.request.content.userInfo
-      // Print message ID.
-      if let messageID = userInfo[gcmMessageIDKey] {
+      
+       let userInfo = response.notification.request.content.userInfo
+       
+       // Print message ID.
+       if let messageID = userInfo[gcmMessageIDKey] {
          print("Message ID: \(messageID)")
-      }
+       }
       
-      print("didReceive response")
       
-      let identifier = response.actionIdentifier
-     // let request = response.notification.request
-      
-      completionHandler()
+      // close jobdetail if the user on that screen
+       
+       NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
+  
+       completionHandler()
       
       // Action button clicked
 //      if identifier == "ACCEPT"{
@@ -262,11 +266,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 //         NotificationCenter.default.post(name: Notification.Name("URGENT_JOB_CONFIRM"), object: nil, userInfo: jobInfo )
 //      }
 
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      if  let notiVc = storyboard.instantiateViewController(withIdentifier: "NotiViewController") as? NotiViewController {
-         // set the view controller as root
-         self.window?.rootViewController = notiVc
-      }
+      
       
    }
   
@@ -314,18 +314,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             let vehicletype = userInfo["vehicletype"] as? String,
          //   let driver = userInfo["driver"] as? String,
             let   message = userInfo["message"] as? String
-      else{return}
-
-//      content.title = "Accept Click"
-//      content.subtitle = "⭐ " + pickuptime + " ⭐ \n" // ⏰
-//      content.body = "" + pickuppoint + "\n" // displayMsg + "\n Pickup \t:\t Arumugan Road. ⭐ "
-//      content.body += "  🔻 \n"
-//      content.body += "" + alightpoint + "\n"
-//      content.body += "" + vehicletype
-//      content.sound = UNNotificationSound.default
-//      content.badge = 1
-//      content.categoryIdentifier = "JOB_ASSIGN"
-//
+       else{return}
        
        content.title = "NEW JOB"
        content.subtitle = "📅 " + jobdate + " \t ⏰ " + pickuptime + "\n" //
@@ -334,7 +323,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
        content.body += "⭐ " + vehicletype
        content.sound = UNNotificationSound.default
       // content.badge =
-       content.categoryIdentifier = "JOB_ASSIGN"
+       content.categoryIdentifier = "TITALIMO"
 
       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
        
