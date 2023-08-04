@@ -27,9 +27,14 @@ class ActionDialog: UIViewController {
       btnPOB.backgroundColor = UIColor(hex: App.ButtonGreen)
       btnNS.backgroundColor = UIColor(hex: App.ButtonGreen)
       btnBack.backgroundColor = UIColor(hex: App.ButtonRed)
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(closeActionDialog), name: NSNotification.Name(rawValue: "CLOSE_ACTION_DIALOG"), object: nil)
    }
    
   
+    @objc func closeActionDialog(){
+        self.dismiss(animated: true)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         let touch = touches.first
@@ -41,12 +46,17 @@ class ActionDialog: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+     
     }
 
-
+   
+    
    override func viewWillDisappear(_ animated: Bool) {
       
    }
+    
+    
    
    @IBAction func pobOnClick(_ sender: Any) {
    
@@ -57,6 +67,7 @@ class ActionDialog: UIViewController {
       vc.modalPresentationStyle =  .overCurrentContext
       
       self.present(vc, animated:  true, completion: nil)
+       
    }
    
    
@@ -67,7 +78,9 @@ class ActionDialog: UIViewController {
       vc.modalTransitionStyle = .crossDissolve
       vc.modalPresentationStyle = .overCurrentContext
    
+       
       self.present(vc, animated:  true, completion: nil)
+    
    }
    
    

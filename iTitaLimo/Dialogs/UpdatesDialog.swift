@@ -29,7 +29,7 @@ class UpdatesDialog: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 //        let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
 //        outsideView.addGestureRecognizer(gesture)
-//        
+//
         var newUpdates = (updates == "##-##") ? "" : updates
         
         self.txtUpdates.text = newUpdates.replacingOccurrences(of: "##-##" , with: "\n")
@@ -42,7 +42,7 @@ class UpdatesDialog: UIViewController {
        
     }
     
-   
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         let touch = touches.first

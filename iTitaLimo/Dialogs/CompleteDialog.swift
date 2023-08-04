@@ -27,6 +27,10 @@ class CompleteDialog: UIViewController {
         buttonsReShape()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        closeParentView()
+    }
     
    func updateJobDetail(){
       let jobInfo: [AnyHashable: Any] = ["jobno" : jobNo] as [AnyHashable : Any]

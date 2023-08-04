@@ -56,6 +56,9 @@ class PassengerOnBoardDialog: UIViewController {
         SignOnClick(tabSignature!)
     }
     
+    
+    
+    
     override func viewWillLayoutSubviews() {
         indicator = UIActivityIndicatorView(frame: dialogInitializing.view.bounds)
                 indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -203,7 +206,8 @@ class PassengerOnBoardDialog: UIViewController {
    
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(true)
-    //  closeParentView()
+      // NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
+     //  closeParentView()
    }
   
     
@@ -215,20 +219,14 @@ class PassengerOnBoardDialog: UIViewController {
    
    @IBAction func SubmitOnClick(_ sender: Any) {
       
+       
        if(remarks.text.isEmpty){
           remarks.text = " "
        }
        
        // Call Passenger No Show
        if(jobAction == "NS"){
-          Router.sharedInstance().UpdateJobNoShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger No Show") { [self] (successObj) in
-             self.view.makeToast("Update job successfully")
-             updateJobDetail()
-             self.dismiss(animated: true, completion: nil)
-             self.closeParentView()
-          } failure: { (failureObj) in
-             self.view.makeToast(failureObj)
-          }
+           callPassengerNoShowSave()
        }else{
            if(btnDone.titleLabel?.text == "SAVED"){
                //callPassenerOnBoardSave()
@@ -298,13 +296,30 @@ class PassengerOnBoardDialog: UIViewController {
         
     }
     
+    func callPassengerNoShowSave(){
+        closeParentView()
+        Router.sharedInstance().UpdateJobNoShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger No Show") { [self] (successObj) in
+           self.view.makeToast("Update job successfully")
+           updateJobDetail()
+           self.dismiss(animated: true, completion: nil)
+            
+            NotificationCenter.default.post(name: Notification.Name("CLOSE_ACTION_DIALOG"), object: nil, userInfo: nil)
+        
+        } failure: { (failureObj) in
+           self.view.makeToast(failureObj)
+        }
+    }
+    
     func callPassenerOnBoardSave(){
         // Call Passenger On Board
+        closeParentView()
         Router.sharedInstance().UpdateJobShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger On Board") { (successObj) in
             self.view.makeToast("Update job successfully")
             self.updateJobDetail()
             self.dismiss(animated: true, completion: nil)
-            self.closeParentView()
+           
+            NotificationCenter.default.post(name: Notification.Name("CLOSE_ACTION_DIALOG"), object: nil, userInfo: nil)
+           
         } failure: { (failureObj) in
             self.view.makeToast(failureObj)
         }
