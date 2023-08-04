@@ -27,9 +27,9 @@ class UpdatesDialog: UIViewController {
 
    
     override func viewWillAppear(_ animated: Bool) {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
-        outsideView.addGestureRecognizer(gesture)
-        
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
+//        outsideView.addGestureRecognizer(gesture)
+//        
         var newUpdates = (updates == "##-##") ? "" : updates
         
         self.txtUpdates.text = newUpdates.replacingOccurrences(of: "##-##" , with: "\n")
@@ -42,9 +42,13 @@ class UpdatesDialog: UIViewController {
        
     }
     
-    @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
-       self.dismiss(animated: true, completion: nil)
-       print("Outside View OnClick")
+   
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        let touch = touches.first
+             if touch?.view == self.outsideView {
+                 self.dismiss(animated: true, completion: nil)
+            }
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
@@ -68,10 +72,15 @@ class UpdatesDialog: UIViewController {
         var jobInfo: [AnyHashable: Any]?
         var newRemark = ""
         
-      
         newRemark = (remark.isEmpty) ? "\n" : remark
+      //  newRemark = newRemark.replacingOccurrences(of: "", with: "")
+        newRemark = newRemark.replacingOccurrences(of: "\n" , with: "##-##")
+        newRemark = newRemark.replacingOccurrences(of: "/" , with: "|")
+        newRemark = newRemark.replacingOccurrences(of: "\\" , with: "|")
         
-        Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: newRemark.replacingOccurrences(of: "\n" , with: "##-##"),
+       
+        
+        Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: newRemark,
                                                success: {(successObj) in
                                                  if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                      

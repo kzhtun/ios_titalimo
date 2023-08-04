@@ -7,6 +7,7 @@
 
 import UIKit
 import Toast_Swift
+import Alamofire
 //import BEMCheckBox
 
 class LoginViewController: UIViewController {
@@ -35,14 +36,14 @@ class LoginViewController: UIViewController {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    
-    }
+//    override func viewDidLayoutSubviews() {
+//        UIApplication.shared.applicationIconBadgeNumber = 0
+//    }
+//    
+//    override func viewWillAppear(_ animated: Bool) {
+//        UIApplication.shared.applicationIconBadgeNumber = 0
+//    
+//    }
     
     
     
@@ -59,7 +60,6 @@ class LoginViewController: UIViewController {
        
        lblVersion.text = "Ver : " + versionNo + " (" + buildNo + ")"
        
-    
     
        
       loginView.layer.cornerRadius = 10;
@@ -90,8 +90,6 @@ class LoginViewController: UIViewController {
          txtName.text = ""
       }
      
-    
-       
        
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
@@ -109,8 +107,15 @@ class LoginViewController: UIViewController {
    @objc func keyboardWillHide(sender: NSNotification) {
         self.view.frame.origin.y = 0 // Move view to original position
    }
+    
+    func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
   
    @IBAction func btnLoginOnClick(_ sender: Any) {
+       
+       
+       
        
       if(chkRemember.isOn){
          UserDefaults.standard.setValue(txtName.text, forKey: CONST_USER_NAME)
@@ -138,10 +143,19 @@ class LoginViewController: UIViewController {
 
    }
    
-   
-
-    
    func callValidateDriver(){
+       // check network connection here
+        if (!isConnectedToInternet()){
+            let confirmAlert = UIAlertController(title: "Erro in connection.", message: "Please check your internet connection and try again.", preferredStyle: UIAlertController.Style.alert)
+            
+            confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                confirmAlert.dismiss(animated: true)
+            }))
+            
+            self.present(confirmAlert, animated: true, completion: nil)
+        }
+      
+       
       Router.sharedInstance().ValidateDriver(driver: txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines)) { [self] (successObj) in
          
          // valid
@@ -155,7 +169,7 @@ class LoginViewController: UIViewController {
            
             // invalid
          }else{
-             let confirmAlert = UIAlertController(title: "Tita Limo", message: "Invalid user name or password.", preferredStyle: UIAlertController.Style.alert)
+             let confirmAlert = UIAlertController(title: "Tita Limo", message: "Invalid username.", preferredStyle: UIAlertController.Style.alert)
              
              confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
                  let startPosition = self.txtName.beginningOfDocument

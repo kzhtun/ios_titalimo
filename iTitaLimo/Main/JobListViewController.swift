@@ -28,9 +28,16 @@ class JobListViewController: UIViewController {
    
     
     override func viewDidLayoutSubviews() {
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2)
+        {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+        
+//        if(active != 0){
+//            TodayOnClick(btnToday ?? nil)
+//        }
     }
-    
+
     
     
     override func applicationFinishedRestoringState() {
@@ -126,7 +133,7 @@ class JobListViewController: UIViewController {
    
    override func viewWillAppear(_ animated: Bool) {
        
-      UIApplication.shared.applicationIconBadgeNumber = 0
+     // UIApplication.shared.applicationIconBadgeNumber = 0
       
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
        
@@ -169,60 +176,50 @@ class JobListViewController: UIViewController {
    }
   
     
+  
+    
    override func viewDidLoad() {
-      super.viewDidLoad()
-      buttonSelection()
-  
+       super.viewDidLoad()
+       buttonSelection()
+
+       self.JobTableView.estimatedSectionHeaderHeight = 1000
+       self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
+    }
    
-       
-//       searchFilter.sDate = sDate
-//       searchFilter.eDate = eDate
-//       searchFilter.passenger = passenger
-//       searchFilter.updates = updates
-//       searchFilter.sorting = sorting
-//
-       
-      
-      self.JobTableView.estimatedSectionHeaderHeight = 1000
-      self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
-   }
-  
-   @objc func searchClicked(notification: NSNotification){
-       userInfo = notification.userInfo
-       
-   //    RefreshJobList()
-     
-       guard     let sDate = userInfo?["sDate"] as? String,
-                 let eDate = userInfo?["eDate"] as? String,
-                 let passenger = userInfo?["passenger"] as? String,
-                 let updates = userInfo?["updates"] as? String,
-                 let sorting = userInfo?["sorting"] as? String
-       else{
-           return
+    @objc func searchClicked(notification: NSNotification){
+        userInfo = notification.userInfo
+        
+        guard     let sDate = userInfo?["sDate"] as? String,
+                  let eDate = userInfo?["eDate"] as? String,
+                  let passenger = userInfo?["passenger"] as? String,
+                  let updates = userInfo?["updates"] as? String,
+                  let sorting = userInfo?["sorting"] as? String
+        else{
+            return
+        }
+
+   
+       // future
+       if(active == 2){
+           futureSearchFilter.sDate = sDate
+           futureSearchFilter.eDate = eDate
+           futureSearchFilter.passenger = passenger
+           futureSearchFilter.updates = updates
+           futureSearchFilter.sorting = sorting
+           
+           callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
        }
 
-  
-      // future
-      if(active == 2){
-          futureSearchFilter.sDate = sDate
-          futureSearchFilter.eDate = eDate
-          futureSearchFilter.passenger = passenger
-          futureSearchFilter.updates = updates
-          futureSearchFilter.sorting = sorting
-          
-          callGetFutureJobs(from: sDate, to: eDate, passenger: passenger, sort: sorting)
-      }
-
-      // history
-      if(active == 3){
-          historySearchFilter.sDate = sDate
-          historySearchFilter.eDate = eDate
-          historySearchFilter.passenger = passenger
-          historySearchFilter.updates = updates
-          historySearchFilter.sorting = sorting
-          
-          callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
-      }
+       // history
+       if(active == 3){
+           historySearchFilter.sDate = sDate
+           historySearchFilter.eDate = eDate
+           historySearchFilter.passenger = passenger
+           historySearchFilter.updates = updates
+           historySearchFilter.sorting = sorting
+           
+           callGetHistoryJobs(from: sDate, to: eDate, passenger: passenger, updates: updates, sort: sorting)
+       }
       
    }
    
@@ -603,6 +600,8 @@ extension JobListViewController{
       
       NotificationCenter.default.addObserver(self, selector: #selector(AcceptSuccessful), name: NSNotification.Name(rawValue: "ACCEPT_SUCCESSFUL"), object: nil)
       
+       NotificationCenter.default.addObserver(self, selector: #selector(SelectTodayTab), name: NSNotification.Name(rawValue: "SELECT_TODAY_TAB"), object: nil)
+       
       // refresh job list when noti receive
       NotificationCenter.default.addObserver(self, selector: #selector(RefreshJobList), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
       
@@ -612,9 +611,15 @@ extension JobListViewController{
        
        NotificationCenter.default.addObserver(self, selector: #selector(SortingChanged), name: NSNotification.Name(rawValue: "SORTING_CHANGED"), object: nil)
        
-       print("registerObservers")
+      // print("registerObservers")
       
    }
+    
+    @objc func SelectTodayTab(){
+        if(active > 0 ){
+            TodayOnClick(btnToday!)
+        }
+    }
     
 //    @objc func dateSelected(notification: NSNotification){
 //        userInfo = notification.userInfo
@@ -676,6 +681,8 @@ extension JobListViewController{
        }
     
 
+       
+            
      
    }
    

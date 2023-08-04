@@ -20,8 +20,8 @@ class ActionDialog: UIViewController {
    @IBOutlet weak var btnBack: UIButton!
    
    override func viewWillAppear(_ animated: Bool) {
-      let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
-      outsideView.addGestureRecognizer(gesture)
+//      let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
+//      outsideView.addGestureRecognizer(gesture)
       
       // set buttons color
       btnPOB.backgroundColor = UIColor(hex: App.ButtonGreen)
@@ -29,10 +29,15 @@ class ActionDialog: UIViewController {
       btnBack.backgroundColor = UIColor(hex: App.ButtonRed)
    }
    
-   @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
-      self.dismiss(animated: true, completion: nil)
-      print("Outside View OnClick")
-   }
+  
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        let touch = touches.first
+             if touch?.view == self.outsideView {
+                 self.dismiss(animated: true, completion: nil)
+            }
+    }
+   
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -43,28 +43,30 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdh-sj-1I5">
-                            <rect key="frame" x="32" y="84" width="80" height="22"/>
+                            <rect key="frame" x="32" y="84" width="120" height="22"/>
                             <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="80" id="4PB-61-XWF"/>
+                                <constraint firstAttribute="width" constant="120" id="4PB-61-XWF"/>
                                 <constraint firstAttribute="height" constant="22" id="nWI-Aw-qQS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <state key="normal" title="SIGNATURE"/>
                             <connections>
                                 <action selector="SignOnClick:" destination="-1" eventType="touchUpInside" id="wFq-sG-pUu"/>
+                                <action selector="btnSignatureTouchDown:" destination="-1" eventType="touchDown" id="Gar-62-Mr5"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZh-qI-Fd0">
-                            <rect key="frame" x="112" y="84" width="90" height="22"/>
+                            <rect key="frame" x="152" y="84" width="120" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="90" id="fbH-qG-m1W"/>
+                                <constraint firstAttribute="width" constant="120" id="fbH-qG-m1W"/>
                                 <constraint firstAttribute="height" constant="22" id="ljm-X6-iOp"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <state key="normal" title="PASSENGER"/>
                             <connections>
                                 <action selector="PhotoOnClick:" destination="-1" eventType="touchUpInside" id="ydp-8N-bNl"/>
+                                <action selector="btnPassengerTouchDown:" destination="-1" eventType="touchUpInside" id="8yQ-38-ESy"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLS-87-3Rm" userLabel="PhotoView">

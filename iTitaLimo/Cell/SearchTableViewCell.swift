@@ -185,7 +185,7 @@ class SearchTableViewCell: UITableViewCell {
        }
        
        if(activeTAB==3){
-           comps.day = -1
+           comps.day = 0
            let maxDate = calendar.date(byAdding: comps, to: Date())
            datePicker.maximumDate = maxDate
        }
@@ -217,7 +217,7 @@ class SearchTableViewCell: UITableViewCell {
        }
        
        if(activeTAB==3){
-           comps.day = -1
+           comps.day = 0
            let maxDate = calendar.date(byAdding: comps, to: Date())
            datePicker.maximumDate = maxDate
        }
@@ -238,7 +238,6 @@ class SearchTableViewCell: UITableViewCell {
       criteria["sDate"] = sDate.text!.isEmpty ? " ": sDate.text
       criteria["eDate"] = eDate.text!.isEmpty ? " ": eDate.text
       criteria["sorting"] = "\(sgSorting.selectedSegmentIndex)"
-  
    
       NotificationCenter.default.post(name: Notification.Name("SEARCH_CLICKED"), object: nil, userInfo: criteria)
    }

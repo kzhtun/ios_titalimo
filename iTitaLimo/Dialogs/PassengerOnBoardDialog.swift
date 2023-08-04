@@ -24,7 +24,7 @@ class PassengerOnBoardDialog: UIViewController {
     var hasSignature = false
   
   
-    @IBOutlet var outsideView: UIView!
+   @IBOutlet var outsideView: UIView!
    @IBOutlet weak var signView: SignaturePad!
    @IBOutlet weak var tabPassenger: UIButton!
    @IBOutlet weak var tabSignature: UIButton!
@@ -41,10 +41,31 @@ class PassengerOnBoardDialog: UIViewController {
     
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var btnClear: UIButton!
+    var indicator: UIActivityIndicatorView!
+   
     
-    var dialogInitializing = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
     
+    var dialogInitializing = UIAlertController(title: "Initializing ...", message: "\n\nPlease wait. This may take 10 to 15 seconds ", preferredStyle: .alert)
+   
     
+    @IBAction func btnPassengerTouchDown(_ sender: Any) {
+        PhotoOnClick(tabPassenger!)
+    }
+    
+    @IBAction func btnSignatureTouchDown(_ sender: Any) {
+        SignOnClick(tabSignature!)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        indicator = UIActivityIndicatorView(frame: dialogInitializing.view.bounds)
+                indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+                //add the activity indicator as a subview of the alert controller's view
+                dialogInitializing.view.addSubview(indicator)
+                indicator.color = .blue
+                indicator.isUserInteractionEnabled = false // required otherwise if there buttons in the UIAlertController you will not be able to press them
+               
+    }
     
     
     @IBAction func btnClear_TouchDown(_ sender: Any) {
@@ -60,8 +81,14 @@ class PassengerOnBoardDialog: UIViewController {
         if(self.hasSignature){
             // upload signature
             if (self.signView.getSignature() != nil) {
+              //  self.uploadSignature(imageData: self.signatureData!, fileName: "\(self.jobNo)_sign.jpg")
+              //  startTimer()
+                
+                
+                self.indicator.startAnimating()
                 // show initializing dialog
                 self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
+                   
                     if(self.photoView.isHidden){
                         if let signature = self.signView.getSignature() {
                             self.signatureData = signature.jpegData(compressionQuality: 0.5)!
@@ -98,8 +125,8 @@ class PassengerOnBoardDialog: UIViewController {
    
    override func viewWillAppear(_ animated: Bool) {
       
-      let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
-      outsideView.addGestureRecognizer(gesture)
+//      let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
+//      outsideView.addGestureRecognizer(gesture)
       
       remarks.backgroundColor = UIColor(hex: textFieldColor)
       
@@ -124,10 +151,20 @@ class PassengerOnBoardDialog: UIViewController {
         self.view.frame.origin.y = 0 // Move view to original position
    }
    
-   @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
-      self.dismiss(animated: true, completion: nil)
-      print("Outside View OnClick")
-   }
+//   @objc func outsideViewOnClick(sender : UITapGestureRecognizer){
+//     // self.dismiss(animated: true, completion: nil)
+//      print("Outside View OnClick")
+//   }
+    
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        let touch = touches.first
+             if touch?.view == self.outsideView {
+                 self.dismiss(animated: true, completion: nil)
+            }
+    }
+   
   
    
    func buttonsReShape(){
@@ -177,62 +214,89 @@ class PassengerOnBoardDialog: UIViewController {
   
    
    @IBAction func SubmitOnClick(_ sender: Any) {
-       
-       
-       // upload passenger photo
-       var subfix = ""
-       if(jobAction == "NS"){
-          subfix = "_no_show.jpg"
-       }else{
-          subfix = "_show.jpg"
-       }
-       
-       //  uploadFTP()
-       if let imagedata = imgPreview.image?.jpegData(compressionQuality: 0.5) {
-          DispatchQueue.main.async{
-             self.uploadFTP(imageData: imagedata, fileName: self.jobNo + subfix)
-          }
-       }
-       
-      if(remarks.text.isEmpty){
-         remarks.text = " "
-      }
       
-      // Call Passenger No Show
-      if(jobAction == "NS"){
-         Router.sharedInstance().UpdateJobNoShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger No Show") { [self] (successObj) in
-            self.view.makeToast("Update job successfully")
-            updateJobDetail()
-            self.dismiss(animated: true, completion: nil)
-            self.closeParentView()
-         } failure: { (failureObj) in
-            self.view.makeToast(failureObj)
-         }
-      }else{
-          if(btnDone.titleLabel?.text == "SAVED"){
-              callPassenerOnBoardSave()
-          }else{
-              
-              // confirm signature blank saving?
-              let confirmAlert = UIAlertController(title: "Tita Limo", message: "Either signature is blank or has not been done.\nDo you want to proceed?", preferredStyle: UIAlertController.Style.alert)
-              
-              confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                  self.callPassenerOnBoardSave()
-              }))
-              
-              confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                  print("Handle Cancel Logic here")
-              }))
-              
-              self.present(confirmAlert, animated: true, completion: nil)
-          }
-         
-      }
+       if(remarks.text.isEmpty){
+          remarks.text = " "
+       }
        
-    //   btnErase.isHidden = false
-     //  btnEraseHeightConstraints.constant = 32
-    
+       // Call Passenger No Show
+       if(jobAction == "NS"){
+          Router.sharedInstance().UpdateJobNoShowConfirm(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Passenger No Show") { [self] (successObj) in
+             self.view.makeToast("Update job successfully")
+             updateJobDetail()
+             self.dismiss(animated: true, completion: nil)
+             self.closeParentView()
+          } failure: { (failureObj) in
+             self.view.makeToast(failureObj)
+          }
+       }else{
+           if(btnDone.titleLabel?.text == "SAVED"){
+               //callPassenerOnBoardSave()
+               
+               let cgref = imgPreview.image?.cgImage
+               let cim = imgPreview.image?.ciImage
+               
+               if(cim == nil && cgref == nil) {
+                   let confirmAlert = UIAlertController(title: "Tita Limo", message: "Please take a photo before submit", preferredStyle: UIAlertController.Style.alert)
+                   
+                   confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                       confirmAlert.dismiss(animated: true)
+                   }))
+                   
+                   self.present(confirmAlert, animated: true, completion: nil)
+                   
+               }else{
+                   self.uploadPassengerPhoto()
+               }
+               
+           }else{
+               
+               // confirm signature blank saving?
+               let confirmAlert = UIAlertController(title: "Tita Limo", message: "Either signature is blank or has not been done.\nDo you want to proceed?", preferredStyle: UIAlertController.Style.alert)
+               
+               confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                   self.uploadPassengerPhoto()
+               }))
+               
+               confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                   print("Handle Cancel Logic here")
+               }))
+               
+               self.present(confirmAlert, animated: true, completion: nil)
+           }
+          
+       }
+     
    }
+    
+    
+    func uploadPassengerPhoto(){
+        // upload passenger photo
+        var subfix = ""
+        if(jobAction == "NS"){
+           subfix = "_no_show.jpg"
+        }else{
+           subfix = "_show.jpg"
+        }
+        
+        self.indicator.startAnimating()
+        self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
+            
+            //  uploadFTP()
+            if let imagedata = self.imgPreview.image?.jpegData(compressionQuality: 0.5) {
+                
+                let photoUploaded = self.uploadFTP(imageData: imagedata, fileName: self.jobNo + subfix)
+              
+                if(photoUploaded){
+                    self.callPassenerOnBoardSave()
+                }
+            }
+        })
+    }
+    
+    func updatePOB(){
+        
+    }
     
     func callPassenerOnBoardSave(){
         // Call Passenger On Board
@@ -291,25 +355,52 @@ class PassengerOnBoardDialog: UIViewController {
    }
    
    
-   func uploadFTP(imageData: Data, fileName: String){
+   func uploadFTP(imageData: Data, fileName: String) -> Bool{
      //  var dialogMessage = UIAlertController(title: "", message: "Initializing ...", preferredStyle: .alert)
      
-     
-       let ftpup = FTPUpload()
+      let ftpup = FTPUpload()
+       var result: Bool = false
        
       ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
-            print("Upload failured!")
-             self.dialogInitializing.dismiss(animated: true)
+             print("Upload failured!")
+             self.dialogInitializing.dismiss(animated: true, completion:  {()-> Void in
+                 self.showPassengerPhotoUploadError()
+                 
+             })
+             result = false
          }
          else {
-            print("Image uploaded!")
+             print("Image uploaded!")
              self.dialogInitializing.dismiss(animated: true)
+             result = true
          }
       })
+       
+      return result
    }
    
    // SignatureUpload
+    func uploadSignature(imageData: Data, fileName: String){
+       
+        let ftpup = FTPUpload()
+       
+        ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
+          if !success {
+             print("Upload failured!")
+              self.dialogInitializing.dismiss(animated: true, completion:  {()-> Void in
+                  self.showSignatureUploadError()
+              })
+             
+          }
+          else {
+             print("Image uploaded!")
+             self.dialogInitializing.dismiss(animated: true)
+             self.btnDone.setTitle("SAVED", for: .normal)
+          }
+       })
+    }
+    
    func uploadFTP2(imageData: Data, fileName: String){
       
        let ftpup = FTPUpload()
@@ -317,15 +408,41 @@ class PassengerOnBoardDialog: UIViewController {
        ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
          if !success {
             print("Upload failured!")
-             self.dialogInitializing.dismiss(animated: true)
+             self.dialogInitializing.dismiss(animated: true, completion:  {()-> Void in
+                 self.showSignatureUploadError()
+             })
+            
          }
          else {
             print("Image uploaded!")
-             self.dialogInitializing.dismiss(animated: true)
-             self.btnDone.setTitle("SAVED", for: .normal)
+            self.dialogInitializing.dismiss(animated: true)
+            self.btnDone.setTitle("SAVED", for: .normal)
          }
+        
       })
    }
+    
+    func showSignatureUploadError(){
+        let infoAlert = UIAlertController(title: "Tita Limo", message: "Error in signature uploading.", preferredStyle: UIAlertController.Style.alert)
+        
+        infoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            infoAlert.dismiss(animated: true)
+        }))
+        
+      
+        self.present(infoAlert, animated: true, completion: nil)
+    }
+    
+    func showPassengerPhotoUploadError(){
+        let infoAlert = UIAlertController(title: "Tita Limo", message: "Error in photo uploading.", preferredStyle: UIAlertController.Style.alert)
+        
+        infoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            infoAlert.dismiss(animated: true)
+        }))
+        
+      
+        self.present(infoAlert, animated: true, completion: nil)
+    }
 }
 
 
@@ -344,6 +461,7 @@ extension PassengerOnBoardDialog: SignaturePadDelegate {
    
    
 }
+
 
 
 extension PassengerOnBoardDialog: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

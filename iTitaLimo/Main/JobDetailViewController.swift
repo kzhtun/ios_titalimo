@@ -378,7 +378,7 @@ class JobDetailViewController: UIViewController {
            paxUpperLineBottomConstraint.constant = 0
            
            paxLowerLineTopConstraint.constant = 0
-           paxLowerLineBottomConstraint.constant = 32
+           paxLowerLineBottomConstraint.constant = 22
            
          //  DetailCardViewHeightConstraint.constant -= 30
            
@@ -434,9 +434,13 @@ class JobDetailViewController: UIViewController {
                                              self.view.makeToast(failureObj)
                                            })
    }
+    
+    
+
    
 }
 
+ 
 
 extension JobDetailViewController: UITableViewDelegate, UITableViewDataSource {
    
@@ -481,6 +485,9 @@ extension JobDetailViewController: CLLocationManagerDelegate{
       getAddressFromLatLon(pdblLatitude: String(locValue.latitude), pdblLongitude:  String(locValue.longitude))
    }
    
+    
+   
+    
    
    func getAddressFromLatLon(pdblLatitude: String, pdblLongitude: String) {
       var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
@@ -503,23 +510,19 @@ extension JobDetailViewController: CLLocationManagerDelegate{
                                           print("reverse geodcode fail: \(error!.localizedDescription)")
                                        }
                                        
-                                       let pm = placemarks! as [CLPlacemark]
-                                       
-                                       if pm.count > 0 {
-                                          let pm = placemarks![0]
-                                          //                       print(pm.country)
-                                          //                       print(pm.locality)
-                                          //                       print(pm.subLocality)
-                                          //                       print(pm.thoroughfare)
-                                          //                       print(pm.postalCode)
-                                          //                       print(pm.subThoroughfare)
-                                          
+          
+                                      guard let placemarks = placemarks else {
+                                                        App.fullAddress = "NA"
+                                                        return
+                                                  }
+          
+                                      if let pm = placemarks.first {
                                           var addressString : String = ""
                                           if pm.subLocality != nil {
                                              addressString = addressString + pm.subLocality! + ", "
                                           }
                                           if pm.thoroughfare != nil {
-                                             addressString = addressString + pm.thoroughfare! + ", "
+                                              addressString = addressString + pm.thoroughfare! + ", "
                                           }
                                           if pm.locality != nil {
                                              addressString = addressString + pm.locality! + ", "
@@ -531,17 +534,60 @@ extension JobDetailViewController: CLLocationManagerDelegate{
                                              addressString = addressString + pm.postalCode! + " "
                                           }
                                           
-                                       //   print(addressString)
-                                          
-                                          //App.fullAddress = "Union Square#.# Stockton St#.# San Francisco"
-                                         App.fullAddress = addressString.replaceEscapeChr
-                                             
-//                                             addressString.replacingOccurrences(of: ",", with: "#.#")
-                                       }
+                                          App.fullAddress = addressString.replaceEscapeChr
+                                          print(App.fullAddress)
+                                      }
+          
+          
+          
+//                                      guard let pm = placemarks else {
+//                                                        App.fullAddress = "NA"
+//                                                        return
+//                                                  }
+//
+//                                       pm = placemarks! as [CLPlacemark]
+                                       
+//                                       if placemarks.count > 0 {
+//                                          let pm = placemarks![0]
+//                                          //                       print(pm.country)
+//                                          //                       print(pm.locality)
+//                                          //                       print(pm.subLocality)
+//                                          //                       print(pm.thoroughfare)
+//                                          //                       print(pm.postalCode)
+//                                          //                       print(pm.subThoroughfare)
+//
+//                                          var addressString : String = ""
+//                                          if pm.subLocality != nil {
+//                                             addressString = addressString + pm.subLocality! + ", "
+//                                          }
+//                                          if pm.thoroughfare != nil {
+//                                              addressString = addressString + pm.thoroughfare! + ", "
+//                                          }
+//                                          if pm.locality != nil {
+//                                             addressString = addressString + pm.locality! + ", "
+//                                          }
+//                                          if pm.country != nil {
+//                                             addressString = addressString + pm.country! + ", "
+//                                          }
+//                                          if pm.postalCode != nil {
+//                                             addressString = addressString + pm.postalCode! + " "
+//                                          }
+//
+//                                            //   print(addressString)
+//
+//                                            //App.fullAddress = "Union Square#.# Stockton St#.# San Francisco"
+//                                            App.fullAddress = addressString.replaceEscapeChr
+//
+////                                          addressString.replacingOccurrences(of: ",", with: "#.#")
+//                                       }else{
+//                                           App.fullAddress = "NA"
+//                                       }
                                     })
       
    }
 }
+
+
 
 extension JobDetailViewController{
    func registerObservers(){

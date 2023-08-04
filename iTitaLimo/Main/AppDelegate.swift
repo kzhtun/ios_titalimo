@@ -118,72 +118,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    }
     
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+      
      
        print("didReceiveRemoteNotification jobInfo")
        
+      // print("badge count : " + String(application.applicationIconBadgeNumber))
        //UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
+       NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
+       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
    }
    
 
   
-   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-    
-     //UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
-
-      print("didReceiveRemoteNotification Void")
-
-      // =================================== //
-      jobInfo = userInfo
-
-      NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
-
-      // localNotification(title: "Test", body: "This is local notification");
-
-       switch UIApplication.shared.applicationState {
-           case .background, .inactive:
-                print("Application is in Background")
-           case .active:
-                print("Application is in Foreground")
-           default:
-               break
-       }
-
-      // job update
-      if let action = userInfo["action"] as? String{
-         if(action.uppercased() == "ASSIGN" || action.uppercased() == "REASSIGN"){
-             newJobNotification(userInfo: userInfo)
-             //localNotification(title: action.uppercased(), body: userInfo["jobNo"] as! String )
-         }
-
-         if(action.uppercased() == "CANCEL FULL NOTIFICATION" || action.uppercased() == "UNASSIGN"){
-            cancelNotification(userInfo: userInfo)
-            //localNotification(title: action.uppercased(), body: userInfo["jobNo"] as! String )
-         }
-      }
-      else{
-         urgentJobNotification(userInfo: userInfo)
-      }
-      // =================================== //
-
-      completionHandler(UIBackgroundFetchResult.newData)
-   }
-
-   
-   func cancelNotification(userInfo: [AnyHashable: Any]){
-      guard let jobNo = userInfo["jobno"] as? String
-      else{return}
-      
-      notificationCenter.getDeliveredNotifications(completionHandler: {deliveredNotifications -> () in
-         for notification in deliveredNotifications{
-            // find jobNo in notifications
-            if notification.request.identifier.hasPrefix(jobNo){
-               self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])
-               break
-            }
-         }
-      })
-   }
+//   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//
+//     //UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
+//
+//       print("didReceiveRemoteNotification Void")
+//
+//       print("badge count : " + String(application.applicationIconBadgeNumber))
+//
+//      // =================================== //
+//      jobInfo = userInfo
+//
+//      NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+//
+//      // localNotification(title: "Test", body: "This is local notification");
+//
+//       switch UIApplication.shared.applicationState {
+//           case .background, .inactive:
+//                print("Application is in Background")
+//           case .active:
+//                print("Application is in Foreground")
+//           default:
+//               break
+//       }
+//
+//      // job update
+//      if let action = userInfo["action"] as? String{
+//         if(action.uppercased() == "ASSIGN" || action.uppercased() == "REASSIGN"){
+//             newJobNotification(userInfo: userInfo)
+//             //localNotification(title: action.uppercased(), body: userInfo["jobNo"] as! String )
+//         }
+//
+//         if(action.uppercased() == "CANCEL FULL NOTIFICATION" || action.uppercased() == "UNASSIGN"){
+//            cancelNotification(userInfo: userInfo)
+//            //localNotification(title: action.uppercased(), body: userInfo["jobNo"] as! String )
+//         }
+//      }
+//      else{
+//         urgentJobNotification(userInfo: userInfo)
+//      }
+//      // =================================== //
+//
+//      completionHandler(UIBackgroundFetchResult.newData)
+//   }
+//
+//
+//   func cancelNotification(userInfo: [AnyHashable: Any]){
+//      guard let jobNo = userInfo["jobno"] as? String
+//      else{return}
+//
+//      notificationCenter.getDeliveredNotifications(completionHandler: {deliveredNotifications -> () in
+//         for notification in deliveredNotifications{
+//            // find jobNo in notifications
+//            if notification.request.identifier.hasPrefix(jobNo){
+//               self.notificationCenter.removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])
+//               break
+//            }
+//         }
+//      })
+//   }
 }
 
 
@@ -207,7 +212,8 @@ extension AppDelegate: MessagingDelegate{
 @available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
    
-   
+
+    
    // Receive displayed notifications for iOS 10 devices.
    func userNotificationCenter(_ center: UNUserNotificationCenter,
                                willPresent notification: UNNotification,
@@ -233,11 +239,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
          print("Message ID: \(messageID)")
        }
       
-      
-      // close jobdetail if the user on that screen
+       print("UNUserNotificationCenter didReceive")
+       
+       // close jobdetail if the user on that screen
        
        NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
-  
+       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+       NotificationCenter.default.post(name: Notification.Name("SELECT_TODAY_TAB"), object: nil, userInfo: jobInfo)
+       
+       
        completionHandler()
       
       // Action button clicked
