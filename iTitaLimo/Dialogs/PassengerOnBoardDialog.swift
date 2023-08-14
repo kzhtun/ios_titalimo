@@ -223,29 +223,31 @@ class PassengerOnBoardDialog: UIViewController {
        if(remarks.text.isEmpty){
           remarks.text = " "
        }
+       let cgref = imgPreview.image?.cgImage
+       let cim = imgPreview.image?.ciImage
+       
        
        // Call Passenger No Show
        if(jobAction == "NS"){
            callPassengerNoShowSave()
        }else{
            if(btnDone.titleLabel?.text == "SAVED"){
-               //callPassenerOnBoardSave()
-               
-               let cgref = imgPreview.image?.cgImage
-               let cim = imgPreview.image?.ciImage
-               
-               if(cim == nil && cgref == nil) {
-                   let confirmAlert = UIAlertController(title: "Tita Limo", message: "Please take a photo before submit", preferredStyle: UIAlertController.Style.alert)
-                   
-                   confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                       confirmAlert.dismiss(animated: true)
-                   }))
-                   
-                   self.present(confirmAlert, animated: true, completion: nil)
-                   
-               }else{
-                   self.uploadPassengerPhoto()
-               }
+               callPassenerOnBoardSave()
+          
+//          image validation part   ///////////////////
+        
+//               if(cim == nil && cgref == nil) {
+//                   let confirmAlert = UIAlertController(title: "Tita Limo", message: "Please take a photo before submit", preferredStyle: UIAlertController.Style.alert)
+//
+//                   confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+//                       confirmAlert.dismiss(animated: true)
+//                   }))
+//
+//                   self.present(confirmAlert, animated: true, completion: nil)
+//
+//               }else{
+//                   self.uploadPassengerPhoto()
+//               }
                
            }else{
                
@@ -253,7 +255,15 @@ class PassengerOnBoardDialog: UIViewController {
                let confirmAlert = UIAlertController(title: "Tita Limo", message: "Either signature is blank or has not been done.\nDo you want to proceed?", preferredStyle: UIAlertController.Style.alert)
                
                confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                   self.uploadPassengerPhoto()
+                   
+                   if(cim == nil && cgref == nil){
+                       // if no passenger photo, update job directly
+                       self.callPassenerOnBoardSave()
+                   }else{
+                       // have passenger photo, upload the photo first
+                       self.uploadPassengerPhoto()
+                   }
+                  
                }))
                
                confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
