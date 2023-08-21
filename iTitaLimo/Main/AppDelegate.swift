@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var recentJobList = [JobDetail]()
    var recentTab = 0
     
-
+  
    
    func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
      return true
@@ -119,13 +119,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
       
-     
+       
        print("didReceiveRemoteNotification jobInfo")
        
       // print("badge count : " + String(application.applicationIconBadgeNumber))
        //UIApplication.shared.applicationIconBadgeNumber =  application.applicationIconBadgeNumber
-       NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
-       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+       NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: userInfo)
+       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: userInfo)
    }
    
 
@@ -243,9 +243,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
        
        // close jobdetail if the user on that screen
        
-       NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
-       NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+    //   NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: nil)
+    //   NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
        NotificationCenter.default.post(name: Notification.Name("SELECT_TODAY_TAB"), object: nil, userInfo: jobInfo)
+       NotificationCenter.default.post(name: Notification.Name("NOTI_CLICKED"), object: nil, userInfo: jobInfo)
        
        
        completionHandler()

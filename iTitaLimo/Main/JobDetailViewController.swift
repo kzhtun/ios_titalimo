@@ -164,6 +164,7 @@ class JobDetailViewController: UIViewController {
             
          case "ON SITE":
             let vc = ActionDialog()
+            vc.job = self.jobDetail
             vc.jobNo = jobNo
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
@@ -336,7 +337,7 @@ class JobDetailViewController: UIViewController {
    func displayJobDetail(job: JobDetail){
       
       phoneList = job.Customer_Tel.components(separatedBy: "/")
-       var  jobStatus = (job.JobStatus.uppercased() == "JOB NEW") ? "JOB ASSIGNED" : job.JobStatus.uppercased()
+      var  jobStatus = (job.JobStatus.uppercased() == "JOB NEW") ? "JOB ASSIGNED" : job.JobStatus.uppercased()
        
       //lblJobNo.text = job.JobNo
       lblJobType.text = job.JobType
@@ -593,16 +594,39 @@ extension JobDetailViewController{
    func registerObservers(){
        // update job detail info when noti receive
        
-       
        NotificationCenter.default.addObserver(self, selector: #selector(closeJobDetails), name: NSNotification.Name(rawValue: "CLOSE_JOB_DETAILS"), object: nil)
        
        NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
       
       NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetailSilent), name: NSNotification.Name(rawValue: "SILENT_REFRESH_JOBS"), object: nil)
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(NotiClicked), name: NSNotification.Name(rawValue: "NOTI_CLICKED"), object: nil)
    }
    
-    @objc func closeJobDetails(){
+    @objc func NotiClicked(notification: NSNotification){
         self.dismiss(animated: true)
+//        {
+//            NotificationCenter.default.post(name: Notification.Name("SELECT_TODAY_TAB"), object: nil, userInfo: nil)
+//        }
+    }
+    
+    @objc func closeJobDetails(notification: NSNotification){
+        let userInfo = notification.userInfo
+        
+        let jobNo = userInfo?["jobno"] as? String
+        
+        if(self.jobDetail.JobNo == jobNo){
+            var confirmAlert = UIAlertController(title: "Tita Limo", message: "Details for this job may have changed.\nClick OK to refresh.", preferredStyle: UIAlertController.Style.alert)
+
+                    confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                    // OK
+                        confirmAlert.dismiss(animated: true)
+                        self.dismiss(animated: true)
+               }))
+        
+             self.present(confirmAlert, animated: true, completion: nil)
+        }
+      
     }
     
    

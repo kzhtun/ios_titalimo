@@ -17,7 +17,10 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btnSearch: UIButton!
    
-  
+    @IBAction func PNameEditingDidEnd(_ sender: Any) {
+            syncSearchParamsOnParentList()
+    }
+    
     @IBOutlet weak var searchUpdateViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchUpdateViewHeightConstraint: NSLayoutConstraint!
     
@@ -53,6 +56,15 @@ class SearchTableViewCell: UITableViewCell {
         NotificationCenter.default.post(name: Notification.Name("SORTING_CHANGED"), object: nil, userInfo: sortingInfo)
     }
     
+
+    
+//    func textFieldDidEndEditing(_ pName: UITextField) {
+//        print("pName Lost Focus :" + (pName.text ?? "nil"))
+//    }
+//
+//    func textFieldDidEndEditing(updates: UITextField) {
+//        print("Updates Lost Focus :" + (pName.text ?? "nil"))
+//    }
     
     
    @IBAction func eDateEditingDidEnd(_ sender: Any) {
@@ -154,6 +166,9 @@ class SearchTableViewCell: UITableViewCell {
       // self.btnSearch.backgroundColor = UIColor.init(hex: "#F69000AA")
 
       //containerView.isHidden = true
+       
+//       pName.delegate = self
+//       updates.delegate = self
       
       
    }
@@ -172,8 +187,6 @@ class SearchTableViewCell: UITableViewCell {
        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.sDoneOnClick))
        toolbar.setItems([btnDone], animated: true)
       
-       
-       
        // define max and min date
        let calendar = Calendar(identifier: .gregorian)
        var comps = DateComponents()
@@ -196,6 +209,8 @@ class SearchTableViewCell: UITableViewCell {
       
       self.sDate.inputAccessoryView = toolbar
       self.sDate.inputView = datePicker
+       
+     
    }
    
    
@@ -227,6 +242,8 @@ class SearchTableViewCell: UITableViewCell {
       
       self.eDate.inputAccessoryView = toolbar
       self.eDate.inputView = datePicker
+       
+       
    }
    
    @IBAction func btnSearchOnClick(){
@@ -264,6 +281,8 @@ class SearchTableViewCell: UITableViewCell {
        criteria["sorting"] = "\(sgSorting.selectedSegmentIndex)"
        
        NotificationCenter.default.post(name: Notification.Name("SYNC_SEARCH_PARAMS"), object: nil, userInfo: criteria)
+       
+       
    }
    
    @objc func eDoneOnClick(){

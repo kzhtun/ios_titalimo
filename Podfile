@@ -10,6 +10,7 @@
     pod 'AlamofireObjectMapper'
   	pod 'Toast-Swift', '~> 5.0.0'
     pod 'SignaturePad', '~> 1.0.3'
+    pod 'SDWebImage', :modular_headers => true
     
     pod 'FirebaseCoreInternal'
     pod 'Firebase'

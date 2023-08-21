@@ -14,7 +14,7 @@ class Router{
   
 
     // DEV
- let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
+  let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
 // let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
@@ -515,6 +515,112 @@ class Router{
             }
          }
    }
+    
+    
+//    @GET("saveshowpic/{jobno},{filename}")
+//        Call<JobRes> SaveShowPic(@Path("jobno") String jobno, @Path("filename") String filename);
+//
+//        @GET("savesignature/{jobno},{filename}")
+//        Call<JobRes> SaveSignature(@Path("jobno") String jobno, @Path("filename") String filename);
+//
+//        @GET("savenoshowpic/{jobno},{filename}")
+//        Call<JobRes> SaveNoShowPic(@Path("jobno") String jobno, @Path("filename") String filename);
+    
+    
+    func SaveSignature(jobNo: String, fileName: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       var url = String(format: "%@%@/%@,%@", baseURL, "savesignature", jobNo, fileName)
+       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+
+       AF.request(url, method: .get, headers: headers)
+          .response{
+             (response) in
   
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("SaveSignature Success")
+             }catch{
+                failure("SaveSignature Failed")
+             }
+          }
+    }
+    
+    func SaveShowPic(jobNo: String, fileName: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       var url = String(format: "%@%@/%@,%@", baseURL, "saveshowpic", jobNo, fileName)
+       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+
+       AF.request(url, method: .get, headers: headers)
+          .response{
+             (response) in
+  
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("SaveSignature Success")
+             }catch{
+                failure("SaveSignature Failed")
+             }
+          }
+    }
+    
+    func SaveNoShowPic(jobNo: String, fileName: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       var url = String(format: "%@%@/%@,%@", baseURL, "savenoshowpic", jobNo, fileName)
+       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+
+       AF.request(url, method: .get, headers: headers)
+          .response{
+             (response) in
+  
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("SaveSignature Success")
+             }catch{
+                failure("SaveSignature Failed")
+             }
+          }
+    }
 }
 

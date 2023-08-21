@@ -15,12 +15,14 @@ public class FTPUpload {
    fileprivate let directoryPath: String = ""
    fileprivate let username: String = "ipos"
    fileprivate let password: String = "iposftp"
+    public static let CONST_PHOTO_URL: String = "http://128.106.129.15/iopsdev/images/limopics/";
     
     // LIVE
 //    fileprivate let ftpBaseUrl: String = "97.74.89.233"
 //    fileprivate let directoryPath: String = ""
 //    fileprivate let username: String = "ipos"
 //    fileprivate let password: String = "$$1posftp%%"
+//    public static let CONST_PHOTO_URL: String =  "http://97.74.89.233/iops/images/limopics/";
    
    
 //   public init(baseUrl: String, userName: String, password: String, directoryPath: String) {
@@ -42,6 +44,11 @@ public class FTPUpload {
 
 // MARK: - Steam Setup
 extension FTPUpload {
+    
+    public static func getPhotoURL() -> String{
+        return CONST_PHOTO_URL
+    }
+    
    private func setFtpUserName(for ftpWriteStream: CFWriteStream, userName: CFString) {
       let propertyKey = CFStreamPropertyKey(rawValue: kCFStreamPropertyFTPUserName)
       CFWriteStreamSetProperty(ftpWriteStream, propertyKey, userName)

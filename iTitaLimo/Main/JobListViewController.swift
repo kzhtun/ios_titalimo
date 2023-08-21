@@ -67,7 +67,6 @@ class JobListViewController: UIViewController {
         let index: Int = sender.tag
         
         
-        
         vc.jobNo = jobList[index].JobNo
         vc.updates = jobList[index].Updates
         
@@ -79,6 +78,8 @@ class JobListViewController: UIViewController {
     }
    
     @IBAction func TodayOnClick(_ sender: Any) {
+      
+    
       active = 0
       
       buttonSelection()
@@ -86,11 +87,11 @@ class JobListViewController: UIViewController {
       showSpinner()
       callJobsCount()
       callGetTodayJobs()
-        
       
    }
    
    @IBAction func TomorrowOnClick(_ sender: Any) {
+     
       active = 1
       buttonSelection()
       btnTomorrow.backgroundColor = UIColor.init(hex: "#333333FF")
@@ -100,6 +101,7 @@ class JobListViewController: UIViewController {
    }
    
    @IBAction func FutureOnClick(_ sender: Any) {
+      jobList.removeAll()
       active = 2
       buttonSelection()
       btnFuture.backgroundColor = UIColor.init(hex: "#333333FF")
@@ -110,6 +112,7 @@ class JobListViewController: UIViewController {
    }
    
    @IBAction func HistoryOnClick(_ sender: Any) {
+    
       active = 3
       buttonSelection()
       btnHistory.backgroundColor = UIColor.init(hex: "#333333FF")
@@ -227,10 +230,10 @@ class JobListViewController: UIViewController {
        userInfo = notification.userInfo
   
        guard   let sDate = userInfo?["sDate"] as? String,
-             let eDate = userInfo?["eDate"] as? String
-//             let passenger = userInfo?["passenger"] as? String,
-//             let updates = userInfo?["updates"] as? String,
-//             let sorting = userInfo?["sorting"] as? String
+             let eDate = userInfo?["eDate"] as? String,
+             let passenger = userInfo?["passenger"] as? String,
+             let updates = userInfo?["updates"] as? String,
+             let sorting = userInfo?["sorting"] as? String
        else{
            return
        }
@@ -239,11 +242,17 @@ class JobListViewController: UIViewController {
        if(active==2){
            futureSearchFilter.sDate = sDate
            futureSearchFilter.eDate = eDate
+           futureSearchFilter.passenger = passenger
+           futureSearchFilter.updates = updates
+           futureSearchFilter.sorting = sorting
        }
        
        if(active==3){
            historySearchFilter.sDate = sDate
            historySearchFilter.eDate = eDate
+           historySearchFilter.passenger = passenger
+           historySearchFilter.updates = updates
+           historySearchFilter.sorting = sorting
        }
      
        self.JobTableView.reloadData()
@@ -301,7 +310,7 @@ class JobListViewController: UIViewController {
    }
    
    func callGetTodayJobs(){
-     // jobList.removeAll()
+     //jobList.removeAll()
       
       Router.sharedInstance().GetTodayJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
@@ -316,7 +325,7 @@ class JobListViewController: UIViewController {
    }
    
    func callGetTomorrowJobs(){
-     // jobList.removeAll()
+      //jobList.removeAll()
       
       Router.sharedInstance().GetTomorrowJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
@@ -331,7 +340,7 @@ class JobListViewController: UIViewController {
    
    
    func callGetFutureJobs(from: String, to: String, passenger: String, sort: String){
-     // jobList.removeAll()
+      //jobList.removeAll()
        
        let from = (from.isEmpty) ? " " : from
        let to = (to.isEmpty) ? " " : to
@@ -359,7 +368,7 @@ class JobListViewController: UIViewController {
    
    
    func callGetHistoryJobs(from: String, to: String, passenger: String, updates: String, sort: String){
-     // jobList.removeAll()
+      //jobList.removeAll()
       
        let from = (from.isEmpty) ? " " : from
        let to = (to.isEmpty) ? " " : to
@@ -679,10 +688,6 @@ extension JobListViewController{
        if(active == 3){
            callGetHistoryJobs(from:  historySearchFilter.sDate, to:  historySearchFilter.eDate, passenger:  historySearchFilter.passenger, updates: historySearchFilter.updates, sort:  historySearchFilter.sorting)
        }
-    
-
-       
-            
      
    }
    

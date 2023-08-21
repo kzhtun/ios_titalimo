@@ -18,6 +18,7 @@
                 <outlet property="outsideView" destination="i5M-Pr-FkT" id="uZJ-Od-Yzi"/>
                 <outlet property="photoView" destination="mLS-87-3Rm" id="nXW-ll-Wf5"/>
                 <outlet property="remarks" destination="ZJW-r8-XyP" id="hrn-w8-Cwe"/>
+                <outlet property="signPreview" destination="2hO-yB-3mz" id="cHK-Mc-VLJ"/>
                 <outlet property="signView" destination="Wf7-FO-ZiN" id="47E-cY-meF"/>
                 <outlet property="signatureWidth" destination="4PB-61-XWF" id="f1f-4n-WVW"/>
                 <outlet property="tabPassenger" destination="pZh-qI-Fd0" id="JpK-gz-vlG"/>
@@ -105,9 +106,18 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf7-FO-ZiN" userLabel="SignView" customClass="SignaturePad" customModule="SignaturePad">
                             <rect key="frame" x="32" y="106" width="318" height="175"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-yB-3mz">
+                                    <rect key="frame" x="0.0" y="0.0" width="318" height="175"/>
+                                </imageView>
+                            </subviews>
                             <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="175" id="RTe-J1-ker"/>
+                                <constraint firstAttribute="bottom" secondItem="2hO-yB-3mz" secondAttribute="bottom" id="WR1-dm-v53"/>
+                                <constraint firstItem="2hO-yB-3mz" firstAttribute="top" secondItem="Wf7-FO-ZiN" secondAttribute="top" id="YCu-bL-Uwa"/>
+                                <constraint firstItem="2hO-yB-3mz" firstAttribute="leading" secondItem="Wf7-FO-ZiN" secondAttribute="leading" id="rkA-kD-QCS"/>
+                                <constraint firstAttribute="trailing" secondItem="2hO-yB-3mz" secondAttribute="trailing" id="yEu-6j-vXx"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColor">

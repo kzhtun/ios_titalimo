@@ -13,6 +13,7 @@ class ActionDialog: UIViewController {
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
    
    var jobNo = ""
+   var job = JobDetail()
   
    @IBOutlet var outsideView: UIView!
    @IBOutlet weak var btnPOB: UIButton!
@@ -62,6 +63,7 @@ class ActionDialog: UIViewController {
    
       let vc = PassengerOnBoardDialog()
       vc.jobAction = "POB"
+      vc.job = self.job
       vc.jobNo = jobNo
       vc.modalTransitionStyle = .crossDissolve
       vc.modalPresentationStyle =  .overCurrentContext
@@ -73,6 +75,7 @@ class ActionDialog: UIViewController {
    
    @IBAction func nsOnClick(_ sender: Any) {
       let vc = PassengerOnBoardDialog()
+      vc.job = self.job
       vc.jobAction = "NS"
       vc.jobNo = jobNo
       vc.modalTransitionStyle = .crossDissolve
