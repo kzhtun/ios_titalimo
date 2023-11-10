@@ -13,6 +13,8 @@ class JobTableViewCell: UITableViewCell {
    
    static let indentifier = "JobTableViewCell"
    
+    @IBOutlet weak var btnPatientHistory: UIButton!
+   
     @IBOutlet weak var staff: UILabel!
    
     @IBOutlet weak var updateViewHeightConstraints: NSLayoutConstraint!
@@ -50,42 +52,40 @@ class JobTableViewCell: UITableViewCell {
    
     public func configure(tab: Int, jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
                           pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, staff: String, index: Int){
-      
-        
-        var newUpdates = ""
-      //      self.jobDate.isHidden = true
-      //      self.jobDate.frame.size.height = 0
         
         
-    btnAdd.layer.cornerRadius = 13;
-    btnAdd.layer.masksToBounds = true;
-    
-   //   self.updatesView.isHidden = true
-      //  self.updatesView.layoutIfNeeded()
         
-       // self.updatesView.heightAnchor.constraint(equalTo: 0)
-
+        btnAdd.layer.cornerRadius = 13;
+        btnAdd.layer.masksToBounds = true;
+        
+        btnPatientHistory.layer.cornerRadius = 13;
+        btnPatientHistory.layer.masksToBounds = true;
+        
+        
+        
         var mobileNoSpace = "";
         
-        newUpdates = (updates == "##-##") ? "" : updates
+        //   newUpdates = (updates == "##-##") ? "" : updates
         
-      var  jobStatus = (jobStatus.uppercased() == "JOB NEW") ? "JOB ASSIGNED" : jobStatus.uppercased()
+        var  jobStatus = (jobStatus.uppercased() == "JOB NEW") ? "JOB ASSIGNED" : jobStatus.uppercased()
         
-      self.jobDate.text = jobDate
-      self.jobType.text = jobType
-      self.jobStatus.text = jobStatus
-      self.vehicleType.text = vehicleType
-      self.jobTime.text = jobTime
-      self.pickup.text = pickup
-      self.dropoff.text = dropoff
-      self.passenger.text = passenger
+        self.jobDate.text = jobDate
+        self.jobType.text = jobType
+        self.jobStatus.text = jobStatus
+        self.vehicleType.text = vehicleType
+        self.jobTime.text = jobTime
+        self.pickup.text = pickup
+        self.dropoff.text = dropoff
+        self.passenger.text = passenger
         mobileNoSpace =  mobile.replacingOccurrences(of: " ", with: "")
         self.mobile.text = mobileNoSpace.replacingOccurrences(of: "/", with: "\n")
-
-     
-      self.updates.text = newUpdates.replacingOccurrences(of: "##-##", with: "\n")
-      self.staff.text = staff
-      self.btnAdd.tag = index
+        
+        
+        //  self.updates.text = newUpdates.replacingOccurrences(of: "##-##", with: "\n")
+        
+        self.staff.text = staff
+        self.btnAdd.tag = index
+        self.btnPatientHistory.tag = index
         
         if(updates.count == 0 || updates == "##-##"){
             self.btnAdd.setTitle("ADD", for: UIControl.State.normal)
@@ -95,32 +95,10 @@ class JobTableViewCell: UITableViewCell {
         {
             self.btnAdd.setTitle("VIEW", for: UIControl.State.normal)
             self.btnAdd.backgroundColor = UIColor.init(red: 255/255, green: 150/255, blue: 0/255, alpha: 1 )
-          //  self.btnAdd.backgroundColor = UIColor.init(hex: "#FF9400AA")
+            //  self.btnAdd.backgroundColor = UIColor.init(hex: "#FF9400AA")
         }
         
-        
-//        // show in all tabs
-//        self.updatesView.isHidden = false
-//        updateViewHeightConstraints.constant = 46
-//        self.updatesView.layoutIfNeeded()
-//
-//        if(tab == 3){
-//            self.updatesView.isHidden = false
-//            updateViewHeightConstraints.constant = 46
-//        }else{
-//            self.updatesView.isHidden = true
-//            updateViewHeightConstraints.constant = 0
-//
-//        }
-    
-   }
-   
-//   override func setSelected(_ selected: Bool, animated: Bool) {
-//      super.setSelected(selected, animated: animated)
-//
-//      NotificationCenter.default.post(name: Notification.Name("JOB_SELECTED"), object: nil, userInfo: nil)
-//
-//   }
+    }
    
    
    override func draw(_ rect: CGRect) {
@@ -131,11 +109,7 @@ class JobTableViewCell: UITableViewCell {
       containerView.layer.cornerRadius = 10
       containerView.layer.borderWidth = 1.0
       containerView.layer.borderColor = UIColor.init(hex: "#333333FF")?.cgColor
-      //       containerView.layer.shadowColor = UIColor.lightGray.cgColor
-      //              containerView.layer.shadowRadius = 5.0
-      //              containerView.layer.shadowOpacity = 10.0
-      //              containerView.layer.shadowOffset = CGSize(width:2, height: 2)
-      //              containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+     
       
    }
    

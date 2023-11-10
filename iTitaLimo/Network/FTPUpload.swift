@@ -11,18 +11,18 @@ import Alamofire
 
 public class FTPUpload {
     // DEV
-   fileprivate let ftpBaseUrl: String = "128.106.129.15"
-   fileprivate let directoryPath: String = ""
-   fileprivate let username: String = "ipos"
-   fileprivate let password: String = "iposftp"
-    public static let CONST_PHOTO_URL: String = "http://128.106.129.15/iopsdev/images/limopics/";
-    
-    // LIVE
-//    fileprivate let ftpBaseUrl: String = "97.74.89.233"
+//    fileprivate let ftpBaseUrl: String = "128.106.129.15"
 //    fileprivate let directoryPath: String = ""
 //    fileprivate let username: String = "ipos"
-//    fileprivate let password: String = "$$1posftp%%"
-//    public static let CONST_PHOTO_URL: String =  "http://97.74.89.233/iops/images/limopics/";
+//    fileprivate let password: String = "iposftp"
+//    public static let CONST_PHOTO_URL: String = "http://128.106.129.15/iopsdev/images/limopics/";
+   
+    // LIVE
+    fileprivate let ftpBaseUrl: String = "97.74.89.233"
+    fileprivate let directoryPath: String = ""
+    fileprivate let username: String = "ipos"
+    fileprivate let password: String = "$$1posftp%%"
+    public static let CONST_PHOTO_URL: String =  "http://97.74.89.233/iops/images/limopics/";
    
    
 //   public init(baseUrl: String, userName: String, password: String, directoryPath: String) {

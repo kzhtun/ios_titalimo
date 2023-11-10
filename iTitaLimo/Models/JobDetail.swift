@@ -41,5 +41,6 @@ struct JobDetail: Codable {
    var Updates: String!
    var UAEType: String!
    var Staff: String!
+   var CustomerCode: String!
  
 }

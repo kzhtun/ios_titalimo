@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var lat: Double = 0.0
    var lng: Double = 0.0
    var fullAddress = "Address not found"
-    
   
    
    var phones: [String]?
@@ -32,14 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
    var ButtonRed = "#FF1400FF"
    var ButtonGreen = "#0DAA00FF"
-   
     
    var  searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()
    var recentTab = 0
-    
-  
-   
+ 
    func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
      return true
    }

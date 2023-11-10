@@ -14,10 +14,10 @@ class Router{
   
 
     // DEV
-  let baseURL = "http://128.106.129.15/RestApiTitanium/MyLimoService.svc/"
+   let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
-// let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+//  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
     
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
@@ -32,6 +32,32 @@ class Router{
    }
 
    
+    func CheckVersion(version: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+       
+       let url = String(format: "%@%@/%@", baseURL, "getcurrentversion", version)
+       
+       AF.request(url, method: .get)
+          .response{
+             (response) in
+             
+             guard let data = response.data else{
+                print("CheckVersion Success, No Data")
+                return
+             }
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("CheckVersion Success")
+             }catch{
+                failure("CheckVersion Failed")
+             }
+          }
+    }
+    
+    
    func ValidateDriver( driver: String,
                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
       
@@ -145,11 +171,49 @@ class Router{
                
                print("GetJobsCount Success")
             }catch{
-               failure("GetTodayJobs Failed")
+               failure("GetJobsCount Failed")
             }
          }
    }
    
+   
+    func GetPatientHistory(custoCode: String, from: String, to: String,  sort: String,
+                        success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+       
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       var url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "getPatientHistory",
+                        custoCode,
+                         from,
+                         to,
+                         sort)
+       
+       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+       
+       AF.request(url, method: .get, headers: headers)
+          .response{
+             (response) in
+             
+             guard let data = response.data else{
+                print("GetPatientHistory Success, No Data")
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("GetPatientHistory Success")
+             }catch{
+                failure("GetPatientHistory Failed")
+             }
+          }
+    }
+    
    
    func GetTodayJobs(success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
       

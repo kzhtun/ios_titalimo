@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		02464A902A04C4E2002B16FD /* UpdatesDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02464A8E2A04C4E2002B16FD /* UpdatesDialog.swift */; };
 		02464A912A04C4E2002B16FD /* UpdatesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02464A8F2A04C4E2002B16FD /* UpdatesDialog.xib */; };
+		02557C3D2AFE14B900535F27 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02557C3C2AFE14B900535F27 /* Patient.swift */; };
+		02557C3F2AFE1E5300535F27 /* PatientSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02557C3E2AFE1E5300535F27 /* PatientSearchFilter.swift */; };
+		027B1D102AFCA657001D209B /* PatientHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027B1D0F2AFCA657001D209B /* PatientHistoryViewController.swift */; };
+		02C2F86E2AFD33BC002983B9 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2F86D2AFD33BC002983B9 /* PatientTableViewCell.swift */; };
 		02EFA0622A3C4F40002BC68C /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EFA0612A3C4F2B002BC68C /* libswift_Concurrency.tbd */; };
 		2B0FE843257935EE00D6CC1D /* JobCountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE842257935EE00D6CC1D /* JobCountList.swift */; };
 		2B0FE87625812C8400D6CC1D /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */; };
@@ -34,7 +38,6 @@
 		2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6578CE2563CD6A00A157FB /* DataTypeExtension.swift */; };
 		2B67548B256CBD0D0012A4FF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67548A256CBD0D0012A4FF /* Util.swift */; };
 		2B6754A1256E2E360012A4FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */; };
-		2B88B4B92573F2B7004B6609 /* NotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B88B4B82573F2B7004B6609 /* NotiViewController.swift */; };
 		2BC267E9255854BE003D809B /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC267E7255854BE003D809B /* ActionDialog.swift */; };
 		2BC267EA255854BE003D809B /* ActionDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC267E8255854BE003D809B /* ActionDialog.xib */; };
 		2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */; };
@@ -63,6 +66,10 @@
 /* Begin PBXFileReference section */
 		02464A8E2A04C4E2002B16FD /* UpdatesDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesDialog.swift; sourceTree = "<group>"; };
 		02464A8F2A04C4E2002B16FD /* UpdatesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdatesDialog.xib; sourceTree = "<group>"; };
+		02557C3C2AFE14B900535F27 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		02557C3E2AFE1E5300535F27 /* PatientSearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientSearchFilter.swift; sourceTree = "<group>"; };
+		027B1D0F2AFCA657001D209B /* PatientHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHistoryViewController.swift; sourceTree = "<group>"; };
+		02C2F86D2AFD33BC002983B9 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		02EFA02C2A3C49E1002BC68C /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
 		02EFA0302A3C49E6002BC68C /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		02EFA0332A3C49EA002BC68C /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
@@ -112,7 +119,6 @@
 		2B67548A256CBD0D0012A4FF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		2B67549E256E2DA60012A4FF /* iTitaLimo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTitaLimo.entitlements; sourceTree = "<group>"; };
 		2B6754A0256E2E360012A4FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2B88B4B82573F2B7004B6609 /* NotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiViewController.swift; sourceTree = "<group>"; };
 		2BC267E7255854BE003D809B /* ActionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDialog.swift; sourceTree = "<group>"; };
 		2BC267E8255854BE003D809B /* ActionDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDialog.xib; sourceTree = "<group>"; };
 		2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -209,13 +215,13 @@
 			isa = PBXGroup;
 			children = (
 				2B11E49A254148A7007AD918 /* Main.storyboard */,
+				027B1D0F2AFCA657001D209B /* PatientHistoryViewController.swift */,
 				2B11E494254148A7007AD918 /* AppDelegate.swift */,
 				2B11E496254148A7007AD918 /* SceneDelegate.swift */,
 				2B2E341025416F0E00AF4D71 /* LoginViewController.swift */,
 				2B5930D0254728D00055FE05 /* JobListViewController.swift */,
 				2BC452C72549ACF900CDBD9C /* DatePickerViewController.swift */,
 				2BC4534B255268F500CDBD9C /* JobDetailViewController.swift */,
-				2B88B4B82573F2B7004B6609 /* NotiViewController.swift */,
 				2B0FE87525812C8300D6CC1D /* AbstractViewController.swift */,
 			);
 			path = Main;
@@ -250,6 +256,8 @@
 				2B5931052547F9EC0055FE05 /* JobDetail.swift */,
 				2BC452DA2549C0CD00CDBD9C /* SearchFilter.swift */,
 				2B0FE842257935EE00D6CC1D /* JobCountList.swift */,
+				02557C3C2AFE14B900535F27 /* Patient.swift */,
+				02557C3E2AFE1E5300535F27 /* PatientSearchFilter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 				2BC452AC25492D7600CDBD9C /* SearchTableViewCell.swift */,
 				2B5930F32547E3FB0055FE05 /* JobTableViewCell.swift */,
 				2BC453602554460000CDBD9C /* PhoneTableViewCell.swift */,
+				02C2F86D2AFD33BC002983B9 /* PatientTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -419,7 +428,6 @@
 				2B2E341125416F0E00AF4D71 /* LoginViewController.swift in Sources */,
 				2B0FE843257935EE00D6CC1D /* JobCountList.swift in Sources */,
 				2B65785C255BBCCF00A157FB /* FTPUpload.swift in Sources */,
-				2B88B4B92573F2B7004B6609 /* NotiViewController.swift in Sources */,
 				2B6578CF2563CD6A00A157FB /* DataTypeExtension.swift in Sources */,
 				2B6578CC255D41EB00A157FB /* UIViewExtension.swift in Sources */,
 				2B0FE87625812C8400D6CC1D /* AbstractViewController.swift in Sources */,
@@ -428,6 +436,7 @@
 				2B5930CD25429B6F0055FE05 /* UITextFieldExtension.swift in Sources */,
 				2B11E4BB25414E68007AD918 /* Router.swift in Sources */,
 				2B17E86B2565274E00CA0FF9 /* CompleteDialog.swift in Sources */,
+				027B1D102AFCA657001D209B /* PatientHistoryViewController.swift in Sources */,
 				2BC453612554460000CDBD9C /* PhoneTableViewCell.swift in Sources */,
 				2BC452AD25492D7600CDBD9C /* SearchTableViewCell.swift in Sources */,
 				2BC4534C255268F500CDBD9C /* JobDetailViewController.swift in Sources */,
@@ -439,11 +448,14 @@
 				2B5930F42547E3FB0055FE05 /* JobTableViewCell.swift in Sources */,
 				2BC45335254B288200CDBD9C /* UIButtonExtension.swift in Sources */,
 				2B65783625598EF600A157FB /* PassengerOnBoardDialog.swift in Sources */,
+				02557C3F2AFE1E5300535F27 /* PatientSearchFilter.swift in Sources */,
+				02C2F86E2AFD33BC002983B9 /* PatientTableViewCell.swift in Sources */,
 				2B11E495254148A7007AD918 /* AppDelegate.swift in Sources */,
 				02464A902A04C4E2002B16FD /* UpdatesDialog.swift in Sources */,
 				2B67548B256CBD0D0012A4FF /* Util.swift in Sources */,
 				2B11E497254148A7007AD918 /* SceneDelegate.swift in Sources */,
 				2BC45332254B109C00CDBD9C /* UITableViewExtension.swift in Sources */,
+				02557C3D2AFE14B900535F27 /* Patient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

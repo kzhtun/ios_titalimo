@@ -14,11 +14,15 @@ class PassengerOnBoardDialog: UIViewController {
     let App = UIApplication.shared.delegate as! AppDelegate
     var actionDialog: ActionDialog?
     
+  
+    @IBOutlet weak var lblTitle: UILabel!
+    
     var textFieldColor = "#FFFFFFFF"
     
     var jobAction = ""
     var jobNo = ""
     var job = JobDetail()
+    var titleText = ""
     
     
     @IBOutlet weak var signPreviewConstraintHeight: NSLayoutConstraint!
@@ -73,6 +77,9 @@ class PassengerOnBoardDialog: UIViewController {
                 dialogInitializing.view.addSubview(indicator)
                 indicator.color = .blue
                 indicator.isUserInteractionEnabled = false // required otherwise if there buttons in the UIAlertController you will not be able to press them
+        
+        
+        lblTitle.text = titleText
     
     }
     

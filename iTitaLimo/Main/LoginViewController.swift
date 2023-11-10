@@ -74,31 +74,99 @@ class LoginViewController: UIViewController {
       btnLogin.layer.cornerRadius = 20;
       btnLogin.layer.masksToBounds = false;
       
-      cacheUserName = UserDefaults.standard.string(forKey: CONST_USER_NAME) ?? ""
-      
-      if(cacheUserName != ""){
-          
-          
-          txtName.text = cacheUserName
-          chkRemember.setOn(true, animated: true)
-          
-          if(txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
-             callValidateDriver()
-          }
-         
-      }else{
-         txtName.text = ""
-      }
+     
      
        
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
        
        
+       let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+       print("buildNumber : " + buildNumber!)
+       
        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-       print("Version : " + appVersion!)
+       print("appVersion : " + appVersion!)
+       
+       
+       callCheckVersion(ver: appVersion!)
+       
+       cacheUserName = UserDefaults.standard.string(forKey: CONST_USER_NAME) ?? ""
+
+       if(cacheUserName != ""){
+          txtName.text = cacheUserName
+           chkRemember.setOn(true, animated: true)
+
+           if(txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
+              callValidateDriver()
+           }
+
+       }else{
+          txtName.text = ""
+       }
        
    }
+    
+    
+    func callCheckVersion(ver: String){
+        Router.sharedInstance().CheckVersion(version: ver) { successObj in
+            if(successObj.responsemessage?.uppercased() == "OUTDATED"){
+                
+                let alert = UIAlertController(title: "Tita Limo", message: "There is a new version for Titalimo.\nPlease update on Google Playstore.\nTitalimo system is now closing.", preferredStyle: UIAlertController.Style.alert)
+                        
+                
+                alert.addAction(UIAlertAction(title: "Open TestFlight", style: .default, handler: { UIAlertAction in
+                    alert.dismiss(animated: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            exit(0)
+                        }
+                    }
+                    
+                    self.openTestFligh()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { UIAlertAction in
+                    alert.dismiss(animated: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            exit(0)
+                        }
+                    }
+                }))
+                
+                self.present(alert, animated: true)
+
+            }
+        } failure: { error in
+            
+        }
+
+
+    }
+
+    func openTestFligh(){
+        // Special scheme specific to TestFlight
+        let presenceCheck = URL(string: "itms-beta://")!
+        // Special link that includes the app's ID
+        let deepLink = URL(string: "https://beta.itunes.apple.com/v1/app/1552828354")!
+        let app = UIApplication.shared
+        if app.canOpenURL(presenceCheck) {
+            app.open(deepLink)
+        }
+        
+//        
+//            let urlStr = "https://beta.itunes.apple.com"
+//            if #available(iOS 10.0, *) {
+//                UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+//                
+//            } else {
+//                UIApplication.shared.openURL(URL(string: urlStr)!)
+//            }
+    }
    
    @objc func keyboardWillShow(sender: NSNotification) {
         self.view.frame.origin.y = -200 // Move view 150 points upward
@@ -113,10 +181,7 @@ class LoginViewController: UIViewController {
     }
   
    @IBAction func btnLoginOnClick(_ sender: Any) {
-       
-       
-       
-       
+      
       if(chkRemember.isOn){
          UserDefaults.standard.setValue(txtName.text, forKey: CONST_USER_NAME)
           if(self.txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""){
@@ -139,6 +204,7 @@ class LoginViewController: UIViewController {
           }))
           
           self.present(confirmAlert, animated: true, completion: nil)
+        
       }
 
    }
@@ -191,6 +257,8 @@ class LoginViewController: UIViewController {
         // self.view.makeToast("Update device successfully")
     
          let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobListViewController") as! JobListViewController
+          
+      //    let vc = self.storyBoard.instantiateViewController(withIdentifier: "PatientHistoryViewController") as! PatientHistoryViewController
          
          vc.modalPresentationStyle = .fullScreen
          self.present(vc, animated: true, completion: nil)

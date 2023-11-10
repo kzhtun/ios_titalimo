@@ -62,6 +62,18 @@ class JobListViewController: UIViewController {
    @IBOutlet weak var btnHistory: UIButton!
    @IBOutlet weak var JobTableView: UITableView!
    
+    
+    @IBAction func btnPatientHistoryOnClick(_ sender: UIButton) {
+        
+           let vc = self.storyBoard.instantiateViewController(withIdentifier: "PatientHistoryViewController") as! PatientHistoryViewController
+           
+           vc.custCode = jobList[sender.tag].CustomerCode
+        
+           vc.modalPresentationStyle = .fullScreen
+           self.present(vc, animated: true, completion: nil)
+           
+    }
+    
     @IBAction func btnAddOnClick(_ sender: UIButton) {
         let vc = UpdatesDialog()
         let index: Int = sender.tag
@@ -78,20 +90,15 @@ class JobListViewController: UIViewController {
     }
    
     @IBAction func TodayOnClick(_ sender: Any) {
-      
-    
       active = 0
-      
       buttonSelection()
       btnToday.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
       callJobsCount()
       callGetTodayJobs()
-      
    }
    
    @IBAction func TomorrowOnClick(_ sender: Any) {
-     
       active = 1
       buttonSelection()
       btnTomorrow.backgroundColor = UIColor.init(hex: "#333333FF")
@@ -139,8 +146,7 @@ class JobListViewController: UIViewController {
      // UIApplication.shared.applicationIconBadgeNumber = 0
       
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
-       
-       
+      
       
       registerObservers()
        
@@ -179,8 +185,21 @@ class JobListViewController: UIViewController {
    }
   
     
-  
+    func disabledTabs(){
+        btnToday.isEnabled = false
+        btnTomorrow.isEnabled = false
+        btnFuture.isEnabled = false
+        btnHistory.isEnabled = false
+    }
     
+    
+    func enabledTabs(){
+        btnToday.isEnabled = true
+        btnTomorrow.isEnabled = true
+        btnFuture.isEnabled = true
+        btnHistory.isEnabled = true
+    }
+  
    override func viewDidLoad() {
        super.viewDidLoad()
        buttonSelection()
@@ -293,16 +312,13 @@ class JobListViewController: UIViewController {
             att.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: index!, length: length))
             btnFuture.setAttributedTitle(att, for: .normal)
              
-             
-            
+          
             //            let att = NSMutableAttributedString(string: "Hello!");
             //            att.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRange(location: 0, length: 2))
             //            att.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSRange(location: 2, length: 2))
             //            button.setAttributedTitle(att, forState: .Normal)
             
-            
           
-            
          }
       }, failure: { (failureObj) in
          self.view.makeToast(failureObj)
@@ -354,10 +370,10 @@ class JobListViewController: UIViewController {
                                                  self.jobList = successObj.jobs
                                                  App.recentJobList = jobList
                                                  
-                                                 jobListAsc = App.recentJobList
-                                                 jobListDesc = App.recentJobList.reversed()
-                                                 
-                                                 jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
+//                                                 jobListAsc = App.recentJobList
+//                                                 jobListDesc = App.recentJobList.reversed()
+//
+//                                                 jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
                                                  
                                                  self.JobTableView.reloadData()
                                              }
@@ -383,20 +399,18 @@ class JobListViewController: UIViewController {
                                                if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    
                                                    self.jobList = successObj.jobs
-                                                   App.recentJobList = jobList
+                                                   App.recentJobList = successObj.jobs
                                                    
-                                                   jobListAsc = App.recentJobList
-                                                   jobListDesc = App.recentJobList.reversed()
-                                                   
-                                                   jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
+//                                                   jobListAsc = App.recentJobList
+//                                                   jobListDesc = App.recentJobList.reversed()
+//
+//                                                   jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
                                                    
                                                    self.JobTableView.reloadData()
                                                }
                                              }, failure: { (failureObj) in
                                                 self.view.makeToast(failureObj)
                                              })
-       
-       
    }
    
    
@@ -409,7 +423,6 @@ class JobListViewController: UIViewController {
       spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width:  self.JobTableView.bounds.width, height: CGFloat(44))
       
       self.JobTableView.backgroundView = spinner
-      
    }
     
     
@@ -649,20 +662,22 @@ extension JobListViewController{
         
         sortOrder = sortingInfo?["SortOrder"] as? String ?? "0"
       
-        
-        jobListAsc = App.recentJobList
-        jobListDesc = App.recentJobList.reversed()
-        
-        jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
+//
+//        jobListAsc = App.recentJobList
+//        jobListDesc = App.recentJobList.reversed()
+//
+//        jobList = (sortOrder == "0") ? jobListAsc : jobListDesc
         
         if(active==2){
             futureSearchFilter.sorting =  String(sortOrder)
+            callGetFutureJobs(from:  futureSearchFilter.sDate, to:  futureSearchFilter.eDate, passenger:  futureSearchFilter.passenger, sort:  futureSearchFilter.sorting)
         }
         if(active==3){
             historySearchFilter.sorting = String(sortOrder)
+            callGetHistoryJobs(from:  historySearchFilter.sDate, to:  historySearchFilter.eDate, passenger:  historySearchFilter.passenger, updates: historySearchFilter.updates, sort:  historySearchFilter.sorting)
         }
         
-        self.JobTableView.reloadData()
+       // self.JobTableView.reloadData()
         
     }
    

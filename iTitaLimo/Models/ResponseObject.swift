@@ -13,6 +13,7 @@ struct ResponseObject: Codable {
    var jobdatelist: String!
    var jobdetails: JobDetail!
    var jobs: [JobDetail]!
+   var patients: [Patient]!
    var responsemessage: String!
    var status: String!
    var token: String!

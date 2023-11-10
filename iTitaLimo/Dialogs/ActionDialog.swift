@@ -67,6 +67,7 @@ class ActionDialog: UIViewController {
       vc.jobNo = jobNo
       vc.modalTransitionStyle = .crossDissolve
       vc.modalPresentationStyle =  .overCurrentContext
+       vc.titleText = "PASSENGER ON BOARD"
       
       self.present(vc, animated:  true, completion: nil)
        
@@ -78,6 +79,7 @@ class ActionDialog: UIViewController {
       vc.job = self.job
       vc.jobAction = "NS"
       vc.jobNo = jobNo
+       vc.titleText = "NO SHOW"
       vc.modalTransitionStyle = .crossDissolve
       vc.modalPresentationStyle = .overCurrentContext
    
