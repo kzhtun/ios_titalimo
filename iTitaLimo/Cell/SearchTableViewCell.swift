@@ -161,7 +161,7 @@ class SearchTableViewCell: UITableViewCell {
         eDate.layer.masksToBounds = true;
         eDate.setLeftPaddingPoints(8)
 
-        btnSearch.layer.cornerRadius = 13;
+        btnSearch.layer.cornerRadius = 16;
         btnSearch.layer.masksToBounds = true;
       // self.btnSearch.backgroundColor = UIColor.init(hex: "#F69000AA")
 

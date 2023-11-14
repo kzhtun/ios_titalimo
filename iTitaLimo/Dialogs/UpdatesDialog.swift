@@ -34,6 +34,13 @@ class UpdatesDialog: UIViewController {
         
         self.txtUpdates.text = newUpdates.replacingOccurrences(of: "##-##" , with: "\n")
         
+        self.txtUpdates.textContainer.maximumNumberOfLines = 5
+        self.txtUpdates.textContainer.lineBreakMode = .byTruncatingTail
+//        txtUpdates.translatesAutoresizingMaskIntoConstraints = false
+//        txtUpdates.isScrollEnabled = true
+//        txtUpdates.showsVerticalScrollIndicator = true
+//        txtUpdates.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        
     }
     
     @IBAction func btnSaveOnClick(_ sender: Any) {

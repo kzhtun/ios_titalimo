@@ -71,7 +71,7 @@ class PatientHistoryViewController: UIViewController {
         initEDatePicker()
         sgSorting.selectedSegmentIndex = 1
         
-        btnSearch.layer.cornerRadius = 13;
+        btnSearch.layer.cornerRadius = 16;
         btnSearch.layer.masksToBounds = true;
         
         searchView.layer.cornerRadius = 10
@@ -81,8 +81,15 @@ class PatientHistoryViewController: UIViewController {
         
         PatientTableView.delegate = self
         PatientTableView.dataSource = self
+        
+        sDate.layer.cornerRadius = 15;
+        sDate.layer.masksToBounds = true;
+        sDate.setLeftPaddingPoints(8)
+
+        eDate.layer.cornerRadius = 15;
+        eDate.layer.masksToBounds = true;
+        eDate.setLeftPaddingPoints(8)
       
-       
         
         callGetPatientHistory(custoCode: custCode,
                               from: patientSearchFilter.sDate,
@@ -93,12 +100,14 @@ class PatientHistoryViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        App.recentlyClosedScreen = "PATIENT_HISTORY"
         // Do any additional setup after loading the view.
     }
     
     @IBAction func btnBack_OnTouchInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        // clear recent screen
+      
     }
     
     
@@ -112,6 +121,9 @@ class PatientHistoryViewController: UIViewController {
         // define max and min date
         let calendar = Calendar(identifier: .gregorian)
         var comps = DateComponents()
+        comps.day = 0
+        let maxDate = calendar.date(byAdding: comps, to: Date())
+        datePicker.maximumDate = maxDate
      
        datePicker.datePickerMode = .date
        datePicker.preferredDatePickerStyle = .wheels
@@ -134,6 +146,9 @@ class PatientHistoryViewController: UIViewController {
         let calendar = Calendar(identifier: .gregorian)
         var comps = DateComponents()
      
+        comps.day = 0
+        let maxDate = calendar.date(byAdding: comps, to: Date())
+        datePicker.maximumDate = maxDate
         
        datePicker.datePickerMode = .date
        datePicker.preferredDatePickerStyle = .wheels
@@ -186,10 +201,19 @@ extension PatientHistoryViewController: UITableViewDelegate, UITableViewDataSour
             return UITableView.automaticDimension
         }
 
-        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-       {
-            cell.layoutIfNeeded()
-        }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let lastSectionIndex = tableView.numberOfSections - 1
+//        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+//        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+//           // print("this is the last cell")
+//            let spinner = UIActivityIndicatorView(style: .medium)
+//            spinner.startAnimating()
+//            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+//
+//            self.PatientTableView.tableFooterView = spinner
+//            self.PatientTableView.tableFooterView?.isHidden = false
+//        }
+//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return patientList.count
@@ -204,7 +228,9 @@ extension PatientHistoryViewController: UITableViewDelegate, UITableViewDataSour
         cell.configure(patient: patientList[indexPath.row])
         
         
+        
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = false
         
         return cell
     }

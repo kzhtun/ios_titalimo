@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var lat: Double = 0.0
    var lng: Double = 0.0
    var fullAddress = "Address not found"
-  
    
    var phones: [String]?
    var jobInfo: [AnyHashable: Any]?
@@ -35,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var  searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()
    var recentTab = 0
+    var recentlyClosedScreen = ""
  
    func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
      return true

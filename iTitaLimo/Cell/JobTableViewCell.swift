@@ -8,37 +8,30 @@
 import UIKit
 
 class JobTableViewCell: UITableViewCell {
-   let App = UIApplication.shared.delegate as! AppDelegate
-   let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let App = UIApplication.shared.delegate as! AppDelegate
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
    
-   static let indentifier = "JobTableViewCell"
+    static let indentifier = "JobTableViewCell"
    
     @IBOutlet weak var btnPatientHistory: UIButton!
-   
     @IBOutlet weak var staff: UILabel!
-   
-    @IBOutlet weak var updateViewHeightConstraints: NSLayoutConstraint!
+    @IBOutlet weak var updateViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var updateViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var updatesView: UIStackView!
     @IBOutlet weak var containerView: UIView!
-   @IBOutlet weak var jobDate: UILabel!
-   @IBOutlet weak var jobType: UILabel!
-   @IBOutlet weak var jobStatus: UILabel!
-   @IBOutlet weak var vehicleType: UILabel!
-   @IBOutlet weak var jobTime: UILabel!
-   @IBOutlet weak var pickup: UILabel!
-   @IBOutlet weak var dropoff: UILabel!
-   @IBOutlet weak var passenger: UILabel!
-   @IBOutlet weak var mobile: UILabel!
-   
+    @IBOutlet weak var jobDate: UILabel!
+    @IBOutlet weak var jobType: UILabel!
+    @IBOutlet weak var jobStatus: UILabel!
+    @IBOutlet weak var vehicleType: UILabel!
+    @IBOutlet weak var jobTime: UILabel!
+    @IBOutlet weak var pickup: UILabel!
+    @IBOutlet weak var dropoff: UILabel!
+    @IBOutlet weak var passenger: UILabel!
+    @IBOutlet weak var mobile: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
-   
-//    @IBAction func btnAddOnClick(_ sender: Any) {
-//
-//   }
-    
     @IBOutlet weak var updates: UILabel!
     
-   @IBOutlet weak var JobDateConstraints: NSLayoutConstraint!
+    @IBOutlet weak var JobDateConstraints: NSLayoutConstraint!
    
    static func nib()-> UINib{
       return UINib(nibName: "JobTableViewCell", bundle: nil)
@@ -50,7 +43,7 @@ class JobTableViewCell: UITableViewCell {
    }
    
    
-    public func configure(tab: Int, jobDate: String, jobType: String, jobStatus: String, vehicleType: String, jobTime: String,
+    public func configure(tab: Int, jobDate: String, jobType: String, uaeType: String, jobStatus: String, vehicleType: String, jobTime: String,
                           pickup: String, dropoff: String, passenger: String, mobile: String, updates: String, staff: String, index: Int){
         
         
@@ -96,6 +89,14 @@ class JobTableViewCell: UITableViewCell {
             self.btnAdd.setTitle("VIEW", for: UIControl.State.normal)
             self.btnAdd.backgroundColor = UIColor.init(red: 255/255, green: 150/255, blue: 0/255, alpha: 1 )
             //  self.btnAdd.backgroundColor = UIColor.init(hex: "#FF9400AA")
+        }
+        
+        // update buttons show/ hide
+        if(uaeType.caseInsensitiveCompare("Translation Job") != .orderedSame){
+            //  updateViewTopConstraint.constant = 0
+              updateViewHeightConstraint.constant = 0
+        }else{
+            updateViewHeightConstraint.constant = 30
         }
         
     }

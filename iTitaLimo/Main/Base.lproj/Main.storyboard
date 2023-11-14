@@ -816,6 +816,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="Lap-CT-5o9" firstAttribute="width" secondItem="r3A-2L-cb7" secondAttribute="width" multiplier="0.49" id="8Kg-B8-Ejb"/>
+                                                                <constraint firstAttribute="height" constant="30" id="HRh-9q-c3C"/>
                                                                 <constraint firstItem="dTc-yg-UYE" firstAttribute="width" secondItem="r3A-2L-cb7" secondAttribute="width" multiplier="0.49" id="sX7-8Z-Wgh"/>
                                                             </constraints>
                                                         </stackView>
@@ -884,6 +885,8 @@
                                             <outlet property="passenger" destination="53B-vp-B4H" id="SRN-h6-R6n"/>
                                             <outlet property="pickup" destination="aJW-ZZ-uWa" id="0K6-Lz-po8"/>
                                             <outlet property="staff" destination="2Hu-mU-txH" id="UbP-D3-3yr"/>
+                                            <outlet property="updateViewHeightConstraint" destination="HRh-9q-c3C" id="6Tv-mC-es8"/>
+                                            <outlet property="updateViewTopConstraint" destination="Uig-IV-Poy" id="Erj-5k-8rf"/>
                                             <outlet property="updatesView" destination="r3A-2L-cb7" id="Ld1-pq-ixK"/>
                                             <outlet property="vehicleType" destination="kba-OK-rkZ" id="L8z-UP-aW5"/>
                                         </connections>
@@ -1729,8 +1732,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="kfx-LG-S6z">
                                                 <rect key="frame" x="0.0" y="0.0" width="167" height="35"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME SORTING" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sP7-kD-T5o">
-                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE SORTING" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sP7-kD-T5o">
+                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="dHr-oI-iN1"/>
                                                         </constraints>

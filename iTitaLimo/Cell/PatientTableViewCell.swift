@@ -38,7 +38,10 @@ class PatientTableViewCell: UITableViewCell {
         jobTime.text = patient.JobTime
         pickup.text = patient.PickupPoint
         dropoff.text = patient.AlightPoint
-        updates.text = patient.Updates
+        
+        let newUpdates = (patient.Updates == "##-##") ? "" : patient.Updates
+        updates.text = newUpdates?.replacingOccurrences(of: "##-##" , with: "\n")
+       
     }
     
     

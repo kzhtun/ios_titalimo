@@ -65,6 +65,8 @@ class JobListViewController: UIViewController {
     
     @IBAction func btnPatientHistoryOnClick(_ sender: UIButton) {
         
+           
+        
            let vc = self.storyBoard.instantiateViewController(withIdentifier: "PatientHistoryViewController") as! PatientHistoryViewController
            
            vc.custCode = jobList[sender.tag].CustomerCode
@@ -162,26 +164,32 @@ class JobListViewController: UIViewController {
     //  callJobsCount()
       
       
-      // select recent state
-      switch App.recentTab {
-          case 0:
-             btnToday.sendActions(for: .touchDown)
-             break
-          case 1:
-             btnTomorrow.sendActions(for: .touchDown)
-             break
-          case 2:
-            // btnFuture.sendActions(for: .touchDown)
-          callGetFutureJobs(from: futureSearchFilter.sDate, to: futureSearchFilter.eDate, passenger: futureSearchFilter.passenger, sort: futureSearchFilter.sorting)
-             break
-          case 3:
-           //  btnHistory.sendActions(for: .touchDown)
-            callGetHistoryJobs(from: historySearchFilter.sDate, to: historySearchFilter.eDate, passenger: historySearchFilter.passenger, updates: historySearchFilter.updates, sort: historySearchFilter.sorting)
-                
-             break
-          default:
-             btnToday.sendActions(for: .touchDown)
-      }
+//       if(App.recentlyClosedScreen
+//        = "PATIENT_HISTORY"
+       
+       
+       if(App.recentlyClosedScreen.caseInsensitiveCompare("PATIENT_HISTORY") != .orderedSame){
+           // select recent state
+           switch App.recentTab {
+           case 0:
+               btnToday.sendActions(for: .touchDown)
+               break
+           case 1:
+               btnTomorrow.sendActions(for: .touchDown)
+               break
+           case 2:
+               // btnFuture.sendActions(for: .touchDown)
+               callGetFutureJobs(from: futureSearchFilter.sDate, to: futureSearchFilter.eDate, passenger: futureSearchFilter.passenger, sort: futureSearchFilter.sorting)
+               break
+           case 3:
+               //  btnHistory.sendActions(for: .touchDown)
+               callGetHistoryJobs(from: historySearchFilter.sDate, to: historySearchFilter.eDate, passenger: historySearchFilter.passenger, updates: historySearchFilter.updates, sort: historySearchFilter.sorting)
+               
+               break
+           default:
+               btnToday.sendActions(for: .touchDown)
+           }
+       }
    }
   
     
@@ -206,6 +214,8 @@ class JobListViewController: UIViewController {
 
        self.JobTableView.estimatedSectionHeaderHeight = 1000
        self.JobTableView.sectionHeaderHeight = UITableView.automaticDimension
+       
+       App.recentlyClosedScreen = "JOB_LIST_SCREEN"
     }
    
     @objc func searchClicked(notification: NSNotification){
@@ -545,6 +555,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
            cell.configure(tab: active,
                          jobDate : jobList[i].UsageDate,
                          jobType : jobList[i].JobType,
+                         uaeType:  jobList[i].UAEType,
                          jobStatus : jobList[i].JobStatus,
                          vehicleType : jobList[i].VehicleType,
                          jobTime : jobList[i].PickUpTime,
