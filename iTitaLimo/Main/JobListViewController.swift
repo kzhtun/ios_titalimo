@@ -630,10 +630,12 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension JobListViewController{
    func registerObservers(){
-      
+       NotificationCenter.default.addObserver(self, selector: #selector(showSessionEndDialog), name: NSNotification.Name(rawValue: "SHOW_SESSION_EXPIRED"), object: nil)
+       
       NotificationCenter.default.addObserver(self, selector: #selector(AcceptSuccessful), name: NSNotification.Name(rawValue: "ACCEPT_SUCCESSFUL"), object: nil)
       
        NotificationCenter.default.addObserver(self, selector: #selector(SelectTodayTab), name: NSNotification.Name(rawValue: "SELECT_TODAY_TAB"), object: nil)
+       
        
       // refresh job list when noti receive
       NotificationCenter.default.addObserver(self, selector: #selector(RefreshJobList), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
@@ -647,6 +649,19 @@ extension JobListViewController{
       // print("registerObservers")
       
    }
+    
+    
+    @objc func showSessionEndDialog(){
+        var confirmAlert = UIAlertController(title: "Tita Limo", message: "Your session has expired. Please login again.", preferredStyle: UIAlertController.Style.alert)
+
+        confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            // YES
+            confirmAlert.dismiss(animated: true)
+            self.dismiss(animated: true, completion: nil)
+          }))
+        
+        self.present(confirmAlert, animated: true, completion: nil)
+    }
     
     @objc func SelectTodayTab(){
         if(active > 0 ){

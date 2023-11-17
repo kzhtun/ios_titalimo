@@ -80,9 +80,9 @@ class CompleteDialog: UIViewController {
    }
     
     func buttonsReShape(){
-        remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
-        remarks.backgroundColor = UIColor(hex: textFieldColor)
-        remarks.isEditable = true
+     //   remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
+     //   remarks.backgroundColor = UIColor(hex: textFieldColor)
+     //   remarks.isEditable = true
     }
    
    @objc func keyboardWillShow(sender: NSNotification) {

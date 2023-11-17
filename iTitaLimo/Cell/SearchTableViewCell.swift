@@ -144,7 +144,6 @@ class SearchTableViewCell: UITableViewCell {
       // Initialization code
       
        
-       
         updates.layer.cornerRadius = 15;
         updates.layer.masksToBounds = true;
         updates.setLeftPaddingPoints(8)

@@ -30,23 +30,13 @@ class UpdatesDialog: UIViewController {
 //        let gesture = UITapGestureRecognizer(target: self, action: #selector(outsideViewOnClick))
 //        outsideView.addGestureRecognizer(gesture)
 //
-        var newUpdates = (updates == "##-##") ? "" : updates
+        let newUpdates = (updates == "##-##") ? "" : updates
         
-        self.txtUpdates.text = newUpdates.replacingOccurrences(of: "##-##" , with: "\n")
-        
-        self.txtUpdates.textContainer.maximumNumberOfLines = 5
-        self.txtUpdates.textContainer.lineBreakMode = .byTruncatingTail
-//        txtUpdates.translatesAutoresizingMaskIntoConstraints = false
-//        txtUpdates.isScrollEnabled = true
-//        txtUpdates.showsVerticalScrollIndicator = true
-//        txtUpdates.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-        
+       self.txtUpdates.text = newUpdates.replacingOccurrences(of: "##-##" , with: "\n")
     }
     
     @IBAction func btnSaveOnClick(_ sender: Any) {
-        
         self.callUpdateJobRemark(jobNo: self.jobNo, remark:   self.txtUpdates.text )
-       
     }
     
     
@@ -71,8 +61,9 @@ class UpdatesDialog: UIViewController {
     }
     
     func buttonsReShape(){
-        txtUpdates.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
-        txtUpdates.isEditable = true
+       // txtUpdates.clipsToBounds = true
+       // txtUpdates.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
+       // txtUpdates.isEditable = true
     }
     
     func callUpdateJobRemark(jobNo: String, remark: String){
@@ -80,13 +71,11 @@ class UpdatesDialog: UIViewController {
         var newRemark = ""
         
         newRemark = (remark.isEmpty) ? "\n" : remark
-      //  newRemark = newRemark.replacingOccurrences(of: "", with: "")
         newRemark = newRemark.replacingOccurrences(of: "\n" , with: "##-##")
         newRemark = newRemark.replacingOccurrences(of: "/" , with: "|")
         newRemark = newRemark.replacingOccurrences(of: "\\" , with: "|")
         
        
-        
         Router.sharedInstance().UpdateJobRemarks(jobNo: jobNo,  remark: newRemark,
                                                success: {(successObj) in
                                                  if(successObj.responsemessage.uppercased() == "SUCCESS"){
@@ -98,14 +87,10 @@ class UpdatesDialog: UIViewController {
                                                          // Notify JobListView
                                                          NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
                                                      }
-                                                     
-                                                     
                                                  }
                                                }, failure: { (failureObj) in
                                                  self.view.makeToast(failureObj)
                                                  self.dismiss(animated: true, completion: nil)
                                                })
     }
-   
-
 }

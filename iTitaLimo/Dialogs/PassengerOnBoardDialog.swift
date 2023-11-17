@@ -243,11 +243,11 @@ class PassengerOnBoardDialog: UIViewController {
       tabSignature.setTopButtonCornerRounded(value: 5)
       tabPassenger.setTopButtonCornerRounded(value: 5)
       
-      signView.setBottomViewCornerRounded(value: 5)
-      photoView.setBottomViewCornerRounded(value: 5)
+     // signView.setBottomViewCornerRounded(value: 5)
+     // photoView.setBottomViewCornerRounded(value: 5)
       
-      remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
-      remarks.isEditable = true
+   //   remarks.setRoundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 5)
+   //   remarks.isEditable = true
    }
    
    override func viewDidLoad() {
@@ -290,11 +290,15 @@ class PassengerOnBoardDialog: UIViewController {
   
    
    @IBAction func SubmitOnClick(_ sender: Any) {
-      
        
-       if(remarks.text.isEmpty){
-          remarks.text = " "
-       }
+       var newRemark = ""
+       newRemark = remarks.text
+       newRemark = (newRemark.isEmpty) ? " " : newRemark
+//       newRemark = newRemark.replacingOccurrences(of: "\n" , with: "##-##")
+//       newRemark = newRemark.replacingOccurrences(of: "/" , with: "|")
+//       newRemark = newRemark.replacingOccurrences(of: "\\" , with: "|")
+       
+       
        let cgref = imgPreview.image?.cgImage
        let cim = imgPreview.image?.ciImage
        

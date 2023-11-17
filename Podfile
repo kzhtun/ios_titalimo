@@ -17,6 +17,7 @@
     pod 'GoogleUtilities'
     pod 'FirebaseCore'
     pod 'FirebaseMessaging'
+    pod 'MultilineTextField'
     
 #    pod 'FirebaseCoreInternal', :modular_headers => true
 #    pod 'Firebase', :modular_headers => true

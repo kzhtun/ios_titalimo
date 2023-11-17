@@ -14,10 +14,10 @@ class Router{
   
 
     // DEV
- //  let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
+//  let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
-  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+ let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
     
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
@@ -236,8 +236,12 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
-               success(objRes)
                
+                
+                
+                success(objRes)
+                
+             
                print("GetTodayJobs Success")
             }catch{
                failure("GetTodayJobs Failed")
@@ -687,4 +691,7 @@ class Router{
           }
     }
 }
+
+
+
 

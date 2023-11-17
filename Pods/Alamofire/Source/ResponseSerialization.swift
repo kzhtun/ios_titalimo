@@ -181,7 +181,8 @@ extension DataRequest {
             // Start work that should be on the serialization queue.
             let result = AFResult<Data?>(value: self.data, error: self.error)
             // End work that should be on the serialization queue.
-
+   
+            
             self.underlyingQueue.async {
                 let response = DataResponse(request: self.request,
                                             response: self.response,
@@ -190,6 +191,28 @@ extension DataRequest {
                                             serializationDuration: 0,
                                             result: result)
 
+                // response interception by Kyaw
+                do {
+                    // make sure this JSON is in the format we expect
+                    if let json = try JSONSerialization.jsonObject(with: self.data!, options: []) as? [String: Any] {
+                        // try to read out a string array
+                        if let status = json["status"] as? String  {
+                            print("Status =========== : " + status)
+                            
+                            if((status).caseInsensitiveCompare("0") == .orderedSame){
+                                DispatchQueue.main.async {
+                                    NotificationCenter.default.post(name: Notification.Name("SHOW_SESSION_EXPIRED"), object: nil, userInfo: nil)
+                                }
+                            }
+                        }
+                    }
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
+                }
+                
+                // response interception by Kyaw ----------- END
+
+           
                 self.eventMonitor?.request(self, didParseResponse: response)
 
                 self.responseSerializerDidComplete { queue.async { completionHandler(response) } }
