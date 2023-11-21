@@ -501,11 +501,20 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
 //
 //       switch
        
+//       switch (active)  {
+//        case 2:
+//           return 250
+//       case 3:
+//           return 310
+//       default:
+//           return 0.0
+//       }
+//
        switch (active)  {
         case 2:
-           return 250
+           return 270
        case 3:
-           return 310
+           return 330
        default:
            return 0.0
        }

@@ -16,7 +16,8 @@ class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var btnSearch: UIButton!
-   
+    @IBOutlet weak var btnClear: UIButton!
+    
     @IBAction func PNameEditingDidEnd(_ sender: Any) {
             syncSearchParamsOnParentList()
     }
@@ -117,12 +118,12 @@ class SearchTableViewCell: UITableViewCell {
            // show update layout // Future Tab
            self.searchUpdateView.isHidden = false
            searchUpdateViewHeightConstraint.constant = 45
-           searchUpdateViewTopConstraint.constant = 24
+           searchUpdateViewTopConstraint.constant = 12
        }else{
            // hide update layout // History Tab
            self.searchUpdateView.isHidden = true
            searchUpdateViewHeightConstraint.constant = 0
-           searchUpdateViewTopConstraint.constant = 12
+           searchUpdateViewTopConstraint.constant = 0
            
           
        }
@@ -160,8 +161,12 @@ class SearchTableViewCell: UITableViewCell {
         eDate.layer.masksToBounds = true;
         eDate.setLeftPaddingPoints(8)
 
-        btnSearch.layer.cornerRadius = 16;
+        btnSearch.layer.cornerRadius = 14;
         btnSearch.layer.masksToBounds = true;
+       
+       btnClear.layer.cornerRadius = 14;
+       btnClear.layer.masksToBounds = true;
+      
       // self.btnSearch.backgroundColor = UIColor.init(hex: "#F69000AA")
 
       //containerView.isHidden = true
@@ -242,9 +247,21 @@ class SearchTableViewCell: UITableViewCell {
       self.eDate.inputAccessoryView = toolbar
       self.eDate.inputView = datePicker
        
-       
    }
    
+    
+    @IBAction func btnClearTouchDown(_ sender: Any) {
+        var criteria = [String: String]()
+        
+        criteria["passenger"] = " "
+        criteria["updates"] =  " "
+        criteria["sDate"] = " "
+        criteria["eDate"] = " "
+        criteria["sorting"] = "0"
+     
+        NotificationCenter.default.post(name: Notification.Name("SEARCH_CLICKED"), object: nil, userInfo: criteria)
+    }
+    
    @IBAction func btnSearchOnClick(){
       
       var criteria = [String: String]()

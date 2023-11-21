@@ -21,6 +21,7 @@ class PatientHistoryViewController: UIViewController {
     
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var btnSearch: UIButton!
+    @IBOutlet weak var btnClear: UIButton!
     
     let datePicker = UIDatePicker()
     
@@ -34,6 +35,24 @@ class PatientHistoryViewController: UIViewController {
     
     @IBAction func sgSorting_ValueChanged(_ sender: Any) {
         patientSearchFilter.sorting = "\(sgSorting.selectedSegmentIndex)"
+        
+        callGetPatientHistory(custoCode: custCode,
+                              from: patientSearchFilter.sDate,
+                              to: patientSearchFilter.eDate,
+                              sort: patientSearchFilter.sorting)
+    }
+    
+    
+    
+    @IBAction func btnClear(_ sender: Any) {
+        sDate.text = "";
+        eDate.text = "";
+        sgSorting.selectedSegmentIndex = 1
+        
+        patientSearchFilter.sDate = ""
+        patientSearchFilter.eDate = ""
+        patientSearchFilter.sorting = "1"
+      
         callGetPatientHistory(custoCode: custCode,
                               from: patientSearchFilter.sDate,
                               to: patientSearchFilter.eDate,
@@ -71,8 +90,11 @@ class PatientHistoryViewController: UIViewController {
         initEDatePicker()
         sgSorting.selectedSegmentIndex = 1
         
-        btnSearch.layer.cornerRadius = 16;
+        btnSearch.layer.cornerRadius = 14;
         btnSearch.layer.masksToBounds = true;
+        
+        btnClear.layer.cornerRadius = 14;
+        btnClear.layer.masksToBounds = true;
         
         searchView.layer.cornerRadius = 10
         searchView.layer.borderWidth = 1.0
