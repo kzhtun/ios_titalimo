@@ -64,6 +64,7 @@ class JobListViewController: UIViewController {
    
     
     @IBAction func btnExit_TouchDown(_ sender: Any) {
+        print("JobListViewController Exit")
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -178,7 +179,8 @@ class JobListViewController: UIViewController {
       
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
       
-      print("JobListViewControllerViewWillAppear")
+      print("\n")
+      print("JobListViewController WillAppear")
       print("CurrentTab : " + String(active))
        
       registerObservers()
@@ -242,6 +244,7 @@ class JobListViewController: UIViewController {
    override func viewDidLoad() {
        super.viewDidLoad()
        
+    
        print("JobListViewContoller Loaded")
        
        buttonSelection()

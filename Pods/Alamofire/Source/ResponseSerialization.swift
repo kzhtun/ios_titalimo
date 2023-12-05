@@ -202,7 +202,7 @@ extension DataRequest {
                     if let json = try JSONSerialization.jsonObject(with: self.data!, options: []) as? [String: Any] {
                         // try to read out a string array
                         if let status = json["status"] as? String  {
-                            print("Status =========== : " + status)
+                           // print("Status =========== : " + status)
                             
                             if((status).caseInsensitiveCompare("0") == .orderedSame){
                                 DispatchQueue.main.async {

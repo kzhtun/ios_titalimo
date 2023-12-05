@@ -60,11 +60,13 @@ class LoginViewController: UIViewController {
 //    override func viewDidLayoutSubviews() {
 //        UIApplication.shared.applicationIconBadgeNumber = 0
 //    }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        UIApplication.shared.applicationIconBadgeNumber = 0
-//    
-//    }
+//
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print("LoginViewController WillAppear")
+    }
     
     
     

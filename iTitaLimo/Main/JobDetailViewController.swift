@@ -25,6 +25,7 @@ class JobDetailViewController: UIViewController {
    
    
     @IBAction func btnExit_TouchDown(_ sender: Any) {
+        print("JobDetailViewController Exit")
         self.dismiss(animated: true)
     }
     
@@ -197,6 +198,9 @@ class JobDetailViewController: UIViewController {
    
    
    override func viewWillAppear(_ animated: Bool) {
+       print("\n")
+       print("JobDetailViewController WillAppear")
+       
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
       
       // UI Designer
@@ -299,7 +303,8 @@ class JobDetailViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
+       
+       
        print("JobDetailViewController Loaded")
        
       print("jobIndex \(jobIndex)")

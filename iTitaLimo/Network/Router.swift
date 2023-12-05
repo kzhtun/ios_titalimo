@@ -32,10 +32,10 @@ class Router{
   
 
     // DEV
-  let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
+//  let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
-//  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
     
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
