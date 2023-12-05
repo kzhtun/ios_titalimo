@@ -8,6 +8,7 @@
 import UIKit
 
 
+
 class ActionDialog: UIViewController {
    let App = UIApplication.shared.delegate as! AppDelegate
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -60,7 +61,9 @@ class ActionDialog: UIViewController {
     
    
    @IBAction func pobOnClick(_ sender: Any) {
-   
+       print("POBOnClick")
+      
+       
       let vc = PassengerOnBoardDialog()
       vc.jobAction = "POB"
       vc.job = self.job
@@ -70,11 +73,12 @@ class ActionDialog: UIViewController {
        vc.titleText = "PASSENGER ON BOARD"
       
       self.present(vc, animated:  true, completion: nil)
-       
    }
    
    
    @IBAction func nsOnClick(_ sender: Any) {
+      print("NoShowOnclick")
+       
       let vc = PassengerOnBoardDialog()
       vc.job = self.job
       vc.jobAction = "NS"

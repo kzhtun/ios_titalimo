@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+
+
 class JobListViewController: UIViewController {
    let notificationCenter = UNUserNotificationCenter.current()
    let App = UIApplication.shared.delegate as! AppDelegate
@@ -26,6 +29,20 @@ class JobListViewController: UIViewController {
    
    var active = 0
    
+    
+    
+    
+    @IBAction func SendReportTouchDown(_ sender: Any) {
+        print("SendReportTouchDown")
+       
+        let vc = AnalyticsReportDialog()
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated:  true, completion: nil)
+        
+      
+    }
     
     override func viewDidLayoutSubviews() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2)
@@ -77,6 +94,8 @@ class JobListViewController: UIViewController {
     }
     
     @IBAction func btnAddOnClick(_ sender: UIButton) {
+        print("btnAddOnClick")
+        
         let vc = UpdatesDialog()
         let index: Int = sender.tag
         
@@ -89,18 +108,25 @@ class JobListViewController: UIViewController {
         self.present(vc, animated:  true, completion: nil)
        
         //self.view.makeToast( vc.jobNo )
+        
+       
     }
    
     @IBAction func TodayOnClick(_ sender: Any) {
+      print("TodayOnClick")
+        
       active = 0
       buttonSelection()
       btnToday.backgroundColor = UIColor.init(hex: "#333333FF")
       showSpinner()
       callJobsCount()
       callGetTodayJobs()
+        
    }
    
    @IBAction func TomorrowOnClick(_ sender: Any) {
+       print("TomorrowOnClick")
+       
       active = 1
       buttonSelection()
       btnTomorrow.backgroundColor = UIColor.init(hex: "#333333FF")
@@ -110,6 +136,8 @@ class JobListViewController: UIViewController {
    }
    
    @IBAction func FutureOnClick(_ sender: Any) {
+       print("FutureOnClick")
+       
       jobList.removeAll()
       active = 2
       buttonSelection()
@@ -121,7 +149,8 @@ class JobListViewController: UIViewController {
    }
    
    @IBAction func HistoryOnClick(_ sender: Any) {
-    
+       print("HistoryOnClick")
+       
       active = 3
       buttonSelection()
       btnHistory.backgroundColor = UIColor.init(hex: "#333333FF")
@@ -149,7 +178,9 @@ class JobListViewController: UIViewController {
       
       welcomeMsg.text = "Welcome \(App.DRIVER_NAME)"
       
-      
+      print("JobListViewControllerViewWillAppear")
+      print("CurrentTab : " + String(active))
+       
       registerObservers()
        
       JobTableView.delegate = self
@@ -210,6 +241,9 @@ class JobListViewController: UIViewController {
   
    override func viewDidLoad() {
        super.viewDidLoad()
+       
+       print("JobListViewContoller Loaded")
+       
        buttonSelection()
 
        self.JobTableView.estimatedSectionHeaderHeight = 1000
@@ -338,6 +372,8 @@ class JobListViewController: UIViewController {
    func callGetTodayJobs(){
      //jobList.removeAll()
       
+     //  Log.CallUpdateWebLog(jobNo: "", action: "WebCall", webmethod: "GetTodayJobs")
+       
       Router.sharedInstance().GetTodayJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
             self.jobList = successObj.jobs
@@ -353,6 +389,8 @@ class JobListViewController: UIViewController {
    func callGetTomorrowJobs(){
       //jobList.removeAll()
       
+     //  Log.CallUpdateWebLog(jobNo: "", action: "WebCall", webmethod: "GetTomorrowJobs")
+       
       Router.sharedInstance().GetTomorrowJobs(success: { [self](successObj) in
          if(successObj.responsemessage.uppercased() == "SUCCESS"){
             self.jobList = successObj.jobs
@@ -367,6 +405,8 @@ class JobListViewController: UIViewController {
    
    func callGetFutureJobs(from: String, to: String, passenger: String, sort: String){
       //jobList.removeAll()
+       
+       // Log.CallUpdateWebLog(jobNo: "", action: "WebCall", webmethod: "GetFutureJobs")
        
        let from = (from.isEmpty) ? " " : from
        let to = (to.isEmpty) ? " " : to
@@ -396,6 +436,8 @@ class JobListViewController: UIViewController {
    func callGetHistoryJobs(from: String, to: String, passenger: String, updates: String, sort: String){
       //jobList.removeAll()
       
+     //  Log.CallUpdateWebLog(jobNo: "", action: "WebCall", webmethod: "GetHistoryJobs")
+       
        let from = (from.isEmpty) ? " " : from
        let to = (to.isEmpty) ? " " : to
        let passenger = (passenger.isEmpty) ? " " :
@@ -584,7 +626,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
    }
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      print(indexPath.row)
+      print("Select table cell index : " + String(indexPath.row))
       
       let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobDetailViewController") as! JobDetailViewController
       
@@ -655,7 +697,7 @@ extension JobListViewController{
        
        NotificationCenter.default.addObserver(self, selector: #selector(SortingChanged), name: NSNotification.Name(rawValue: "SORTING_CHANGED"), object: nil)
        
-      // print("registerObservers")
+       print("Registered Observers" + " -> JobListViewController")
       
    }
     
@@ -663,7 +705,7 @@ extension JobListViewController{
     @objc func showSessionEndDialog(){
         var confirmAlert = UIAlertController(title: "Tita Limo", message: "Your session has expired. Please login again.", preferredStyle: UIAlertController.Style.alert)
 
-        confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+         confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             // YES
             confirmAlert.dismiss(animated: true)
             self.dismiss(animated: true, completion: nil)
@@ -717,7 +759,13 @@ extension JobListViewController{
     }
    
    @objc func RefreshJobList(){
-         
+       
+      print("RefreshJobList")
+      print("CurrentTab : " + String(active))
+     
+     // Log.CallUpdateWebLog(jobNo: "", action: "RefreshJobList()", webmethod: "")
+     // Log.CallUpdateWebLog(jobNo: "", action: "CurrentTab", webmethod: String(active))
+       
       // job count refresh
       callJobsCount()
        

@@ -9,6 +9,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+
+
 class JobDetailViewController: UIViewController {
    let App = UIApplication.shared.delegate as! AppDelegate
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -122,6 +125,8 @@ class JobDetailViewController: UIViewController {
    
    
    @IBAction func negativeOnClick(_ sender: Any) {
+       print("btnNegativeOnClick : " + (btnNegative.titleLabel?.text ?? ""))
+       
       switch jobDetail.JobStatus.uppercased(){
          
          case "JOB ASSIGNED":
@@ -147,6 +152,8 @@ class JobDetailViewController: UIViewController {
    }
    
    @IBAction func positiveOnClick(_ sender: Any) {
+       print("btnPositiveOnClick : " + (btnPositive.titleLabel?.text ?? ""))
+       
       switch jobDetail.JobStatus.uppercased(){
          
          case "JOB ASSIGNED", "JOB NEW":
@@ -205,6 +212,8 @@ class JobDetailViewController: UIViewController {
       btnPositive.layer.masksToBounds = false;
       
       jobNo =  App.recentJobList[jobIndex].JobNo
+       
+       print("JobDetailView Will Appear" + " -> JobNo : " + jobNo)
       
 //      if(App.recentTab == 2 || App.recentTab == 3){
 //         jobIndex = jobIndex - 1
@@ -291,6 +300,8 @@ class JobDetailViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+       print("JobDetailViewController Loaded")
+       
       print("jobIndex \(jobIndex)")
       
       phoneTableView.delegate = self
@@ -594,6 +605,10 @@ extension JobDetailViewController{
    func registerObservers(){
        // update job detail info when noti receive
        
+       print("Registered Observer" + " -> JobDetailViewController")
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(showNoWhatAppDialog), name: NSNotification.Name(rawValue: "SHOW_NO_WHATSAPP"), object: nil)
+       
        NotificationCenter.default.addObserver(self, selector: #selector(closeJobDetails), name: NSNotification.Name(rawValue: "CLOSE_JOB_DETAILS"), object: nil)
        
        NotificationCenter.default.addObserver(self, selector: #selector(updateJobDetail), name: NSNotification.Name(rawValue: "REFRESH_JOBS"), object: nil)
@@ -668,6 +683,19 @@ extension JobDetailViewController{
        }
         
       
+   }
+    
+    
+   @objc func showNoWhatAppDialog(){
+       var confirmAlert = UIAlertController(title: "Tita Limo", message: "Whatsapp is not installed on this device. Please install Whatsapp and try again.", preferredStyle: UIAlertController.Style.alert)
+
+       confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+           // YES
+           confirmAlert.dismiss(animated: true)
+           self.dismiss(animated: true, completion: nil)
+         }))
+       
+        self.present(confirmAlert, animated: true, completion: nil)
    }
 }
 

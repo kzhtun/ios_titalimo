@@ -176,7 +176,7 @@ extension FTPUpload {
 
       var i = 0
 
-       print()
+    //   print()
        
       repeat {
          if (CFWriteStreamCanAcceptBytes(ftpWriteStream)) {

@@ -49,6 +49,27 @@ class PhoneTableViewCell: UITableViewCell {
    }
     
     
+    func openWhatsapp(number: String){
+        let urlWhats = "whatsapp://send?phone=" + number
+        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
+            if let whatsappURL = URL(string: urlString) {
+                if UIApplication.shared.canOpenURL(whatsappURL){
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(whatsappURL)
+                    }
+                }
+                else {
+                    print("Install Whatsapp")
+                    
+                    NotificationCenter.default.post(name: Notification.Name("SHOW_NO_WHATSAPP"), object: nil, userInfo: nil)
+                }
+            }
+        }
+    }
+    
+    
     @IBAction func btnWhatsApp(_ sender: Any) {
         var phoneNo: String = self.lblMobile.text!
         var urlString = ""
@@ -62,19 +83,24 @@ class PhoneTableViewCell: UITableViewCell {
             phoneNo = "+65" + phoneNo;
         }
 
-        var url  = NSURL(string: "https://api.whatsapp.com/send?phone=\(phoneNo)&text=\(urlStringEncoded!)")
+        openWhatsapp(number: phoneNo)
+        return;
         
-        
-        if UIApplication.shared.canOpenURL(url! as URL) {
-                UIApplication.shared.open(url! as URL, options: [:]) { (success) in
-                        if success {
-                            print("WhatsApp accessed successfully")
-                        } else {
-                            print("Error accessing WhatsApp")
-                        }
-                    }
-            }
-        
+//        var url  = NSURL(string: "https://api.whatsapp.com/send?phone=\(phoneNo)&text=\(urlStringEncoded!)")
+//
+//
+//        if UIApplication.shared.canOpenURL(url! as URL) {
+//                UIApplication.shared.open(url! as URL, options: [:]) { (success) in
+//                        if success {
+//                            print("WhatsApp accessed successfully")
+//                        } else {
+//                            print("Error accessing WhatsApp")
+//                        }
+//                    }
+//            }
+//
     }
+    
+    
     
 }

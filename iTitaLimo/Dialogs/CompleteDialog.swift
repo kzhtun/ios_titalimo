@@ -9,6 +9,7 @@
 
 import UIKit
 
+
 class CompleteDialog: UIViewController {
    let App = UIApplication.shared.delegate as! AppDelegate
    var textFieldColor = "#8a8a8aff"
@@ -33,6 +34,8 @@ class CompleteDialog: UIViewController {
     }
     
    func updateJobDetail(){
+     //  Log.CallUpdateWebLog(jobNo: jobNo, action: "updateJobDetail()", webmethod: "")
+       
       let jobInfo: [AnyHashable: Any] = ["jobno" : jobNo] as [AnyHashable : Any]
    
       NotificationCenter.default.post(name: Notification.Name("SILENT_REFRESH_JOBS"), object: nil, userInfo: jobInfo)
@@ -46,14 +49,21 @@ class CompleteDialog: UIViewController {
    }
    
    @IBAction func completeOnClick(_ sender: Any) {
-      Router.sharedInstance().UpdateCompleteJob(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Completed") { [self] (successObj) in
+    //   Log.CallUpdateWebLog(jobNo: jobNo, action: "completeOnClick()", webmethod: "")
+    //   Log.CallUpdateWebLog(jobNo: jobNo, action: "WebCall", webmethod: "UpdateCompleteJob")
+     
+       Router.sharedInstance().UpdateCompleteJob(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Completed") { [self] (successObj) in
          self.view.makeToast("Update Complete Job successfully")
-         updateJobDetail()
+      
+          updateJobDetail()
          
+       
          self.dismiss(animated: true, completion: nil)
       } failure: { (failureObj) in
          self.view.makeToast(failureObj)
       }
+       
+       
    }
    
   

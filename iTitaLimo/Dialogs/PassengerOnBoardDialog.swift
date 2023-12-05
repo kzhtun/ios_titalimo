@@ -10,6 +10,7 @@ import SignaturePad
 import SDWebImage
 
 
+
 class PassengerOnBoardDialog: UIViewController {
     let App = UIApplication.shared.delegate as! AppDelegate
     var actionDialog: ActionDialog?
@@ -60,10 +61,12 @@ class PassengerOnBoardDialog: UIViewController {
    
     
     @IBAction func btnPassengerTouchDown(_ sender: Any) {
+        print("btnPassengerTouchDown")
         PhotoOnClick(tabPassenger!)
     }
     
     @IBAction func btnSignatureTouchDown(_ sender: Any) {
+        print("btnSignatureTouchDown")
         SignOnClick(tabSignature!)
     }
     
@@ -84,6 +87,9 @@ class PassengerOnBoardDialog: UIViewController {
     }
     
     func loadSignatureAndPassengerPhoto(){
+        print("loadSignatureAndPassengerPhoto")
+        
+        
         var signURL: String = ""
         var photoURL: String =  ""
        
@@ -122,6 +128,8 @@ class PassengerOnBoardDialog: UIViewController {
     }
     
     @IBAction func btnClear_TouchDown(_ sender: Any) {
+        print("btnClear_TouchDown")
+        
         signView.clear()
         print("Clear OnClick");
         hasSignature = false
@@ -137,6 +145,8 @@ class PassengerOnBoardDialog: UIViewController {
     
     
     func changeSignaturePadMode(mode: String){
+        print("changeSignaturePadMode")
+        
         if(mode == "EDIT"){
             signPreview.isHidden = false
             self.btnDone.setTitle("SAVED", for: .normal)
@@ -151,6 +161,8 @@ class PassengerOnBoardDialog: UIViewController {
     }
   
     @IBAction func btnDone_TouchDown(_ sender: Any) {
+        print("btnDone_TouchDown")
+        
         if(self.hasSignature){
             // upload signature
             if (self.signView.getSignature() != nil) {
@@ -290,6 +302,8 @@ class PassengerOnBoardDialog: UIViewController {
   
    
    @IBAction func SubmitOnClick(_ sender: Any) {
+       
+       print("SubmitOnClick");
        
        var newRemark = ""
        newRemark = remarks.text

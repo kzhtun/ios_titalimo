@@ -49,6 +49,10 @@ public enum AF {
                                encoding: ParameterEncoding = URLEncoding.default,
                                headers: HTTPHeaders? = nil,
                                interceptor: RequestInterceptor? = nil) -> DataRequest {
+        
+        
+        
+        
         return Session.default.request(url,
                                        method: method,
                                        parameters: parameters,

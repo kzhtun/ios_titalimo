@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class UpdatesDialog: UIViewController {
     let App = UIApplication.shared.delegate as! AppDelegate
     var textFieldColor = "#8a8a8aff"

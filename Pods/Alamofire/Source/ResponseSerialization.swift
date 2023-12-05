@@ -192,6 +192,11 @@ extension DataRequest {
                                             result: result)
 
                 // response interception by Kyaw
+                
+//               let jobInfo: [AnyHashable: Any] = ["requestURL" : response.request?.url] as [AnyHashable : Any]
+//
+//
+                
                 do {
                     // make sure this JSON is in the format we expect
                     if let json = try JSONSerialization.jsonObject(with: self.data!, options: []) as? [String: Any] {

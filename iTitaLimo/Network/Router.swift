@@ -8,6 +8,24 @@
 import Foundation
 import Alamofire
 
+public func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+    let App = UIApplication.shared.delegate as! AppDelegate
+    
+    let output = items.map { "\($0)" }.joined(separator: separator)
+    
+    let now = Date()
+    let formatter = DateFormatter()
+
+    formatter.timeZone = TimeZone.current
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+
+    let dateString = formatter.string(from: now)
+    
+    App.StackTraceLog += "\(dateString) :     \(output)\n"
+    
+    Swift.print(output, terminator: terminator)
+}
+
 class Router{
    let App = UIApplication.shared.delegate as! AppDelegate
    static var instance: Router?
@@ -17,7 +35,7 @@ class Router{
   let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
-//    let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+//  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
     
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
@@ -236,9 +254,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
-               
-                
-                
+              
                 success(objRes)
                 
              
@@ -414,9 +430,9 @@ class Router{
                
                success(objRes)
                
-               print("UpdateJobStatus Success")
+               print("UpdateJobStatus Success" + " -> Status : " + status)
             }catch{
-               failure("UpdateJobStatus Failed")
+               failure("UpdateJobStatus Failed" + " -> Status : " + status)
             }
          }
    }
@@ -429,10 +445,18 @@ class Router{
           "token": self.App.AUT_TOKEN
        ]
        
-       var url = String(format: "%@%@/%@,%@", baseURL, "updateJobRemark", jobNo, remark)
-       url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+       
+        let parameters: [String: Any] = [
+            "jobno" : jobNo,
+            "remarks" : remark
+            ]
+        
+       // var url = String(format: "%@%@/%@,%@", baseURL, "updateJobRemark", jobNo, remark)
+        var url = String(format: "%@%@", baseURL, "updatelongremarks")
+           
+       // url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
 
-       AF.request(url, method: .get, headers: headers)
+       AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
           .response{
              (response) in
   
@@ -452,6 +476,46 @@ class Router{
              }
           }
     }
+    
+    
+    
+    func UpdateMobileLog(StackTraceLog: String, Remarks: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       
+        let parameters: [String: Any] = [
+            "stacktracelog" : App.StackTraceLog,
+            "remarks" : Remarks
+            ]
+     
+       var url = String(format: "%@%@", baseURL, "updatemobilelog")
+     
+       AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+          .response{
+             (response) in
+  
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                success(objRes)
+                
+                print("UpdateMobileLog  Success")
+             }catch{
+                failure("UpdateMobileLog Failed")
+             }
+          }
+    }
+    
    
    func UpdateJobShowConfirm(jobNo: String, address: String, remarks: String, status: String,
                              success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
@@ -479,9 +543,9 @@ class Router{
                
                success(objRes)
                
-               print("UpdateJobShowConfirm Success")
+               print("UpdateJobShowConfirm Success" + " -> Status : " + status)
             }catch{
-               failure("UpdateJobShowConfirm Failed")
+               failure("UpdateJobShowConfirm Failed" + " -> Status : " + status)
             }
          }
    }
@@ -512,9 +576,9 @@ class Router{
                
                success(objRes)
                
-               print("UpdateJobNoShowConfirm Success")
+               print("UpdateJobNoShowConfirm Success" + " -> Status : " + status)
             }catch{
-               failure("UpdateJobNoShowConfirm Failed")
+               failure("UpdateJobNoShowConfirm Failed" + " -> Status : " + status)
             }
          }
    }
@@ -652,9 +716,9 @@ class Router{
                 
                 success(objRes)
                 
-                print("SaveSignature Success")
+                print("SaveShowPic Success")
              }catch{
-                failure("SaveSignature Failed")
+                failure("SaveShowPic Failed")
              }
           }
     }
@@ -684,12 +748,15 @@ class Router{
                 
                 success(objRes)
                 
-                print("SaveSignature Success")
+                print("SaveNoShowPic Success")
              }catch{
-                failure("SaveSignature Failed")
+                failure("SaveNoShowPic Failed")
              }
           }
     }
+    
+    
+  
 }
 
 

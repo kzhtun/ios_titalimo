@@ -34,7 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var  searchParams: SearchFilter = SearchFilter()
    var recentJobList = [JobDetail]()
    var recentTab = 0
-    var recentlyClosedScreen = ""
+   var recentlyClosedScreen = ""
+   var StackTraceLog = "";
+  
+    
  
    func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
      return true
@@ -416,6 +419,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       notificationCenter.setNotificationCategories([category])
    }
 
+    
+   
+    
    
 //   func callUpdateJobStatus(jobNo: String, status: String){
 //

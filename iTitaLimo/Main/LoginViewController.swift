@@ -10,6 +10,27 @@ import Toast_Swift
 import Alamofire
 //import BEMCheckBox
 
+
+public func print(_ items: Any..., separator: String = " ") {
+    let App = UIApplication.shared.delegate as! AppDelegate
+
+    let output = items.map { "\($0)" }.joined(separator: separator)
+
+    let now = Date()
+    let formatter = DateFormatter()
+
+    formatter.timeZone = TimeZone.current
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+
+    let dateString = formatter.string(from: now)
+
+    App.StackTraceLog += "\(dateString) :     \(output)\n"
+
+    Swift.print(output)
+}
+
+
+
 class LoginViewController: UIViewController {
    let notificationCenter = UNUserNotificationCenter.current()
    let App = UIApplication.shared.delegate as! AppDelegate
@@ -51,16 +72,23 @@ class LoginViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+       print("LoginViewController Loaded")
        
        let dictionary = Bundle.main.infoDictionary!
        
        let versionNo  = dictionary["CFBundleShortVersionString"] as! String
        let buildNo  = dictionary["CFBundleVersion"] as! String
        
-       
        lblVersion.text = "Ver : " + versionNo + " (" + buildNo + ")"
        
-    
+       // add stack track log header
+       //let saveName = "\(firstName.text) \(lastName.text)"
+       App.StackTraceLog = "Device Name :           \(UIDevice.current.name)\n"
+       App.StackTraceLog += "Device Model :         \(UIDevice.current.model)\n"
+       App.StackTraceLog += "Device SystemName :    \(UIDevice.current.systemName)\n"
+       App.StackTraceLog += "Device SystemVersion : \(UIDevice.current.systemVersion)\n"
+       App.StackTraceLog += "------------------------------------------------------------------\n"
+       
        
       loginView.layer.cornerRadius = 10;
       loginView.layer.masksToBounds = true;
