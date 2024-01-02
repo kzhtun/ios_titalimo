@@ -555,8 +555,6 @@ extension JobDetailViewController: CLLocationManagerDelegate{
                                           print(App.fullAddress)
                                       }
           
-          
-          
 //                                      guard let pm = placemarks else {
 //                                                        App.fullAddress = "NA"
 //                                                        return
@@ -611,6 +609,8 @@ extension JobDetailViewController{
        // update job detail info when noti receive
        
        print("Registered Observer" + " -> JobDetailViewController")
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(showSessionEndDialog), name: NSNotification.Name(rawValue: "SHOW_SESSION_EXPIRED"), object: nil)
        
        NotificationCenter.default.addObserver(self, selector: #selector(showNoWhatAppDialog), name: NSNotification.Name(rawValue: "SHOW_NO_WHATSAPP"), object: nil)
        
@@ -702,6 +702,20 @@ extension JobDetailViewController{
        
         self.present(confirmAlert, animated: true, completion: nil)
    }
+    
+    @objc func showSessionEndDialog(){
+        var confirmAlert = UIAlertController(title: "Tita Limo", message: App.SessionExpiredMessage, preferredStyle: UIAlertController.Style.alert)
+
+         confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            // YES
+            confirmAlert.dismiss(animated: true)
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+           // self.dismiss(animated: true, completion: nil)
+        
+          }))
+        
+        self.present(confirmAlert, animated: true, completion: nil)
+    }
 }
 
 

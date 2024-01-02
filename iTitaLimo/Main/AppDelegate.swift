@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var recentTab = 0
    var recentlyClosedScreen = ""
    var StackTraceLog = "";
+   var SessionExpiredMessage = "Your session has expired.\nPlease login again."
   
     
  
@@ -112,12 +113,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
    }
    
+    
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
+        print("applicationWillEnterForeground")
    }
     
    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-      
        
        print("didReceiveRemoteNotification jobInfo")
        

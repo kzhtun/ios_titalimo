@@ -86,6 +86,8 @@ class PatientHistoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //title.text = "Patient History"
         
+        print("PatientHistoryViewController viewWillAppear")
+        
         initSDatePicker()
         initEDatePicker()
         sgSorting.selectedSegmentIndex = 1
@@ -117,6 +119,8 @@ class PatientHistoryViewController: UIViewController {
                               from: patientSearchFilter.sDate,
                               to: patientSearchFilter.eDate,
                               sort: patientSearchFilter.sorting)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showSessionEndDialog), name: NSNotification.Name(rawValue: "SHOW_SESSION_EXPIRED"), object: nil)
    }
     
    
@@ -274,6 +278,19 @@ extension PatientHistoryViewController: UITableViewDelegate, UITableViewDataSour
           return 1
        }
        
+    }
+    
+    @objc func showSessionEndDialog(){
+        var confirmAlert = UIAlertController(title: "Tita Limo", message: App.SessionExpiredMessage, preferredStyle: UIAlertController.Style.alert)
+
+         confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            // YES
+            confirmAlert.dismiss(animated: true)
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+           // self.dismiss(animated: true, completion: nil)
+          }))
+        
+        self.present(confirmAlert, animated: true, completion: nil)
     }
     
     

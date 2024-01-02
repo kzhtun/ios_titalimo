@@ -32,10 +32,10 @@ class Router{
   
 
     // DEV
-//  let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
+//   let baseURL = "http://121.7.129.30/RestApiTitanium/MyLimoService.svc/"
     
     // LIVE
-  let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
+ let baseURL = "http://97.74.89.233/RestApiTitanium/MyLimoService.svc/"
     
    
    static var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
@@ -66,6 +66,7 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                // self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("CheckVersion Success")
@@ -155,6 +156,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+               //self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("UpdateDriverLocation Success")
@@ -185,7 +187,8 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
-               success(objRes)
+              //  self.CheckSession(objRes: objRes)
+                success(objRes)
                
                print("GetJobsCount Success")
             }catch{
@@ -223,6 +226,7 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                 self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("GetPatientHistory Success")
@@ -253,11 +257,10 @@ class Router{
             }
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
-               
-              
+             
+                self.CheckSession(objRes: objRes)
                 success(objRes)
                 
-             
                print("GetTodayJobs Success")
             }catch{
                failure("GetTodayJobs Failed")
@@ -287,6 +290,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("GetTomorrowJobs Success")
@@ -324,6 +328,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("GetFutureJobs Success")
@@ -362,6 +367,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("GetHistoryJobs Success")
@@ -395,6 +401,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("GetJobDetail Success")
@@ -428,6 +435,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+               self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("UpdateJobStatus Success" + " -> Status : " + status)
@@ -468,6 +476,8 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                 
+                self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("UpdateJobRemark Success")
@@ -507,6 +517,7 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                 self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("UpdateMobileLog  Success")
@@ -541,6 +552,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("UpdateJobShowConfirm Success" + " -> Status : " + status)
@@ -574,6 +586,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("UpdateJobNoShowConfirm Success" + " -> Status : " + status)
@@ -608,6 +621,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("UpdateCompleteJob Success")
@@ -639,6 +653,7 @@ class Router{
             do{
                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                
+                self.CheckSession(objRes: objRes)
                success(objRes)
                
                print("ConfirmJobReminder Success")
@@ -682,6 +697,7 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                 self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("SaveSignature Success")
@@ -714,6 +730,7 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                 self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("SaveShowPic Success")
@@ -746,6 +763,7 @@ class Router{
              do{
                 let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
                 
+                 self.CheckSession(objRes: objRes)
                 success(objRes)
                 
                 print("SaveNoShowPic Success")
@@ -756,6 +774,14 @@ class Router{
     }
     
     
+    func CheckSession(objRes: ResponseObject){
+        if(objRes.status == "0"){
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Notification.Name("SHOW_SESSION_EXPIRED"), object: nil, userInfo: nil)
+            }
+            return;
+        }
+    }
   
 }
 

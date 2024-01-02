@@ -29,8 +29,7 @@ class JobListViewController: UIViewController {
    
    var active = 0
    
-    
-    
+   
     
     @IBAction func SendReportTouchDown(_ sender: Any) {
         print("SendReportTouchDown")
@@ -49,6 +48,8 @@ class JobListViewController: UIViewController {
         {
             UIApplication.shared.applicationIconBadgeNumber = 0
         }
+        
+        print("viewDidLayoutSubviews")
         
 //        if(active != 0){
 //            TodayOnClick(btnToday ?? nil)
@@ -684,6 +685,10 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension JobListViewController{
    func registerObservers(){
+       
+     
+       NotificationCenter.default.addObserver(self, selector: #selector(appIsActived), name:UIApplication.didBecomeActiveNotification, object: nil)
+       
        NotificationCenter.default.addObserver(self, selector: #selector(showSessionEndDialog), name: NSNotification.Name(rawValue: "SHOW_SESSION_EXPIRED"), object: nil)
        
       NotificationCenter.default.addObserver(self, selector: #selector(AcceptSuccessful), name: NSNotification.Name(rawValue: "ACCEPT_SUCCESSFUL"), object: nil)
@@ -705,13 +710,49 @@ extension JobListViewController{
    }
     
     
+    @objc func appIsActived(){
+        print("App is active now")
+        print(App.DRIVER_NAME)
+        
+        
+        Router.sharedInstance().GetJobsCount(success: { [self](successObj) in
+            print(successObj.responsemessage.uppercased())
+            if(successObj.responsemessage.uppercased() == "BAD TOKEN"){
+                print("Previous Session Has Expired")
+                Router.sharedInstance().ValidateDriver(driver: App.DRIVER_NAME) { [self] (successObj) in
+                   
+                   // valid
+                   if(successObj.responsemessage?.uppercased() == "VALID"){
+                       print("Re-Login, Session Extended")
+                      App.AUT_TOKEN = successObj.token!
+                      if(active > 0 ){
+                           TodayOnClick(btnToday!)
+                      }
+                   }
+                   
+                } failure: { (err) in
+                   self.view.makeToast(err)
+                }
+            }else{
+                if(active > 0 ){
+                     TodayOnClick(btnToday!)
+                }
+            }
+            
+        }, failure: { (failureObj) in
+                self.view.makeToast(failureObj)
+        })
+            
+    }
+    
     @objc func showSessionEndDialog(){
-        var confirmAlert = UIAlertController(title: "Tita Limo", message: "Your session has expired. Please login again.", preferredStyle: UIAlertController.Style.alert)
+        var confirmAlert = UIAlertController(title: "Tita Limo", message: App.SessionExpiredMessage, preferredStyle: UIAlertController.Style.alert)
 
          confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             // YES
             confirmAlert.dismiss(animated: true)
-            self.dismiss(animated: true, completion: nil)
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
           }))
         
         self.present(confirmAlert, animated: true, completion: nil)

@@ -88,6 +88,8 @@ class UpdatesDialog: UIViewController {
                                                          // Notify JobListView
                                                          NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: jobInfo)
                                                      }
+                                                 }else{
+                                                     self.dismiss(animated: true, completion: nil)
                                                  }
                                                }, failure: { (failureObj) in
                                                  self.view.makeToast(failureObj)
