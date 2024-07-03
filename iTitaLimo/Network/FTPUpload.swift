@@ -10,19 +10,22 @@ import CFNetwork
 import Alamofire
 
 public class FTPUpload {
+
     // DEV
-//    fileprivate let ftpBaseUrl: String = "128.106.129.15"
+    fileprivate let ftpBaseUrl: String = "118.200.137.124"
+    fileprivate let directoryPath: String = ""
+    fileprivate let username: String = "info121ftp"
+    fileprivate let password: String = "6b604358f1a34a88a8506205f2d0e501"
+    public static let CONST_PHOTO_URL: String = "http://info121.sytes.net/iops/images/limopics/";
+   
+    
+    
+    // LIVE
+//    fileprivate let ftpBaseUrl: String = "97.74.89.233"
 //    fileprivate let directoryPath: String = ""
 //    fileprivate let username: String = "ipos"
-//    fileprivate let password: String = "iposftp"
-//    public static let CONST_PHOTO_URL: String = "http://128.106.129.15/iopsdev/images/limopics/";
-   
-    // LIVE
-    fileprivate let ftpBaseUrl: String = "97.74.89.233"
-    fileprivate let directoryPath: String = ""
-    fileprivate let username: String = "ipos"
-    fileprivate let password: String = "$$1posftp%%"
-    public static let CONST_PHOTO_URL: String =  "http://97.74.89.233/iops/images/limopics/";
+//    fileprivate let password: String = "$$1posftp%%"
+//    public static let CONST_PHOTO_URL: String =  "http://97.74.89.233/iops/images/limopics/";
    
    
 //   public init(baseUrl: String, userName: String, password: String, directoryPath: String) {

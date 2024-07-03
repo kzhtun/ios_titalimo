@@ -1,0 +1,834 @@
+2023-07-20 09:04:04 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fd6547a21d0; archive(resolved)="<IDEArchive: 0x60000fa1dc80>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (14, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7fd6547a21d0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7fd654da5bb0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd65534df20; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd653512120; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd66ae30340; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd65503dfe0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd6552a9270; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd65537ca30; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd654e31850; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x6000001fc200; teamID='X32A6FCDS6', teamName='INFO121 PTE LTD', teamType='Company', username='kzhtun@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd6552c38e0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="(null)">
+	<IDEDistributionContext: 0x7fd654991150; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="(null)">
+	<IDEDistributionContext: 0x7fd652ef35f0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="(null)">
+	<IDEDistributionContext: 0x7fd6553703b0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x60000dd97010>", team="(null)">
+	<IDEDistributionContext: 0x7fd6623f58c0; archive = "<IDEArchive: 0x60000fa1dc80>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7fd6547a21d0>
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionCreateDestRootStep
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionCopyItemStep
+2023-07-20 09:04:04 +0000  Running /usr/bin/ditto '-V' '/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app'
+2023-07-20 09:04:04 +0000  >>> Copying /Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app 
+2023-07-20 09:04:04 +0000  copying file ./_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  19161 bytes for ./_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./AppIcon60x60@2x.png ... 
+2023-07-20 09:04:04 +0000  6653 bytes for ./AppIcon60x60@2x.png
+2023-07-20 09:04:04 +0000  copying file ./PassengerOnBoardDialog.nib ... 
+2023-07-20 09:04:04 +0000  10323 bytes for ./PassengerOnBoardDialog.nib
+2023-07-20 09:04:04 +0000  copying file ./CompleteDialog.nib ... 
+2023-07-20 09:04:04 +0000  9205 bytes for ./CompleteDialog.nib
+2023-07-20 09:04:04 +0000  copying file ./UpdatesDialog.nib ... 
+2023-07-20 09:04:04 +0000  6639 bytes for ./UpdatesDialog.nib
+2023-07-20 09:04:04 +0000  copying file ./GoogleService-Info.plist ... 
+2023-07-20 09:04:04 +0000  713 bytes for ./GoogleService-Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/JobDetailViewController.nib ... 
+2023-07-20 09:04:04 +0000  1068 bytes for ./Base.lproj/Main.storyboardc/JobDetailViewController.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/vwk-OU-Jwu-view-UNA-9y-moF.nib ... 
+2023-07-20 09:04:04 +0000  38201 bytes for ./Base.lproj/Main.storyboardc/vwk-OU-Jwu-view-UNA-9y-moF.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/NotiViewController.nib ... 
+2023-07-20 09:04:04 +0000  989 bytes for ./Base.lproj/Main.storyboardc/NotiViewController.nib
+copying file ./Base.lproj/Main.storyboardc/yI5-79-Sls-view-hBR-Gf-wAi.nib ... 
+2023-07-20 09:04:04 +0000  1254 bytes for ./Base.lproj/Main.storyboardc/yI5-79-Sls-view-hBR-Gf-wAi.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/SBu-zP-dEo-view-KpT-uT-F9E.nib ... 
+2023-07-20 09:04:04 +0000  32131 bytes for ./Base.lproj/Main.storyboardc/SBu-zP-dEo-view-KpT-uT-F9E.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/LoginViewController.nib ... 
+2023-07-20 09:04:04 +0000  1060 bytes for ./Base.lproj/Main.storyboardc/LoginViewController.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2023-07-20 09:04:04 +0000  7731 bytes for ./Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/JobListViewController.nib ... 
+2023-07-20 09:04:04 +0000  1064 bytes for ./Base.lproj/Main.storyboardc/JobListViewController.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/Main.storyboardc/Info.plist ... 
+2023-07-20 09:04:04 +0000  379 bytes for ./Base.lproj/Main.storyboardc/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2023-07-20 09:04:04 +0000  1197 bytes for ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2023-07-20 09:04:04 +0000  896 bytes for ./Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2023-07-20 09:04:04 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2023-07-20 09:04:04 +0000  258 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./ActionDialog.nib ... 
+2023-07-20 09:04:04 +0000  5221 bytes for ./ActionDialog.nib
+copying file ./Assets.car ... 
+2023-07-20 09:04:04 +0000  389039 bytes for ./Assets.car
+copying file ./iTitaLimo ... 
+2023-07-20 09:04:04 +0000  1516048 bytes for ./iTitaLimo
+copying file ./AppIcon76x76@2x~ipad.png ... 
+2023-07-20 09:04:04 +0000  9493 bytes for ./AppIcon76x76@2x~ipad.png
+copying file ./Frameworks/SignaturePad.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Frameworks/SignaturePad.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/SignaturePad.framework/SignaturePad ... 
+124816 bytes for ./Frameworks/SignaturePad.framework/SignaturePad
+copying file ./Frameworks/SignaturePad.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  792 bytes for ./Frameworks/SignaturePad.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport ... 
+2023-07-20 09:04:04 +0000  417312 bytes for ./Frameworks/GoogleDataTransport.framework/GoogleDataTransport
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/GoogleDataTransport.framework/Info.plist ... 
+808 bytes for ./Frameworks/GoogleDataTransport.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FBLPromises.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/FBLPromises.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FBLPromises.framework/FBLPromises ... 
+2023-07-20 09:04:04 +0000  192048 bytes for ./Frameworks/FBLPromises.framework/FBLPromises
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FBLPromises.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  790 bytes for ./Frameworks/FBLPromises.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/libswift_Concurrency.dylib ... 
+2023-07-20 09:04:04 +0000  557584 bytes for ./Frameworks/libswift_Concurrency.dylib
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal ... 
+2023-07-20 09:04:04 +0000  413856 bytes for ./Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseCoreInternal.framework/Info.plist ... 
+813 bytes for ./Frameworks/FirebaseCoreInternal.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseCore.framework/FirebaseCore ... 
+2023-07-20 09:04:04 +0000  197456 bytes for ./Frameworks/FirebaseCore.framework/FirebaseCore
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseCore.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  795 bytes for ./Frameworks/FirebaseCore.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/GoogleUtilities.framework/GoogleUtilities ... 
+2023-07-20 09:04:04 +0000  407104 bytes for ./Frameworks/GoogleUtilities.framework/GoogleUtilities
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/GoogleUtilities.framework/Info.plist ... 
+801 bytes for ./Frameworks/GoogleUtilities.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging ... 
+2023-07-20 09:04:04 +0000  565440 bytes for ./Frameworks/FirebaseMessaging.framework/FirebaseMessaging
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseMessaging.framework/Info.plist ... 
+807 bytes for ./Frameworks/FirebaseMessaging.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/nanopb.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/nanopb.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/nanopb.framework/nanopb ... 
+2023-07-20 09:04:04 +0000  80752 bytes for ./Frameworks/nanopb.framework/nanopb
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/nanopb.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  784 bytes for ./Frameworks/nanopb.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/Toast_Swift.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/Toast_Swift.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/Toast_Swift.framework/Toast_Swift ... 
+2023-07-20 09:04:04 +0000  213280 bytes for ./Frameworks/Toast_Swift.framework/Toast_Swift
+copying file ./Frameworks/Toast_Swift.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  790 bytes for ./Frameworks/Toast_Swift.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations ... 
+2023-07-20 09:04:04 +0000  293968 bytes for ./Frameworks/FirebaseInstallations.framework/FirebaseInstallations
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/FirebaseInstallations.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  815 bytes for ./Frameworks/FirebaseInstallations.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/Alamofire.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:04 +0000  1798 bytes for ./Frameworks/Alamofire.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/Alamofire.framework/Alamofire ... 
+2023-07-20 09:04:04 +0000  2262096 bytes for ./Frameworks/Alamofire.framework/Alamofire
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/Alamofire.framework/Info.plist ... 
+787 bytes for ./Frameworks/Alamofire.framework/Info.plist
+copying file ./Frameworks/ObjectMapper.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Frameworks/ObjectMapper.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/ObjectMapper.framework/ObjectMapper ... 
+483008 bytes for ./Frameworks/ObjectMapper.framework/ObjectMapper
+copying file ./Frameworks/ObjectMapper.framework/Info.plist ... 
+792 bytes for ./Frameworks/ObjectMapper.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/AlamofireObjectMapper.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Frameworks/AlamofireObjectMapper.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper ... 
+2023-07-20 09:04:04 +0000  147248 bytes for ./Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper
+2023-07-20 09:04:04 +0000  copying file ./Frameworks/AlamofireObjectMapper.framework/Info.plist ... 
+2023-07-20 09:04:04 +0000  813 bytes for ./Frameworks/AlamofireObjectMapper.framework/Info.plist
+2023-07-20 09:04:04 +0000  copying file ./embedded.mobileprovision ... 
+2023-07-20 09:04:04 +0000  14795 bytes for ./embedded.mobileprovision
+2023-07-20 09:04:04 +0000  copying file ./Info.plist ... 
+2023-07-20 09:04:04 +0000  2789 bytes for ./Info.plist
+2023-07-20 09:04:04 +0000  copying file ./PkgInfo ... 
+2023-07-20 09:04:04 +0000  8 bytes for ./PkgInfo
+2023-07-20 09:04:04 +0000  /usr/bin/ditto exited with 0
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionEmbedProfileStep
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa4d020; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60000f7e8e70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006828210; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x60000f7af800:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000f5b4600; bundleID='org.cocoapods.AlamofireObjectMapper', path='<DVTFilePath:0x60000b186f80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf57160; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006828210; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.AlamofireObjectMapper', executablePath='<DVTFilePath:0x60000f7ad180:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa3de00; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60000f7edb20:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55900; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827440; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x60000f456a70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000f5b4300; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60000f7edab0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006828210; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x60000f457330:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa4d5c0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60000b185c80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf54c80; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006828210; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60000f456450:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa4c540; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60000b13e500:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf03480; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827440; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60000f7b4850:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000f5b4b40; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60000b13d480:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf580f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002b11290; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60000f7ab410:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa4ed00; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x600007107a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58fa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827440; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60000f782ed0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa4edc0; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x600007108680:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf577f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002b68160; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x60000f7ad6c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000f5b42a0; bundleID='org.cocoapods.ObjectMapper', path='<DVTFilePath:0x60000f46bf00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf590e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068204d0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.ObjectMapper', executablePath='<DVTFilePath:0x60000f783100:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa4d140; bundleID='org.cocoapods.SignaturePad', path='<DVTFilePath:0x60000f469490:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf42850; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827440; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.SignaturePad', executablePath='<DVTFilePath:0x60000f7808c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000fa71800; bundleID='org.cocoapods.Toast-Swift', path='<DVTFilePath:0x60000f4697a0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43ed0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827440; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Toast-Swift', executablePath='<DVTFilePath:0x60000f7b4460:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000f5b49c0; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf9fc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827440; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x60000f5b46c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60000f46a220:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068204d0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x60000fa0b540:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionInfoPlistStep
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionSymbolsStep
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionAppThinningStep
+2023-07-20 09:04:04 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2023-07-20 09:04:04 +0000  Processing step: IDEDistributionArchThinningStep
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "Alamofire" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "AlamofireObjectMapper" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "FBLPromises" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "FirebaseCore" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "FirebaseCoreInternal" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "FirebaseInstallations" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging' '-verify_arch' 'arm64e'
+2023-07-20 09:04:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:04 +0000  Skipping architecture thinning for item "FirebaseMessaging" because arch "arm64e" wasn't found
+2023-07-20 09:04:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "GoogleDataTransport" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "GoogleUtilities" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "ObjectMapper" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "SignaturePad" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "Toast_Swift" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "libswift_Concurrency.dylib" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/nanopb.framework/nanopb' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "nanopb" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/iTitaLimo' '-verify_arch' 'arm64e'
+2023-07-20 09:04:05 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-07-20 09:04:05 +0000  Skipping architecture thinning for item "iTitaLimo" because arch "arm64e" wasn't found
+2023-07-20 09:04:05 +0000  Processing step: IDEDistributionODRStep
+2023-07-20 09:04:05 +0000  Processing step: IDEDistributionStripXattrsStep
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa4d020; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60000f7e8e70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x60000f7af800:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000f5b4600; bundleID='org.cocoapods.AlamofireObjectMapper', path='<DVTFilePath:0x60000b186f80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf57160; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068249a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.AlamofireObjectMapper', executablePath='<DVTFilePath:0x60000f7ad180:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa3de00; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60000f7edb20:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55900; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002bf8f20; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x60000f456a70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000f5b4300; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60000f7edab0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x60000f457330:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa4d5c0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60000b185c80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf54c80; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60000f456450:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa4c540; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60000b13e500:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf03480; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60000f7b4850:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000f5b4b40; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60000b13d480:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf580f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60000f7ab410:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa4ed00; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x600007107a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58fa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60000f782ed0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa4edc0; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x600007108680:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf577f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x60000f7ad6c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000f5b42a0; bundleID='org.cocoapods.ObjectMapper', path='<DVTFilePath:0x60000f46bf00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf590e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068249a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.ObjectMapper', executablePath='<DVTFilePath:0x60000f783100:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa4d140; bundleID='org.cocoapods.SignaturePad', path='<DVTFilePath:0x60000f469490:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf42850; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068249a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.SignaturePad', executablePath='<DVTFilePath:0x60000f7808c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000fa71800; bundleID='org.cocoapods.Toast-Swift', path='<DVTFilePath:0x60000f4697a0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43ed0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Toast-Swift', executablePath='<DVTFilePath:0x60000f7b4460:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000f5b49c0; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf9fc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x60000f5b46c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60000f46a220:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x60000fa0b540:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'>
+2023-07-20 09:04:05 +0000  Running /usr/bin/xattr '-crs' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app'
+2023-07-20 09:04:05 +0000  /usr/bin/xattr exited with 0
+2023-07-20 09:04:05 +0000  Processing step: IDEDistributionCodesignStep
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4d020; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60000f7e8e70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x60000f7af800:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4d020; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60000f7e8e70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006891ad0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x60000f7af800:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa4d020; bundleID='org.cocoapods.Alamofire', path='<DVTFilePath:0x60000f7e8e70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58a00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820f20; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Alamofire', executablePath='<DVTFilePath:0x60000f7af800:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~8VNfB8
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~8VNfB8' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Alamofire.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Alamofire.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Alamofire.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.Alamofire]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b4600; bundleID='org.cocoapods.AlamofireObjectMapper', path='<DVTFilePath:0x60000b186f80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf57160; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006890630; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.AlamofireObjectMapper', executablePath='<DVTFilePath:0x60000f7ad180:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b4600; bundleID='org.cocoapods.AlamofireObjectMapper', path='<DVTFilePath:0x60000b186f80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf57160; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002b108f0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.AlamofireObjectMapper', executablePath='<DVTFilePath:0x60000f7ad180:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f5b4600; bundleID='org.cocoapods.AlamofireObjectMapper', path='<DVTFilePath:0x60000b186f80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf57160; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.AlamofireObjectMapper', executablePath='<DVTFilePath:0x60000f7ad180:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~JjwEvn
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~JjwEvn' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.AlamofireObjectMapper]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa3de00; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60000f7edb20:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55900; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006890630; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x60000f456a70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa3de00; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60000f7edb20:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55900; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820e70; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x60000f456a70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa3de00; bundleID='org.cocoapods.FBLPromises', path='<DVTFilePath:0x60000f7edb20:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55900; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820fd0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FBLPromises', executablePath='<DVTFilePath:0x60000f456a70:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~e7TDfp
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~e7TDfp' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FBLPromises.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FBLPromises.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FBLPromises.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FBLPromises]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b4300; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60000f7edab0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x60000f457330:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b4300; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60000f7edab0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068289a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x60000f457330:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f5b4300; bundleID='org.cocoapods.FirebaseCore', path='<DVTFilePath:0x60000f7edab0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf55fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCore', executablePath='<DVTFilePath:0x60000f457330:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~j7zmzK
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~j7zmzK' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseCore]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4d5c0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60000b185c80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf54c80; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60000f456450:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4d5c0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60000b185c80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf54c80; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820e70; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60000f456450:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa4d5c0; bundleID='org.cocoapods.FirebaseCoreInternal', path='<DVTFilePath:0x60000b185c80:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf54c80; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820f20; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseCoreInternal', executablePath='<DVTFilePath:0x60000f456450:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~Qx7NRz
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~Qx7NRz' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseCoreInternal]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4c540; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60000b13e500:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf03480; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60000f7b4850:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4c540; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60000b13e500:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf03480; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60000f7b4850:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa4c540; bundleID='org.cocoapods.FirebaseInstallations', path='<DVTFilePath:0x60000b13e500:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf03480; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseInstallations', executablePath='<DVTFilePath:0x60000f7b4850:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~GkMLUa
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~GkMLUa' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseInstallations]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b4b40; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60000b13d480:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf580f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820630; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60000f7ab410:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b4b40; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60000b13d480:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf580f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006824000; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60000f7ab410:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f5b4b40; bundleID='org.cocoapods.FirebaseMessaging', path='<DVTFilePath:0x60000b13d480:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf580f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068289a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.FirebaseMessaging', executablePath='<DVTFilePath:0x60000f7ab410:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~nASX3M
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~nASX3M' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.FirebaseMessaging]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4ed00; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x600007107a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58fa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068249a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60000f782ed0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4ed00; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x600007107a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58fa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60000f782ed0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa4ed00; bundleID='org.cocoapods.GoogleDataTransport', path='<DVTFilePath:0x600007107a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf58fa0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820790; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleDataTransport', executablePath='<DVTFilePath:0x60000f782ed0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~kuNnjX
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~kuNnjX' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.GoogleDataTransport]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4edc0; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x600007108680:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf577f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068904d0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x60000f7ad6c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4edc0; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x600007108680:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf577f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x60000f7ad6c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa4edc0; bundleID='org.cocoapods.GoogleUtilities', path='<DVTFilePath:0x600007108680:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf577f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068289a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.GoogleUtilities', executablePath='<DVTFilePath:0x60000f7ad6c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~I2bIm8
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~I2bIm8' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.GoogleUtilities]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b42a0; bundleID='org.cocoapods.ObjectMapper', path='<DVTFilePath:0x60000f46bf00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf590e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068289a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.ObjectMapper', executablePath='<DVTFilePath:0x60000f783100:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b42a0; bundleID='org.cocoapods.ObjectMapper', path='<DVTFilePath:0x60000f46bf00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf590e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.ObjectMapper', executablePath='<DVTFilePath:0x60000f783100:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f5b42a0; bundleID='org.cocoapods.ObjectMapper', path='<DVTFilePath:0x60000f46bf00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf590e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006828790; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.ObjectMapper', executablePath='<DVTFilePath:0x60000f783100:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~KbVgtD
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~KbVgtD' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.ObjectMapper]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4d140; bundleID='org.cocoapods.SignaturePad', path='<DVTFilePath:0x60000f469490:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf42850; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820630; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.SignaturePad', executablePath='<DVTFilePath:0x60000f7808c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa4d140; bundleID='org.cocoapods.SignaturePad', path='<DVTFilePath:0x60000f469490:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf42850; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068286e0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.SignaturePad', executablePath='<DVTFilePath:0x60000f7808c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa4d140; bundleID='org.cocoapods.SignaturePad', path='<DVTFilePath:0x60000f469490:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf42850; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820dc0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.SignaturePad', executablePath='<DVTFilePath:0x60000f7808c0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~OQz3oi
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~OQz3oi' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/SignaturePad.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/SignaturePad.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/SignaturePad.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.SignaturePad]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa71800; bundleID='org.cocoapods.Toast-Swift', path='<DVTFilePath:0x60000f4697a0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43ed0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068289a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Toast-Swift', executablePath='<DVTFilePath:0x60000f7b4460:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000fa71800; bundleID='org.cocoapods.Toast-Swift', path='<DVTFilePath:0x60000f4697a0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43ed0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Toast-Swift', executablePath='<DVTFilePath:0x60000f7b4460:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa71800; bundleID='org.cocoapods.Toast-Swift', path='<DVTFilePath:0x60000f4697a0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43ed0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820790; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.Toast-Swift', executablePath='<DVTFilePath:0x60000f7b4460:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~uCHR9Q
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~uCHR9Q' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.Toast-Swift]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b49c0; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf9fc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068249a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b49c0; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf9fc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006827860; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f5b49c0; bundleID='com.apple.dt.runtime.swiftConcurrency', path='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf9fc00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006824b00; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='com.apple.dt.runtime.swiftConcurrency', executablePath='<DVTFilePath:0x60000b166a00:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~tHAg1n
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~tHAg1n' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib: replacing existing signature
+2023-07-20 09:04:05 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib: signed Mach-O thin (arm64) [com.apple.dt.runtime.swiftConcurrency]
+2023-07-20 09:04:05 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b46c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60000f46a220:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006892050; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x60000fa0b540:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'>: {
+}
+2023-07-20 09:04:05 +0000  Entitlements for <IDEDistributionItem: 0x60000f5b46c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60000f46a220:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x60000fa0b540:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'> are: {
+}
+2023-07-20 09:04:05 +0000  Writing entitlements for <IDEDistributionItem: 0x60000f5b46c0; bundleID='org.cocoapods.nanopb', path='<DVTFilePath:0x60000f46a220:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf43840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820790; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='(null)', teamID='X32A6FCDS6', identifier='org.cocoapods.nanopb', executablePath='<DVTFilePath:0x60000fa0b540:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/Frameworks/nanopb.framework/nanopb'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~2b5jIT
+2023-07-20 09:04:05 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~2b5jIT' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/nanopb.framework'
+2023-07-20 09:04:06 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/nanopb.framework: replacing existing signature
+2023-07-20 09:04:06 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/nanopb.framework: signed bundle with Mach-O thin (arm64) [org.cocoapods.nanopb]
+2023-07-20 09:04:06 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:06 +0000  Entitlements for <IDEDistributionItem: 0x60000fa73d80; bundleID='com.info121.iTitaLimo', path='<DVTFilePath:0x60000f7b2fb0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf59ea0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000068249a0; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='{
+    "application-identifier" = "X32A6FCDS6.com.info121.iTitaLimo";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = X32A6FCDS6;
+    "get-task-allow" = 1;
+}', teamID='X32A6FCDS6', identifier='com.info121.iTitaLimo', executablePath='<DVTFilePath:0x60000f7bc7e0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/iTitaLimo'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "X32A6FCDS6.com.info121.iTitaLimo";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = X32A6FCDS6;
+    "get-task-allow" = 1;
+}
+2023-07-20 09:04:06 +0000  Entitlements for <IDEDistributionItem: 0x60000fa73d80; bundleID='com.info121.iTitaLimo', path='<DVTFilePath:0x60000f7b2fb0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf59ea0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820d10; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='{
+    "application-identifier" = "X32A6FCDS6.com.info121.iTitaLimo";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = X32A6FCDS6;
+    "get-task-allow" = 1;
+}', teamID='X32A6FCDS6', identifier='com.info121.iTitaLimo', executablePath='<DVTFilePath:0x60000f7bc7e0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/iTitaLimo'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "X32A6FCDS6.com.info121.iTitaLimo";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = X32A6FCDS6;
+    "get-task-allow" = 1;
+}
+2023-07-20 09:04:06 +0000  Writing entitlements for <IDEDistributionItem: 0x60000fa73d80; bundleID='com.info121.iTitaLimo', path='<DVTFilePath:0x60000f7b2fb0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60002bf59ea0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600006820790; name='Apple Development: Kyaw Zin Htun (ZVUGWG99H2)', hash='3B6383552765E93F5CFF5A25556E1C09EC78CFB7', serialNumber='3CF039AD3C6F50E62F0B74275C67BC30', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-04-21 03:55:33 +0000''>', entitlements='{
+    "application-identifier" = "X32A6FCDS6.com.info121.iTitaLimo";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = X32A6FCDS6;
+    "get-task-allow" = 1;
+}', teamID='X32A6FCDS6', identifier='com.info121.iTitaLimo', executablePath='<DVTFilePath:0x60000f7bc7e0:'/Users/kyaw/Library/Developer/Xcode/Archives/2023-07-20/iTitaLimo 7-20-23, 3.33 PM.xcarchive/Products/Applications/iTitaLimo.app/iTitaLimo'>', hardenedRuntime='0'>'> to: /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~vzXXII
+2023-07-20 09:04:06 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '3B6383552765E93F5CFF5A25556E1C09EC78CFB7' '--entitlements' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/entitlements~~~vzXXII' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app'
+2023-07-20 09:04:06 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app: replacing existing signature
+2023-07-20 09:04:06 +0000  /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app: signed app bundle with Mach-O thin (arm64) [com.info121.iTitaLimo]
+2023-07-20 09:04:06 +0000  /usr/bin/codesign exited with 0
+2023-07-20 09:04:06 +0000  Processing step: IDEDistributionZipODRItemStep
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-07-20 09:04:06 +0000  Processing step: IDEDistributionCreateIPAStep
+2023-07-20 09:04:06 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root' '/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Packages/iTitaLimo.ipa'
+2023-07-20 09:04:06 +0000  >>> Copying /var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root 
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  19161 bytes for ./Payload/iTitaLimo.app/_CodeSignature/CodeResources
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/AppIcon60x60@2x.png ... 
+2023-07-20 09:04:06 +0000  6653 bytes for ./Payload/iTitaLimo.app/AppIcon60x60@2x.png
+copying file ./Payload/iTitaLimo.app/PassengerOnBoardDialog.nib ... 
+2023-07-20 09:04:06 +0000  10323 bytes for ./Payload/iTitaLimo.app/PassengerOnBoardDialog.nib
+copying file ./Payload/iTitaLimo.app/CompleteDialog.nib ... 
+2023-07-20 09:04:06 +0000  9205 bytes for ./Payload/iTitaLimo.app/CompleteDialog.nib
+copying file ./Payload/iTitaLimo.app/UpdatesDialog.nib ... 
+2023-07-20 09:04:06 +0000  6639 bytes for ./Payload/iTitaLimo.app/UpdatesDialog.nib
+copying file ./Payload/iTitaLimo.app/GoogleService-Info.plist ... 
+2023-07-20 09:04:06 +0000  713 bytes for ./Payload/iTitaLimo.app/GoogleService-Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/JobDetailViewController.nib ... 
+2023-07-20 09:04:06 +0000  1068 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/JobDetailViewController.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/vwk-OU-Jwu-view-UNA-9y-moF.nib ... 
+2023-07-20 09:04:06 +0000  38201 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/vwk-OU-Jwu-view-UNA-9y-moF.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/NotiViewController.nib ... 
+2023-07-20 09:04:06 +0000  989 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/NotiViewController.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/yI5-79-Sls-view-hBR-Gf-wAi.nib ... 
+2023-07-20 09:04:06 +0000  1254 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/yI5-79-Sls-view-hBR-Gf-wAi.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/SBu-zP-dEo-view-KpT-uT-F9E.nib ... 
+2023-07-20 09:04:06 +0000  32131 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/SBu-zP-dEo-view-KpT-uT-F9E.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/LoginViewController.nib ... 
+2023-07-20 09:04:06 +0000  1060 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/LoginViewController.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib ... 
+2023-07-20 09:04:06 +0000  7731 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/JobListViewController.nib ... 
+2023-07-20 09:04:06 +0000  1064 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/JobListViewController.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/Info.plist ... 
+2023-07-20 09:04:06 +0000  379 bytes for ./Payload/iTitaLimo.app/Base.lproj/Main.storyboardc/Info.plist
+copying file ./Payload/iTitaLimo.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2023-07-20 09:04:06 +0000  1197 bytes for ./Payload/iTitaLimo.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2023-07-20 09:04:06 +0000  896 bytes for ./Payload/iTitaLimo.app/Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./Payload/iTitaLimo.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2023-07-20 09:04:06 +0000  258 bytes for ./Payload/iTitaLimo.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+copying file ./Payload/iTitaLimo.app/ActionDialog.nib ... 
+2023-07-20 09:04:06 +0000  5221 bytes for ./Payload/iTitaLimo.app/ActionDialog.nib
+copying file ./Payload/iTitaLimo.app/Assets.car ... 
+2023-07-20 09:04:06 +0000  389039 bytes for ./Payload/iTitaLimo.app/Assets.car
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/iTitaLimo ... 
+2023-07-20 09:04:06 +0000  1516048 bytes for ./Payload/iTitaLimo.app/iTitaLimo
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/AppIcon76x76@2x~ipad.png ... 
+2023-07-20 09:04:06 +0000  9493 bytes for ./Payload/iTitaLimo.app/AppIcon76x76@2x~ipad.png
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad ... 
+2023-07-20 09:04:06 +0000  125120 bytes for ./Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/SignaturePad
+copying file ./Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  792 bytes for ./Payload/iTitaLimo.app/Frameworks/SignaturePad.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport ... 
+2023-07-20 09:04:06 +0000  417616 bytes for ./Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/GoogleDataTransport
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/Info.plist ... 
+808 bytes for ./Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises ... 
+2023-07-20 09:04:06 +0000  192352 bytes for ./Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/FBLPromises
+copying file ./Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  790 bytes for ./Payload/iTitaLimo.app/Frameworks/FBLPromises.framework/Info.plist
+copying file ./Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib ... 
+2023-07-20 09:04:06 +0000  557936 bytes for ./Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal ... 
+2023-07-20 09:04:06 +0000  414160 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/FirebaseCoreInternal
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/Info.plist ... 
+813 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore ... 
+2023-07-20 09:04:06 +0000  197760 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/FirebaseCore
+copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  795 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities ... 
+2023-07-20 09:04:06 +0000  407408 bytes for ./Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/GoogleUtilities
+copying file ./Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  801 bytes for ./Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging ... 
+2023-07-20 09:04:06 +0000  565696 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/FirebaseMessaging
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/Info.plist ... 
+807 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/nanopb.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Payload/iTitaLimo.app/Frameworks/nanopb.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/nanopb.framework/nanopb ... 
+2023-07-20 09:04:06 +0000  81056 bytes for ./Payload/iTitaLimo.app/Frameworks/nanopb.framework/nanopb
+copying file ./Payload/iTitaLimo.app/Frameworks/nanopb.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  784 bytes for ./Payload/iTitaLimo.app/Frameworks/nanopb.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift ... 
+2023-07-20 09:04:06 +0000  213584 bytes for ./Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/Toast_Swift
+copying file ./Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  790 bytes for ./Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations ... 
+2023-07-20 09:04:06 +0000  294272 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/FirebaseInstallations
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/Info.plist ... 
+815 bytes for ./Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/Alamofire.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/Alamofire.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire ... 
+2023-07-20 09:04:06 +0000  2262400 bytes for ./Payload/iTitaLimo.app/Frameworks/Alamofire.framework/Alamofire
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/Alamofire.framework/Info.plist ... 
+787 bytes for ./Payload/iTitaLimo.app/Frameworks/Alamofire.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/_CodeSignature/CodeResources
+copying file ./Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper ... 
+2023-07-20 09:04:06 +0000  483312 bytes for ./Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/ObjectMapper
+copying file ./Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  792 bytes for ./Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/_CodeSignature/CodeResources ... 
+2023-07-20 09:04:06 +0000  1798 bytes for ./Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/_CodeSignature/CodeResources
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper ... 
+2023-07-20 09:04:06 +0000  147552 bytes for ./Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/AlamofireObjectMapper
+copying file ./Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/Info.plist ... 
+2023-07-20 09:04:06 +0000  813 bytes for ./Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework/Info.plist
+copying file ./Payload/iTitaLimo.app/embedded.mobileprovision ... 
+2023-07-20 09:04:06 +0000  14795 bytes for ./Payload/iTitaLimo.app/embedded.mobileprovision
+copying file ./Payload/iTitaLimo.app/Info.plist ... 
+2023-07-20 09:04:06 +0000  2789 bytes for ./Payload/iTitaLimo.app/Info.plist
+2023-07-20 09:04:06 +0000  copying file ./Payload/iTitaLimo.app/PkgInfo ... 
+8 bytes for ./Payload/iTitaLimo.app/PkgInfo
+2023-07-20 09:04:06 +0000  /usr/bin/ditto exited with 0
+2023-07-20 09:04:06 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2023-07-20 09:04:06 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2023-07-20 09:04:06 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b15b500:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseInstallations.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f475ab0:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Toast_Swift.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b155200:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCoreInternal.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b154300:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>
+2023-07-20 09:04:06 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x60000b154300:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/libswift_Concurrency.dylib'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f44e920:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/nanopb.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b086780:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleUtilities.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f45c1c0:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseCore.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f44a760:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/SignaturePad.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b084a80:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FirebaseMessaging.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f45f6b0:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/ObjectMapper.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b086380:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/AlamofireObjectMapper.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f45f2c0:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/Alamofire.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f44b6b0:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/FBLPromises.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000b157f00:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app/Frameworks/GoogleDataTransport.framework'>
+2023-07-20 09:04:06 +0000  IDEDistributionItem init <DVTFilePath:0x60000f7a2fb0:'/var/folders/m2/sc15mnmj4gvf_mgsq7xk5fw00000gn/T/XcodeDistPipeline.~~~p3J4zc/Root/Payload/iTitaLimo.app'>
+2023-07-20 09:04:06 +0000  Processing step: IDEDistributionCreateManifestStep

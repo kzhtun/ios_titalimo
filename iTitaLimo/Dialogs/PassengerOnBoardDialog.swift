@@ -83,6 +83,8 @@ class PassengerOnBoardDialog: UIViewController {
         
         
         lblTitle.text = titleText
+        
+        btnDone.isHidden = true
     
     }
     
@@ -97,8 +99,13 @@ class PassengerOnBoardDialog: UIViewController {
         SDImageCache.shared.clearMemory()
         SDImageCache.shared.clearDisk()
         
+        
         // load signature photo
         signURL =  FTPUpload.getPhotoURL() + job.JobNo + "_signature.jpg"
+        
+       
+        
+        
         signPreview.sd_setImage(with: URL(string: signURL)){ (image, error, cache, url) in
             let cgref = self.signPreview.image?.cgImage
             let cim = self.signPreview.image?.ciImage
@@ -180,21 +187,21 @@ class PassengerOnBoardDialog: UIViewController {
             }
         }else{
             // show confirmation dialog to user
-            var confirmAlert = UIAlertController(title: "Tita Limo", message: "Signature is blank do you want to save this?", preferredStyle: UIAlertController.Style.alert)
+            var confirmAlert = UIAlertController(title: "Tita Limo", message: "Signature can not be left blank.", preferredStyle: UIAlertController.Style.alert)
 
-            confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                // YES
-                    self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
-                    if(self.photoView.isHidden){
-                        if let signature = self.signView.getSignature() {
-                            self.signatureData = signature.jpegData(compressionQuality: 0.5)!
-                        }
-                    }
-                    self.uploadSignature(imageData: self.signatureData!, fileName: "\(self.jobNo)_signature.jpg")
-                })
-              }))
+//            confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+//                // YES
+//                    self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
+//                    if(self.photoView.isHidden){
+//                        if let signature = self.signView.getSignature() {
+//                            self.signatureData = signature.jpegData(compressionQuality: 0.5)!
+//                        }
+//                    }
+//                    self.uploadSignature(imageData: self.signatureData!, fileName: "\(self.jobNo)_signature.jpg")
+//                })
+//              }))
 
-            confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            confirmAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
                  // NO
               }))
 
@@ -301,7 +308,70 @@ class PassengerOnBoardDialog: UIViewController {
     
   
    
-   @IBAction func SubmitOnClick(_ sender: Any) {
+    @IBAction func SubmitOnClick(_ sender: Any) {
+        print("SubmitOnClick");
+        
+     
+        
+        if(!signPreview.isHidden) 
+        {
+            self.doSubmitWork()
+            return;
+        }
+        
+        
+        if(self.hasSignature){
+            // upload signature
+            if (self.signView.getSignature() != nil) {
+                self.indicator.startAnimating()
+                // show initializing dialog
+                self.present(self.dialogInitializing, animated: true, completion: {()-> Void in
+                    if(self.photoView.isHidden){
+                        if let signature = self.signView.getSignature() {
+                            self.signatureData = signature.jpegData(compressionQuality: 0.5)!
+                        }
+                    }
+                    self.uploadSignature(imageData: self.signatureData!, fileName: "\(self.jobNo)_signature.jpg")
+                })
+            }
+        }else{
+            // show confirmation dialog to user
+            let confirmAlert = UIAlertController(title: "Tita Limo", message: "Signature can not be left blank.", preferredStyle: UIAlertController.Style.alert)
+
+              confirmAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                 // NO
+              }))
+
+             self.present(confirmAlert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    
+    func doSubmitWork(){
+        var newRemark = ""
+        newRemark = remarks.text
+        newRemark = (newRemark.isEmpty) ? " " : newRemark
+ 
+        let cgref = imgPreview.image?.cgImage
+        let cim = imgPreview.image?.ciImage
+        
+        
+        // Call Passenger No Show
+        if(jobAction == "NS"){
+            callPassengerNoShowSave()
+        }else{
+            if(cim == nil && cgref == nil){
+                // if no passenger photo, update job directly
+                self.callPassenerOnBoardSave()
+            }else{
+                // have passenger photo, upload the photo first
+                self.uploadPassengerPhoto()
+            }
+        }
+    }
+    
+    @IBAction func SubmitOnClickOld(_ sender: Any) {
        
        print("SubmitOnClick");
        
@@ -333,21 +403,21 @@ class PassengerOnBoardDialog: UIViewController {
            }else{
                
                // confirm signature blank saving?
-               let confirmAlert = UIAlertController(title: "Tita Limo", message: "Either signature is blank or has not been done.\nDo you want to proceed?", preferredStyle: UIAlertController.Style.alert)
+               let confirmAlert = UIAlertController(title: "Tita Limo", message: "Either signature is blank or has not been done.", preferredStyle: UIAlertController.Style.alert)
                
-                   confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                   
-                   if(cim == nil && cgref == nil){
-                       // if no passenger photo, update job directly
-                       self.callPassenerOnBoardSave()
-                   }else{
-                       // have passenger photo, upload the photo first
-                       self.uploadPassengerPhoto()
-                   }
-                  
-               }))
+//                   confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+//                   
+//                   if(cim == nil && cgref == nil){
+//                       // if no passenger photo, update job directly
+//                       self.callPassenerOnBoardSave()
+//                   }else{
+//                       // have passenger photo, upload the photo first
+//                       self.uploadPassengerPhoto()
+//                   }
+//                  
+//               }))
                
-               confirmAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+               confirmAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
                    print("Handle Cancel Logic here")
                }))
                
@@ -397,6 +467,8 @@ class PassengerOnBoardDialog: UIViewController {
         
         Router.sharedInstance().SaveSignature(jobNo: jobNo, fileName: filename) { responseObject in
             //
+            self.doSubmitWork()
+            
         } failure: { error in
             self.view.makeToast(error)
         }
@@ -467,7 +539,7 @@ class PassengerOnBoardDialog: UIViewController {
         photoView.isHidden = true
 
         btnClear.isHidden = false
-        btnDone.isHidden = false
+        btnDone.isHidden = true
      
    }
    
@@ -521,10 +593,13 @@ class PassengerOnBoardDialog: UIViewController {
       return result
    }
    
+    
+    
    // SignatureUpload
     func uploadSignature(imageData: Data, fileName: String){
        
         let ftpup = FTPUpload()
+        var signURL: String = ""
        
         ftpup.send(data: imageData, with: fileName, success: {(success) -> Void in
           if !success {
@@ -538,8 +613,20 @@ class PassengerOnBoardDialog: UIViewController {
              print("Image uploaded!")
              self.dialogInitializing.dismiss(animated: true)
              self.btnDone.setTitle("SAVED", for: .normal)
-              // update file name to DB after ftp upload successful
-              self.callSignatureSave(jobNo: self.jobNo, filename: "\(self.jobNo)_signature.jpg")
+          
+             signURL =  FTPUpload.getPhotoURL() + fileName
+              
+             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                  if(self.fileExists(url: URL(string: signURL) as NSURL?)){
+                      print("File Exists")
+       
+                      // update file name to DB after ftp upload successful
+                      self.callSignatureSave(jobNo: self.jobNo, filename: "\(self.jobNo)_signature.jpg")
+                  }else{
+                      print("File Not Available")
+                      self.showSignatureUploadError()
+                  }
+              }
           }
        })
     }
@@ -586,6 +673,57 @@ class PassengerOnBoardDialog: UIViewController {
       
         self.present(infoAlert, animated: true, completion: nil)
     }
+    
+    
+    func fileExists(url : NSURL!) -> Bool {
+
+        let req = NSMutableURLRequest(url: url as URL)
+        req.httpMethod = "HEAD"
+        req.timeoutInterval = 1.0 // Adjust to your needs
+
+        var response : URLResponse?
+       
+        do{
+            try NSURLConnection.sendSynchronousRequest(req as URLRequest, returning: &response)
+            
+            //NSURLSession.dataTaskWit
+            
+        }catch{
+            
+        }
+            
+        return ((response as? HTTPURLResponse)?.statusCode ?? -1) == 200
+    }
+    
+    
+    func isExists(url : NSURL!) {
+        var exists = false
+    //    let url = url
+        let request = NSMutableURLRequest(url: url as URL)
+        let session = URLSession.shared
+
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil {
+                print("error: \(error!.localizedDescription): \(String(describing: error))")
+            }
+            else if data != nil {
+                if let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
+                    print("Received data:\n\(str)")
+                    exists = true
+                }
+                else {
+                    print("unable to convert data to text")
+                    exists = false
+                }
+            }
+
+        }
+        task.resume()
+        
+      
+    }
+    
+   
 }
 
 

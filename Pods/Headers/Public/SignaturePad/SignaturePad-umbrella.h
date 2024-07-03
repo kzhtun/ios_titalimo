@@ -1,1 +1,0 @@
-../../../Target Support Files/SignaturePad/SignaturePad-umbrella.h

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "UpdatesDialog.btnSaveOnClick(_:):UpdatesDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jobInfo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "application.applicationIconBadgeNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in DataRequest.response(queue:completionHandler:):ResponseSerialization.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "status">
+            </PersistentString>
+            <PersistentString
+               value = "response">
+            </PersistentString>
+            <PersistentString
+               value = "json.get[0]">
+            </PersistentString>
+            <PersistentString
+               value = "response.data.status">
+            </PersistentString>
+            <PersistentString
+               value = "self.data">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PassengerOnBoardDialog.loadSignatureAndPassengerPhoto():PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "job">
+            </PersistentString>
+            <PersistentString
+               value = "job.ShowPhoto">
+            </PersistentString>
+            <PersistentString
+               value = "signPreview.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.callGetHistoryJobs(from:to:passenger:updates:sort:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jobListAsc">
+            </PersistentString>
+            <PersistentString
+               value = "App.recentJobList">
+            </PersistentString>
+            <PersistentString
+               value = "successObj.responsemessage.uppercased()">
+            </PersistentString>
+            <PersistentString
+               value = "sort">
+            </PersistentString>
+            <PersistentString
+               value = "jobList">
+            </PersistentString>
+            <PersistentString
+               value = "jobListDesc">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Router.GetTodayJobs(success:failure:):Router.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "objRes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.searchClicked(notification:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchFilter">
+            </PersistentString>
+            <PersistentString
+               value = "historySearchFilter">
+            </PersistentString>
+            <PersistentString
+               value = "historySearchFilter.sDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.RefreshJobList():JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "active == 3">
+            </PersistentString>
+            <PersistentString
+               value = "active==1">
+            </PersistentString>
+            <PersistentString
+               value = "active">
+            </PersistentString>
+            <PersistentString
+               value = "searchFilter.sDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchTableViewCell.btnSorting_ValueChanged(_:):SearchTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sortingInfo[&quot;SortOrder&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "sortingInfo">
+            </PersistentString>
+            <PersistentString
+               value = "&quot;\(sgSorting.selectedSegmentIndex)&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.viewWillAppear(_:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "App.recentTab">
+            </PersistentString>
+            <PersistentString
+               value = "App.recentlyClosedScreen">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.callUpdateDevice():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "successObj">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in JobDetailViewController.callGetJobDetail(jobNo:):JobDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "successObj.jobdetails">
+            </PersistentString>
+            <PersistentString
+               value = "self.jobDetail">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Router.GetHistoryJobs(from:to:passenger:updates:sort:success:failure:):Router.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobDetailViewController.updateJobDetail(notification:):JobDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.jobDetail.JobNo ">
+            </PersistentString>
+            <PersistentString
+               value = "userInfo(action: &quot;action&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in JobListViewController.callGetTodayJobs():JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jobList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SearchTableViewCell.initSDatePicker():SearchTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "activeTAB">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "specialized closure #1 in UpdatesDialog.callUpdateJobRemark(jobNo:remark:):UpdatesDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "failureObj">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.tableView(_:cellForRowAt:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jobList">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.HistoryOnClick(_:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "historySearchFilter.updates">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.tableView(_:viewForHeaderInSection:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchFilter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobDetailViewController.displayJobDetail(job:):JobDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "job.Staff">
+            </PersistentString>
+            <PersistentString
+               value = "lblStaff.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.SortingChanged(notification:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "App.recentJobList">
+            </PersistentString>
+            <PersistentString
+               value = "jobListDesc">
+            </PersistentString>
+            <PersistentString
+               value = "jobList">
+            </PersistentString>
+            <PersistentString
+               value = "jobListAsc">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FTPUpload.ftpWriteStream(forFileName:):FTPUpload.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "username">
+            </PersistentString>
+            <PersistentString
+               value = "password">
+            </PersistentString>
+            <PersistentString
+               value = "ftpStream">
+            </PersistentString>
+            <PersistentString
+               value = "userName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.SelectTodayTab():JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "active">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginViewController.callCheckVersion(ver:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "successObj.responsemessage?.uppercased()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.appIsActived():JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "active">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "specialized AppDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notification">
+            </PersistentString>
+            <PersistentString
+               value = "jobInfo">
+            </PersistentString>
+            <PersistentString
+               value = "ns">
+            </PersistentString>
+            <PersistentString
+               value = "userInfo[&quot;jobno&quot;] ">
+            </PersistentString>
+            <PersistentString
+               value = "userInfo[&quot;notification&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "apns">
+            </PersistentString>
+            <PersistentString
+               value = "userInfo">
+            </PersistentString>
+            <PersistentString
+               value = "userInfo[&quot;notification&quot;] ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.tableView(_:heightForHeaderInSection:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchFilter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FTPUpload.send(data:with:success:):FTPUpload.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userName">
+            </PersistentString>
+            <PersistentString
+               value = "bytesWritten">
+            </PersistentString>
+            <PersistentString
+               value = "CFWriteStreamCanAcceptBytes(ftpWriteStream)">
+            </PersistentString>
+            <PersistentString
+               value = "!CFWriteStreamOpen(ftpWriteStream)">
+            </PersistentString>
+            <PersistentString
+               value = "CFWriteStreamOpen(ftpWriteStream)">
+            </PersistentString>
+            <PersistentString
+               value = "CFWriteStreamOpen(ftpWriteStream) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in JobListViewController.callGetHistoryJobs(from:to:passenger:updates:sort:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "App.recentJobList">
+            </PersistentString>
+            <PersistentString
+               value = "jobList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhoneTableViewCell.btnWhatsApp(_:):PhoneTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "phoneNo.count">
+            </PersistentString>
+            <PersistentString
+               value = "&#10;        if(phoneNo.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JobListViewController.SendReportTouchDown(_:):JobListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "App.StackTraceLog">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

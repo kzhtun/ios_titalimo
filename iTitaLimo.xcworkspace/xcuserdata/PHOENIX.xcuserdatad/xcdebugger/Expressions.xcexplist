@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in PassengerOnBoardDialog.uploadSignature(imageData:fileName:):PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.fileExists(url: URL(string: signURL) as NSURL?)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.callValidateDriver():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isConnectedToInternet()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PassengerOnBoardDialog.isExists(url:):PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.callUpdateDevice():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "App.FCM_TOKEN">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

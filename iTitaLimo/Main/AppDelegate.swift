@@ -11,6 +11,10 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+ 
+    
+    
    var window: UIWindow?
    
    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -129,6 +133,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        NotificationCenter.default.post(name: Notification.Name("CLOSE_JOB_DETAILS"), object: nil, userInfo: userInfo)
        NotificationCenter.default.post(name: Notification.Name("REFRESH_JOBS"), object: nil, userInfo: userInfo)
    }
+   
+    
    
 
   
