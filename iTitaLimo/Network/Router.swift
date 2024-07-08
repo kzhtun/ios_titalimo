@@ -777,6 +777,107 @@ class Router{
     }
     
     
+    
+    
+    func UpdateShowPassengerPhotoSignature(jobNo: String, jobLoc: String, remarks: String, status: String, base64signature: String, base64photo: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       
+       // responseresult UpdateShowPassengerPhotoSignature(string jobno, string jobloc, string remarks, string status, string base64signature, string base64photo);
+    
+        let parameters: [String: Any] = [
+            "jobno" : jobNo,
+            "jobloc" : jobLoc,
+            "remarks" : remarks,
+            "status" : status,
+            "base64signature" : base64signature,
+            "base64photo" : base64photo
+            ]
+        
+       // var url = String(format: "%@%@/%@,%@", baseURL, "updateJobRemark", jobNo, remark)
+       let url = String(format: "%@%@", baseURL, "UpdateShowPassengerPhotoSignature")
+           
+       // url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+          .response{
+             (response) in
+              
+            do{
+                  
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+           
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                 
+                self.CheckSession(objRes: objRes)
+                success(objRes)
+                
+                print("UpdateShowPassengerPhotoSignature Success")
+             }catch{
+                failure("UpdateShowPassengerPhotoSignature Failed")
+             }
+          }
+    }
+    
+    
+    func UpdateNoShowPassengerPhoto(jobNo: String, jobLoc: String, remarks: String, status: String,  base64photo: String,
+                         success: @escaping (_ responseObject: ResponseObject) -> Void, failure: @escaping (_ error: String) -> Void){
+                         
+       let headers: HTTPHeaders = [
+          "driver": self.App.DRIVER_NAME,
+          "token": self.App.AUT_TOKEN
+       ]
+       
+       
+    
+        let parameters: [String: Any] = [
+            "jobno" : jobNo,
+            "jobloc" : jobLoc,
+            "remarks" : remarks,
+            "status" : status,
+            "base64photo" : base64photo
+            ]
+        
+       // var url = String(format: "%@%@/%@,%@", baseURL, "updateJobRemark", jobNo, remark)
+       let url = String(format: "%@%@", baseURL, "UpdateNoShowPassengerPhoto")
+           
+       // url = url.addingPercentEncoding(withAllowedCharacters: Router.allowedQueryParamAndKey)!
+
+       AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+          .response{
+             (response) in
+  
+             guard let data = response.data else{
+                print( response.error?.localizedDescription as Any)
+                return
+             }
+             
+             do{
+                let objRes = try JSONDecoder().decode(ResponseObject.self, from: data)
+                
+                 
+                self.CheckSession(objRes: objRes)
+                success(objRes)
+                
+                print("UpdateNoShowPassengerPhoto Success")
+             }catch{
+                failure("UpdateNoShowPassengerPhoto Failed")
+             }
+          }
+    }
+    
+    
+    
     func CheckSession(objRes: ResponseObject){
         if(objRes.status == "0"){
             DispatchQueue.main.async {

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "LoginViewController.callValidateDriver():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isConnectedToInternet()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in PassengerOnBoardDialog.uploadSignature(imageData:fileName:):PassengerOnBoardDialog.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,10 +19,55 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginViewController.callValidateDriver():LoginViewController.swift">
+         contextName = "LoginViewController.callUpdateDevice():LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "isConnectedToInternet()">
+               value = "App.FCM_TOKEN">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PassengerOnBoardDialog.callUpdateShowPassengerPhotoSignature():PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "remarks.text.replaceEscapeChr">
+            </PersistentString>
+            <PersistentString
+               value = "base64photo">
+            </PersistentString>
+            <PersistentString
+               value = "base64signature">
+            </PersistentString>
+            <PersistentString
+               value = "imgPreview.hasPhotoData">
+            </PersistentString>
+            <PersistentString
+               value = "signPreview.isHidden">
+            </PersistentString>
+            <PersistentString
+               value = "imgPreview.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PassengerOnBoardDialog.loadSignatureAndPassengerPhoto():PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "job.JobNo">
+            </PersistentString>
+            <PersistentString
+               value = "job.Remarks">
+            </PersistentString>
+            <PersistentString
+               value = "job">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PassengerOnBoardDialog.didFinish():PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "base64photo">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,10 +80,30 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginViewController.callUpdateDevice():LoginViewController.swift">
+         contextName = "closure #1 in Router.UpdateShowPassengerPhotoSignature(jobNo:jobLoc:remarks:status:base64signature:base64photo:success:failure:):Router.swift">
          <PersistentStrings>
             <PersistentString
-               value = "App.FCM_TOKEN">
+               value = " response.data">
+            </PersistentString>
+            <PersistentString
+               value = "base64signature">
+            </PersistentString>
+            <PersistentString
+               value = "response.error?.localizedDescription">
+            </PersistentString>
+            <PersistentString
+               value = "response">
+            </PersistentString>
+            <PersistentString
+               value = "response.result">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIImageView.hasPhotoData.getter:PassengerOnBoardDialog.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(cim == nil &amp;&amp; cgref == nil)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

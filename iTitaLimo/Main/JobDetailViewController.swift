@@ -127,6 +127,7 @@ class JobDetailViewController: UIViewController {
    
    @IBAction func negativeOnClick(_ sender: Any) {
        print("btnNegativeOnClick : " + (btnNegative.titleLabel?.text ?? ""))
+       performImpactFeedback()
        
       switch jobDetail.JobStatus.uppercased(){
          
@@ -154,6 +155,7 @@ class JobDetailViewController: UIViewController {
    
    @IBAction func positiveOnClick(_ sender: Any) {
        print("btnPositiveOnClick : " + (btnPositive.titleLabel?.text ?? ""))
+       performImpactFeedback()
        
       switch jobDetail.JobStatus.uppercased(){
          

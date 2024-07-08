@@ -34,3 +34,20 @@ func getCurrentDateTimeString(formatString: String)->String{
    return dateFormatter.string(from: currentDate)
 }
 
+
+func convertUIImageToBase64String(uiImage: UIImage)-> String{
+    
+    return uiImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+}
+
+
+func performNotificationFeedback(){
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(UINotificationFeedbackGenerator.FeedbackType.success)
+}
+
+func performImpactFeedback(){
+    let generator = UIImpactFeedbackGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle.medium)
+    generator.impactOccurred()
+}
+

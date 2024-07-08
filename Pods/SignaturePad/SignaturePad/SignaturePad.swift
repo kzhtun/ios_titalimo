@@ -167,4 +167,6 @@ public protocol SignaturePadDelegate: class {
         UIGraphicsEndImageContext()
         return signature
     }
+    
+    
 }

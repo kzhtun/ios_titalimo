@@ -285,6 +285,7 @@ class LoginViewController: UIViewController {
       Router.sharedInstance().UpdateDevice(deviceID: getDeviceID(), fcnToken: App.FCM_TOKEN){
          [self] (successObj) in
         // self.view.makeToast("Update device successfully")
+          performNotificationFeedback()
     
          let vc = self.storyBoard.instantiateViewController(withIdentifier: "JobListViewController") as! JobListViewController
           
@@ -301,7 +302,7 @@ class LoginViewController: UIViewController {
    
    func callConfirmJobReminder(jobNo: String){
       Router.sharedInstance().ConfirmJobReminder(jobNo: jobNo,
-                                              success: { [self](successObj) in
+                                              success: { (successObj) in
                                                 if(successObj.responsemessage.uppercased() == "SUCCESS"){
                                                    //self.view.makeToast("Confrim Job Reminder Success")
                                                  //  urgentJobConfirm(msg: "Confrim Job Reminder Success")

@@ -14,72 +14,10 @@
             filePath = "iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "710"
-            endingLineNumber = "710"
-            landmarkName = "isExists(url:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0C3C9CD9-9C56-487E-91ED-DBB3733116BF - 64738305fd7e53fa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iTitaLimo.PassengerOnBoardDialog.isExists(url: Swift.Optional&lt;__C.NSURL&gt;) -&gt; ()"
-                  moduleName = "iTitaLimo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSDD/INFO121/iOS/iTitalimo/iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "711"
-                  endingLineNumber = "711"
-                  offsetFromSymbolStart = "437">
-               </Location>
-               <Location
-                  uuid = "0C3C9CD9-9C56-487E-91ED-DBB3733116BF - 493afc322ac05fa4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iTitaLimo.PassengerOnBoardDialog.isExists(url: Swift.Optional&lt;__C.NSURL&gt;) -&gt; ()"
-                  moduleName = "iTitaLimo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSDD/INFO121/iOS/iTitalimo/iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "706"
-                  endingLineNumber = "706"
-                  offsetFromSymbolStart = "215">
-               </Location>
-               <Location
-                  uuid = "0C3C9CD9-9C56-487E-91ED-DBB3733116BF - 493afc322ac05c20"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iTitaLimo.PassengerOnBoardDialog.isExists(url: Swift.Optional&lt;__C.NSURL&gt;) -&gt; ()"
-                  moduleName = "iTitaLimo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSDD/INFO121/iOS/iTitalimo/iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "710"
-                  endingLineNumber = "710"
-                  offsetFromSymbolStart = "1371">
-               </Location>
-               <Location
-                  uuid = "0C3C9CD9-9C56-487E-91ED-DBB3733116BF - 493afc322ac05c20"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iTitaLimo.PassengerOnBoardDialog.isExists(url: Swift.Optional&lt;__C.NSURL&gt;) -&gt; ()"
-                  moduleName = "iTitaLimo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSDD/INFO121/iOS/iTitalimo/iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "710"
-                  endingLineNumber = "710"
-                  offsetFromSymbolStart = "1300">
-               </Location>
-            </Locations>
+            startingLineNumber = "808"
+            endingLineNumber = "808"
+            landmarkName = "PassengerOnBoardDialog"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -92,74 +30,10 @@
             filePath = "iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "703"
-            endingLineNumber = "703"
-            landmarkName = "isExists(url:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7ACFDB23-DB7D-4811-8B4A-2696181D49A6 - 64738305fd7e5002"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iTitaLimo.PassengerOnBoardDialog.isExists(url: Swift.Optional&lt;__C.NSURL&gt;) -&gt; ()"
-                  moduleName = "iTitaLimo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSDD/INFO121/iOS/iTitalimo/iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "703"
-                  endingLineNumber = "703"
-                  offsetFromSymbolStart = "412">
-               </Location>
-               <Location
-                  uuid = "7ACFDB23-DB7D-4811-8B4A-2696181D49A6 - 64738305fd7e5002"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iTitaLimo.PassengerOnBoardDialog.isExists(url: Swift.Optional&lt;__C.NSURL&gt;) -&gt; ()"
-                  moduleName = "iTitaLimo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSDD/INFO121/iOS/iTitalimo/iTitaLimo/Dialogs/PassengerOnBoardDialog.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "703"
-                  endingLineNumber = "703"
-                  offsetFromSymbolStart = "384">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "90952A24-0AEE-4D4B-B525-025AEFC299B7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iTitaLimo/Main/LoginViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "btnLoginOnClick(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F37A8BC5-5647-4BF7-AE0D-1CDA4C6016E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iTitaLimo/Main/LoginViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "btnLoginOnClick(_:)"
-            landmarkType = "7">
+            startingLineNumber = "801"
+            endingLineNumber = "801"
+            landmarkName = "PassengerOnBoardDialog"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

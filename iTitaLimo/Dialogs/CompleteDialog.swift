@@ -51,6 +51,7 @@ class CompleteDialog: UIViewController {
    @IBAction func completeOnClick(_ sender: Any) {
     //   Log.CallUpdateWebLog(jobNo: jobNo, action: "completeOnClick()", webmethod: "")
     //   Log.CallUpdateWebLog(jobNo: jobNo, action: "WebCall", webmethod: "UpdateCompleteJob")
+       performImpactFeedback()
      
        Router.sharedInstance().UpdateCompleteJob(jobNo: jobNo, address: App.fullAddress, remarks: remarks.text.replaceEscapeChr, status: "Completed") { [self] (successObj) in
          self.view.makeToast("Update Complete Job successfully")

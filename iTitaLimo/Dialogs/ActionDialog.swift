@@ -62,7 +62,7 @@ class ActionDialog: UIViewController {
    
    @IBAction func pobOnClick(_ sender: Any) {
        print("POBOnClick")
-      
+       performImpactFeedback()
        
       let vc = PassengerOnBoardDialog()
       vc.jobAction = "POB"
@@ -78,6 +78,7 @@ class ActionDialog: UIViewController {
    
    @IBAction func nsOnClick(_ sender: Any) {
       print("NoShowOnclick")
+       performImpactFeedback()
        
       let vc = PassengerOnBoardDialog()
       vc.job = self.job
@@ -95,6 +96,7 @@ class ActionDialog: UIViewController {
    
    @IBAction func backOnClick(_ sender: Any) {
       self.dismiss(animated: true, completion: nil)
+       performImpactFeedback()
    }
    
    /*
